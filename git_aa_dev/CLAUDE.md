@@ -19,9 +19,9 @@ This is an **iteration-bounded audit**. It is not a general repository audit, an
 - **ADO Project ID:** `2d7af571-6ef6-4ad0-a509-c440e008b0fb`
 - **ADO Team:** `AA Development Team`
 - **ADO Team ID:** `330e6bf1-3515-443c-a2d8-b84f46c38f57`
-- **ADO Team Board URL:** `https://dev.azure.com/jairo/Auto%20Allies/_boards/board/t/AA%20Development%20Team/Stories%20and%20Deliverables`
+- **ADO Team Board URL (human reference only):** `https://dev.azure.com/jairo/Auto%20Allies/_boards/board/t/AA%20Development%20Team/Stories%20and%20Deliverables`
 - **ADO Backlog ID:** `Microsoft.RequirementCategory`
-- **ADO Board / Backlog Focus:** `Stories and Deliverables`
+- **ADO Backlog Focus:** `Stories and Deliverables`
 - **GitHub Repo 1:** `jairosoft-com/autoallies-version2`
 - **GitHub Repo 2:** `jairosoft-com/autoallies-api-core`
 - **Time Window:** The current active iteration returned by `AA Development Team` team settings in Azure DevOps
@@ -35,7 +35,7 @@ This is an **iteration-bounded audit**. It is not a general repository audit, an
   - `jairosoft-com/autoallies-version2`
   - `jairosoft-com/autoallies-api-core`
 
-If required evidence is not available from the scoped board or the 2 scoped repositories, report the limitation explicitly. Do not broaden the audit boundary to compensate for missing data.
+If required evidence is not available from the scoped ADO team/backlog sources or the 2 scoped repositories, report the limitation explicitly. Do not broaden the audit boundary to compensate for missing data.
 
 ## Evidence Priority
 
@@ -65,7 +65,7 @@ Never infer scope from organization-wide Azure DevOps searches, unrelated ADO wo
 ## Failure Handling
 
 - If the current ADO iteration cannot be resolved for `AA Development Team`, stop and report that the audit boundary cannot be established.
-- If the team board URL or scoped backlog data is unavailable, fail narrowly and report the missing scoped source.
+- If the scoped team settings, current iteration data, or backlog data is unavailable, fail narrowly and report the missing scoped source.
 - If GitHub data is partially unavailable, continue with a degraded audit and explicitly state what evidence is missing.
 - Never invent dates, mappings, ownership, or work-item relationships.
 - Never substitute another team board, another ADO team, or another repo.
@@ -93,7 +93,7 @@ Do not score developers on raw commit count alone.
 - The report must state the audit boundary near the top:
   - current iteration name
   - current iteration start and finish dates
-  - ADO team and board used
+  - ADO team, backlog, and board URL used
   - GitHub repos used
   - explicit note that no other boards or repos were analyzed
 
@@ -113,7 +113,7 @@ Required reporting behavior:
 - Use Mermaid diagrams to visualize iteration data
 - Attribute every major finding as `ADO`, `GitHub`, or `Cross-system`
 - Distinguish:
-  - planned iteration work on the board
+  - planned iteration work on the scoped backlog
   - delivered work observed in the 2 repos
   - work with no cross-system traceability
 - Report limitations instead of widening scope
@@ -129,7 +129,7 @@ Scenario: Creating an audit report
 
 Scenario: Enforcing the audit boundary
   Given the audit is running
-  Then the auditor must only use the `AA Development Team` board context in the `Auto Allies` project
+  Then the auditor must only use the `AA Development Team` team context and scoped backlog in the `Auto Allies` project
   And the auditor must only use the repositories `jairosoft-com/autoallies-version2` and `jairosoft-com/autoallies-api-core`
   And the auditor must not inspect or summarize other boards, teams, projects, or repositories
 
@@ -186,9 +186,9 @@ Scenario: Visualizing data
 - **Project URL:** `https://dev.azure.com/jairo/Auto%20Allies`
 - **Team:** `AA Development Team`
 - **Team ID:** `330e6bf1-3515-443c-a2d8-b84f46c38f57`
-- **Team Board URL:** `https://dev.azure.com/jairo/Auto%20Allies/_boards/board/t/AA%20Development%20Team/Stories%20and%20Deliverables`
+- **Team Board URL (human reference only):** `https://dev.azure.com/jairo/Auto%20Allies/_boards/board/t/AA%20Development%20Team/Stories%20and%20Deliverables`
 - **Backlog ID:** `Microsoft.RequirementCategory`
-- **Backlog / Board Focus:** `Stories and Deliverables`
+- **Backlog Focus:** `Stories and Deliverables`
 
 ## GitHub Repositories
 | Repo | URL |
