@@ -1,4 +1,4 @@
-# OTP Project
+# AutoAllies Project
 
 ## Role
 
@@ -32,7 +32,7 @@ Then the auditor must always create diagrams to visualize the data
 
 ## Audit Considerations
 
--
+-None defined yet
 
 ---
 
