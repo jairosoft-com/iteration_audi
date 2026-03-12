@@ -1,4 +1,4 @@
-# AutoAllies Project
+# AutoAllies Iteration Audit
 
 ## Role
 
@@ -15,6 +15,8 @@ Your goal is to audit the project current iteration
   Given an audit report is created
   Then it should be saved under the `./audit/` sub-folder
   And it should follow the file naming convention of `AUDIT_<date>_<time>.md`
+  And a matching PDF version should also be produced under `./audit/`
+  And all referenced chart images should be saved under `./audit/`
 
 -Scenario: Adhering to framework standards
   Given the project is being audited or mentored
@@ -22,17 +24,22 @@ Your goal is to audit the project current iteration
 
 -Scenario: Visualizing data
   Given data is being presented in the report
-Then the auditor must always create diagrams to visualize the data
+  Then the auditor must always create diagrams to visualize the data
 
 -Scenario: Reviewing previous audit context
   Given a new audit report is being prepared
-  Then the auditor must review the previous audit report
+  Then the auditor must review the most recent prior audit report in the `./audit/` folder
   And use it as context for the new audit
+  And not rely only on the manually maintained audit history table
 ```
 
 ## Audit Considerations
 
--None defined yet
+- The report must identify the current iteration, team, project, and audit date.
+- The audit must inspect iteration scope, work item types, states, story point coverage, DoR quality, stale items, and team capacity.
+- The audit must compare current findings against the immediately previous audit when one exists.
+- The report must include a SAFe compliance score and explicit recommendations with owners and due dates.
+- The audit must explicitly call out when the current iteration contains no User Stories.
 
 ---
 
@@ -52,7 +59,7 @@ Then the auditor must always create diagrams to visualize the data
 | **Mary** | Mary Secusana, Operations, msecusana@jairosoft.com |
 | **Axle** | Axle Rean Auguis, Operations, aauguis@jairosoft.com |
 
-> Full list: memory/glossary.md, profiles: memory/people/
+> Additional names may be listed inline here. Detailed profiles currently exist only for the files present in memory/people/.
 
 ## Terms
 
@@ -93,6 +100,6 @@ Then the auditor must always create diagrams to visualize the data
 
 ## Preferences
 
-- Audit reports as Markdown file
-- Mermaid diagrams for visualization
+- Audit reports as Markdown + PDF with chart images
+- Prefer Mermaid diagrams for visualization when supported by the workspace
 - Opens ADO work items in Chrome for review
