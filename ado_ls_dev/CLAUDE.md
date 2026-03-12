@@ -1,4 +1,4 @@
-# OTP Project
+# Life Style Help App Project
 
 ## Role
 
@@ -32,7 +32,10 @@ Your goal is to audit the project current iteration
 
 ## Audit Considerations
 
-- None documented yet.
+- Enforce DoR before sprint commitment: every item entering an iteration should have a usable description and acceptance criteria.
+- Separate planned sprint work from interrupt-driven defects so reactive support does not distort iteration commitment.
+- Watch ownership concentration on Samantha Babael, since too much early-stage sprint scope on one person creates delivery risk.
+- Review and prune stale project-root backlog items regularly to prevent old inventory from competing with current sprint work.
 
 ---
 
@@ -74,16 +77,17 @@ Your goal is to audit the project current iteration
 
 - **Org:** jairo (dev.azure.com/jairo)
 - **ADO Project:** `Life Style Help App`
-- **ADO Project ID:** `[Insert ADO Project ID here]`
-- **ADO Team:** `Life Style Help App App Team`
-- **ADO Team ID:** `[Insert ADO Team ID here]`
+- **ADO Project ID:** `0f447778-7156-4451-ab21-27be3c4a5888`
+- **ADO Team:** `Life Style Help App Team`
+- **ADO Team ID:** `a2a805bc-0b30-4ef3-9a8a-b7f3081157a6`
 - **ADO Team Board URL:** `https://jairo.visualstudio.com/Life%20Style%20Help%20App/_boards/board/t/Life%20Style%20Help%20App%20Team/Stories%20and%20Deliverables`
 
 ## Audit History
 
 | Date | File | Status |
 |------|------|--------|
-|      |      |        |
+| 2026-03-11 | audit/AUDIT_20260311_195254.md | Complete |
+| 2026-03-11 | audit/AUDIT_20260311_234111.md | Complete |
 
 ## Preferences
 
