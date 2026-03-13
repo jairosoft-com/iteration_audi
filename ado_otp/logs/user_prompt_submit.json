@@ -1,0 +1,50 @@
+[
+  {
+    "session_id": "946103ad-3cd8-4a87-b199-ff7385628151",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-otp/946103ad-3cd8-4a87-b199-ff7385628151.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_otp",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "check if the audited items where resolve"
+  },
+  {
+    "session_id": "b2b19bf6-7dd7-484c-bfdd-32caf8c77fb5",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-otp/b2b19bf6-7dd7-484c-bfdd-32caf8c77fb5.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_otp",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "check if you are able to list the items in the ado for the otp project"
+  },
+  {
+    "session_id": "b13f4c71-c54e-4cee-911f-8c074dd461b8",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-otp/b13f4c71-c54e-4cee-911f-8c074dd461b8.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_otp",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "retry ado connectivity"
+  },
+  {
+    "session_id": "b13f4c71-c54e-4cee-911f-8c074dd461b8",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-otp/b13f4c71-c54e-4cee-911f-8c074dd461b8.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_otp",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "Check if the audit issues are resolved"
+  },
+  {
+    "session_id": "1e09bd64-c32f-432c-9ae6-5c1e4b9c6a5f",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-otp/1e09bd64-c32f-432c-9ae6-5c1e4b9c6a5f.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_otp",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "study this project"
+  },
+  {
+    "session_id": "1e09bd64-c32f-432c-9ae6-5c1e4b9c6a5f",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-otp/1e09bd64-c32f-432c-9ae6-5c1e4b9c6a5f.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_otp",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "@audit/AUDIT_20260224_221243.md check if the issues in this audit report has been resolved"
+  }
+]

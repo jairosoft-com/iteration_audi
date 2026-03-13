@@ -1,0 +1,18 @@
+[
+  {
+    "session_id": "acf669d5-4890-42b8-aaaf-67a443bc4d96",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-jit/acf669d5-4890-42b8-aaaf-67a443bc4d96.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_jit",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use azure-devops - core_list_project_teams (MCP)",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "acf669d5-4890-42b8-aaaf-67a443bc4d96",
+    "transcript_path": "/Users/jairo/.claude/projects/-Users-jairo-Projects-ado-jit/acf669d5-4890-42b8-aaaf-67a443bc4d96.jsonl",
+    "cwd": "/Users/jairo/Projects/ado_jit",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  }
+]
