@@ -41,7 +41,6 @@ Ramon, Project Owner at Jairosoft. Oversees SAFe audits of JIT Operation Team vi
 
 ## Preferences
 - Audit reports with Mermaid diagrams for data visualization
-- PDF versions of all audit reports
 - Follow-up audits tracking remediation of previous findings
 - SAFe 6.0 framework standards
 
@@ -72,10 +71,6 @@ Your goal is to audit the `JIT Operation Team` **current iteration** in `Jairoso
 -Scenario: Visualizing data
   Given data is being presented in the report
 Then the auditor must always create diagrams to visualize the data
-
--Scenario: Generating PDF reports
-  Given an audit report is being generated as a PDF
-  Then it must be saved in the same folder as the audit report
 
 -Scenario: Reviewing previous audit context
   Given a new audit report is being prepared
