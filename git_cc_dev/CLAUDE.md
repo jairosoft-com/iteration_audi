@@ -220,8 +220,6 @@ Scenario: Visualizing data
 
 - Audit reports authored as Markdown in `audit/` folder
 - PDF export is done manually by Ramon via Obsidian (Export to PDF)
-- Exported PDFs are saved to the `report/` folder for sharing with colleagues
-- The `report/` folder is only for manually exported PDFs, not source Markdown audit reports
 - Do NOT automate PDF creation — Obsidian handles the Markdown → PDF conversion
 - Mermaid diagrams for visualization (Obsidian renders these natively)
 - Do not use `xychart-beta` in Mermaid diagrams because it does not render reliably in Obsidian

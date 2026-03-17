@@ -86,6 +86,8 @@ Then the auditor must always create diagrams to visualize the data
 | A6 | Mar 9, 2026 | AUDIT_20260309_225751 | 6.5 (Day 1) | Opening audit — 10 items stranded in 6.4, capacity -33% |
 | A7 | Mar 10, 2026 | AUDIT_20260310_205034 | 6.5 (Day 2) | 9/10 stranded items moved to 6.5, scope explosion (39+ SP vs 28 hrs) |
 | A8 | Mar 11, 2026 | AUDIT_20260311_205139 | 6.5 (Day 3) | First 0-critical/0-high audit; 6 findings resolved (best day); DoR 83%; 5 tasks closed |
+| A9 | Mar 12, 2026 | AUDIT_20260312_135439 | 6.5 (Day 4) | #199524 2nd deadline breach, #178753 365-day anniversary, 2 HIGH findings |
+| A10 | Mar 16, 2026 | AUDIT_20260316_223241 | 6.5 (Day 8) | Mid-sprint: 22 SP effective (63%), #178753 Resolved, #199524 Closed, 6 stories pending closure |
 
 ## Preferences
 - Audit reports as Markdown

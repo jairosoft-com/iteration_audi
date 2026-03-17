@@ -105,9 +105,9 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 | 5 | AUDIT_20260306_2216 | Mar 6, 2026 |
 | 6 | AUDIT_20260309_1556 | Mar 9, 2026 |
 | 7 | AUDIT_20260309_1730 | Mar 9, 2026 |
+| 8 | AUDIT_20260316_0226 | Mar 16, 2026 |
 
 ## Preferences
 - Audit reports saved to `./audit/` folder
-- Reports in both Markdown and PDF format
 - Mermaid diagrams for data visualization
 - SAFe 6.0 framework standards
