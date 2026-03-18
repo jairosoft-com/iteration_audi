@@ -15,3 +15,5 @@ venv/
 *.png
 node_modules/
 dist/
+.claude/data/sessions/
+logs/
