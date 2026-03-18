@@ -13,3 +13,5 @@ venv/
 .report/
 *.pdf
 *.png
+node_modules/
+dist/

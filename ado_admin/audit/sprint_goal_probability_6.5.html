@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprint Goal Probability — Iteration 6.5</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { color: #1a237e; font-size: 24px; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+  .card .label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .card .value { font-size: 32px; font-weight: 700; }
+  .card .sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .card.prob .value { color: #2e7d32; }
+  .card.sp .value { color: #1565c0; }
+  .card.stories .value { color: #e65100; }
+  .card.tasks .value { color: #6a1b9a; }
+  .chart-row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .chart-box { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .chart-box h2 { font-size: 16px; color: #1a237e; margin-bottom: 12px; }
+  .chart-box canvas { max-height: 300px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #1a237e; color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+  td { padding: 8px; border-bottom: 1px solid #e0e0e0; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  .trend-up { color: #2e7d32; font-weight: 600; }
+  .trend-down { color: #c62828; font-weight: 600; }
+  .trend-flat { color: #888; }
+  .prob-badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 13px; }
+  .prob-high { background: #e8f5e9; color: #2e7d32; }
+  .prob-med { background: #fff3e0; color: #e65100; }
+  .prob-low { background: #ffebee; color: #c62828; }
+  .factor-bar { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+  .factor-label { width: 140px; font-size: 12px; color: #555; }
+  .factor-track { flex: 1; height: 20px; background: #eee; border-radius: 10px; overflow: hidden; }
+  .factor-fill { height: 100%; border-radius: 10px; transition: width 0.5s; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; font-size: 10px; color: white; font-weight: 600; }
+  .footer { text-align: center; color: #999; font-size: 12px; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Sprint Goal Probability — Iteration 6.5</h1>
+  <div class="subtitle">Administration Team Board • Jairosoft FINOPS • PI 6 • Mar 10-22, 2026</div>
+
+  <div class="cards">
+    <div class="card prob">
+      <div class="label">Sprint Goal P(100%)</div>
+      <div class="value">85.0%</div>
+      <div class="sub">↑ +6.6% from yesterday</div>
+    </div>
+    <div class="card sp">
+      <div class="label">Story Points</div>
+      <div class="value">15/30</div>
+      <div class="sub">50% complete • 15 SP in-flight</div>
+    </div>
+    <div class="card stories">
+      <div class="label">Stories</div>
+      <div class="value">9/15</div>
+      <div class="sub">60% closed • 0 untouched</div>
+    </div>
+    <div class="card tasks">
+      <div class="label">Tasks</div>
+      <div class="value">22/30</div>
+      <div class="sub">73% closed • 4 days left</div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-box">
+      <h2>Sprint Goal Probability Trend</h2>
+      <canvas id="probChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h2>Factor Breakdown (Day 6)</h2>
+      <div class="factor-bar">
+        <span class="factor-label">WIP Health</span>
+        <div class="factor-track"><div class="factor-fill" style="width:92%;background:#2e7d32;">92%</div></div>
+      </div>
+      <div class="factor-bar">
+        <span class="factor-label">Historical Perf.</span>
+        <div class="factor-track"><div class="factor-fill" style="width:85%;background:#1565c0;">85%</div></div>
+      </div>
+      <div class="factor-bar">
+        <span class="factor-label">Burndown Pace</span>
+        <div class="factor-track"><div class="factor-fill" style="width:83%;background:#e65100;">83%</div></div>
+      </div>
+      <div class="factor-bar">
+        <span class="factor-label">Capacity Buffer</span>
+        <div class="factor-track"><div class="factor-fill" style="width:80%;background:#6a1b9a;">80%</div></div>
+      </div>
+      <div class="factor-bar">
+        <span class="factor-label">Velocity Sufficiency</span>
+        <div class="factor-track"><div class="factor-fill" style="width:72%;background:#f57f17;">72%</div></div>
+      </div>
+      <div style="margin-top:16px;padding:12px;background:#e8f5e9;border-radius:8px;text-align:center;">
+        <div style="font-size:11px;color:#2e7d32;text-transform:uppercase;letter-spacing:1px;">Weighted Score</div>
+        <div style="font-size:28px;font-weight:700;color:#2e7d32;">85.0%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-box">
+      <h2>SP Burndown — Actual vs Ideal</h2>
+      <canvas id="burndownChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h2>Daily SP Velocity</h2>
+      <canvas id="velocityChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-box" style="margin-bottom:16px;">
+    <h2>Daily Progress Table</h2>
+    <table>
+      <thead>
+        <tr><th>Day</th><th>Date</th><th>SP Closed</th><th>% Complete</th><th>Stories (C/A/N)</th><th>Tasks Closed</th><th>P(100%)</th><th>Trend</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>Mar 9</td><td>0/30</td><td>0.0%</td><td>0 / 3 / 11</td><td>0/29</td><td><span class="prob-badge prob-med">71.0%</span></td><td class="trend-flat">—</td></tr>
+        <tr><td>1</td><td>Mar 10</td><td>2/30</td><td>6.7%</td><td>1 / 4 / 10</td><td>3/29</td><td><span class="prob-badge prob-med">71.5%</span></td><td class="trend-up">+0.5%</td></tr>
+        <tr><td>2</td><td>Mar 11</td><td>5/30</td><td>16.7%</td><td>4 / 4 / 7</td><td>8/30</td><td><span class="prob-badge prob-med">78.6%</span></td><td class="trend-up">+7.1%</td></tr>
+        <tr><td>3</td><td>Mar 12</td><td>6/30</td><td>20.0%</td><td>5 / 4 / 6</td><td>9/30</td><td><span class="prob-badge prob-med">71.8%</span></td><td class="trend-down">-6.8%</td></tr>
+        <tr><td>4</td><td>Mar 13</td><td>11/30</td><td>36.7%</td><td>7 / 5 / 3</td><td>17/30</td><td><span class="prob-badge prob-high">84.9%</span></td><td class="trend-up">+13.1%</td></tr>
+        <tr><td>5</td><td>Mar 16</td><td>11/30</td><td>36.7%</td><td>7 / 5 / 3</td><td>17/30</td><td><span class="prob-badge prob-med">78.4%</span></td><td class="trend-down">-6.5%</td></tr>
+        <tr><td><b>6</b></td><td><b>Mar 17</b></td><td><b>15/30</b></td><td><b>50.0%</b></td><td><b>9 / 6 / 0</b></td><td><b>22/30</b></td><td><span class="prob-badge prob-high">85.0%</span></td><td class="trend-up">+6.6%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-box">
+    <h2>Model Methodology</h2>
+    <p style="font-size:13px;line-height:1.6;color:#555;">
+      The Sprint Goal Probability is computed using a <b>5-factor weighted model</b> evaluated daily:
+      <b>Burndown Pace</b> (30%) compares actual vs ideal SP completion rate.
+      <b>Velocity Sufficiency</b> (25%) assesses whether observed throughput can deliver remaining work.
+      <b>WIP Health</b> (20%) measures what fraction of remaining work is actively in progress.
+      <b>Historical Performance</b> (10%) uses the team's prior iteration track record (6.4: 100% completion).
+      <b>Capacity Buffer</b> (15%) evaluates remaining hours vs estimated effort for remaining SP.
+      The weighted score is scaled to a realistic probability range (40-95%).
+    </p>
+  </div>
+
+  <div class="footer">
+    Generated March 17, 2026 • SAFe 6.0 Framework • Audit Series #9 • Jairosoft FINOPS Administration Team
+  </div>
+</div>
+
+<script>
+// Probability Trend
+new Chart(document.getElementById('probChart'), {
+  type: 'line',
+  data: {
+    labels: ['Day 0\nMar 9', 'Day 1\nMar 10', 'Day 2\nMar 11', 'Day 3\nMar 12', 'Day 4\nMar 13', 'Day 5\nMar 16', 'Day 6\nMar 17'],
+    datasets: [{
+      label: 'P(100% Completion)',
+      data: [71.0, 71.5, 78.6, 71.8, 84.9, 78.4, 85.0],
+      borderColor: '#1a237e',
+      backgroundColor: 'rgba(26,35,126,0.1)',
+      borderWidth: 3,
+      fill: true,
+      tension: 0.3,
+      pointRadius: 6,
+      pointBackgroundColor: ['#e65100','#e65100','#e65100','#e65100','#2e7d32','#e65100','#2e7d32'],
+      pointBorderColor: '#1a237e',
+      pointBorderWidth: 2,
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: { min: 40, max: 100, title: { display: true, text: 'Probability %' },
+        ticks: { callback: v => v + '%' }
+      },
+      x: { grid: { display: false } }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.parsed.y + '%' } }
+    }
+  }
+});
+
+// Burndown
+new Chart(document.getElementById('burndownChart'), {
+  type: 'line',
+  data: {
+    labels: ['Day 0', 'Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7', 'Day 8', 'Day 9', 'Day 10'],
+    datasets: [{
+      label: 'Actual SP Remaining',
+      data: [30, 28, 25, 24, 19, 19, 15, null, null, null, null],
+      borderColor: '#1a237e',
+      borderWidth: 3,
+      pointRadius: 5,
+      pointBackgroundColor: '#1a237e',
+      tension: 0.2,
+    }, {
+      label: 'Ideal Burndown',
+      data: [30, 27, 24, 21, 18, 15, 12, 9, 6, 3, 0],
+      borderColor: '#bdbdbd',
+      borderWidth: 2,
+      borderDash: [8, 4],
+      pointRadius: 0,
+    }, {
+      label: 'Projected',
+      data: [null, null, null, null, null, null, 15, 11.25, 7.5, 3.75, 0],
+      borderColor: '#2e7d32',
+      borderWidth: 2,
+      borderDash: [4, 4],
+      pointRadius: 0,
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: { min: 0, max: 32, title: { display: true, text: 'SP Remaining' } },
+      x: { grid: { display: false } }
+    },
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+  }
+});
+
+// Velocity
+new Chart(document.getElementById('velocityChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6'],
+    datasets: [{
+      label: 'SP Closed per Day',
+      data: [2, 3, 1, 5, 0, 4],
+      backgroundColor: ['#42a5f5','#42a5f5','#ef9a9a','#66bb6a','#e0e0e0','#66bb6a'],
+      borderRadius: 6,
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: { min: 0, max: 6, title: { display: true, text: 'SP/Day' } },
+      x: { grid: { display: false } }
+    },
+    plugins: {
+      legend: { display: false },
+      annotation: {
+        annotations: {
+          line1: { type: 'line', yMin: 3.75, yMax: 3.75, borderColor: '#c62828', borderWidth: 2, borderDash: [4,4],
+            label: { display: true, content: 'Required: 3.75', position: 'end', font: { size: 10 } }
+          }
+        }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

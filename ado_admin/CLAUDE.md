@@ -93,7 +93,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 - Features lack Business Value / Effort for WSJF
 - Stories lack acceptance criteria
 - Typos in work item titles
-- Overall SAFe compliance: ~42/100
+- Overall SAFe compliance: ~57/100 (up from 42 at first audit)
 
 ## Audit History
 | # | File | Date |
@@ -106,6 +106,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 | 6 | AUDIT_20260309_1556 | Mar 9, 2026 |
 | 7 | AUDIT_20260309_1730 | Mar 9, 2026 |
 | 8 | AUDIT_20260316_0226 | Mar 16, 2026 |
+| 9 | AUDIT_20260317_2303 | Mar 17, 2026 |
 
 ## Preferences
 - Audit reports saved to `./audit/` folder
