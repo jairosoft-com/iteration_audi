@@ -11,9 +11,9 @@
 - **User Stories:** 14 (39 SP committed)
 - **Capacity:** Grace at 2 hrs/day (28 hrs total), Ramon at 0
 - **Sole Assignee:** Grace (accepted by team)
-- **Day 9 Status (A11):** 18 SP credited (6 Closed), 8 SP pending closure (4 stories all-tasks-done), 26 SP effective (67%)
-- **Key milestone:** 5 stories closed in 1 day (record), #178753 fully Closed (370 days), 100% DoR compliance
-- **Remaining action:** Close 4 stories with all tasks done (8 SP uncredited)
+- **Day 10 Status (A12):** 25 SP credited (8 Closed, 64%), 6 SP pending closure (3 visa stories all-tasks-done), 31 SP effective (79%)
+- **Key milestone:** #199577 (5 SP) and #200074 (2 SP) Closed today. 95% sprint goal probability.
+- **Remaining action:** Close 3 visa stories (6 SP uncredited), assess #200686 for deprioritization
 - **Overall Status:** STRONG GREEN
 
 ## Previous Iteration — 6.4 Final Outcome
@@ -37,8 +37,9 @@
 | A9 | Mar 12 | 6.5 Day 4 | #199524 2nd deadline breach, #178753 365-day anniversary, 2 HIGH findings |
 | A10 | Mar 16 | 6.5 Day 8 | Mid-sprint: 22 SP effective (63%), #178753 Resolved, #199524 Closed, 6 stories pending closure |
 | A11 | Mar 17 | 6.5 Day 9 | Record day: 5 stories closed, #178753 fully Closed (370 days), 18 SP credited (46%), 100% DoR |
+| A12 | Mar 18 | 6.5 Day 10 | 25 SP credited (64%), 31 SP effective (79%), #199577 + #200074 Closed, 95% probability |
 
-## Finding History (26 findings across 11 audits)
+## Finding History (26 findings across 12 audits)
 | # | Finding | Status (A11) |
 |---|---------|-------------|
 | 1 | No team capacity | Partial (Grace configured, Ramon 0) |
