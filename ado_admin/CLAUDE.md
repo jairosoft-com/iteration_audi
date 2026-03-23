@@ -65,7 +65,8 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 | Name | What |
 |------|------|
 | **PI 6** | Current Program Increment (Jan-Apr 2026), Iterations 6.1-6.6 |
-| **Iteration 6.4** | Current sprint (Feb 23 - Mar 8, 2026) |
+| **Iteration 6.5** | Completed sprint (Mar 10 - Mar 22, 2026) — 61.3% SP delivered |
+| **Iteration 6.6** | Next sprint (starts after Mar 22, 2026) |
 | **ADO Project ID** | e0bb302f-40f9-46c3-8164-6f1acb317d63 |
 | **Admin Team ID** | a38a9c02-07ab-483d-a1e3-aff54e19e603 |
 -> Details: memory/projects/
@@ -93,7 +94,9 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 - Features lack Business Value / Effort for WSJF
 - Stories lack acceptance criteria
 - Typos in work item titles
-- Overall SAFe compliance: ~57/100 (up from 42 at first audit)
+- Over-commitment pattern: 6.5 committed 31 SP, delivered 19 (61.3%)
+- Week 2 velocity collapse (-57% from Week 1)
+- Overall SAFe compliance: ~55/100 (down from 57 at close-out; up from 42 at first audit)
 
 ## Audit History
 | # | File | Date |
@@ -108,6 +111,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 | 8 | AUDIT_20260316_0226 | Mar 16, 2026 |
 | 9 | AUDIT_20260317_2303 | Mar 17, 2026 |
 | 10 | AUDIT_20260318_2253 | Mar 18, 2026 |
+| 11 | AUDIT_20260322_2329 | Mar 22, 2026 |
 
 ## Preferences
 - Audit reports saved to `./audit/` folder

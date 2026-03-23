@@ -1,4 +1,4 @@
-# OTP Project
+# Auto Allies — UI UX Design Team
 
 ## Role
 

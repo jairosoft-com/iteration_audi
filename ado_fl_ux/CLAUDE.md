@@ -1,4 +1,4 @@
-# OTP Project
+# Flawless Wedding App — Flawless Wedding Design Team
 
 ## Role
 

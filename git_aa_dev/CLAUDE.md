@@ -95,20 +95,94 @@ Do not score developers on raw commit count alone.
 
 ### SAFe Compliance
 
-Required areas of analysis:
+The current-iteration SAFe compliance score in v1 is computed from **all current-iteration parent backlog items** in the scoped `Stories and Deliverables` backlog. This includes `User Story` and any other parent item types present in the backlog, such as `Enabler`, `Spike`, and `Defect`. Child tasks, peer-review tasks, and task-category items must not change the numeric compliance score.
 
-- Iteration planning discipline for the current scoped backlog
-- Work item type mix and whether the iteration is dominated by appropriate delivery items
-- Definition of Ready quality for in-iteration items, including description, acceptance criteria, and estimation fields when applicable
-- Capacity-based planning using the configured ADO team capacity versus active scope
-- WIP control, including overload, frozen active work, and excessive `New` items inside the live iteration
-- Scope stability, including mid-iteration injections, carryover items, and unplanned work
-- State hygiene, including items in inappropriate states for a live iteration
-- QA and Definition of Done signals visible from ADO states and GitHub delivery evidence
-- Traceability from ADO work to GitHub implementation as a built-in quality and transparency check
-- Program-level alignment signals that are visible in scoped data, such as parent/child hierarchy health and PI objective linkage when present
+#### Schema-backed compliance mapping
 
-Do not claim SAFe compliance from ceremony assumptions alone. Every SAFe finding must be grounded in observable ADO and GitHub evidence from the scoped iteration.
+- **Alignment**:
+  - Source: `System.Parent` and hierarchy relations
+  - Eligible when the parent backlog item supports hierarchy inspection in the scoped backlog
+  - Compliant when a current-iteration parent backlog item reaches a valid feature-layer parent in the same `Auto Allies` project
+  - An eligible item without a valid parent must be flagged as `Orphaned / Non-Compliant`
+- **Estimation**:
+  - Source: `Microsoft.VSTS.Scheduling.StoryPoints`
+  - Eligible when the parent backlog item type exposes `Story Points`
+  - Compliant when active or in-progress eligible items have `Story Points > 0`
+- **Quality / DoD**:
+  - Source: `Microsoft.VSTS.Common.AcceptanceCriteria`
+  - Source: linked `Test Case` / `TestedBy` relation
+  - Eligible when the parent backlog item is in a done-like state and the item type exposes the relevant quality fields or relations
+  - `Acceptance Criteria` must not be empty for items scored in Quality / DoD when the field is exposed for that type
+  - At least one linked test artifact must exist for items scored in Quality / DoD when test evidence is supported for that type
+  - A literal `Compliance Checklist` field is not currently visible in the inspected Auto Allies schema and must be reported as an `evidence gap`; never silently pass this requirement
+- **Iteration Integrity**:
+  - Source: work item revisions
+  - Eligible for all current-iteration parent backlog items
+  - Detect mid-iteration additions from the first revision where `System.IterationPath` equals the current iteration after the iteration start date
+  - Use `System.Reason` and revision/comment history as the only allowed justification evidence in v1
+  - If approval or justification evidence is not visible, flag the item and do not infer approval
+- If a Gherkin-required field is not exposed in the current schema for a scored type, record it as `evidence unavailable` and state whether that subcheck was excluded from scoring or treated as failed
+- Parent item types are included in the score when they belong to the scoped parent backlog and the relevant dimension can be evaluated from real schema support, relations, and state
+
+#### Deterministic score model
+
+- The `Iteration Compliance Score` is report-only in v1; no dashboard output is required
+- Score all current-iteration parent backlog items in the scoped `Stories and Deliverables` backlog
+- Use these dimensions and weights:
+  - `Alignment` = 25
+  - `Estimation` = 20
+  - `Quality / DoD` = 35
+  - `Iteration Integrity` = 20
+- Use this fixed calculation:
+  - `dimension_score = compliant_eligible_items / eligible_items * 100`
+  - `overall_score = sum(dimension_score * weight) / 100`
+  - Round the final percentage to 1 decimal place
+- Use these fixed bands:
+  - `Green` = `>= 90`
+  - `Yellow` = `75 - 89.9`
+  - `Red` = `< 75`
+- Eligibility rules:
+  - `Alignment`: all scored parent backlog items that support hierarchy inspection
+  - `Estimation`: scored parent backlog items in active or in-progress states with a `Story Points` field
+  - `Quality / DoD`: scored parent backlog items in done-like states whose type exposes the required quality fields or relations
+  - `Iteration Integrity`: all scored parent backlog items
+  - If a dimension has zero eligible items, mark it `N/A` and exclude it from the denominator
+  - If the entire iteration has zero eligible scored parent backlog items, report `Iteration Compliance Score: N/A`
+- Every audit report must include one score table with:
+  - `Dimension`
+  - `Eligible Items`
+  - `Compliant Items`
+  - `Failed Items`
+  - `Score %`
+  - `Weight`
+  - `Weighted Contribution`
+  - `Evidence`
+  - `Reason`
+- The score table must not imply story-only scoring
+
+#### Parent-Link Inspection Boundary
+
+- Start only from current-iteration parent backlog items in the scoped backlog
+- Traverse upward only through direct parent links
+- Stay inside the `Auto Allies` ADO project only
+- Maximum depth: `4`
+- Stop when:
+  - a valid feature-layer parent is reached
+  - a `PI Objective` or `Epic` is reached after feature-layer alignment has already been assessed
+  - a link is missing or broken
+  - a parent leaves project scope
+  - depth exceeds the limit
+- Score `Alignment` on whether the parent backlog item reaches a valid feature-layer parent
+- Report `PI Objective` or higher-level alignment as a separate contextual alignment finding, not part of the numeric score in v1
+- Classify scored parent backlog items as:
+  - `Feature-linked`
+  - `Feature-linked via intermediate parent`
+  - `Orphaned / Non-Compliant`
+  - `Broken hierarchy`
+  - `Out-of-scope ancestor`
+- Do not inspect siblings, unrelated children, or other boards and teams while following parent links
+
+Do not claim SAFe compliance from ceremony assumptions alone. Every SAFe finding and every compliance score row must be grounded in observable ADO and GitHub evidence from the scoped iteration. Missing fields on supported non-story types must result in `evidence unavailable` or `N/A`, not silent passes.
 
 ## Output Contract
 
@@ -130,10 +204,12 @@ Required report sections:
 - Developer productivity findings
 - SAFe compliance findings
 - Iteration planning and capacity analysis
+- Iteration Compliance Score
+- Evidence Gaps
 - ADO-to-GitHub traceability analysis
 - Collaboration and review analysis
 - Risks and bottlenecks
-- SAFe compliance score or scorecard
+- Contextual Type Findings
 - Prioritized remediation actions
 
 Required reporting behavior:
@@ -142,6 +218,7 @@ Required reporting behavior:
 - Do not use `xychart-beta`; use Mermaid syntax that renders reliably in Obsidian
 - Attribute every major finding as `ADO`, `GitHub`, or `Cross-system`
 - Classify major findings as `Developer Productivity`, `SAFe Compliance`, or `Cross-cutting` when applicable
+- Every SAFe score row must cite observable evidence
 - Distinguish:
   - planned iteration work on the scoped backlog
   - delivered work observed in the 2 repos
@@ -168,6 +245,23 @@ Scenario: Auditing the current iteration for SAFe compliance
   Then the auditor must evaluate SAFe compliance using the scoped Azure DevOps iteration data
   And the auditor must assess planning discipline, readiness, capacity, WIP, scope stability, and state hygiene
   And the auditor must not claim compliance without observable evidence
+
+Scenario: Computing a deterministic compliance score
+  Given the current iteration contains eligible parent backlog items
+  Then the auditor must calculate `Alignment`, `Estimation`, `Quality / DoD`, and `Iteration Integrity` using the fixed weighted model
+  And the auditor must report one `Iteration Compliance Score` percentage
+  And the auditor must apply `Green` only at `>= 90`
+
+Scenario: Handling schema field gaps
+  Given a Gherkin-required field is not exposed in the current Auto Allies schema
+  Then the auditor must record it as `evidence unavailable`
+  And the auditor must state whether the subcheck was excluded from scoring or treated as failed
+
+Scenario: Following parent links for alignment
+  Given a current-iteration parent backlog item is inspected for alignment
+  Then the auditor may follow direct parent links upward within the same project only
+  And the auditor must stop at the first valid feature-layer parent, a broken link, an out-of-scope link, or depth `4`
+  And the auditor must not inspect siblings or unrelated children
 
 Scenario: Resolving the current iteration
   Given the audit is for the current iteration
@@ -242,6 +336,7 @@ Scenario: Visualizing data
 | 2026-03-11 | `audit/AUDIT_2026-03-11_234100.md` | Complete |
 | 2026-03-16 | `audit/AUDIT_2026-03-16_000000.md` | Complete |
 | 2026-03-17 | `audit/AUDIT_2026-03-17_170000.md` | Complete |
+| 2026-03-18 | `audit/AUDIT_2026-03-18_000000.md` | Complete |
 
 ## Preferences
 - Audit reports authored as Markdown in `audit/` folder
