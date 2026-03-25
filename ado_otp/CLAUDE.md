@@ -30,9 +30,19 @@ Then the auditor must always create diagrams to visualize the data
   And use it as context for the new audit
 ```
 
+## Shared Skill Authority
+
+- The shared ADO SAFe audit skill at `.claude/skills/ado_safe_audit.md` governs audit workflow, scoring, evidence rules, output policy, and batch behavior for this workspace.
+- This `CLAUDE.md` file is the local source of truth for project context, audit history, and explicit project exceptions.
+- If this file conflicts with the shared skill on workflow, scoring, evidence, or output policy, the shared skill wins unless the difference is explicitly documented under `Project Exceptions`.
+
 ## Audit Considerations
 
 -The team has accepted that Grace is the single assignee for all work items in this project
+
+## Project Exceptions
+
+- The team has explicitly accepted the current single-assignee model for OTP work items. Treat that as a known structural constraint, not an automatic audit failure by itself.
 
 ---
 

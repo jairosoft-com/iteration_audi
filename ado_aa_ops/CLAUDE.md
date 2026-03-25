@@ -15,9 +15,7 @@ Your goal is to audit the project current iteration
   Given an audit report is created
   Then it should be saved under the `./audit/` sub-folder
   And it should follow the file naming convention of `AUDIT_<date>_<time>.md`
-  And a matching PDF version should also be produced under `./audit/`
-  And all referenced chart images should be saved under `./audit/`
-
+  
 -Scenario: Adhering to framework standards
   Given the project is being audited or mentored
   Then the auditor must always follow SAFe framework standards and best practices
@@ -33,6 +31,12 @@ Your goal is to audit the project current iteration
   And not rely only on the manually maintained audit history table
 ```
 
+## Shared Skill Authority
+
+- The shared ADO SAFe audit skill at `.claude/skills/ado_safe_audit.md` governs audit workflow, scoring, evidence rules, output policy, and batch behavior for this workspace.
+- This `CLAUDE.md` file is the local source of truth for project context, audit history, and explicit project exceptions.
+- If this file conflicts with the shared skill on workflow, scoring, evidence, or output policy, the shared skill wins unless the difference is explicitly documented under `Project Exceptions`.
+
 ## Audit Considerations
 
 - The report must identify the current iteration, team, project, and audit date.
@@ -40,6 +44,10 @@ Your goal is to audit the project current iteration
 - The audit must compare current findings against the immediately previous audit when one exists.
 - The report must include a SAFe compliance score and explicit recommendations with owners and due dates.
 - The audit must explicitly call out when the current iteration contains no User Stories.
+
+## Project Exceptions
+
+- None documented.
 
 ---
 
@@ -100,6 +108,6 @@ Your goal is to audit the project current iteration
 
 ## Preferences
 
-- Audit reports as Markdown + PDF with chart images
+- Audit reports as Markdown
 - Prefer Mermaid diagrams for visualization when supported by the workspace
 - Opens ADO work items in Chrome for review

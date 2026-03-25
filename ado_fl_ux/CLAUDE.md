@@ -30,9 +30,22 @@ Your goal is to audit the project current iteration
   And use it as context for the new audit
 ```
 
+## Shared Skill Authority
+
+- The shared ADO SAFe audit skill at `.claude/skills/ado_safe_audit.md` governs audit workflow, scoring, evidence rules, output policy, and batch behavior for this workspace.
+- This `CLAUDE.md` file is the local source of truth for project context, audit history, and explicit project exceptions.
+- If this file conflicts with the shared skill on workflow, scoring, evidence, or output policy, the shared skill wins unless the difference is explicitly documented under `Project Exceptions`.
+
 ## Audit Considerations
 
-- None documented yet.
+- Enforce DoR before sprint commitment: every item entering an iteration should have a usable description and acceptance criteria.
+- Separate planned sprint work from interrupt-driven defects so reactive support does not distort iteration commitment.
+- Watch ownership concentration on any single designer or reviewer, since too much early-stage sprint scope on one person creates delivery risk.
+- Review and prune stale project-root backlog items regularly to prevent old inventory from competing with current sprint work.
+
+## Project Exceptions
+
+- None documented.
 
 ---
 

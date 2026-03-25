@@ -30,6 +30,16 @@ Then the auditor must always create diagrams to visualize the data
   And use it as context for the new audit
 ```
 
+## Shared Skill Authority
+
+- The shared ADO SAFe audit skill at `.claude/skills/ado_safe_audit.md` governs audit workflow, scoring, evidence rules, output policy, and batch behavior for this workspace.
+- This `CLAUDE.md` file is the local source of truth for project context, audit history, and explicit project exceptions.
+- If this file conflicts with the shared skill on workflow, scoring, evidence, or output policy, the shared skill wins unless the difference is explicitly documented under `Project Exceptions`.
+
+## Project Exceptions
+
+- None documented.
+
 ---
 
 # Memory
