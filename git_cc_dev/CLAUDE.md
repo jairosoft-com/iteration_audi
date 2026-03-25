@@ -1,16 +1,21 @@
-# Colina Health Iteration Audit Contract
+# Colina Health Iteration Audit Context
 
-## Role
+## Shared Skill Authority
 
-You are an **Engineering Productivity (EngProd) Engineer** with 20+ years of experience. You have deep expertise in GitHub, Azure DevOps, delivery governance, and interpreting engineering metrics without relying on shallow activity counts.
+- The shared Git audit skill at `.claude/skills/git_iteration_audit/SKILL.md` governs workflow, scoring, evidence rules, report structure, output policy, and batch behavior for this workspace.
+- This `CLAUDE.md` file is the local source of truth for project scope, repository scope, audit history, people, glossary, and explicit project exceptions.
+- If this file conflicts with the shared skill on workflow, scoring, evidence, or output policy, the shared skill wins unless the difference is explicitly documented under `Project Exceptions`.
 
-## Objective
+## Project Context
 
-Your goal is to audit developer productivity for the **Colina Health Team** during the **current active Azure DevOps iteration**.
+### Objective
 
-This is an **iteration-bounded audit**. It is not a general repository audit, an organization-wide productivity review, or a multi-project assessment.
+Audit the **Colina Health Product Team** for the **current active Azure DevOps iteration** using the shared Git standard:
+- GitHub developer productivity
+- SAFe compliance
+- ADO-to-GitHub traceability
 
-## Audit Boundary
+This is an iteration-bounded audit. It is not a general repository audit, an organization-wide productivity review, or a multi-project assessment.
 
 ### In Scope
 
@@ -25,7 +30,7 @@ This is an **iteration-bounded audit**. It is not a general repository audit, an
 - **GitHub Repo 1:** `https://github.com/jairosoft-com/colinahealth-fe.git`
 - **GitHub Repo 2:** `https://github.com/jairosoft-com/colinahealth-be.git`
 - **GitHub Repo 3:** `https://github.com/jairosoft-com/colina-health-ai-agent-code-fixing.git`
-- **Time Window:** The current active iteration returned by `Colina Health Product Team` team settings in Azure DevOps
+- **Time Window:** the current active iteration returned by `Colina Health Product Team` team settings in Azure DevOps
 
 ### Out of Scope
 
@@ -36,126 +41,10 @@ This is an **iteration-bounded audit**. It is not a general repository audit, an
   - `https://github.com/jairosoft-com/colinahealth-fe.git`
   - `https://github.com/jairosoft-com/colinahealth-be.git`
   - `https://github.com/jairosoft-com/colina-health-ai-agent-code-fixing.git`
-If required evidence is not available from the scoped ADO team/backlog sources or the 3 scoped repositories, report the limitation explicitly. Do not broaden the audit boundary to compensate for missing data.
 
-## Evidence Priority
+## Project Exceptions
 
-1. **ADO current iteration** for `Colina Health Product Team` defines the audit window.
-2. **ADO work items** on the `Stories and Deliverables` backlog (`Microsoft.RequirementCategory`) under `Colina Health Product Team` define planned work, ownership, state, and iteration membership.
-3. **GitHub activity** in the 3 scoped repos provides delivery evidence for that iteration.
-
-Never infer scope from organization-wide Azure DevOps searches, unrelated ADO work items, other teams, or other repositories.
-
-## Audit Workflow
-
-1. Resolve the current iteration from `Colina Health Product Team` team settings.
-2. Capture the exact iteration name, start date, and finish date from Azure DevOps.
-3. Pull planned work only from the current iteration for the `Stories and Deliverables` backlog (`Microsoft.RequirementCategory`) under `Colina Health Product Team`.
-4. Collect GitHub PRs, commits, branches, reviews, and merge activity only from:
-   - `https://github.com/jairosoft-com/colinahealth-fe.git`
-   - `https://github.com/jairosoft-com/colinahealth-be.git`
-   - `https://github.com/jairosoft-com/colina-health-ai-agent-code-fixing.git`
-5. Limit GitHub evidence to the iteration date window returned by Azure DevOps.
-6. Correlate GitHub activity to ADO work items using work item IDs in branch names, commit messages, PR titles, and PR bodies.
-7. Classify work into these buckets when needed:
-   - `linked iteration work`
-   - `unlinked work`
-   - `out-of-iteration work`
-   - `maintenance/context only`
-8. Produce findings only from observable evidence.
-
-## Failure Handling
-
-- If the current ADO iteration cannot be resolved for `Colina Health Product Team`, stop and report that the audit boundary cannot be established.
-- If the scoped team settings, current iteration data, or backlog data is unavailable, fail narrowly and report the missing scoped source.
-- If GitHub data is partially unavailable, continue with a degraded audit and explicitly state what evidence is missing.
-- Never invent dates, mappings, ownership, or work-item relationships.
-- Never substitute another team board, another ADO team, or another repo.
-
-## Productivity Metrics
-
-Focus the audit on the current iteration only. Required areas of analysis:
-
-- Planned vs completed work items in the current iteration
-- Delivery evidence per developer across the 3 scoped repos
-- PR throughput, cycle time, and merge behavior during the iteration
-- Review participation and review turnaround during the iteration
-- Traceability between ADO work items and GitHub delivery
-- Bottlenecks, ownership imbalance, and untracked work inside the scoped system
-- Rework signals such as reopened work, repeated PRs, churn, or unreviewed merges
-- Repo hygiene enablers such as branch protection, PR templates, CODEOWNERS, and CI quality gates as contextual productivity factors
-
-Do not score developers on raw commit count alone.
-
-## Output Contract
-
-- Save the audit report under `./audit/`
-- Use the filename format `AUDIT_<date>_<time>.md`
-- Final audit Markdown must not be written to `./report/` or `./temp/`
-- The report must state the audit boundary near the top:
-  - current iteration name
-  - current iteration start and finish dates
-  - ADO team, backlog, and board URL used
-  - GitHub repos used
-  - explicit note that no other boards or repos were analyzed
-
-Required report sections:
-
-- Audit metadata
-- Executive summary
-- Iteration scope and methodology
-- Developer productivity findings
-- ADO-to-GitHub traceability analysis
-- Collaboration and review analysis
-- Risks and bottlenecks
-- Prioritized remediation actions
-
-Required reporting behavior:
-
-- Use Mermaid diagrams to visualize iteration data
-- Do not use `xychart-beta`; use Mermaid syntax that renders reliably in Obsidian
-- Attribute every major finding as `ADO`, `GitHub`, or `Cross-system`
-- Distinguish:
-  - planned iteration work on the scoped backlog
-  - delivered work observed in the 3 repos
-  - work with no cross-system traceability
-- Report limitations instead of widening scope
-
-## Rules
-
-```gherkin
-Scenario: Creating an audit report
-  Given an audit report is created
-  Then it must be saved under the `./audit/` sub-folder
-  And it must follow the file naming convention `AUDIT_<date>_<time>.md`
-  And it must not be saved to `./report/` or `./temp/`
-
-Scenario: Enforcing the audit boundary
-  Given the audit is running
-  Then the auditor must only use the `Colina Health Product Team` team context and scoped backlog in the `Jairosoft Portfolio` project
-  And the auditor must only use the repositories `https://github.com/jairosoft-com/colinahealth-fe.git` and `https://github.com/jairosoft-com/colinahealth-be.git` and `https://github.com/jairosoft-com/colina-health-ai-agent-code-fixing.git`
-  And the auditor must not inspect or summarize other boards, teams, projects, or repositories
-
-Scenario: Resolving the current iteration
-  Given the audit is for the current iteration
-  Then the auditor must resolve the active iteration from `Colina Health Product Team` team settings
-  And the auditor must use that iteration's exact start and finish dates as the audit window
-
-Scenario: Handling missing scoped evidence
-  Given scoped Azure DevOps or GitHub evidence is unavailable
-  Then the auditor must explicitly report the limitation
-  And the auditor must not broaden scope to other boards or repositories
-
-Scenario: Correlating delivery evidence
-  Given GitHub activity is analyzed
-  Then the auditor must correlate it to ADO work items using IDs in branches, commits, PR titles, and PR bodies when available
-  And the auditor must classify unlinked or out-of-iteration work explicitly
-
-Scenario: Visualizing data
-  Given data is presented in the report
-  Then the auditor must create Mermaid diagrams to visualize the data
-  And the auditor must not use `xychart-beta`
-```
+- Historical `SCORECARD_*.md` files remain in `audit/` as legacy artifacts. New audits for this workspace use one integrated `AUDIT_<date>_<time>.md` report only.
 
 ---
 
@@ -214,7 +103,11 @@ Scenario: Visualizing data
 
 | Date | File | Status |
 |------|------|--------|
-|  |  |  |
+| 2026-03-11 | `audit/AUDIT_20260311_2329.md` | Complete |
+| 2026-03-12 | `audit/AUDIT_20260312_1536.md` | Complete |
+| 2026-03-17 | `audit/AUDIT_20260317_1700.md` | Complete |
+| 2026-03-18 | `audit/AUDIT_20260318_1030.md` | Complete |
+| 2026-03-22 | `audit/AUDIT_20260322_1030.md` | Complete |
 
 ## Preferences
 
