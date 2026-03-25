@@ -2,8 +2,7 @@
 name: ado-safe-audit
 description: Run a standardized ADO SAFe iteration audit for a single `ado_*` workspace or for `all-projects`. This skill is the authority for ADO audit workflow, scoring, evidence rules, and output policy.
 argument-hint: [project-folder] or [all-projects]
-allowed-tools: Yes
-
+allowed-tools: Read, Glob, Grep, Bash, Edit, Write, Agent
 ---
 
 # ADO SAFe Audit Skill
