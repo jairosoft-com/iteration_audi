@@ -108,6 +108,7 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 | 2026-03-17 | `audit/AUDIT_20260317_1700.md` | Complete |
 | 2026-03-18 | `audit/AUDIT_20260318_1030.md` | Complete |
 | 2026-03-22 | `audit/AUDIT_20260322_1030.md` | Complete |
+| 2026-03-25 | `audit/AUDIT_20260325_1800.md` | Complete |
 
 ## Preferences
 
