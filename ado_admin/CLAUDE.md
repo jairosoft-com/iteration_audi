@@ -22,7 +22,7 @@ Your goal is to audit the `Administration Team Board` current iteration in `Jair
 
 -Scenario: Visualizing data
   Given data is being presented in the report
-Then the auditor must always create diagrams to visualize the data
+  Then the auditor must always create diagrams to visualize the data
 
 -Scenario: Reviewing previous audit context
   Given a new audit report is being prepared
@@ -32,7 +32,7 @@ Then the auditor must always create diagrams to visualize the data
 
 ## Shared Skill Authority
 
-- The shared ADO SAFe audit skill at `.claude/skills/ado_safe_audit.md` governs audit workflow, scoring, evidence rules, output policy, and batch behavior for this workspace.
+- The shared ADO SAFe audit skill at `.claude/skills/ado-safe-audit/SKILL.md` governs audit workflow, scoring, evidence rules, output policy, and batch behavior for this workspace.
 - This `CLAUDE.md` file is the local source of truth for project context, audit history, and explicit project exceptions.
 - If this file conflicts with the shared skill on workflow, scoring, evidence, or output policy, the shared skill wins unless the difference is explicitly documented under `Project Exceptions`.
 
@@ -76,7 +76,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 |------|------|
 | **PI 6** | Current Program Increment (Jan-Apr 2026), Iterations 6.1-6.6 |
 | **Iteration 6.5** | Completed sprint (Mar 10 - Mar 22, 2026) — 61.3% SP delivered |
-| **Iteration 6.6** | Next sprint (starts after Mar 22, 2026) |
+| **Iteration 6.6** | PI 6 IP sprint — Mar 23 – Apr 5, 2026 (closes PI 6; dates from ADO iteration path) |
 | **ADO Project ID** | e0bb302f-40f9-46c3-8164-6f1acb317d63 |
 | **Admin Team ID** | a38a9c02-07ab-483d-a1e3-aff54e19e603 |
 -> Details: memory/projects/
@@ -98,8 +98,8 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 | Tasks | Microsoft.TaskCategory | Task, Bug |
 
 ## Recurring Audit Findings (Persistent Issues)
-- ~~No capacity planning configured~~ **RESOLVED** (Mar 9, 2026) — Mark set 8h/day "Documentation" activity. Note: activity type could be broader.
-- No Story Points on User Stories (every audit)
+- Capacity planning often missing or inconsistent
+- Story points often missing or inconsistent
 - Single assignee (Mark Colina) on all items — bus factor risk
 - Features lack Business Value / Effort for WSJF
 - Stories lack acceptance criteria
@@ -109,6 +109,9 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 - Overall SAFe compliance: ~55/100 (down from 57 at close-out; up from 42 at first audit)
 
 ## Audit History
+
+Numbered rows below are the early audit series. **Additional runs** after Mar 22, 2026 are in `./audit/` — use `AUDIT_YYYYMMDD_HHMM.md` filenames (lexicographic order ≈ chronology) to find the latest.
+
 | # | File | Date |
 |---|------|------|
 | 1 | AUDIT_20260225_2104 | Feb 25, 2026 |
