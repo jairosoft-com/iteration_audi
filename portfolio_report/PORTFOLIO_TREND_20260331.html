@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Trend — Iteration 6.6 (IP)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+  :root {
+    --green: #22c55e;
+    --yellow: #eab308;
+    --orange: #f97316;
+    --red: #ef4444;
+    --bg: #faf8ff;
+    --text: #113069;
+    --mean-color: #6366f1;
+    --median-color: #06b6d4;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+  h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+  .material-symbols-outlined { vertical-align: middle; }
+
+  /* Tooltip */
+  .chart-tooltip {
+    position: absolute; pointer-events: none; opacity: 0;
+    background: #1e1b4b; color: #fff; padding: 8px 12px; border-radius: 8px;
+    font-size: 0.75rem; line-height: 1.4; white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: opacity 0.15s;
+    z-index: 50;
+  }
+  .chart-tooltip.visible { opacity: 1; }
+
+  /* Data point hover */
+  .data-dot { transition: r 0.15s, stroke-width 0.15s; cursor: pointer; }
+  .data-dot:hover { r: 7; stroke-width: 3; }
+
+  /* Risk band labels */
+  .band-label { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; }
+
+  @media print {
+    body { background: #fff; }
+    .no-print { display: none !important; }
+  }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- HEADER -->
+<header class="w-full px-6 py-5" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);">
+  <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <h1 class="text-xl font-extrabold text-white tracking-tight">Portfolio Mean &amp; Median Trend</h1>
+      <p class="text-indigo-300 text-sm mt-1">Iteration 6.6 (IP) &mdash; Day 3 through Day 14 (Projected Finish)</p>
+    </div>
+    <div class="flex gap-3">
+      <button onclick="window.print()" class="no-print text-xs font-semibold px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition flex items-center gap-1">
+        <span class="material-symbols-outlined" style="font-size:1rem;">print</span> Export PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-8 space-y-6">
+
+<!-- KPI CARDS -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <div class="bg-white rounded-xl shadow-sm p-4 border-l-4" style="border-color: var(--mean-color);">
+    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide">Current Mean</div>
+    <div class="text-2xl font-bold mt-1" style="color: var(--mean-color);">72.4</div>
+    <div class="text-xs text-green-600 font-medium">+8.1 since Day 3</div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm p-4 border-l-4" style="border-color: var(--median-color);">
+    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide">Current Median</div>
+    <div class="text-2xl font-bold mt-1" style="color: var(--median-color);">77.1</div>
+    <div class="text-xs text-green-600 font-medium">+19.3 since Day 3</div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm p-4 border-l-4" style="border-color: var(--mean-color);">
+    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide">Projected Mean</div>
+    <div class="text-2xl font-bold mt-1" style="color: var(--mean-color);">77.7</div>
+    <div class="text-xs text-gray-400">Day 14 (Apr 5) est.</div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm p-4 border-l-4" style="border-color: var(--median-color);">
+    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide">Projected Median</div>
+    <div class="text-2xl font-bold mt-1" style="color: var(--median-color);">79.5</div>
+    <div class="text-xs text-gray-400">Day 14 (Apr 5) est.</div>
+  </div>
+</section>
+
+<!-- CHART -->
+<section class="bg-white rounded-xl shadow-sm p-6">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-sm font-bold uppercase tracking-wide text-gray-500">Portfolio Score Trend — Iteration 6.6 (IP)</h2>
+    <div class="flex items-center gap-5 text-xs">
+      <span class="flex items-center gap-1.5"><span class="w-3 h-0.5 inline-block rounded" style="background:var(--mean-color);height:3px;"></span> Mean (actual)</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 inline-block rounded" style="background:var(--mean-color);height:3px;border-top:2px dashed var(--mean-color);height:0;border-top-width:3px;"></span> Mean (projected)</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 h-0.5 inline-block rounded" style="background:var(--median-color);height:3px;"></span> Median (actual)</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 inline-block rounded" style="background:var(--median-color);height:3px;border-top:2px dashed var(--median-color);height:0;border-top-width:3px;"></span> Median (projected)</span>
+    </div>
+  </div>
+
+  <div style="position:relative;">
+    <div class="chart-tooltip" id="tooltip"></div>
+    <svg viewBox="0 0 800 420" width="100%" height="420" id="trendChart">
+      <defs>
+        <!-- Gradient for projection zone -->
+        <linearGradient id="projZone" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#e0e7ff" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#e0e7ff" stop-opacity="0.6"/>
+        </linearGradient>
+        <!-- Mean line gradient -->
+        <linearGradient id="meanGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#6366f1"/>
+          <stop offset="100%" stop-color="#818cf8"/>
+        </linearGradient>
+        <!-- Median line gradient -->
+        <linearGradient id="medianGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#06b6d4"/>
+          <stop offset="100%" stop-color="#22d3ee"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Chart area: x=80..760, y=30..380 -->
+      <!-- Y range: 40..100 -->
+      <!-- x mapping: day 1..14 => 80 + (day-1)*52.3 -->
+      <!-- y mapping: score => 380 - (score-40)/60 * 350 -->
+
+      <!-- Risk band backgrounds -->
+      <!-- Critical < 40: y > 380 (below chart) -->
+      <!-- High Risk 40-59.9 -->
+      <rect x="80" y="146.3" width="680" height="116.7" fill="#fff7ed" opacity="0.4"/>
+      <!-- Moderate 60-79.9 -->
+      <rect x="80" y="29.7" width="680" height="116.7" fill="#fefce8" opacity="0.3"/>
+      <!-- Low Risk >= 80 -->
+      <rect x="80" y="30" width="680" height="0" fill="#f0fdf4" opacity="0.3"/>
+      <!-- More precise bands -->
+      <!-- y at score 40 = 380 -->
+      <!-- y at score 60 = 380 - (60-40)/60*350 = 380 - 116.7 = 263.3 -->
+      <!-- y at score 80 = 380 - (80-40)/60*350 = 380 - 233.3 = 146.7 -->
+      <!-- y at score 100 = 380 - (100-40)/60*350 = 380 - 350 = 30 -->
+      <rect x="80" y="30" width="680" height="116.7" fill="#f0fdf4" opacity="0.35"/>
+      <rect x="80" y="146.7" width="680" height="116.6" fill="#fefce8" opacity="0.3"/>
+      <rect x="80" y="263.3" width="680" height="116.7" fill="#fff7ed" opacity="0.35"/>
+
+      <!-- Risk band labels (right edge) -->
+      <text x="770" y="90" class="band-label" fill="#166534" text-anchor="end">LOW RISK</text>
+      <text x="770" y="210" class="band-label" fill="#854d0e" text-anchor="end">MODERATE</text>
+      <text x="770" y="325" class="band-label" fill="#9a3412" text-anchor="end">HIGH RISK</text>
+
+      <!-- Risk band threshold lines -->
+      <line x1="80" y1="146.7" x2="760" y2="146.7" stroke="#22c55e" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+      <text x="75" y="150" font-size="10" fill="#22c55e" text-anchor="end" font-weight="600">80</text>
+      <line x1="80" y1="263.3" x2="760" y2="263.3" stroke="#eab308" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+      <text x="75" y="267" font-size="10" fill="#eab308" text-anchor="end" font-weight="600">60</text>
+
+      <!-- Y axis gridlines -->
+      <line x1="80" y1="30" x2="760" y2="30" stroke="#e5e7eb" stroke-width="0.5"/>
+      <text x="75" y="34" font-size="10" fill="#9ca3af" text-anchor="end">100</text>
+      <line x1="80" y1="88.3" x2="760" y2="88.3" stroke="#e5e7eb" stroke-width="0.5"/>
+      <text x="75" y="92" font-size="10" fill="#9ca3af" text-anchor="end">90</text>
+      <line x1="80" y1="205" x2="760" y2="205" stroke="#e5e7eb" stroke-width="0.5"/>
+      <text x="75" y="209" font-size="10" fill="#9ca3af" text-anchor="end">70</text>
+      <line x1="80" y1="321.7" x2="760" y2="321.7" stroke="#e5e7eb" stroke-width="0.5"/>
+      <text x="75" y="325" font-size="10" fill="#9ca3af" text-anchor="end">50</text>
+      <line x1="80" y1="380" x2="760" y2="380" stroke="#e5e7eb" stroke-width="0.5"/>
+      <text x="75" y="384" font-size="10" fill="#9ca3af" text-anchor="end">40</text>
+
+      <!-- X axis: Day 1-14 -->
+      <!-- x = 80 + (day-1) * 52.3 -->
+      <!-- Day 1=80, 2=132.3, 3=184.6, 4=236.9, 5=289.2, 6=341.5, 7=393.8, 8=446.1, 9=498.4, 10=550.8, 11=603.1, 12=655.4, 13=707.7, 14=760 -->
+      <line x1="80" y1="385" x2="760" y2="385" stroke="#d1d5db" stroke-width="1"/>
+
+      <!-- Day labels -->
+      <text x="80" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D1</text>
+      <text x="132.3" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D2</text>
+      <text x="184.6" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D3</text>
+      <text x="236.9" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D4</text>
+      <text x="289.2" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D5</text>
+      <text x="341.5" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D6</text>
+      <text x="393.8" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D7</text>
+      <text x="446.1" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D8</text>
+      <text x="498.4" y="400" font-size="9" fill="#9ca3af" text-anchor="middle">D9</text>
+      <text x="550.8" y="400" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="600">D10</text>
+      <text x="603.1" y="400" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="600">D11</text>
+      <text x="655.4" y="400" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="600">D12</text>
+      <text x="707.7" y="400" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="600">D13</text>
+      <text x="760" y="400" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="600">D14</text>
+
+      <!-- Date labels -->
+      <text x="80" y="414" font-size="8" fill="#d1d5db" text-anchor="middle">Mar 23</text>
+      <text x="184.6" y="414" font-size="8" fill="#d1d5db" text-anchor="middle">Mar 25</text>
+      <text x="341.5" y="414" font-size="8" fill="#d1d5db" text-anchor="middle">Mar 28</text>
+      <text x="498.4" y="414" font-size="8" fill="#d1d5db" text-anchor="middle">Mar 31</text>
+      <text x="760" y="414" font-size="8" fill="#6366f1" text-anchor="middle">Apr 5</text>
+
+      <!-- Projection zone shading -->
+      <rect x="498.4" y="30" width="261.6" height="355" fill="url(#projZone)" rx="4"/>
+      <text x="630" y="50" font-size="10" fill="#6366f1" text-anchor="middle" font-weight="600" opacity="0.7">PROJECTED</text>
+
+      <!-- TODAY marker -->
+      <line x1="498.4" y1="30" x2="498.4" y2="385" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+      <text x="498.4" y="24" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="700">TODAY</text>
+
+      <!-- ═══════════════ MEAN LINE (actual) ═══════════════ -->
+      <!-- Day 3: x=184.6, score 64.3 → y = 380 - (64.3-40)/60*350 = 380 - 141.4 = 238.6 -->
+      <!-- Day 4: x=236.9, score 65.7 → y = 380 - (65.7-40)/60*350 = 380 - 149.9 = 230.1 -->
+      <!-- Day 6: x=341.5, score 66.1 → y = 380 - (66.1-40)/60*350 = 380 - 152.3 = 227.7 -->
+      <!-- Day 8: x=446.1, score 67.6 → y = 380 - (67.6-40)/60*350 = 380 - 160.9 = 219.1 -->
+      <!-- Day 9: x=498.4, score 72.4 → y = 380 - (72.4-40)/60*350 = 380 - 189.0 = 191.0 -->
+      <polyline points="184.6,238.6 236.9,230.1 341.5,227.7 446.1,219.1 498.4,191.0"
+        fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- MEAN LINE (projected) -->
+      <!-- Linear regression: y = 59.35 + 1.312*day -->
+      <!-- Day 10: 72.4 → 74.5 (blend from actual), y = 380 - (74.5-40)/60*350 = 380 - 201.3 = 178.8 -->
+      <!-- Day 11: 75.7, y = 380 - (75.7-40)/60*350 = 380 - 208.2 = 171.8 -->
+      <!-- Day 12: 76.5, y = 380 - (76.5-40)/60*350 = 380 - 212.9 = 167.1 -->
+      <!-- Day 13: 77.1, y = 380 - (77.1-40)/60*350 = 380 - 216.4 = 163.6 -->
+      <!-- Day 14: 77.7, y = 380 - (77.7-40)/60*350 = 380 - 219.9 = 160.1 -->
+      <polyline points="498.4,191.0 550.8,178.8 603.1,171.8 655.4,167.1 707.7,163.6 760,160.1"
+        fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8,5"/>
+
+      <!-- ═══════════════ MEDIAN LINE (actual) ═══════════════ -->
+      <!-- Day 3: score 57.8 → y = 380 - (57.8-40)/60*350 = 380 - 103.6 = 276.4 -->
+      <!-- Day 4: score 58.5 → y = 380 - (58.5-40)/60*350 = 380 - 107.9 = 272.1 -->
+      <!-- Day 6: score 60.3 → y = 380 - (60.3-40)/60*350 = 380 - 118.4 = 261.6 -->
+      <!-- Day 8: score 60.3 → y = 261.6 -->
+      <!-- Day 9: score 77.1 → y = 380 - (77.1-40)/60*350 = 380 - 216.4 = 163.6 -->
+      <polyline points="184.6,276.4 236.9,272.1 341.5,261.6 446.1,261.6 498.4,163.6"
+        fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- MEDIAN LINE (projected) -->
+      <!-- Median projection is more conservative — the Day 9 jump was a one-time band reshuffle -->
+      <!-- Projecting: 77.1 → 77.5 → 78.0 → 78.5 → 79.0 → 79.5 -->
+      <!-- Day 10: 77.5, y = 380 - (77.5-40)/60*350 = 380 - 218.8 = 161.3 -->
+      <!-- Day 11: 78.0, y = 380 - (78.0-40)/60*350 = 380 - 221.7 = 158.3 -->
+      <!-- Day 12: 78.5, y = 380 - (78.5-40)/60*350 = 380 - 224.6 = 155.4 -->
+      <!-- Day 13: 79.0, y = 380 - (79.0-40)/60*350 = 380 - 227.5 = 152.5 -->
+      <!-- Day 14: 79.5, y = 380 - (79.5-40)/60*350 = 380 - 230.4 = 149.6 -->
+      <polyline points="498.4,163.6 550.8,161.3 603.1,158.3 655.4,155.4 707.7,152.5 760,149.6"
+        fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8,5"/>
+
+      <!-- ═══════════════ DATA POINTS — MEAN ═══════════════ -->
+      <circle class="data-dot" cx="184.6" cy="238.6" r="5" fill="#6366f1" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 3 — Mar 25\nMean: 64.3')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="236.9" cy="230.1" r="5" fill="#6366f1" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 4 — Mar 26\nMean: 65.7')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="341.5" cy="227.7" r="5" fill="#6366f1" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 6 — Mar 28\nMean: 66.1')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="446.1" cy="219.1" r="5" fill="#6366f1" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 8 — Mar 30\nMean: 67.6')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="498.4" cy="191.0" r="6" fill="#6366f1" stroke="#fff" stroke-width="2.5"
+        onmouseenter="showTip(event,'Day 9 — Mar 31 (Today)\nMean: 72.4 (+4.8)')" onmouseleave="hideTip()"/>
+
+      <!-- Projected mean endpoint -->
+      <circle cx="760" cy="160.1" r="5" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="3,2"
+        onmouseenter="showTip(event,'Day 14 — Apr 5 (Projected)\nMean: 77.7')" onmouseleave="hideTip()" style="cursor:pointer;"/>
+      <text x="760" y="153" font-size="11" fill="#6366f1" text-anchor="middle" font-weight="700">77.7</text>
+
+      <!-- ═══════════════ DATA POINTS — MEDIAN ═══════════════ -->
+      <circle class="data-dot" cx="184.6" cy="276.4" r="5" fill="#06b6d4" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 3 — Mar 25\nMedian: 57.8')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="236.9" cy="272.1" r="5" fill="#06b6d4" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 4 — Mar 26\nMedian: 58.5')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="341.5" cy="261.6" r="5" fill="#06b6d4" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 6 — Mar 28\nMedian: 60.3')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="446.1" cy="261.6" r="5" fill="#06b6d4" stroke="#fff" stroke-width="2"
+        onmouseenter="showTip(event,'Day 8 — Mar 30\nMedian: 60.3 (flat)')" onmouseleave="hideTip()"/>
+      <circle class="data-dot" cx="498.4" cy="163.6" r="6" fill="#06b6d4" stroke="#fff" stroke-width="2.5"
+        onmouseenter="showTip(event,'Day 9 — Mar 31 (Today)\nMedian: 77.1 (+16.8)')" onmouseleave="hideTip()"/>
+
+      <!-- Projected median endpoint -->
+      <circle cx="760" cy="149.6" r="5" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="3,2"
+        onmouseenter="showTip(event,'Day 14 — Apr 5 (Projected)\nMedian: 79.5')" onmouseleave="hideTip()" style="cursor:pointer;"/>
+      <text x="760" y="143" font-size="11" fill="#06b6d4" text-anchor="middle" font-weight="700">79.5</text>
+
+      <!-- Score labels on actual points -->
+      <text x="184.6" y="231" font-size="10" fill="#6366f1" text-anchor="middle" font-weight="600">64.3</text>
+      <text x="498.4" y="183" font-size="11" fill="#6366f1" text-anchor="middle" font-weight="700">72.4</text>
+      <text x="184.6" y="290" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="600">57.8</text>
+      <text x="498.4" y="156" font-size="11" fill="#06b6d4" text-anchor="middle" font-weight="700">77.1</text>
+
+      <!-- Annotation: Day 9 jump -->
+      <line x1="460" y1="175" x2="490" y2="185" stroke="#9ca3af" stroke-width="0.8"/>
+      <rect x="370" y="162" width="90" height="24" rx="4" fill="#fff" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="415" y="178" font-size="9" fill="#6b7280" text-anchor="middle">Admin +22.1</text>
+
+    </svg>
+  </div>
+
+  <!-- Annotations -->
+  <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-500">
+    <div class="bg-indigo-50 rounded-lg p-3">
+      <div class="font-semibold text-indigo-700 mb-1">Mean Projection (Linear Regression)</div>
+      <p>Based on 5 data points (Days 3-9). Regression slope: +1.31/day. The Day 9 acceleration (capacity fix + closures) inflects the trend upward. Projected to reach <strong>77.7</strong> by sprint close &mdash; just below Low Risk threshold.</p>
+    </div>
+    <div class="bg-cyan-50 rounded-lg p-3">
+      <div class="font-semibold text-cyan-700 mb-1">Median Projection (Conservative)</div>
+      <p>The Day 9 median jump (+16.8) was a one-time structural reshuffle: Administration crossed from High to Moderate, shifting the 5th-ranked team from 60.3 (LS Dev) to 77.1 (OTP). Further median movement requires another team crossing a threshold. Projected at <strong>79.5</strong> &mdash; approaching Low Risk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DATA TABLE -->
+<section class="bg-white rounded-xl shadow-sm overflow-x-auto">
+  <table class="w-full text-sm">
+    <thead>
+      <tr class="bg-gray-50 text-left">
+        <th class="px-4 py-3 text-xs uppercase tracking-wide text-gray-500 font-semibold">Day</th>
+        <th class="px-4 py-3 text-xs uppercase tracking-wide text-gray-500 font-semibold">Date</th>
+        <th class="px-4 py-3 text-xs uppercase tracking-wide text-gray-500 font-semibold">Mean</th>
+        <th class="px-4 py-3 text-xs uppercase tracking-wide text-gray-500 font-semibold">Mean Delta</th>
+        <th class="px-4 py-3 text-xs uppercase tracking-wide text-gray-500 font-semibold">Median</th>
+        <th class="px-4 py-3 text-xs uppercase tracking-wide text-gray-500 font-semibold">Median Delta</th>
+        <th class="px-4 py-3 text-xs uppercase tracking-wide text-gray-500 font-semibold">Key Event</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr>
+        <td class="px-4 py-2 font-mono">Day 3</td>
+        <td class="px-4 py-2">Mar 25</td>
+        <td class="px-4 py-2 font-bold" style="color:#6366f1;">64.3</td>
+        <td class="px-4 py-2 text-gray-400">&mdash;</td>
+        <td class="px-4 py-2 font-bold" style="color:#06b6d4;">57.8</td>
+        <td class="px-4 py-2 text-gray-400">&mdash;</td>
+        <td class="px-4 py-2 text-gray-500">First portfolio snapshot</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-2 font-mono">Day 4</td>
+        <td class="px-4 py-2">Mar 26</td>
+        <td class="px-4 py-2 font-bold" style="color:#6366f1;">65.7</td>
+        <td class="px-4 py-2 text-green-600">+1.4</td>
+        <td class="px-4 py-2 font-bold" style="color:#06b6d4;">58.5</td>
+        <td class="px-4 py-2 text-green-600">+0.7</td>
+        <td class="px-4 py-2 text-gray-500">Early sprint stabilization</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-2 font-mono">Day 6</td>
+        <td class="px-4 py-2">Mar 28</td>
+        <td class="px-4 py-2 font-bold" style="color:#6366f1;">66.1</td>
+        <td class="px-4 py-2 text-green-600">+0.4</td>
+        <td class="px-4 py-2 font-bold" style="color:#06b6d4;">60.3</td>
+        <td class="px-4 py-2 text-green-600">+1.8</td>
+        <td class="px-4 py-2 text-gray-500">LS Dev crosses into Moderate</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-2 font-mono">Day 8</td>
+        <td class="px-4 py-2">Mar 30</td>
+        <td class="px-4 py-2 font-bold" style="color:#6366f1;">67.6</td>
+        <td class="px-4 py-2 text-green-600">+1.5</td>
+        <td class="px-4 py-2 font-bold" style="color:#06b6d4;">60.3</td>
+        <td class="px-4 py-2 text-gray-400">0.0</td>
+        <td class="px-4 py-2 text-gray-500">AA Dev exits Critical band</td>
+      </tr>
+      <tr style="background:#f5f3ff;">
+        <td class="px-4 py-2 font-mono font-bold">Day 9</td>
+        <td class="px-4 py-2 font-bold">Mar 31</td>
+        <td class="px-4 py-2 font-bold" style="color:#6366f1;">72.4</td>
+        <td class="px-4 py-2 text-green-600 font-bold">+4.8</td>
+        <td class="px-4 py-2 font-bold" style="color:#06b6d4;">77.1</td>
+        <td class="px-4 py-2 text-green-600 font-bold">+16.8</td>
+        <td class="px-4 py-2 text-gray-700 font-semibold">Admin +22.1, Colina +19.5 (2 band upgrades)</td>
+      </tr>
+      <tr class="text-gray-400" style="background:#eef2ff;">
+        <td class="px-4 py-2 font-mono">Day 14</td>
+        <td class="px-4 py-2">Apr 5</td>
+        <td class="px-4 py-2 font-bold" style="color:#6366f1;">77.7</td>
+        <td class="px-4 py-2" style="color:#6366f1;">+5.3 est.</td>
+        <td class="px-4 py-2 font-bold" style="color:#06b6d4;">79.5</td>
+        <td class="px-4 py-2" style="color:#06b6d4;">+2.4 est.</td>
+        <td class="px-4 py-2 font-italic" style="color:#6366f1;">Projected sprint close</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PROJECTION ASSUMPTIONS -->
+<section class="bg-white rounded-xl shadow-sm p-5">
+  <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-3">Projection Assumptions</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-600">
+    <div>
+      <h4 class="font-semibold text-gray-700 mb-1">Mean Projection Method</h4>
+      <ul class="space-y-1 list-disc list-inside">
+        <li>Linear regression on 5 observed data points (R-slope: +1.31/day)</li>
+        <li>Assumes continued incremental improvement from backlog grooming and closures</li>
+        <li>Does not assume additional band-crossing events like the Day 9 capacity fix</li>
+        <li>Conservative: actual may overshoot if OTP/Colina close remaining items</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gray-700 mb-1">Median Projection Method</h4>
+      <ul class="space-y-1 list-disc list-inside">
+        <li>Conservative +0.5/day from current 77.1 (5th-ranked team: OTP)</li>
+        <li>The Day 9 jump was structural (Administration entering Moderate shifted the middle value)</li>
+        <li>Median depends on which team holds position 5 &mdash; currently OTP at 77.1</li>
+        <li>Upside scenario: if OTP closes 2 done stories, Colina Health (78.5) becomes the median</li>
+        <li>Crossing 80.0 (Low Risk median) requires at least one more team entering Low Risk</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full px-6 py-5 mt-4" style="background:#f1f0fb;">
+  <div class="max-w-5xl mx-auto text-xs text-gray-500 space-y-1">
+    <div><strong>Generated:</strong> March 31, 2026 &nbsp;|&nbsp; <strong>Iteration:</strong> 6.6 (IP) Mar 23 &ndash; Apr 5, 2026 &nbsp;|&nbsp; <strong>Source:</strong> 5 portfolio snapshots (Mar 25&ndash;31)</div>
+    <div><strong>Projection:</strong> Mean via linear regression (slope +1.31/day); Median via conservative step (+0.5/day, threshold-aware)</div>
+  </div>
+</footer>
+
+<script>
+const tooltip = document.getElementById('tooltip');
+function showTip(e, text) {
+  tooltip.innerHTML = text.replace(/\n/g, '<br>');
+  tooltip.classList.add('visible');
+  const rect = e.target.closest('svg').getBoundingClientRect();
+  const cx = parseFloat(e.target.getAttribute('cx'));
+  const cy = parseFloat(e.target.getAttribute('cy'));
+  const svgW = e.target.closest('svg').viewBox.baseVal.width;
+  const svgH = e.target.closest('svg').viewBox.baseVal.height;
+  const scaleX = rect.width / svgW;
+  const scaleY = rect.height / svgH;
+  tooltip.style.left = (rect.left + cx * scaleX - tooltip.offsetWidth / 2 + window.scrollX) + 'px';
+  tooltip.style.top = (rect.top + cy * scaleY - tooltip.offsetHeight - 12 + window.scrollY) + 'px';
+}
+function hideTip() { tooltip.classList.remove('visible'); }
+</script>
+
+</body>
+</html>
