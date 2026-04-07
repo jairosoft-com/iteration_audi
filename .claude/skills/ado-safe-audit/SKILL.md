@@ -70,7 +70,7 @@ For each target project:
    - Use the prior audit for delta context only.
    - Never use the prior audit as a substitute for current evidence.
 5. Inspect the current iteration backlog and required ADO evidence.
-6. Compute the same six-dimension SAFe audit score described below.
+6. Compute the same seven-dimension SAFe audit score described below.
 7. Write exactly one Markdown report to `./audit/AUDIT_<date>_<time>.md`.
 
 ## Evidence precedence
@@ -138,6 +138,12 @@ Use these definitions consistently:
 - `spike_share`
   - Share of `Spike` items among `current_iteration_root_items`
 
+- `committed_story_points`
+  - Sum of Story Points on `estimated_current_items`
+
+- `closed_story_points`
+  - Sum of Story Points on `estimated_current_items` whose State is `Closed` or `Done`
+
 ### Exact formulas
 
 Score each dimension on `0-100`.
@@ -188,9 +194,16 @@ Score each dimension on `0-100`.
   - else if `current_iteration_root_items > 0` and `untouched_current_items / current_iteration_root_items > 10%`: `-10`
 - `Backlog Refinement = max(0, base - penalties)`
 
+#### 7. Delivery Predictability
+
+- If `committed_story_points = 0`, score `0`
+- Otherwise:
+  - `Delivery Predictability = round(closed_story_points / committed_story_points * 100, 1)`
+- Early-sprint note: When the iteration is in its first 5 days (Day 1–5 of a 14-day sprint), annotate the dimension findings with "early-sprint — low delivery expected". No formula adjustment.
+
 ### Overall score and risk band
 
-- `Overall Score = round((Iteration Planning + Team Capacity + Estimation + DoR Compliance + Work Item Balance + Backlog Refinement) / 6, 1)`
+- `Overall Score = round((Iteration Planning + Team Capacity + Estimation + DoR Compliance + Work Item Balance + Backlog Refinement + Delivery Predictability) / 7, 1)`
 
 Use these fixed risk bands:
 - `Low Risk` = `>= 80`
@@ -292,7 +305,7 @@ Before finishing, verify all of the following:
 - the local `CLAUDE.md` was read
 - the current active iteration was resolved
 - the latest prior audit was reviewed
-- the six-dimension rubric was applied exactly once
+- the seven-dimension rubric was applied exactly once
 - the report used the required section order
 - the output is Markdown only
 - no PDF or chart-image artifacts were generated

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Health Dashboard — Iteration 6.6 (IP) — April 4, 2026</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8ff;
+    --text: #113069;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --orange: #f97316;
+    --red: #ef4444;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+  h1, h2, h3, .heading { font-family: 'Manrope', sans-serif; }
+  .material-symbols-outlined { vertical-align: middle; }
+  .risk-pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; }
+  .risk-low { background: #dcfce7; color: #166534; }
+  .risk-moderate { background: #fef9c3; color: #854d0e; }
+  .risk-high { background: #ffedd5; color: #9a3412; }
+  .risk-critical { background: #fee2e2; color: #991b1b; }
+  .type-ado { background: #e0f2fe; color: #0369a1; display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 600; }
+  .type-git { background: #f3e8ff; color: #7e22ce; display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 600; }
+  .scorecard-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+  .scorecard-table th { background: #f1f0fb; color: var(--text); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb; }
+  .scorecard-table td { padding: 10px 12px; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; vertical-align: middle; }
+  .scorecard-table tbody tr:hover { background: #f5f3ff; transition: background 0.15s; }
+  .metric-card { background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .bar-track { background: #f1f0fb; border-radius: 6px; height: 10px; width: 120px; display: inline-block; vertical-align: middle; margin-left: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; transition: width 0.5s; }
+  details summary { cursor: pointer; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: '\25B6'; display: inline-block; margin-right: 8px; font-size: 0.7rem; transition: transform 0.2s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .trend-up { color: #16a34a; }
+  .trend-down { color: #dc2626; }
+  .trend-flat { color: #9ca3af; }
+  @media print {
+    body { background: white; font-size: 9pt; }
+    .no-print { display: none !important; }
+    section { break-inside: avoid; page-break-inside: avoid; }
+    .scorecard-table { font-size: 8pt; }
+    .metric-card { box-shadow: none; border: 1px solid #e5e7eb; }
+  }
+</style>
+</head>
+<body class="min-h-screen">
+<div class="max-w-7xl mx-auto px-4 py-8">
+
+<!-- ============ HEADER ============ -->
+<header class="mb-8">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <div>
+      <h1 class="text-3xl font-extrabold tracking-tight heading" style="color:var(--text);">Portfolio Health Dashboard</h1>
+      <p class="text-sm text-gray-500 mt-1">Iteration 6.6 (IP) &mdash; April 4, 2026 &mdash; Jairosoft LLC</p>
+    </div>
+    <div class="flex gap-3 flex-wrap">
+      <div class="metric-card text-center" style="min-width:130px; background:#113069; color:white;">
+        <div class="text-xs font-medium uppercase opacity-70">Portfolio Mean</div>
+        <div class="text-2xl font-bold mt-1">60.4</div>
+      </div>
+      <div class="metric-card text-center" style="min-width:130px; background:#1e3a6e; color:white;">
+        <div class="text-xs font-medium uppercase opacity-70">Portfolio Median</div>
+        <div class="text-2xl font-bold mt-1">61.4</div>
+      </div>
+      <div class="metric-card text-center" style="min-width:130px; background:#991b1b; color:white;">
+        <div class="text-xs font-medium uppercase opacity-70">Teams at Risk</div>
+        <div class="text-2xl font-bold mt-1">4</div>
+        <div class="text-xs opacity-70">UPS &lt; 60</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PORTFOLIO SCORECARD TABLE ============ -->
+<section class="mb-8">
+  <div class="flex items-center justify-between mb-3">
+    <h2 class="text-lg font-bold heading">Portfolio Scorecard</h2>
+    <button onclick="window.print()" class="no-print text-xs bg-white border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-50 font-medium flex items-center gap-1">
+      <span class="material-symbols-outlined" style="font-size:1rem;">print</span> Export PDF
+    </button>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+    <table class="scorecard-table">
+      <thead>
+        <tr>
+          <th style="width:50px;">Rank</th>
+          <th>Team</th>
+          <th style="width:60px;">Type</th>
+          <th style="width:200px;">UPS Score</th>
+          <th style="width:110px;">Risk Band</th>
+          <th style="width:70px;">Trend</th>
+          <th style="width:110px;">Latest Audit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 01 JIT Operation -->
+        <tr>
+          <td class="font-mono text-gray-400">01</td>
+          <td><span class="font-semibold">JIT Operation</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#22c55e;">86.8</span>
+            <div class="bar-track"><div class="bar-fill" style="width:86.8%;background:#22c55e;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-low">Low Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+4.0</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 02 Finance -->
+        <tr>
+          <td class="font-mono text-gray-400">02</td>
+          <td><span class="font-semibold">Finance</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#22c55e;">84.6</span>
+            <div class="bar-track"><div class="bar-fill" style="width:84.6%;background:#22c55e;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-low">Low Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-flat" style="font-size:1.2rem;">trending_flat</span> <span class="text-xs trend-flat">0.0</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 03 Colina Health -->
+        <tr>
+          <td class="font-mono text-gray-400">03</td>
+          <td><span class="font-semibold">Colina Health</span></td>
+          <td><span class="type-git">Git</span></td>
+          <td>
+            <span class="font-bold" style="color:#22c55e;">80.2</span>
+            <div class="bar-track"><div class="bar-fill" style="width:80.2%;background:#22c55e;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-low">Low Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.2rem;">arrow_downward</span> <span class="text-xs trend-down">-2.5</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 04 OTP -->
+        <tr>
+          <td class="font-mono text-gray-400">04</td>
+          <td><span class="font-semibold">OTP (Office of the President)</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#22c55e;">80.1</span>
+            <div class="bar-track"><div class="bar-fill" style="width:80.1%;background:#22c55e;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-low">Low Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+3.0</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 05 Life Style Help App -->
+        <tr>
+          <td class="font-mono text-gray-400">05</td>
+          <td><span class="font-semibold">Life Style Help App</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#eab308;">61.4</span>
+            <div class="bar-track"><div class="bar-fill" style="width:61.4%;background:#eab308;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-moderate">Moderate</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+2.2</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 06 Auto Allies -->
+        <tr>
+          <td class="font-mono text-gray-400">06</td>
+          <td><span class="font-semibold">Auto Allies</span></td>
+          <td><span class="type-git">Git</span></td>
+          <td>
+            <span class="font-bold" style="color:#f97316;">50.0</span>
+            <div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#f97316;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-high">High Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+0.3</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 07 Flawless Wedding App -->
+        <tr>
+          <td class="font-mono text-gray-400">07</td>
+          <td><span class="font-semibold">Flawless Wedding App</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#f97316;">47.4</span>
+            <div class="bar-track"><div class="bar-fill" style="width:47.4%;background:#f97316;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-high">High Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+0.6</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 08 Administration -->
+        <tr style="background:#fef2f2;">
+          <td class="font-mono text-gray-400">08</td>
+          <td>
+            <span class="font-semibold">Administration</span>
+            <span class="material-symbols-outlined text-red-400" style="font-size:0.9rem;" title="Sprint evacuated">warning</span>
+          </td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#ef4444;">26.7</span>
+            <div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#ef4444;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-critical">Critical</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-flat" style="font-size:1.2rem;">trending_flat</span> <span class="text-xs trend-flat">0.0</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+        <!-- 09 HR Recruitment -->
+        <tr style="background:#fef2f2;">
+          <td class="font-mono text-gray-400">09</td>
+          <td>
+            <span class="font-semibold">HR Recruitment</span>
+            <span class="material-symbols-outlined text-amber-500" style="font-size:0.9rem;" title="Scoring artifact (100% complete)">info</span>
+          </td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#ef4444;">26.7</span>
+            <div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#ef4444;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-critical">Critical</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-flat" style="font-size:1.2rem;">trending_flat</span> <span class="text-xs trend-flat">0.0</span></td>
+          <td class="text-xs text-gray-500">Apr 4, 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-xs text-gray-400 mt-2">
+    <strong>Note:</strong> Administration dropped to 26.7 after all sprint items were evacuated to PI7 (Holy Week + IP sprint close). HR Recruitment remains at 26.7 due to a <strong>v1 rubric limitation</strong> &mdash; all items are Closed and removed from the backlog, producing zero-denominator scores. Actual HR delivery: <strong>14/14 items, 27/27 SP burned (2nd consecutive perfect sprint).</strong>
+  </p>
+</section>
+
+<!-- ============ CHARTS ROW ============ -->
+<section class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Donut Chart -->
+  <div class="bg-white rounded-xl shadow-sm p-6">
+    <h3 class="text-sm font-bold mb-4 uppercase tracking-wide text-gray-500 heading">Risk Distribution</h3>
+    <div class="flex items-center justify-center gap-8">
+      <svg viewBox="0 0 200 200" width="180" height="180">
+        <!-- Donut chart: Low=4, Moderate=1, High=2, Critical=2. Total=9. -->
+        <!-- Angles: Low=4/9*360=160, Moderate=1/9*360=40, High=2/9*360=80, Critical=2/9*360=80 -->
+        <!-- Starting at -90deg (top). Using stroke-dasharray on circle r=70, C=2*pi*70=439.82 -->
+        <!-- Low: 160/360*439.82=195.25 -->
+        <!-- Moderate: 40/360*439.82=48.81 -->
+        <!-- High: 80/360*439.82=97.62 -->
+        <!-- Critical: 80/360*439.82=97.62 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#f3f4f6" stroke-width="28"/>
+        <!-- Low Risk (green) - starts at 0 offset -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#22c55e" stroke-width="28"
+                stroke-dasharray="195.25 244.57"
+                stroke-dashoffset="0"
+                transform="rotate(-90 100 100)"/>
+        <!-- Moderate (yellow) - starts after Low -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#eab308" stroke-width="28"
+                stroke-dasharray="48.81 390.01"
+                stroke-dashoffset="-195.25"
+                transform="rotate(-90 100 100)"/>
+        <!-- High (orange) - starts after Low+Moderate -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#f97316" stroke-width="28"
+                stroke-dasharray="97.62 342.20"
+                stroke-dashoffset="-244.06"
+                transform="rotate(-90 100 100)"/>
+        <!-- Critical (red) - starts after Low+Moderate+High -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#ef4444" stroke-width="28"
+                stroke-dasharray="97.62 342.20"
+                stroke-dashoffset="-341.68"
+                transform="rotate(-90 100 100)"/>
+        <!-- Center text -->
+        <text x="100" y="95" text-anchor="middle" font-family="Manrope, sans-serif" font-size="28" font-weight="800" fill="#113069">9</text>
+        <text x="100" y="115" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#6b7280">teams</text>
+      </svg>
+      <div class="text-xs space-y-2">
+        <div class="flex items-center gap-2"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#22c55e;"></span> Low Risk (4)</div>
+        <div class="flex items-center gap-2"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#eab308;"></span> Moderate (1)</div>
+        <div class="flex items-center gap-2"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#f97316;"></span> High Risk (2)</div>
+        <div class="flex items-center gap-2"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#ef4444;"></span> Critical (2)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bar Chart -->
+  <div class="bg-white rounded-xl shadow-sm p-6">
+    <h3 class="text-sm font-bold mb-4 uppercase tracking-wide text-gray-500 heading">Score Comparison</h3>
+    <svg viewBox="0 0 420 270" width="100%" height="270">
+      <!-- Labels and bars, sorted descending -->
+      <!-- JIT 86.8 -->
+      <text x="110" y="22" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">JIT Operation</text>
+      <rect x="115" y="10" width="260.4" height="18" rx="4" fill="#22c55e"/>
+      <text x="380" y="23" font-family="Inter" font-size="10" fill="#113069" font-weight="600">86.8</text>
+      <!-- Finance 84.6 -->
+      <text x="110" y="50" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">Finance</text>
+      <rect x="115" y="38" width="253.8" height="18" rx="4" fill="#22c55e"/>
+      <text x="373" y="51" font-family="Inter" font-size="10" fill="#113069" font-weight="600">84.6</text>
+      <!-- Colina Health 80.2 -->
+      <text x="110" y="78" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">Colina Health</text>
+      <rect x="115" y="66" width="240.6" height="18" rx="4" fill="#22c55e"/>
+      <text x="360" y="79" font-family="Inter" font-size="10" fill="#113069" font-weight="600">80.2</text>
+      <!-- OTP 80.1 -->
+      <text x="110" y="106" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">OTP</text>
+      <rect x="115" y="94" width="240.3" height="18" rx="4" fill="#22c55e"/>
+      <text x="360" y="107" font-family="Inter" font-size="10" fill="#113069" font-weight="600">80.1</text>
+      <!-- Life Style 61.4 -->
+      <text x="110" y="134" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">Life Style Help</text>
+      <rect x="115" y="122" width="184.2" height="18" rx="4" fill="#eab308"/>
+      <text x="304" y="135" font-family="Inter" font-size="10" fill="#113069" font-weight="600">61.4</text>
+      <!-- Auto Allies 50.0 -->
+      <text x="110" y="162" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">Auto Allies</text>
+      <rect x="115" y="150" width="150.0" height="18" rx="4" fill="#f97316"/>
+      <text x="270" y="163" font-family="Inter" font-size="10" fill="#113069" font-weight="600">50.0</text>
+      <!-- Flawless Wedding 47.4 -->
+      <text x="110" y="190" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">Flawless Wedding</text>
+      <rect x="115" y="178" width="142.2" height="18" rx="4" fill="#f97316"/>
+      <text x="262" y="191" font-family="Inter" font-size="10" fill="#113069" font-weight="600">47.4</text>
+      <!-- Administration 26.7 -->
+      <text x="110" y="218" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">Administration</text>
+      <rect x="115" y="206" width="80.1" height="18" rx="4" fill="#ef4444"/>
+      <text x="200" y="219" font-family="Inter" font-size="10" fill="#113069" font-weight="600">26.7</text>
+      <!-- HR Recruitment 26.7 -->
+      <text x="110" y="246" text-anchor="end" font-family="Inter" font-size="10" fill="#113069" font-weight="500">HR Recruitment</text>
+      <rect x="115" y="234" width="80.1" height="18" rx="4" fill="#ef4444"/>
+      <text x="200" y="247" font-family="Inter" font-size="10" fill="#113069" font-weight="600">26.7</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ TIER ANALYSIS + CROSS-CUTTING THEMES ============ -->
+<section class="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Tier Analysis (2/3) -->
+  <div class="md:col-span-2 space-y-3">
+    <h2 class="text-lg font-bold heading mb-1">Tier Analysis</h2>
+
+    <!-- Top Performers -->
+    <details open class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left:4px solid #22c55e;">
+      <summary class="px-5 py-3 font-semibold text-sm">
+        <span style="color:#22c55e;">Top Performers</span> <span class="text-xs text-gray-400 ml-2">4 teams &mdash; UPS &ge; 80</span>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+        <p><strong>JIT Operation (86.8)</strong> leads the portfolio, up +4.0 from the prior report. Two items were moved to PI7, improving Work Item Balance. However, 3 items from armelita remain 11 days stale and 2 New items from Teofilo are 5 days stale. The IP sprint ends tomorrow with no closures expected.</p>
+        <p><strong>Finance (84.6)</strong> is stable for the 5th consecutive audit. All 3 current items are in Review awaiting PO acceptance. Grace has effectively completed all assigned work. Two carryover items from Iteration 6.5 are now 13 days overdue for PO acceptance.</p>
+        <p><strong>Colina Health (80.2)</strong> maintains 100% SGPI with all 4 committed stories Closed (12 SP). ICS dipped to 85.0% on Day 13. Seven new defects remain untriaged (4 days overdue). No development activity since April 1, consistent with sprint close phase.</p>
+        <p><strong>OTP (80.1)</strong> crossed into Low Risk for the first time this iteration (+3.0 from prior). Two Closed items are now counted, and untouched percentage dropped below 30%. Grace is the sole assignee for all items (accepted structural constraint).</p>
+      </div>
+    </details>
+
+    <!-- Moderate -->
+    <details class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left:4px solid #eab308;">
+      <summary class="px-5 py-3 font-semibold text-sm">
+        <span style="color:#eab308;">Moderate</span> <span class="text-xs text-gray-400 ml-2">1 team &mdash; UPS 60&ndash;79.9</span>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+        <p><strong>Life Style Help App (61.4)</strong> crossed from High to Moderate Risk for the first time since Day 8, up +2.2 from the prior audit. Two items were Closed since last audit. However, Backlog Refinement remains at 0.0 for the ninth consecutive audit &mdash; the longest streak in the portfolio. Five items remain untouched 17+ days. Six items still lack Acceptance Criteria. Samantha Babael owns 58.3% of all items.</p>
+      </div>
+    </details>
+
+    <!-- Needs Attention -->
+    <details class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left:4px solid #f97316;">
+      <summary class="px-5 py-3 font-semibold text-sm">
+        <span style="color:#f97316;">Needs Attention</span> <span class="text-xs text-gray-400 ml-2">2 teams &mdash; UPS 40&ndash;59.9</span>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+        <p><strong>Auto Allies (50.0)</strong> closes the sprint with 12 SP closed out of 28 SP committed (42.9% SGPI). Two rework items have been in Active state for 7 working days since regressing from QA. Zero code reviews across the entire iteration. No branch protection on either repo. HCI at 31/100 (Critical). 43 PRs merged but ADO-to-GitHub traceability remains at 0%.</p>
+        <p><strong>Flawless Wedding App (47.4)</strong> has zero closures at Day 13 despite 9 items at Passed UAT/QA. Backlog grew from 165 to 185 items (+20). ~51 items stale &gt;180 days structurally suppress Backlog Refinement. Score improved marginally (+0.6) due to increased fresh items from PI7 planning.</p>
+      </div>
+    </details>
+
+    <!-- Critical -->
+    <details class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left:4px solid #ef4444;">
+      <summary class="px-5 py-3 font-semibold text-sm">
+        <span style="color:#ef4444;">Critical</span> <span class="text-xs text-gray-400 ml-2">2 teams &mdash; UPS &lt; 40</span>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+        <p><strong>Administration (26.7)</strong> &mdash; Sprint fully evacuated. All items moved to PI7 Iteration 7.1 or removed from backlog. Zero items in Iteration 6.6 for the 3rd consecutive audit. This is intentional (Holy Week + IP boundary), not a delivery failure. 4 of 6 PI7 items fail DoR. #200995 has been flagged for 12 consecutive audits with zero content. Expect score recovery in PI7.</p>
+        <p><strong>HR Recruitment (26.7)</strong> &mdash; Scoring artifact, not a delivery failure. Sprint is 100% complete: 14/14 items, 27/27 SP burned (2nd consecutive perfect sprint). The Critical score is caused by all items being Closed and removed from the visible backlog, yielding zero-denominator scores in 4 of 6 dimensions. 16 follow-up items remain unassigned to any PI7 iteration.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Cross-Cutting Themes (1/3) -->
+  <div>
+    <h2 class="text-lg font-bold heading mb-3">Cross-Cutting Themes</h2>
+    <div class="bg-white rounded-xl shadow-sm p-5 space-y-4">
+      <div>
+        <div class="flex items-start gap-2">
+          <span class="text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0" style="background:#fee2e2;color:#991b1b;">1</span>
+          <div>
+            <p class="text-sm font-semibold">Bus Factor = 1</p>
+            <p class="text-xs text-gray-500 mt-1">5 of 9 teams rely on a single contributor: Administration (Mark), Finance (Grace), HR (Almera), OTP (Grace), Life Style Help (Samantha). Most persistent structural risk in the portfolio.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-start gap-2">
+          <span class="text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0" style="background:#ffedd5;color:#9a3412;">2</span>
+          <div>
+            <p class="text-sm font-semibold">Stale Backlog Debt</p>
+            <p class="text-xs text-gray-500 mt-1">3 teams (Flawless Wedding, Life Style Help, Auto Allies) carry &gt;30 items stale beyond 180 days. Life Style Help has Backlog Refinement at 0.0 for 9 consecutive audits.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-start gap-2">
+          <span class="text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0" style="background:#fef9c3;color:#854d0e;">3</span>
+          <div>
+            <p class="text-sm font-semibold">PI7 Readiness Gap</p>
+            <p class="text-xs text-gray-500 mt-1">IP sprint ends April 5. HR has 16 items unassigned, Admin has 4/6 PI7 items failing DoR, OTP has 2 items unactioned for 8 audits. Teams are not positioned for a clean PI7 start.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-start gap-2">
+          <span class="text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0" style="background:#fee2e2;color:#991b1b;">4</span>
+          <div>
+            <p class="text-sm font-semibold">Engineering Practices Gap (Git)</p>
+            <p class="text-xs text-gray-500 mt-1">Neither Git team has branch protection. Auto Allies has zero code reviews across the entire iteration and 0% ADO-to-GitHub traceability. Colina Health has 95 stale branches.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-start gap-2">
+          <span class="text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0" style="background:#fef9c3;color:#854d0e;">5</span>
+          <div>
+            <p class="text-sm font-semibold">PO Acceptance Bottleneck</p>
+            <p class="text-xs text-gray-500 mt-1">Finance has 13 SP in Review for 13 days overdue. 3 current items also await PO acceptance before sprint close tomorrow. OTP has 2 completed items (#199522, #200686) unactioned for 10+ days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TREND ANALYSIS ============ -->
+<section class="mb-8">
+  <h2 class="text-lg font-bold mb-3 heading">Trend Analysis <span class="text-sm font-normal text-gray-400">vs. April 2, 2026</span></h2>
+  <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+    <table class="scorecard-table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Prior UPS</th>
+          <th>Current UPS</th>
+          <th>Delta</th>
+          <th>Direction</th>
+          <th>Band Transition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="font-semibold">JIT Operation</td>
+          <td>82.8</td>
+          <td>86.8</td>
+          <td class="text-green-600">+4.0</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span></td>
+          <td><span class="text-xs text-gray-400">Low &rarr; Low</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Finance</td>
+          <td>84.6</td>
+          <td>84.6</td>
+          <td>0.0</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-flat" style="font-size:1.2rem;">trending_flat</span></td>
+          <td><span class="text-xs text-gray-400">Low &rarr; Low</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Colina Health</td>
+          <td>82.7</td>
+          <td>80.2</td>
+          <td class="text-red-600">-2.5</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.2rem;">arrow_downward</span></td>
+          <td><span class="text-xs text-gray-400">Low &rarr; Low</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">OTP</td>
+          <td>77.1</td>
+          <td>80.1</td>
+          <td class="text-green-600">+3.0</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span></td>
+          <td><span class="risk-pill risk-low">Moderate &rarr; Low</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Life Style Help App</td>
+          <td>59.2</td>
+          <td>61.4</td>
+          <td class="text-green-600">+2.2</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span></td>
+          <td><span class="risk-pill risk-moderate">High &rarr; Moderate</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Auto Allies</td>
+          <td>49.7</td>
+          <td>50.0</td>
+          <td class="text-green-600">+0.3</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span></td>
+          <td><span class="text-xs text-gray-400">High &rarr; High</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Flawless Wedding App</td>
+          <td>46.8</td>
+          <td>47.4</td>
+          <td class="text-green-600">+0.6</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span></td>
+          <td><span class="text-xs text-gray-400">High &rarr; High</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Administration</td>
+          <td>26.7</td>
+          <td>26.7</td>
+          <td>0.0</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-flat" style="font-size:1.2rem;">trending_flat</span></td>
+          <td><span class="text-xs text-gray-400">Critical &rarr; Critical</span></td>
+        </tr>
+        <tr>
+          <td class="font-semibold">HR Recruitment</td>
+          <td>26.7</td>
+          <td>26.7</td>
+          <td>0.0</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-flat" style="font-size:1.2rem;">trending_flat</span></td>
+          <td><span class="text-xs text-gray-400">Critical &rarr; Critical</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mt-3 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="metric-card" style="border-left: 4px solid var(--green);">
+      <div class="text-xs text-gray-500 font-medium uppercase">Mean Trend</div>
+      <div class="text-lg font-bold trend-up">59.6 &rarr; 60.4 <span class="text-sm">(+0.8)</span></div>
+      <div class="text-xs text-gray-400">Driven by JIT, OTP, Life Style improvements</div>
+    </div>
+    <div class="metric-card" style="border-left: 4px solid var(--green);">
+      <div class="text-xs text-gray-500 font-medium uppercase">Median Trend</div>
+      <div class="text-lg font-bold trend-up">59.2 &rarr; 61.4 <span class="text-sm">(+2.2)</span></div>
+      <div class="text-xs text-gray-400">Life Style Help pushed above median</div>
+    </div>
+    <div class="metric-card" style="border-left: 4px solid var(--green);">
+      <div class="text-xs text-gray-500 font-medium uppercase">Band Transitions</div>
+      <div class="text-lg font-bold">2 upgrades</div>
+      <div class="text-xs text-gray-400">OTP: Moderate &rarr; Low | Life Style: High &rarr; Moderate</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVIDENCE GAPS ============ -->
+<section class="mb-8">
+  <h2 class="text-lg font-bold mb-3 heading">Evidence Gaps &amp; Limitations</h2>
+  <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+    <table class="scorecard-table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Gap</th>
+          <th>Impact</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="font-semibold">HR Recruitment</td>
+          <td>v1 rubric zero-denominator artifact</td>
+          <td>Score 26.7 despite 100% delivery</td>
+          <td>14/14 items, 27/27 SP burned. Score does not reflect actual performance.</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Administration</td>
+          <td>Sprint evacuated (intentional)</td>
+          <td>All sprint-dependent dimensions score 0</td>
+          <td>Holy Week + IP boundary. Not a delivery failure. PI7 recovery expected.</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Finance</td>
+          <td>PO acceptance 13 days overdue</td>
+          <td>Iteration Planning suppressed at 37.5</td>
+          <td>#200432 and #200446 (13 SP) still in Iteration 6.5 Review</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Auto Allies</td>
+          <td>0% ADO-to-GitHub traceability</td>
+          <td>Cannot link code activity to work items</td>
+          <td>43 PRs merged but none formally linked to ADO items</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">All teams</td>
+          <td>Holy Week activity freeze</td>
+          <td>Scores may be suppressed by reduced activity</td>
+          <td>Re-evaluate after PI7 sprint start (Apr 6+)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-gray-200 pt-6 mt-8 text-xs text-gray-400 space-y-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <p class="font-semibold text-gray-500 uppercase tracking-wide mb-1">Methodology</p>
+      <p><strong>ADO teams:</strong> UPS = Overall Score (average of 6 dimensions: Iteration Planning, Team Capacity, Estimation, DoR Compliance, Work Item Balance, Backlog Refinement)</p>
+      <p><strong>Git teams:</strong> UPS = ICS&times;0.50 + HCI&times;0.30 + SGPI&times;0.20</p>
+    </div>
+    <div>
+      <p class="font-semibold text-gray-500 uppercase tracking-wide mb-1">Risk Bands</p>
+      <div class="flex flex-wrap gap-2 mt-1">
+        <span class="risk-pill risk-low">Low &ge; 80</span>
+        <span class="risk-pill risk-moderate">Moderate 60&ndash;79.9</span>
+        <span class="risk-pill risk-high">High 40&ndash;59.9</span>
+        <span class="risk-pill risk-critical">Critical &lt; 40</span>
+      </div>
+    </div>
+  </div>
+  <p class="text-center pt-2 border-t border-gray-100">
+    Generated: April 4, 2026 01:55 PHT &mdash; Jairosoft LLC Portfolio Health Dashboard &mdash; Data sourced from 9 workspace audit reports (AUDIT_20260404_*)
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -60,7 +60,7 @@ Skills are the authority for workflow, scoring, and output policy. Workspace `CL
 
 ### Scoring
 
-- **ADO teams:** 6-dimension rubric (Iteration Planning, Team Capacity, Estimation, DoR Compliance, Work Item Balance, Backlog Refinement). Overall = average of six.
+- **ADO teams:** 7-dimension rubric (Iteration Planning, Team Capacity, Estimation, DoR Compliance, Work Item Balance, Backlog Refinement, Delivery Predictability). Overall = average of seven.
 - **Git teams:** ICS (Iteration Compliance), HCI (Health Check Index), SGPI (Sprint Goal Progress Index). UPS = ICS x 0.50 + HCI x 0.30 + SGPI x 0.20.
 - **Risk bands:** Low >= 80 (green), Moderate 60-79.9 (yellow), High 40-59.9 (orange), Critical < 40 (red).
 

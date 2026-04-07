@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Review Meeting — April 5, 2026 — PI6 Sprint Close</title>
+<style>
+  :root { --bg:#faf8ff; --text:#113069; --green:#22c55e; --yellow:#eab308; --orange:#f97316; --red:#ef4444; --muted:#6b7280; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',Arial,Helvetica,sans-serif; line-height:1.5; }
+  .container { max-width:900px; margin:0 auto; padding:20px 16px; }
+  h1,h2,h3 { font-weight:700; }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
+  .card { background:#fff; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.06); padding:18px 20px; margin-bottom:14px; }
+  .pill { display:inline-block; padding:2px 9px; border-radius:99px; font-size:10px; font-weight:600; }
+  .pill-low { background:#dcfce7; color:#166534; }
+  .pill-mod { background:#fef9c3; color:#854d0e; }
+  .pill-high { background:#ffedd5; color:#9a3412; }
+  .pill-crit { background:#fee2e2; color:#991b1b; }
+  .pill-ado { background:#e0f2fe; color:#0369a1; }
+  .pill-git { background:#f3e8ff; color:#7e22ce; }
+  .pill-p0 { background:#ef4444; color:#fff; }
+  .pill-p1 { background:#f97316; color:#fff; }
+  .pill-p2 { background:#eab308; color:#fff; }
+  table { width:100%; border-collapse:collapse; font-size:12px; }
+  th { background:#f1f0fb; font-size:10px; text-transform:uppercase; letter-spacing:0.04em; padding:8px 6px; text-align:left; border-bottom:2px solid #e5e7eb; }
+  td { padding:7px 6px; border-bottom:1px solid #f3f4f6; vertical-align:middle; }
+  tbody tr:hover { background:#f5f3ff; }
+  .note-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:10px 14px; font-size:11px; color:#92400e; margin-bottom:14px; }
+  .risk-block { border-radius:0 8px 8px 0; padding:12px 16px; margin-bottom:10px; font-size:12px; }
+  .checkbox-row { display:flex; align-items:flex-start; gap:8px; padding:8px 0; border-bottom:1px solid #f3f4f6; }
+  .checkbox-row input[type="checkbox"] { margin-top:3px; width:16px; height:16px; accent-color:#6366f1; cursor:pointer; }
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  .qw-card { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:12px; }
+  .qw-card h4 { font-size:12px; font-weight:700; margin-bottom:4px; }
+  .qw-card .meta { font-size:10px; color:var(--muted); }
+  .impact-card { border-radius:10px; padding:16px; font-size:12px; }
+  .trend-up { color:#16a34a; } .trend-down { color:#dc2626; } .trend-flat { color:#9ca3af; }
+  @media print {
+    body { background:#fff; font-size:9pt; }
+    .no-print { display:none !important; }
+    .card { box-shadow:none; border:1px solid #e5e7eb; break-inside:avoid; }
+    .container { max-width:100%; padding:10px; }
+  }
+  @media (max-width:700px) {
+    .grid-2, .grid-3 { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ============ HEADER ============ -->
+<header style="background:linear-gradient(135deg,#1e1b4b 0%,#312e81 100%);border-radius:12px;padding:24px 28px;color:#fff;margin-bottom:16px;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+    <div>
+      <h1 style="font-size:22px;letter-spacing:-0.5px;">Portfolio Review Meeting</h1>
+      <p style="font-size:12px;color:#c7d2fe;margin-top:4px;">Iteration 6.6 (IP) &mdash; April 5, 2026 &mdash; PI6 Sprint Close &mdash; Day 14 of 14</p>
+      <div style="margin-top:10px;font-size:11px;color:#a5b4fc;">
+        <strong>Attendees:</strong> Ramon Aseniero (CEO), Karl Caumban (PDM) &nbsp;|&nbsp;
+        <strong>Duration:</strong> 45 minutes &nbsp;|&nbsp;
+        <strong>Format:</strong> Portfolio Review
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;text-align:center;min-width:100px;">
+        <div style="font-size:9px;text-transform:uppercase;color:#94a3b8;font-weight:600;">Mean</div>
+        <div style="font-size:22px;font-weight:800;">60.4</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;text-align:center;min-width:100px;">
+        <div style="font-size:9px;text-transform:uppercase;color:#94a3b8;font-weight:600;">Median</div>
+        <div style="font-size:22px;font-weight:800;">61.4</div>
+      </div>
+      <div style="background:#991b1b;border-radius:8px;padding:10px 14px;text-align:center;min-width:100px;">
+        <div style="font-size:9px;text-transform:uppercase;color:#fca5a5;font-weight:600;">At Risk</div>
+        <div style="font-size:22px;font-weight:800;">4</div>
+        <div style="font-size:8px;color:#fca5a5;">UPS &lt; 60</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ AGENDA TIMELINE BAR ============ -->
+<div class="card" style="padding:12px 16px;">
+  <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Agenda &mdash; 45 Minutes</div>
+  <div style="display:flex;height:28px;border-radius:6px;overflow:hidden;font-size:9px;font-weight:600;color:#fff;">
+    <div style="width:11.1%;background:#6366f1;display:flex;align-items:center;justify-content:center;" title="Snapshot (5 min)">5m</div>
+    <div style="width:26.7%;background:#ef4444;display:flex;align-items:center;justify-content:center;" title="At-Risk Teams (12 min)">12m</div>
+    <div style="width:15.6%;background:#22c55e;display:flex;align-items:center;justify-content:center;" title="Quick Wins (7 min)">7m</div>
+    <div style="width:17.8%;background:#f97316;display:flex;align-items:center;justify-content:center;" title="Structural Risks (8 min)">8m</div>
+    <div style="width:13.3%;background:#8b5cf6;display:flex;align-items:center;justify-content:center;" title="Decisions (6 min)">6m</div>
+    <div style="width:8.9%;background:#0ea5e9;display:flex;align-items:center;justify-content:center;" title="Actions (4 min)">4m</div>
+    <div style="width:6.7%;background:#64748b;display:flex;align-items:center;justify-content:center;" title="Wrap-up (3 min)">3m</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;font-size:9px;color:var(--muted);">
+    <span>&#9632; <span style="color:#6366f1;">Snapshot</span></span>
+    <span>&#9632; <span style="color:#ef4444;">At-Risk</span></span>
+    <span>&#9632; <span style="color:#22c55e;">Quick Wins</span></span>
+    <span>&#9632; <span style="color:#f97316;">Structural</span></span>
+    <span>&#9632; <span style="color:#8b5cf6;">Decisions</span></span>
+    <span>&#9632; <span style="color:#0ea5e9;">Actions</span></span>
+    <span>&#9632; <span style="color:#64748b;">Wrap-up</span></span>
+  </div>
+  <div style="margin-top:6px;font-size:10px;color:var(--muted);font-style:italic;">
+    Facilitator tip: Topics 2&ndash;3 carry the most value. If time runs short, skip Topic 4 and capture structural risks as async follow-ups.
+  </div>
+</div>
+
+<!-- ============ TOPIC 1: PORTFOLIO SNAPSHOT (5 min) ============ -->
+<div class="card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="background:#6366f1;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">1</span>
+    <h2 style="margin:0;">Portfolio Snapshot &amp; Scorecard</h2>
+    <span style="font-size:10px;color:var(--muted);margin-left:auto;">5 min</span>
+  </div>
+
+  <!-- Trend Chart (SVG) -->
+  <div style="margin-bottom:14px;">
+    <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Portfolio Mean Trend &mdash; Iteration 6.6 (IP)</div>
+    <svg viewBox="0 0 600 180" width="100%" height="180" style="background:#fff;border-radius:8px;">
+      <!-- Grid lines -->
+      <line x1="60" y1="20" x2="580" y2="20" stroke="#f3f4f6" stroke-width="1"/>
+      <line x1="60" y1="50" x2="580" y2="50" stroke="#f3f4f6" stroke-width="1"/>
+      <line x1="60" y1="80" x2="580" y2="80" stroke="#f3f4f6" stroke-width="1"/>
+      <line x1="60" y1="110" x2="580" y2="110" stroke="#f3f4f6" stroke-width="1"/>
+      <line x1="60" y1="140" x2="580" y2="140" stroke="#f3f4f6" stroke-width="1"/>
+      <!-- Y-axis labels -->
+      <text x="55" y="24" text-anchor="end" font-size="9" fill="#9ca3af">80</text>
+      <text x="55" y="54" text-anchor="end" font-size="9" fill="#9ca3af">75</text>
+      <text x="55" y="84" text-anchor="end" font-size="9" fill="#9ca3af">70</text>
+      <text x="55" y="114" text-anchor="end" font-size="9" fill="#9ca3af">65</text>
+      <text x="55" y="144" text-anchor="end" font-size="9" fill="#9ca3af">60</text>
+      <!-- Low Risk threshold line at 80 -->
+      <line x1="60" y1="20" x2="580" y2="20" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="582" y="24" font-size="8" fill="#22c55e" font-weight="600">Low Risk</text>
+      <!-- Data points: Mar28=66.1, Mar30=67.6, Mar31=72.4, Apr1=64.7, Apr2=59.6, Apr4=60.4, Apr5=60.4 -->
+      <!-- Y mapping: 80=20, 60=140. Scale: (80-val)/20 * 120 + 20 -->
+      <!-- Mar28: 66.1 -> (80-66.1)/20*120+20 = 103.4 -->
+      <!-- Mar30: 67.6 -> (80-67.6)/20*120+20 = 94.4 -->
+      <!-- Mar31: 72.4 -> (80-72.4)/20*120+20 = 65.6 -->
+      <!-- Apr1:  64.7 -> (80-64.7)/20*120+20 = 111.8 -->
+      <!-- Apr2:  59.6 -> (80-59.6)/20*120+20 = 142.4 (clip to 142) -->
+      <!-- Apr4:  60.4 -> (80-60.4)/20*120+20 = 137.6 -->
+      <!-- Apr5:  60.4 -> 137.6 -->
+      <!-- X positions: 7 points spread 60-560 -> 60, 143, 226, 310, 393, 476, 560 -->
+      <polyline points="60,103 143,94 226,66 310,112 393,142 476,138 560,138" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Data points -->
+      <circle cx="60" cy="103" r="4" fill="#6366f1"/>
+      <circle cx="143" cy="94" r="4" fill="#6366f1"/>
+      <circle cx="226" cy="66" r="5" fill="#22c55e" stroke="#fff" stroke-width="2"/>
+      <circle cx="310" cy="112" r="4" fill="#ef4444"/>
+      <circle cx="393" cy="142" r="4" fill="#ef4444"/>
+      <circle cx="476" cy="138" r="4" fill="#f97316"/>
+      <circle cx="560" cy="138" r="5" fill="#f97316" stroke="#fff" stroke-width="2"/>
+      <!-- Value labels -->
+      <text x="60" y="96" text-anchor="middle" font-size="9" fill="#113069" font-weight="600">66.1</text>
+      <text x="143" y="87" text-anchor="middle" font-size="9" fill="#113069" font-weight="600">67.6</text>
+      <text x="226" y="58" text-anchor="middle" font-size="9" fill="#22c55e" font-weight="700">72.4</text>
+      <text x="310" y="125" text-anchor="middle" font-size="9" fill="#ef4444" font-weight="600">64.7</text>
+      <text x="393" y="155" text-anchor="middle" font-size="9" fill="#ef4444" font-weight="600">59.6</text>
+      <text x="476" y="131" text-anchor="middle" font-size="9" fill="#113069" font-weight="600">60.4</text>
+      <text x="560" y="131" text-anchor="middle" font-size="9" fill="#f97316" font-weight="700">60.4</text>
+      <!-- X-axis labels -->
+      <text x="60" y="168" text-anchor="middle" font-size="8" fill="#9ca3af">Mar 28</text>
+      <text x="143" y="168" text-anchor="middle" font-size="8" fill="#9ca3af">Mar 30</text>
+      <text x="226" y="168" text-anchor="middle" font-size="8" fill="#9ca3af">Mar 31</text>
+      <text x="310" y="168" text-anchor="middle" font-size="8" fill="#9ca3af">Apr 1</text>
+      <text x="393" y="168" text-anchor="middle" font-size="8" fill="#9ca3af">Apr 2</text>
+      <text x="476" y="168" text-anchor="middle" font-size="8" fill="#9ca3af">Apr 4</text>
+      <text x="560" y="168" text-anchor="middle" font-size="8" fill="#9ca3af">Apr 5</text>
+      <!-- Day labels -->
+      <text x="60" y="176" text-anchor="middle" font-size="7" fill="#d1d5db">D5</text>
+      <text x="143" y="176" text-anchor="middle" font-size="7" fill="#d1d5db">D8</text>
+      <text x="226" y="176" text-anchor="middle" font-size="7" fill="#d1d5db">D9</text>
+      <text x="310" y="176" text-anchor="middle" font-size="7" fill="#d1d5db">D10</text>
+      <text x="393" y="176" text-anchor="middle" font-size="7" fill="#d1d5db">D11</text>
+      <text x="476" y="176" text-anchor="middle" font-size="7" fill="#d1d5db">D13</text>
+      <text x="560" y="176" text-anchor="middle" font-size="7" fill="#d1d5db">D14</text>
+    </svg>
+    <div style="font-size:9px;color:var(--muted);margin-top:4px;">Peak: 72.4 (Day 9, Mar 31) &mdash; Current: 60.4 (Day 14, Apr 5) &mdash; Delta from peak: -12.0 &mdash; Drop driven by HR/Admin rubric artifacts + Holy Week freeze</div>
+  </div>
+
+  <!-- Score Bar Chart -->
+  <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Team Scores — Sprint Close Snapshot</div>
+  <svg viewBox="0 0 600 260" width="100%" height="260">
+    <text x="115" y="22" text-anchor="end" font-size="10" fill="#113069" font-weight="500">JIT Operation</text>
+    <rect x="120" y="10" width="347.2" height="18" rx="4" fill="#22c55e"/><text x="472" y="23" font-size="10" fill="#113069" font-weight="600">86.8</text>
+    <text x="115" y="49" text-anchor="end" font-size="10" fill="#113069" font-weight="500">Finance</text>
+    <rect x="120" y="37" width="338.4" height="18" rx="4" fill="#22c55e"/><text x="463" y="50" font-size="10" fill="#113069" font-weight="600">84.6</text>
+    <text x="115" y="76" text-anchor="end" font-size="10" fill="#113069" font-weight="500">Colina Health</text>
+    <rect x="120" y="64" width="320.8" height="18" rx="4" fill="#22c55e"/><text x="445" y="77" font-size="10" fill="#113069" font-weight="600">80.2</text>
+    <text x="115" y="103" text-anchor="end" font-size="10" fill="#113069" font-weight="500">OTP</text>
+    <rect x="120" y="91" width="320.4" height="18" rx="4" fill="#22c55e"/><text x="445" y="104" font-size="10" fill="#113069" font-weight="600">80.1</text>
+    <text x="115" y="130" text-anchor="end" font-size="10" fill="#113069" font-weight="500">Life Style Help</text>
+    <rect x="120" y="118" width="245.6" height="18" rx="4" fill="#eab308"/><text x="370" y="131" font-size="10" fill="#113069" font-weight="600">61.4</text>
+    <text x="115" y="157" text-anchor="end" font-size="10" fill="#113069" font-weight="500">Auto Allies</text>
+    <rect x="120" y="145" width="200.0" height="18" rx="4" fill="#f97316"/><text x="325" y="158" font-size="10" fill="#113069" font-weight="600">50.0</text>
+    <text x="115" y="184" text-anchor="end" font-size="10" fill="#113069" font-weight="500">Flawless Wedding</text>
+    <rect x="120" y="172" width="189.6" height="18" rx="4" fill="#f97316"/><text x="314" y="185" font-size="10" fill="#113069" font-weight="600">47.4</text>
+    <text x="115" y="211" text-anchor="end" font-size="10" fill="#113069" font-weight="500">Administration</text>
+    <rect x="120" y="199" width="106.8" height="18" rx="4" fill="#ef4444"/><text x="232" y="212" font-size="10" fill="#113069" font-weight="600">26.7</text>
+    <text x="115" y="238" text-anchor="end" font-size="10" fill="#113069" font-weight="500">HR Recruitment</text>
+    <rect x="120" y="226" width="106.8" height="18" rx="4" fill="#ef4444"/><text x="232" y="239" font-size="10" fill="#113069" font-weight="600">26.7</text>
+    <!-- Low Risk line -->
+    <line x1="440" y1="5" x2="440" y2="250" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="442" y="254" font-size="7" fill="#22c55e">80 (Low)</text>
+  </svg>
+
+  <div class="note-box">
+    <strong>Scoring Notes:</strong> Administration (26.7) &mdash; sprint evacuated to PI7 (Holy Week + IP close). HR Recruitment (26.7) &mdash; scoring artifact; actual delivery: 14/14 items, 27/27 SP burned. All boards frozen 24&ndash;96h; zero deltas across all 9 teams since April 4.
+  </div>
+</div>
+
+<!-- ============ TOPIC 2: CRITICAL & HIGH RISK TEAMS (12 min) ============ -->
+<div class="card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="background:#ef4444;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">2</span>
+    <h2 style="margin:0;">Critical &amp; High Risk Teams</h2>
+    <span style="font-size:10px;color:var(--muted);margin-left:auto;">12 min</span>
+  </div>
+
+  <!-- Critical -->
+  <div class="risk-block" style="border-left:4px solid #ef4444;background:#fef2f2;">
+    <div style="font-size:13px;font-weight:700;color:#991b1b;margin-bottom:6px;">Critical Risk (2 teams)</div>
+
+    <div style="margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:700;">Administration &mdash; 26.7 <span class="pill pill-ado">ADO</span> <span class="pill pill-crit">Critical</span></div>
+      <ul style="font-size:11px;color:#374151;margin:4px 0 0 16px;">
+        <li>Sprint evacuated: zero items in Iteration 6.6. All moved to PI7 Iteration 7.1.</li>
+        <li>4 of 6 PI7 items <strong>fail DoR</strong> (missing Description/Acceptance Criteria).</li>
+        <li>#200995 flagged for <strong>12+ consecutive audits</strong> with zero content &mdash; escalation candidate.</li>
+        <li><strong>Discussion:</strong> Is Admin ready for PI7 start? Who owns DoR remediation for the 4 items?</li>
+      </ul>
+    </div>
+
+    <div>
+      <div style="font-size:12px;font-weight:700;">HR Recruitment &mdash; 26.7 <span class="pill pill-ado">ADO</span> <span class="pill pill-crit">Critical</span> <span style="font-size:9px;color:#92400e;background:#fffbeb;padding:1px 6px;border-radius:99px;">SCORING ARTIFACT</span></div>
+      <ul style="font-size:11px;color:#374151;margin:4px 0 0 16px;">
+        <li>Actual: <strong>14/14 items, 27/27 SP burned</strong> &mdash; 2nd consecutive perfect sprint.</li>
+        <li>Score artifact: all items Closed + removed from backlog &rarr; zero-denominator in 4/6 dimensions.</li>
+        <li><strong>16 items unassigned to PI7</strong> &mdash; PI7 planning not completed during IP window.</li>
+        <li><strong>Discussion:</strong> Should we flag this as a rubric limitation in stakeholder comms? Who assigns the 16 items?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- High Risk -->
+  <div class="risk-block" style="border-left:4px solid #f97316;background:#fff7ed;">
+    <div style="font-size:13px;font-weight:700;color:#9a3412;margin-bottom:6px;">High Risk (2 teams)</div>
+
+    <div style="margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:700;">Auto Allies &mdash; 50.0 <span class="pill pill-git">Git</span> <span class="pill pill-high">High</span></div>
+      <ul style="font-size:11px;color:#374151;margin:4px 0 0 16px;">
+        <li><strong>42.9% SGPI</strong> &mdash; 12 of 28 SP closed. Weakest PI6 iteration.</li>
+        <li><strong>Zero code reviews</strong> across 43 PRs. 100% self-merge rate.</li>
+        <li><strong>No branch protection</strong> on either repo. Flagged every audit since inception.</li>
+        <li>0% formal ADO-to-GitHub traceability. Joseph Gerona: 16 PRs, 0 SP closed.</li>
+        <li><strong>Discussion:</strong> Can we mandate branch protection + 1 reviewer before PI7 Iteration 7.1?</li>
+      </ul>
+    </div>
+
+    <div>
+      <div style="font-size:12px;font-weight:700;">Flawless Wedding App &mdash; 47.4 <span class="pill pill-ado">ADO</span> <span class="pill pill-high">High</span></div>
+      <ul style="font-size:11px;color:#374151;margin:4px 0 0 16px;">
+        <li><strong>Zero formal closures</strong> despite 9 items at Passed UAT/QA (13 SP substantively done).</li>
+        <li><strong>57 items stale &gt;180 days</strong> &mdash; structurally suppress Backlog Refinement at 14.6.</li>
+        <li>Luke carries 67% of sprint. Ramon and Carol have 0 capacity configured.</li>
+        <li><strong>Discussion:</strong> Close the 9 Passed UAT/QA items today? Archive/remove the 57 stale items?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOPIC 3: QUICK WINS & ESCALATIONS (7 min) ============ -->
+<div class="card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="background:#22c55e;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">3</span>
+    <h2 style="margin:0;">Quick Wins &amp; Escalations</h2>
+    <span style="font-size:10px;color:var(--muted);margin-left:auto;">7 min</span>
+  </div>
+
+  <div style="font-size:11px;font-weight:600;color:var(--green);text-transform:uppercase;margin-bottom:8px;">Quick Wins (&lt; 30 min each, high impact)</div>
+  <div class="grid-2" style="margin-bottom:14px;">
+    <div class="qw-card">
+      <h4>Close OTP #199522 &amp; #200686</h4>
+      <div style="font-size:11px;color:#374151;">All tasks done. 5-min PO action. Unactioned <strong>9 audits / 12 days</strong>.</div>
+      <div class="meta" style="margin-top:4px;"><strong>Impact:</strong> +2 closed items &middot; <strong>Effort:</strong> 5 min &middot; <strong>Owner:</strong> Ramon</div>
+    </div>
+    <div class="qw-card">
+      <h4>Accept Finance Review Items (24 SP)</h4>
+      <div style="font-size:11px;color:#374151;">#198639, #198645, #200465 (11 SP current) + #200432, #200446 (13 SP carryover, 14 days overdue).</div>
+      <div class="meta" style="margin-top:4px;"><strong>Impact:</strong> 24 SP credited &middot; <strong>Effort:</strong> 10 min &middot; <strong>Owner:</strong> Ramon</div>
+    </div>
+    <div class="qw-card">
+      <h4>Close Flawless Wedding Passed UAT/QA</h4>
+      <div style="font-size:11px;color:#374151;">9 items at Passed UAT/QA Testing. 13 SP substantively complete but uncredited.</div>
+      <div class="meta" style="margin-top:4px;"><strong>Impact:</strong> 13 SP credited &middot; <strong>Effort:</strong> 10 min &middot; <strong>Owner:</strong> Ramon</div>
+    </div>
+    <div class="qw-card">
+      <h4>Enable Branch Protection (Git Repos)</h4>
+      <div style="font-size:11px;color:#374151;">5 repos across Auto Allies (2) and Colina Health (3). Require 1 reviewer + status checks.</div>
+      <div class="meta" style="margin-top:4px;"><strong>Impact:</strong> HCI +10&ndash;15 pts &middot; <strong>Effort:</strong> 20 min &middot; <strong>Owner:</strong> Bomar / Karl</div>
+    </div>
+  </div>
+
+  <div style="font-size:11px;font-weight:600;color:#ef4444;text-transform:uppercase;margin-bottom:8px;">Escalations (Unactioned Across Multiple Audits)</div>
+  <table>
+    <thead>
+      <tr><th>Item</th><th>Team</th><th>Audits Unactioned</th><th>Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Close #199522 &amp; #200686</td><td>OTP</td><td style="color:#ef4444;font-weight:600;">9 audits (12 days)</td><td>Low Risk items sitting idle</td></tr>
+      <tr><td>Backlog Refinement at 0.0</td><td>Life Style Help</td><td style="color:#ef4444;font-weight:600;">10 consecutive audits</td><td>30 items &gt;180d, score locked at 61.4</td></tr>
+      <tr><td>Branch protection disabled</td><td>Auto Allies + Colina</td><td style="color:#ef4444;font-weight:600;">Every audit since inception</td><td>HCI suppressed, zero guardrails</td></tr>
+      <tr><td>#200995 zero content</td><td>Administration</td><td style="color:#ef4444;font-weight:600;">12+ audits</td><td>Fails DoR, blocks PI7 readiness</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ TOPIC 4: STRUCTURAL RISKS (8 min) ============ -->
+<div class="card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="background:#f97316;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">4</span>
+    <h2 style="margin:0;">Structural Risks</h2>
+    <span style="font-size:10px;color:var(--muted);margin-left:auto;">8 min</span>
+  </div>
+
+  <div class="grid-3">
+    <div style="border-left:4px solid #ef4444;background:#fef2f2;border-radius:0 8px 8px 0;padding:12px;">
+      <div style="font-size:12px;font-weight:700;color:#991b1b;margin-bottom:4px;">Bus Factor = 1</div>
+      <div style="font-size:11px;color:#374151;">
+        <strong>5 of 9 teams</strong> rely on a single contributor:
+        <ul style="margin:4px 0 0 14px;">
+          <li>Admin &rarr; Mark</li>
+          <li>Finance &rarr; Grace</li>
+          <li>HR &rarr; Almera</li>
+          <li>OTP &rarr; Grace</li>
+          <li>LS Dev &rarr; Samantha (58%)</li>
+        </ul>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Most persistent portfolio risk. No mitigation path identified.</div>
+      </div>
+    </div>
+
+    <div style="border-left:4px solid #f97316;background:#fff7ed;border-radius:0 8px 8px 0;padding:12px;">
+      <div style="font-size:12px;font-weight:700;color:#9a3412;margin-bottom:4px;">Stale Backlog Debt</div>
+      <div style="font-size:11px;color:#374151;">
+        <ul style="margin:0 0 0 14px;">
+          <li>Flawless Wedding: <strong>57 items &gt;180d</strong></li>
+          <li>Life Style Help: <strong>30 items &gt;180d</strong></li>
+          <li>LS Dev: Backlog Refinement 0.0 for <strong>10 audits</strong></li>
+        </ul>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">IP sprint &mdash; intended for grooming &mdash; ended without a single stale item addressed.</div>
+      </div>
+    </div>
+
+    <div style="border-left:4px solid #8b5cf6;background:#f5f3ff;border-radius:0 8px 8px 0;padding:12px;">
+      <div style="font-size:12px;font-weight:700;color:#6d28d9;margin-bottom:4px;">Engineering Gaps (Git)</div>
+      <div style="font-size:11px;color:#374151;">
+        <ul style="margin:0 0 0 14px;">
+          <li>Zero branch protection (5 repos)</li>
+          <li>AA: 0 code reviews, 100% self-merge</li>
+          <li>AA: 0% ADO-GitHub traceability</li>
+          <li>CC: 7 untriaged defects, triage spike stalled 14d</li>
+        </ul>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Foundational engineering guardrails missing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOPIC 5: DECISIONS (6 min) ============ -->
+<div class="card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="background:#8b5cf6;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">5</span>
+    <h2 style="margin:0;">Decisions Needed</h2>
+    <span style="font-size:10px;color:var(--muted);margin-left:auto;">6 min</span>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox" onclick="this.parentElement.style.opacity=this.checked?'0.5':'1'">
+    <div>
+      <div style="font-size:12px;font-weight:600;">Mandate branch protection for all Git repos before PI7 start <span class="pill pill-p0">P0</span></div>
+      <div style="font-size:10px;color:var(--muted);">5 repos across Auto Allies + Colina Health. Require 1 reviewer + status checks. ~20 min to configure.</div>
+    </div>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox" onclick="this.parentElement.style.opacity=this.checked?'0.5':'1'">
+    <div>
+      <div style="font-size:12px;font-weight:600;">Approve backlog archival for items &gt;180 days stale <span class="pill pill-p1">P1</span></div>
+      <div style="font-size:10px;color:var(--muted);">Flawless Wedding (57 items) and Life Style Help (30 items). Archive or move to an "Ice Box" state. Removes structural score drag.</div>
+    </div>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox" onclick="this.parentElement.style.opacity=this.checked?'0.5':'1'">
+    <div>
+      <div style="font-size:12px;font-weight:600;">Address HR scoring artifact in stakeholder communications <span class="pill pill-p1">P1</span></div>
+      <div style="font-size:10px;color:var(--muted);">HR delivered 100% but scores 26.7. Add rubric caveat to portfolio reports? Consider v2 rubric adjustment for post-closure states?</div>
+    </div>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox" onclick="this.parentElement.style.opacity=this.checked?'0.5':'1'">
+    <div>
+      <div style="font-size:12px;font-weight:600;">Assign PI7 iteration planning owners for unscheduled items <span class="pill pill-p0">P0</span></div>
+      <div style="font-size:10px;color:var(--muted);">HR: 16 items, OTP: 17 items, Admin: 6 items (4 fail DoR). Must be done before Iteration 7.1 planning.</div>
+    </div>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox" onclick="this.parentElement.style.opacity=this.checked?'0.5':'1'">
+    <div>
+      <div style="font-size:12px;font-weight:600;">Establish code review policy for Auto Allies <span class="pill pill-p1">P1</span></div>
+      <div style="font-size:10px;color:var(--muted);">100% self-merge rate this entire iteration. Define minimum 1 reviewer requirement and enforcement mechanism.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOPIC 6: ACTION ITEMS (4 min) ============ -->
+<div class="card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="background:#0ea5e9;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">6</span>
+    <h2 style="margin:0;">Action Items &amp; Owners</h2>
+    <span style="font-size:10px;color:var(--muted);margin-left:auto;">4 min</span>
+  </div>
+
+  <!-- P0: Do Today -->
+  <div style="font-size:11px;font-weight:700;color:#ef4444;margin-bottom:6px;">P0 &mdash; Do Today (Sprint Close Day)</div>
+  <table style="margin-bottom:14px;">
+    <thead><tr><th>#</th><th>Action</th><th>Team</th><th>Owner</th><th>Est.</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Accept Finance Review items (#198639, #198645, #200465) &mdash; 11 SP</td><td>Finance</td><td>Ramon</td><td>5 min</td></tr>
+      <tr><td>2</td><td>Accept Finance carryover items (#200432, #200446) &mdash; 13 SP, 14d overdue</td><td>Finance</td><td>Ramon</td><td>5 min</td></tr>
+      <tr><td>3</td><td>Close OTP #199522 &amp; #200686 &mdash; all tasks done</td><td>OTP</td><td>Ramon</td><td>5 min</td></tr>
+      <tr><td>4</td><td>Close Flawless Wedding 9 Passed UAT/QA items &mdash; 13 SP</td><td>Flawless</td><td>Ramon</td><td>10 min</td></tr>
+    </tbody>
+  </table>
+
+  <!-- P1: Before PI7 Start -->
+  <div style="font-size:11px;font-weight:700;color:#f97316;margin-bottom:6px;">P1 &mdash; Before PI7 Iteration 7.1 Start</div>
+  <table style="margin-bottom:14px;">
+    <thead><tr><th>#</th><th>Action</th><th>Team</th><th>Owner</th><th>Est.</th></tr></thead>
+    <tbody>
+      <tr><td>5</td><td>Enable branch protection on all 5 Git repos (require 1 reviewer)</td><td>AA + CC</td><td>Bomar</td><td>20 min</td></tr>
+      <tr><td>6</td><td>Assign HR&rsquo;s 16 unscheduled items to PI7 iterations</td><td>HR</td><td>Almera / Karl</td><td>30 min</td></tr>
+      <tr><td>7</td><td>Schedule OTP&rsquo;s 17 unassigned items into PI7</td><td>OTP</td><td>Grace / Karl</td><td>30 min</td></tr>
+      <tr><td>8</td><td>Fix DoR on Admin&rsquo;s 4 failing PI7 items (add Description + AC)</td><td>Admin</td><td>Mark</td><td>45 min</td></tr>
+      <tr><td>9</td><td>Triage 7 Colina Health defects + close 2 Passed QA defects</td><td>CC</td><td>Karl</td><td>30 min</td></tr>
+    </tbody>
+  </table>
+
+  <!-- P2: PI Planning -->
+  <div style="font-size:11px;font-weight:700;color:#eab308;margin-bottom:6px;">P2 &mdash; PI7 Planning</div>
+  <table>
+    <thead><tr><th>#</th><th>Action</th><th>Team</th><th>Owner</th><th>Est.</th></tr></thead>
+    <tbody>
+      <tr><td>10</td><td>Archive/remove 57 stale items (&gt;180d) from Flawless Wedding backlog</td><td>Flawless</td><td>Ramon / Luke</td><td>1 hr</td></tr>
+      <tr><td>11</td><td>Archive/remove 30 stale items (&gt;180d) from Life Style Help backlog</td><td>LS Dev</td><td>Ramon / Samantha</td><td>45 min</td></tr>
+      <tr><td>12</td><td>Establish code review policy for Auto Allies (min 1 reviewer)</td><td>AA</td><td>Karl / Bomar</td><td>30 min</td></tr>
+      <tr><td>13</td><td>Evaluate v2 rubric for post-closure scoring artifact (HR pattern)</td><td>Portfolio</td><td>Ramon</td><td>2 hrs</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ TOPIC 7: WRAP-UP (3 min) ============ -->
+<div class="card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="background:#64748b;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">7</span>
+    <h2 style="margin:0;">Wrap-up &amp; Next Steps</h2>
+    <span style="font-size:10px;color:var(--muted);margin-left:auto;">3 min</span>
+  </div>
+
+  <div class="grid-2">
+    <div class="impact-card" style="background:#f0fdf4;border:1px solid #bbf7d0;">
+      <div style="font-size:12px;font-weight:700;color:#166534;margin-bottom:6px;">If We Act Today</div>
+      <ul style="font-size:11px;color:#374151;margin-left:14px;">
+        <li>Finance: 24 SP credited &rarr; score stays Low Risk with clean close</li>
+        <li>Flawless Wedding: 13 SP credited &rarr; UPS may climb to 50+</li>
+        <li>OTP: 2 items closed &rarr; clean sprint close, 12-day escalation resolved</li>
+        <li>Branch protection enabled &rarr; HCI improvement for both Git teams in PI7</li>
+        <li>PI7 items assigned &rarr; clean start for HR, OTP, Admin</li>
+      </ul>
+    </div>
+    <div class="impact-card" style="background:#fef2f2;border:1px solid #fecaca;">
+      <div style="font-size:12px;font-weight:700;color:#991b1b;margin-bottom:6px;">If No Action Taken</div>
+      <ul style="font-size:11px;color:#374151;margin-left:14px;">
+        <li>Finance: 24 SP carry over as debt into PI7</li>
+        <li>Flawless Wedding: 13 SP uncredited, team morale impact</li>
+        <li>OTP: Escalation reaches 10+ audits, eroding trust in audit process</li>
+        <li>Git teams: Another PI without engineering guardrails</li>
+        <li>3 teams start PI7 with unplanned backlogs &rarr; Week 1 chaos</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:14px;padding:12px;background:#f1f0fb;border-radius:8px;">
+    <div style="font-size:12px;font-weight:700;margin-bottom:4px;">Next Steps</div>
+    <ul style="font-size:11px;color:#374151;margin-left:14px;">
+      <li><strong>Today:</strong> Execute P0 actions (25 min total PO time)</li>
+      <li><strong>Mon Apr 6:</strong> PI7 Iteration 7.1 begins &mdash; ensure all teams have assigned work</li>
+      <li><strong>Mon Apr 6:</strong> Enable branch protection on all Git repos</li>
+      <li><strong>Week 1 PI7:</strong> Complete P1 actions (iteration assignment, defect triage, DoR fixes)</li>
+      <li><strong>PI Planning:</strong> Backlog archival, code review policy, rubric v2 evaluation</li>
+      <li><strong>Next portfolio audit:</strong> Iteration 7.1 Day 3 (target Apr 8)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer style="border-top:1px solid #e5e7eb;padding-top:14px;margin-top:8px;font-size:10px;color:#9ca3af;">
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+    <div>
+      <div style="font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:2px;">Methodology</div>
+      <div>ADO: UPS = Overall Score (avg of 6 dimensions) | Git: UPS = ICS&times;0.50 + HCI&times;0.30 + SGPI&times;0.20</div>
+    </div>
+    <div>
+      <div style="font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:2px;">Risk Bands</div>
+      <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#22c55e;"></span> Low &ge;80 &nbsp;
+      <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;"></span> Moderate 60&ndash;79.9 &nbsp;
+      <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#f97316;"></span> High 40&ndash;59.9 &nbsp;
+      <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#ef4444;"></span> Critical &lt;40
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:10px;padding-top:8px;border-top:1px solid #f3f4f6;color:#d1d5db;">
+    Generated: April 5, 2026 09:00 PHT &mdash; Jairosoft LLC &mdash; PI6 Sprint Close Meeting Prep &mdash; Data: 9 audit reports (AUDIT_20260405_*) + PORTFOLIO_20260405_0900.html
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

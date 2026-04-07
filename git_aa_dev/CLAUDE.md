@@ -98,6 +98,15 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 | 2026-03-17 | `audit/AUDIT_2026-03-17_170000.md` | Complete |
 | 2026-03-18 | `audit/AUDIT_2026-03-18_000000.md` | Complete |
 | 2026-03-22 | `audit/AUDIT_2026-03-22_2329.md` | Complete |
+| 2026-03-25 | `audit/AUDIT_20260325_1800.md` | Complete |
+| 2026-03-26 | `audit/AUDIT_20260326_1630.md` | Complete |
+| 2026-03-30 | `audit/AUDIT_20260330_0900.md` | Complete |
+| 2026-03-31 | `audit/AUDIT_20260331_0900.md` | Complete |
+| 2026-04-01 | `audit/AUDIT_20260401_0900.md` | Complete |
+| 2026-04-02 | `audit/AUDIT_20260402_0900.md` | Complete |
+| 2026-04-04 | `audit/AUDIT_20260404_0845.md` | Complete |
+| 2026-04-05 | `audit/AUDIT_20260405_0900.md` | Complete |
+| 2026-04-06 | `audit/AUDIT_20260406_0900.md` | Complete |
 
 ## Preferences
 - Audit reports authored as Markdown in `audit/` folder

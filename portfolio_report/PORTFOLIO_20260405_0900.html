@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Health Dashboard — Iteration 6.6 (IP) — April 5, 2026</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8ff;
+    --text: #113069;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --orange: #f97316;
+    --red: #ef4444;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+  h1, h2, h3, .heading { font-family: 'Manrope', sans-serif; }
+  .material-symbols-outlined { vertical-align: middle; }
+  .risk-pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; }
+  .risk-low { background: #dcfce7; color: #166534; }
+  .risk-moderate { background: #fef9c3; color: #854d0e; }
+  .risk-high { background: #ffedd5; color: #9a3412; }
+  .risk-critical { background: #fee2e2; color: #991b1b; }
+  .type-ado { background: #e0f2fe; color: #0369a1; display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 600; }
+  .type-git { background: #f3e8ff; color: #7e22ce; display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 600; }
+  .scorecard-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+  .scorecard-table th { background: #f1f0fb; color: var(--text); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb; }
+  .scorecard-table td { padding: 10px 12px; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; vertical-align: middle; }
+  .scorecard-table tbody tr:hover { background: #f5f3ff; transition: background 0.15s; }
+  .metric-card { background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .bar-track { background: #f1f0fb; border-radius: 6px; height: 10px; width: 120px; display: inline-block; vertical-align: middle; margin-left: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; transition: width 0.5s; }
+  details summary { cursor: pointer; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: '\25B6'; display: inline-block; margin-right: 8px; font-size: 0.7rem; transition: transform 0.2s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .trend-up { color: #16a34a; }
+  .trend-down { color: #dc2626; }
+  .trend-flat { color: #9ca3af; }
+  @media print {
+    body { background: white; font-size: 9pt; }
+    .no-print { display: none !important; }
+    section { break-inside: avoid; page-break-inside: avoid; }
+    .scorecard-table { font-size: 8pt; }
+    .metric-card { box-shadow: none; border: 1px solid #e5e7eb; }
+  }
+</style>
+</head>
+<body class="min-h-screen">
+<div class="max-w-7xl mx-auto px-4 py-8">
+
+<!-- ============ HEADER ============ -->
+<header class="mb-8">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <div>
+      <h1 class="text-3xl font-extrabold tracking-tight heading" style="color:var(--text);">Portfolio Health Dashboard</h1>
+      <p class="text-sm text-gray-500 mt-1">Iteration 6.6 (IP) &mdash; April 5, 2026 &mdash; Sprint Close / PI6 Final Day</p>
+    </div>
+    <div class="flex gap-3 flex-wrap">
+      <div class="metric-card text-center" style="min-width:130px; background:#113069; color:white;">
+        <div class="text-xs font-medium uppercase opacity-70">Portfolio Mean</div>
+        <div class="text-2xl font-bold mt-1">56.9</div>
+      </div>
+      <div class="metric-card text-center" style="min-width:130px; background:#1e3a6e; color:white;">
+        <div class="text-xs font-medium uppercase opacity-70">Portfolio Median</div>
+        <div class="text-2xl font-bold mt-1">63.1</div>
+      </div>
+      <div class="metric-card text-center" style="min-width:130px; background:#991b1b; color:white;">
+        <div class="text-xs font-medium uppercase opacity-70">Teams at Risk</div>
+        <div class="text-2xl font-bold mt-1">4</div>
+        <div class="text-xs opacity-70">UPS &lt; 60</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PORTFOLIO SCORECARD TABLE ============ -->
+<section class="mb-8">
+  <div class="flex items-center justify-between mb-3">
+    <h2 class="text-lg font-bold heading">Portfolio Scorecard</h2>
+    <button onclick="window.print()" class="no-print text-xs bg-white border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-50 font-medium flex items-center gap-1">
+      <span class="material-symbols-outlined" style="font-size:1rem;">print</span> Export PDF
+    </button>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+    <table class="scorecard-table">
+      <thead>
+        <tr>
+          <th style="width:50px;">Rank</th>
+          <th>Team</th>
+          <th style="width:60px;">Type</th>
+          <th style="width:200px;">UPS Score</th>
+          <th style="width:110px;">Risk Band</th>
+          <th style="width:70px;">Trend</th>
+          <th style="width:110px;">Latest Audit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 01 Colina Health 80.5 -->
+        <tr>
+          <td class="font-mono text-gray-400">01</td>
+          <td><span class="font-semibold">Colina Health</span></td>
+          <td><span class="type-git">Git</span></td>
+          <td>
+            <span class="font-bold" style="color:#22c55e;">80.5</span>
+            <div class="bar-track"><div class="bar-fill" style="width:80.5%;background:#22c55e;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-low">Low Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+0.3</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 02 Finance 72.5 -->
+        <tr>
+          <td class="font-mono text-gray-400">02</td>
+          <td><span class="font-semibold">Finance</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#eab308;">72.5</span>
+            <div class="bar-track"><div class="bar-fill" style="width:72.5%;background:#eab308;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-moderate">Moderate</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.2rem;">arrow_downward</span> <span class="text-xs trend-down">-12.1</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 03 OTP 71.9 -->
+        <tr>
+          <td class="font-mono text-gray-400">03</td>
+          <td><span class="font-semibold">OTP</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#eab308;">71.9</span>
+            <div class="bar-track"><div class="bar-fill" style="width:71.9%;background:#eab308;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-moderate">Moderate</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.2rem;">arrow_downward</span> <span class="text-xs trend-down">-8.2</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 04 JIT Operation 64.7 -->
+        <tr>
+          <td class="font-mono text-gray-400">04</td>
+          <td><span class="font-semibold">JIT Operation</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#eab308;">64.7</span>
+            <div class="bar-track"><div class="bar-fill" style="width:64.7%;background:#eab308;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-moderate">Moderate</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.2rem;">arrow_downward</span> <span class="text-xs trend-down">-22.1</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 05 Life Style Help App 63.1 -->
+        <tr>
+          <td class="font-mono text-gray-400">05</td>
+          <td><span class="font-semibold">Life Style Help App</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#eab308;">63.1</span>
+            <div class="bar-track"><div class="bar-fill" style="width:63.1%;background:#eab308;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-moderate">Moderate</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+1.7</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 06 Auto Allies 58.9 -->
+        <tr>
+          <td class="font-mono text-gray-400">06</td>
+          <td><span class="font-semibold">Auto Allies</span></td>
+          <td><span class="type-git">Git</span></td>
+          <td>
+            <span class="font-bold" style="color:#f97316;">58.9</span>
+            <div class="bar-track"><div class="bar-fill" style="width:58.9%;background:#f97316;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-high">High Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+8.9</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 07 Flawless Wedding App 54.7 -->
+        <tr>
+          <td class="font-mono text-gray-400">07</td>
+          <td><span class="font-semibold">Flawless Wedding App</span></td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#f97316;">54.7</span>
+            <div class="bar-track"><div class="bar-fill" style="width:54.7%;background:#f97316;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-high">High Risk</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.2rem;">arrow_upward</span> <span class="text-xs trend-up">+7.3</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 08 Administration 22.9 -->
+        <tr style="background:#fef2f2;">
+          <td class="font-mono text-gray-400">08</td>
+          <td>
+            <span class="font-semibold">Administration</span>
+            <span class="material-symbols-outlined text-red-400" style="font-size:0.9rem;" title="Sprint evacuated">warning</span>
+          </td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#ef4444;">22.9</span>
+            <div class="bar-track"><div class="bar-fill" style="width:22.9%;background:#ef4444;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-critical">Critical</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.2rem;">arrow_downward</span> <span class="text-xs trend-down">-3.8</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+        <!-- 09 HR Recruitment 22.9 -->
+        <tr style="background:#fef2f2;">
+          <td class="font-mono text-gray-400">09</td>
+          <td>
+            <span class="font-semibold">HR Recruitment</span>
+            <span class="material-symbols-outlined text-amber-500" style="font-size:0.9rem;" title="Scoring artifact (100% complete)">info</span>
+          </td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>
+            <span class="font-bold" style="color:#ef4444;">22.9</span>
+            <div class="bar-track"><div class="bar-fill" style="width:22.9%;background:#ef4444;"></div></div>
+          </td>
+          <td><span class="risk-pill risk-critical">Critical</span></td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.2rem;">arrow_downward</span> <span class="text-xs trend-down">-3.8</span></td>
+          <td class="text-xs text-gray-500">Apr 5, 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-xs text-gray-400 mt-2 italic">ADO team scores use the new 7-dimension rubric (adding Delivery Predictability). Prior report used 6-dimension rubric. Trend deltas reflect both real changes and the rubric transition.</p>
+</section>
+
+<!-- ============ CHARTS ROW ============ -->
+<section class="mb-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- DONUT CHART -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <h3 class="text-sm font-bold heading mb-4">Risk Band Distribution</h3>
+      <div class="flex items-center justify-center gap-8">
+        <svg viewBox="0 0 200 200" width="180" height="180">
+          <!-- Total teams = 9: Low=1, Moderate=4, High=2, Critical=2 -->
+          <!-- Circumference = 2*pi*70 = 439.82 -->
+          <!-- Low: 1/9 * 439.82 = 48.87 -->
+          <!-- Moderate: 4/9 * 439.82 = 195.47 -->
+          <!-- High: 2/9 * 439.82 = 97.74 -->
+          <!-- Critical: 2/9 * 439.82 = 97.74 -->
+          <!-- Low Risk: offset 0 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#22c55e" stroke-width="32"
+                  stroke-dasharray="48.87 390.95" stroke-dashoffset="0"
+                  transform="rotate(-90 100 100)"/>
+          <!-- Moderate: offset = -48.87 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#eab308" stroke-width="32"
+                  stroke-dasharray="195.47 244.35" stroke-dashoffset="-48.87"
+                  transform="rotate(-90 100 100)"/>
+          <!-- High Risk: offset = -(48.87+195.47) = -244.34 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#f97316" stroke-width="32"
+                  stroke-dasharray="97.74 342.08" stroke-dashoffset="-244.34"
+                  transform="rotate(-90 100 100)"/>
+          <!-- Critical: offset = -(48.87+195.47+97.74) = -342.08 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#ef4444" stroke-width="32"
+                  stroke-dasharray="97.74 342.08" stroke-dashoffset="-342.08"
+                  transform="rotate(-90 100 100)"/>
+          <!-- Center text -->
+          <text x="100" y="95" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="28" fill="#113069">9</text>
+          <text x="100" y="115" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#6b7280">teams</text>
+        </svg>
+        <div class="text-xs space-y-2">
+          <div class="flex items-center gap-2"><span class="inline-block w-3 h-3 rounded-full" style="background:#22c55e;"></span> Low Risk (1)</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-3 h-3 rounded-full" style="background:#eab308;"></span> Moderate (4)</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-3 h-3 rounded-full" style="background:#f97316;"></span> High Risk (2)</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-3 h-3 rounded-full" style="background:#ef4444;"></span> Critical (2)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HORIZONTAL BAR CHART -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <h3 class="text-sm font-bold heading mb-4">UPS Scores by Team</h3>
+      <svg viewBox="0 0 400 280" width="100%" height="280" font-family="Inter, sans-serif">
+        <!-- Grid lines -->
+        <line x1="140" y1="10" x2="140" y2="270" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="200" y1="10" x2="200" y2="270" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="260" y1="10" x2="260" y2="270" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="320" y1="10" x2="320" y2="270" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="380" y1="10" x2="380" y2="270" stroke="#e5e7eb" stroke-width="0.5"/>
+        <!-- Axis labels -->
+        <text x="140" y="280" text-anchor="middle" font-size="8" fill="#9ca3af">20</text>
+        <text x="200" y="280" text-anchor="middle" font-size="8" fill="#9ca3af">40</text>
+        <text x="260" y="280" text-anchor="middle" font-size="8" fill="#9ca3af">60</text>
+        <text x="320" y="280" text-anchor="middle" font-size="8" fill="#9ca3af">80</text>
+        <text x="380" y="280" text-anchor="middle" font-size="8" fill="#9ca3af">100</text>
+        <!-- 60 threshold line -->
+        <line x1="260" y1="10" x2="260" y2="270" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+
+        <!-- Scale: x=100 is 0, x=380 is 100 => width per unit = 2.8 -->
+        <!-- Bars sorted desc -->
+        <!-- 1. Colina Health 80.5 => width=225.4 -->
+        <text x="95" y="28" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">Colina Health</text>
+        <rect x="100" y="18" width="225.4" height="18" rx="4" fill="#22c55e"/>
+        <text x="330" y="31" font-size="9" fill="white" font-weight="600">80.5</text>
+
+        <!-- 2. Finance 72.5 => width=203.0 -->
+        <text x="95" y="56" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">Finance</text>
+        <rect x="100" y="46" width="203.0" height="18" rx="4" fill="#eab308"/>
+        <text x="308" y="59" font-size="9" fill="white" font-weight="600">72.5</text>
+
+        <!-- 3. OTP 71.9 => width=201.3 -->
+        <text x="95" y="84" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">OTP</text>
+        <rect x="100" y="74" width="201.3" height="18" rx="4" fill="#eab308"/>
+        <text x="306" y="87" font-size="9" fill="white" font-weight="600">71.9</text>
+
+        <!-- 4. JIT Operation 64.7 => width=181.2 -->
+        <text x="95" y="112" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">JIT Operation</text>
+        <rect x="100" y="102" width="181.2" height="18" rx="4" fill="#eab308"/>
+        <text x="286" y="115" font-size="9" fill="white" font-weight="600">64.7</text>
+
+        <!-- 5. Life Style Help 63.1 => width=176.7 -->
+        <text x="95" y="140" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">Life Style Help</text>
+        <rect x="100" y="130" width="176.7" height="18" rx="4" fill="#eab308"/>
+        <text x="281" y="143" font-size="9" fill="white" font-weight="600">63.1</text>
+
+        <!-- 6. Auto Allies 58.9 => width=164.9 -->
+        <text x="95" y="168" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">Auto Allies</text>
+        <rect x="100" y="158" width="164.9" height="18" rx="4" fill="#f97316"/>
+        <text x="270" y="171" font-size="9" fill="white" font-weight="600">58.9</text>
+
+        <!-- 7. Flawless Wedding 54.7 => width=153.2 -->
+        <text x="95" y="196" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">Flawless Wedding</text>
+        <rect x="100" y="186" width="153.2" height="18" rx="4" fill="#f97316"/>
+        <text x="258" y="199" font-size="9" fill="white" font-weight="600">54.7</text>
+
+        <!-- 8. Administration 22.9 => width=64.1 -->
+        <text x="95" y="224" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">Administration</text>
+        <rect x="100" y="214" width="64.1" height="18" rx="4" fill="#ef4444"/>
+        <text x="170" y="227" font-size="9" fill="#ef4444" font-weight="600">22.9</text>
+
+        <!-- 9. HR Recruitment 22.9 => width=64.1 -->
+        <text x="95" y="252" text-anchor="end" font-size="9.5" fill="#113069" font-weight="500">HR Recruitment</text>
+        <rect x="100" y="242" width="64.1" height="18" rx="4" fill="#ef4444"/>
+        <text x="170" y="255" font-size="9" fill="#ef4444" font-weight="600">22.9</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIER ANALYSIS + CROSS-CUTTING THEMES ============ -->
+<section class="mb-8">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="md:col-span-2 space-y-3">
+      <h2 class="text-lg font-bold heading mb-2">Tier Analysis</h2>
+
+      <!-- Low Risk -->
+      <details class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left: 4px solid #22c55e;">
+        <summary class="px-5 py-3 font-semibold text-sm" style="color:#166534;">
+          Low Risk (1 team) &mdash; UPS &ge; 80
+        </summary>
+        <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+          <p><strong>Colina Health (80.5)</strong> is the only team in Low Risk. Maintained 100% SGPI with all 4 committed stories Closed (12 SP). ICS at 85.0% (Yellow). HCI improved +1 to 60/100 after triage spike 201438 closure. Seven new defects remain at project root without iteration assignment. BE PR#50 merged as the final production deploy. Sprint closes cleanly with strong engineering throughput (41 PRs merged, 100% traceability).</p>
+        </div>
+      </details>
+
+      <!-- Moderate -->
+      <details class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left: 4px solid #eab308;">
+        <summary class="px-5 py-3 font-semibold text-sm" style="color:#854d0e;">
+          Moderate Risk (4 teams) &mdash; UPS 60&ndash;79.9
+        </summary>
+        <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+          <p><strong>Finance (72.5)</strong> drops from Low Risk (84.6, 6-dim) to Moderate due to the 7-dim rubric. Delivery Predictability = 0.0 because all 3 items are in Review, not Closed. Grace has completed all work &mdash; the bottleneck is PO acceptance. If accepted today, score would reach 86.8 (Low Risk). Two carryover items from 6.5 are 14 days overdue.</p>
+          <p><strong>OTP (71.9)</strong> drops from Low Risk (80.1, 6-dim) to Moderate. Delivery Predictability = 25.0 (4/16 SP closed). Two items (#199522, #200686) have been flagged as P1 for 9 consecutive audits &mdash; all tasks are done but items remain Active. Three visa stories blocked on embassy dependencies. Single-assignee model (Grace) is an accepted exception.</p>
+          <p><strong>JIT Operation (64.7)</strong> experiences the largest drop (-22.1) from Low Risk (86.8). Three new Spikes added on final day by Samantha plus Delivery Predictability = 0.0 (0/6 SP closed). Work Item Balance dropped to 40.0 (no User Stories, 60% Spikes). PI7 planning underway with 18+ items in 7.1. Teofilo's 2 Training items stale 6 days.</p>
+          <p><strong>Life Style Help App (63.1)</strong> rises +1.7, its highest score of the iteration. All 3 remaining items Closed (100% delivery on remaining scope). However, 9 items (14 SP) were moved to 7.1 rather than completed. Backlog Refinement at 0.0 for the 10th consecutive audit &mdash; 30 items older than 180 days remain untouched.</p>
+        </div>
+      </details>
+
+      <!-- High Risk -->
+      <details class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left: 4px solid #f97316;">
+        <summary class="px-5 py-3 font-semibold text-sm" style="color:#9a3412;">
+          High Risk (2 teams) &mdash; UPS 40&ndash;59.9
+        </summary>
+        <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+          <p><strong>Auto Allies (58.9)</strong> rises +8.9 due to corrected ICS methodology (81.6% vs prior 64.3%). SGPI remains at 42.9% (12/28 SP in-sprint). Critically, 7 items were closed post-sprint (April 6) &mdash; work was done but ADO states not updated timely. Zero code reviews across 43 PRs. No branch protection. HCI at 31/100 (Critical). Strongest PR throughput in portfolio but poorest engineering practices.</p>
+          <p><strong>Flawless Wedding App (54.7)</strong> rises +7.3 with 15 of 18 sprint items Closed and 100% delivery on committed SP (14/14). Delivery Predictability at 100.0 &mdash; the new dimension boosted the score despite the 7-dim divisor. Backlog Refinement at 11.6 due to ~45 items stale &gt;180 days. Luke Colina closed all 12 of his items. Three unestimated Spikes remain open.</p>
+        </div>
+      </details>
+
+      <!-- Critical -->
+      <details class="bg-white rounded-xl shadow-sm overflow-hidden" style="border-left: 4px solid #ef4444;">
+        <summary class="px-5 py-3 font-semibold text-sm" style="color:#991b1b;">
+          Critical (2 teams) &mdash; UPS &lt; 40
+        </summary>
+        <div class="px-5 pb-4 text-sm text-gray-700 space-y-2">
+          <p><strong>Administration (22.9)</strong> &mdash; Sprint fully evacuated. Zero items in Iteration 6.6 for the entire IP sprint. This is intentional (Holy Week + PI boundary). PI7 preparation is active: 7 items assigned to 7.1 with 8 more at project root. 5 of 7 PI7 items fail DoR. The -3.8 delta from prior is entirely rubric transition (6-dim to 7-dim). Bus factor = 1 (Mark Colina). Expect recovery in PI7.</p>
+          <p><strong>HR Recruitment (22.9)</strong> &mdash; <strong>Scoring artifact, not a delivery failure.</strong> Sprint is 100% complete: 14/14 items, 27/27 SP burned &mdash; third consecutive perfect sprint. The Critical score is caused by all items being Closed and removed from the visible backlog, yielding zero-denominator scores in 5 of 7 dimensions. PI7 planning has begun: 15 of 24 items assigned to 7.1, 8 new stories created. Almera is sole delivery agent.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- CROSS-CUTTING THEMES -->
+    <div>
+      <h2 class="text-lg font-bold heading mb-2">Cross-Cutting Themes</h2>
+      <div class="bg-white rounded-xl shadow-sm p-5 text-sm space-y-3">
+        <div>
+          <div class="font-semibold text-xs uppercase text-gray-400 mb-1">1. Rubric Transition Impact</div>
+          <p class="text-gray-700">All ADO teams transitioned from 6-dim to 7-dim rubric today. Delivery Predictability (new dimension) scored 0.0 for 4 of 7 ADO teams, pulling scores down. Finance, OTP, and JIT dropped from Low Risk to Moderate. Only Flawless Wedding and Life Style Help improved because their Delivery Predictability scored 100.0.</p>
+        </div>
+        <div>
+          <div class="font-semibold text-xs uppercase text-gray-400 mb-1">2. Bus Factor Risk</div>
+          <p class="text-gray-700">Six of nine teams operate with a single-person delivery model: Administration (Mark), Finance (Grace), HR (Almera), OTP (Grace), Life Style Help (concentration on Samantha), Flawless Wedding (Luke carries 67%). Portfolio-wide bus factor is critically low.</p>
+        </div>
+        <div>
+          <div class="font-semibold text-xs uppercase text-gray-400 mb-1">3. Backlog Stagnation</div>
+          <p class="text-gray-700">Three teams carry 30+ items stale beyond 180 days: Flawless Wedding (~45), Life Style Help (~30), and Auto Allies. Life Style Help has Backlog Refinement at 0.0 for 10 consecutive audits. PI7 must include dedicated grooming sessions.</p>
+        </div>
+        <div>
+          <div class="font-semibold text-xs uppercase text-gray-400 mb-1">4. PO Acceptance Bottleneck</div>
+          <p class="text-gray-700">Finance has 3 items in Review (11 SP) and 2 carryover items (13 SP) awaiting PO acceptance. OTP has 2 items flagged for 9 consecutive audits. Auto Allies closed 7 items post-sprint. State transitions are the most common unresolved issue.</p>
+        </div>
+        <div>
+          <div class="font-semibold text-xs uppercase text-gray-400 mb-1">5. PI6 Closes Strong</div>
+          <p class="text-gray-700">Despite low scores, actual delivery is strong. HR delivered 100% for the third consecutive sprint. Flawless Wedding delivered 100% of committed SP. Colina Health achieved 100% SGPI. The rubric penalizes process gaps (empty sprints, Review states) more than delivery failures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TREND ANALYSIS ============ -->
+<section class="mb-8">
+  <h2 class="text-lg font-bold heading mb-3">Trend Analysis &mdash; Apr 4 (6-dim) vs Apr 5 (7-dim)</h2>
+  <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+    <table class="scorecard-table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Type</th>
+          <th style="width:100px;">Prior UPS</th>
+          <th style="width:100px;">Current UPS</th>
+          <th style="width:80px;">Delta</th>
+          <th style="width:80px;">Direction</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="font-semibold">Colina Health</td>
+          <td><span class="type-git">Git</span></td>
+          <td>80.2</td>
+          <td class="font-bold">80.5</td>
+          <td class="trend-up">+0.3</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.1rem;">arrow_upward</span></td>
+          <td class="text-xs text-gray-500">HCI +1 (triage spike closed)</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Finance</td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>84.6 <span class="text-xs text-gray-400">(6d)</span></td>
+          <td class="font-bold">72.5</td>
+          <td class="trend-down">-12.1</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.1rem;">arrow_downward</span></td>
+          <td class="text-xs text-gray-500">7-dim rubric; DP=0 (Review bottleneck)</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">OTP</td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>80.1 <span class="text-xs text-gray-400">(6d)</span></td>
+          <td class="font-bold">71.9</td>
+          <td class="trend-down">-8.2</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.1rem;">arrow_downward</span></td>
+          <td class="text-xs text-gray-500">7-dim rubric; DP=25.0</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">JIT Operation</td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>86.8 <span class="text-xs text-gray-400">(6d)</span></td>
+          <td class="font-bold">64.7</td>
+          <td class="trend-down">-22.1</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.1rem;">arrow_downward</span></td>
+          <td class="text-xs text-gray-500">7-dim + WIB dropped 60pts + 3 new Spikes</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Life Style Help App</td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>61.4 <span class="text-xs text-gray-400">(6d)</span></td>
+          <td class="font-bold">63.1</td>
+          <td class="trend-up">+1.7</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.1rem;">arrow_upward</span></td>
+          <td class="text-xs text-gray-500">DP=100; 9 items moved out; BR still 0.0</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Auto Allies</td>
+          <td><span class="type-git">Git</span></td>
+          <td>50.0</td>
+          <td class="font-bold">58.9</td>
+          <td class="trend-up">+8.9</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.1rem;">arrow_upward</span></td>
+          <td class="text-xs text-gray-500">ICS corrected (spike exclusion); 7 post-sprint closures</td>
+        </tr>
+        <tr>
+          <td class="font-semibold">Flawless Wedding App</td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>47.4 <span class="text-xs text-gray-400">(6d)</span></td>
+          <td class="font-bold">54.7</td>
+          <td class="trend-up">+7.3</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-up" style="font-size:1.1rem;">arrow_upward</span></td>
+          <td class="text-xs text-gray-500">15 closures; DP=100; 14/14 SP delivered</td>
+        </tr>
+        <tr style="background:#fef2f2;">
+          <td class="font-semibold">Administration</td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>26.7 <span class="text-xs text-gray-400">(6d)</span></td>
+          <td class="font-bold">22.9</td>
+          <td class="trend-down">-3.8</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.1rem;">arrow_downward</span></td>
+          <td class="text-xs text-gray-500">Rubric transition only; sprint evacuated</td>
+        </tr>
+        <tr style="background:#fef2f2;">
+          <td class="font-semibold">HR Recruitment</td>
+          <td><span class="type-ado">ADO</span></td>
+          <td>26.7 <span class="text-xs text-gray-400">(6d)</span></td>
+          <td class="font-bold">22.9</td>
+          <td class="trend-down">-3.8</td>
+          <td class="text-center"><span class="material-symbols-outlined trend-down" style="font-size:1.1rem;">arrow_downward</span></td>
+          <td class="text-xs text-gray-500">Rubric artifact; sprint 100% complete</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mt-2 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
+    <span class="material-symbols-outlined" style="font-size:1rem; vertical-align: text-bottom;">info</span>
+    <strong>Rubric transition note:</strong> ADO team deltas include the effect of transitioning from the 6-dimension rubric to the 7-dimension rubric (adding Delivery Predictability). The prior UPS values used 6-dimension scoring; current values use 7-dimension. Direct comparison should account for this structural change. Git teams (Colina Health, Auto Allies) are unaffected by this transition.
+  </div>
+</section>
+
+<!-- ============ EVIDENCE GAPS ============ -->
+<section class="mb-8">
+  <h2 class="text-lg font-bold heading mb-3">Evidence Gaps</h2>
+  <div class="bg-white rounded-xl shadow-sm p-5">
+    <table class="scorecard-table text-sm">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Gap</th>
+          <th>Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Administration</td>
+          <td>Sprint fully evacuated &mdash; 5 dimensions score 0.0</td>
+          <td>Structural IP boundary; not a delivery failure</td>
+        </tr>
+        <tr>
+          <td>HR Recruitment</td>
+          <td>All items Closed and off backlog &mdash; 5 dimensions at 0.0</td>
+          <td>Scoring artifact; actual delivery is 100% (27/27 SP)</td>
+        </tr>
+        <tr>
+          <td>Finance</td>
+          <td>3 items in Review, not Closed &mdash; DP = 0.0</td>
+          <td>PO acceptance bottleneck; Grace completed all work</td>
+        </tr>
+        <tr>
+          <td>OTP</td>
+          <td>#199522 and #200686 Active for 14 days with all tasks done</td>
+          <td>State transition not performed; 9 consecutive audits flagged</td>
+        </tr>
+        <tr>
+          <td>Auto Allies</td>
+          <td>7 items closed post-sprint (April 6); zero code reviews</td>
+          <td>SGPI understated; engineering practice gap</td>
+        </tr>
+        <tr>
+          <td>Life Style Help</td>
+          <td>30 items stale &gt;180 days; Backlog Refinement at 0.0 for 10 audits</td>
+          <td>Systemic grooming gap; PI7 must address</td>
+        </tr>
+        <tr>
+          <td>Flawless Wedding</td>
+          <td>~45 items stale &gt;180 days; 3 Spikes open at sprint close</td>
+          <td>Backlog Refinement structurally trapped</td>
+        </tr>
+        <tr>
+          <td>All ADO teams</td>
+          <td>7-dim rubric transition (new Delivery Predictability dimension)</td>
+          <td>Score comparisons with prior reports require rubric context</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-gray-200 pt-6 mt-8">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-gray-500">
+    <div>
+      <h3 class="font-bold text-gray-700 mb-1 heading">Methodology</h3>
+      <p><strong>ADO teams (7):</strong> Seven-dimension deterministic scoring &mdash; Iteration Planning, Team Capacity, Estimation, DoR Compliance, Work Item Balance, Backlog Refinement, Delivery Predictability. Overall = average of 7 dimensions. UPS = Overall Score.</p>
+      <p class="mt-1"><strong>Git teams (2):</strong> UPS = ICS x 0.50 + HCI x 0.30 + SGPI x 0.20. ICS uses weighted compliance dimensions. HCI scores 10 engineering health dimensions (0&ndash;10 each).</p>
+    </div>
+    <div>
+      <h3 class="font-bold text-gray-700 mb-1 heading">Risk Bands</h3>
+      <div class="flex flex-wrap gap-2 mt-1">
+        <span class="risk-pill risk-low">Low Risk &ge; 80</span>
+        <span class="risk-pill risk-moderate">Moderate 60&ndash;79.9</span>
+        <span class="risk-pill risk-high">High Risk 40&ndash;59.9</span>
+        <span class="risk-pill risk-critical">Critical &lt; 40</span>
+      </div>
+    </div>
+    <div>
+      <h3 class="font-bold text-gray-700 mb-1 heading">Report Info</h3>
+      <p>Generated: April 5, 2026 &mdash; 09:00 PHT</p>
+      <p>Iteration: 6.6 (IP) &mdash; Sprint Close / PI6 Final Day</p>
+      <p>Portfolio: Jairosoft LLC (9 teams)</p>
+      <p>Prior report: PORTFOLIO_20260404_0155.html</p>
+      <p class="mt-1 italic">Scores read from existing audit reports. No individual audit scores were re-computed.</p>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

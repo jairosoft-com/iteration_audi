@@ -92,7 +92,7 @@ UPS = (ICS × 0.50) + (HCI × 0.30) + (SGPI × 0.20)
 
 | Component | Weight | Rationale |
 |-----------|--------|-----------|
-| **ICS** (Iteration Compliance) | 50% | Most comparable to the ADO 6-dimension score |
+| **ICS** (Iteration Compliance) | 50% | Most comparable to the ADO 7-dimension score |
 | **HCI** (Engineering Health) | 30% | Engineering quality signals unique to Git teams |
 | **SGPI** (Sprint Goal Predictability) | 20% | Delivery outcome; lower weight prevents early-sprint distortion |
 
