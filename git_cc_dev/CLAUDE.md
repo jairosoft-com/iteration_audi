@@ -112,6 +112,13 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 | 2026-04-04 | `audit/AUDIT_20260404_0930.md` | Complete |
 | 2026-04-05 | `audit/AUDIT_20260405_0900.md` | Complete |
 | 2026-04-06 | `audit/AUDIT_20260406_0900.md` | Complete |
+| 2026-04-07 | `audit/AUDIT_20260407_1708.md` | Complete |
+| 2026-04-08 | `audit/AUDIT_20260408_0900.md` | Complete |
+| 2026-04-09 | `audit/AUDIT_20260409_0900.md` | Complete |
+| 2026-04-12 | `audit/AUDIT_20260412_0900.md` | Complete |
+| 2026-04-13 | `audit/AUDIT_20260413_0900.md` | Complete |
+| 2026-04-16 | `audit/AUDIT_20260416_0900.md` | Complete |
+| 2026-04-17 | `audit/AUDIT_20260417_0900.md` | Complete |
 
 ## Preferences
 

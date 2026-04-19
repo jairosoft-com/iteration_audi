@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Review — April 7, 2026 | Iteration 7.1</title>
+<style>
+  :root {
+    --green: #22c55e; --yellow: #eab308; --orange: #f97316; --red: #ef4444;
+    --indigo: #6366f1; --purple: #8b5cf6; --sky: #0ea5e9; --slate: #64748b;
+    --bg: #faf8ff; --text: #113069; --card: #ffffff; --muted: #6b7280;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; font-size: 14px; }
+
+  /* ===== HEADER ===== */
+  header { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); padding: 28px 0 22px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  header .title { color: #fff; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+  header .sub { color: #a5b4fc; font-size: 13px; margin-top: 5px; }
+  header .badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .badge-white { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+  .badge-duration { background: #4f46e5; color: #e0e7ff; border: 1px solid #6366f1; }
+
+  /* ===== LAYOUT ===== */
+  .main { max-width: 1100px; margin: 0 auto; padding: 20px 24px 48px; }
+  .card { background: var(--card); border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 20px 24px; margin-bottom: 16px; }
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .card-header h2 { font-size: 16px; font-weight: 700; flex: 1; }
+  .time-badge { font-size: 11px; padding: 2px 10px; border-radius: 12px; font-weight: 600; white-space: nowrap; }
+
+  /* ===== AGENDA BAR ===== */
+  .agenda-bar { display: flex; gap: 2px; border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+  .seg { padding: 9px 4px; text-align: center; color: #fff; font-size: 11px; font-weight: 700; cursor: default; line-height: 1.3; }
+  .seg:hover { filter: brightness(1.12); }
+  .seg .seg-time { font-size: 9px; font-weight: 400; opacity: 0.85; display: block; margin-top: 2px; }
+  .tip { font-size: 12px; color: #92400e; background: #fffbeb; border-left: 3px solid #fbbf24; padding: 8px 12px; border-radius: 0 6px 6px 0; margin-top: 6px; }
+
+  /* ===== METRIC CARDS ===== */
+  .metrics { display: flex; gap: 12px; flex-wrap: wrap; margin: 6px 0 14px; }
+  .metric { border-radius: 10px; padding: 14px 18px; flex: 1; min-width: 150px; }
+  .metric .m-label { font-size: 10px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; color: var(--muted); }
+  .metric .m-value { font-size: 28px; font-weight: 800; margin-top: 2px; line-height: 1; }
+  .metric .m-delta { font-size: 12px; margin-top: 4px; }
+  .metric-orange { background: #fff7ed; border-left: 4px solid var(--orange); }
+  .metric-risk { background: #1c1917; border-left: 4px solid var(--red); }
+
+  /* ===== PILLS ===== */
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .pill-green { background: #dcfce7; color: #166534; }
+  .pill-yellow { background: #fef9c3; color: #854d0e; }
+  .pill-orange { background: #ffedd5; color: #9a3412; }
+  .pill-red { background: #fee2e2; color: #991b1b; }
+  .pill-ado { background: #e0f2fe; color: #0369a1; font-size: 10px; }
+  .pill-git { background: #f3e8ff; color: #7e22ce; font-size: 10px; }
+  .pill-p0 { background: #fee2e2; color: #991b1b; }
+  .pill-p1 { background: #ffedd5; color: #9a3412; }
+  .pill-p2 { background: #fef9c3; color: #854d0e; }
+  .pill-urgent { background: #fee2e2; color: #991b1b; }
+  .pill-sprint { background: #ffedd5; color: #9a3412; }
+  .pill-pi { background: #f3e8ff; color: #7e22ce; }
+
+  /* ===== TREND / DELTA ===== */
+  .up { color: #16a34a; font-weight: 600; }
+  .down { color: #dc2626; font-weight: 600; }
+  .flat { color: #9ca3af; }
+
+  /* ===== BAR CHART ===== */
+  .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .bar-label { font-size: 12px; width: 148px; text-align: right; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
+  .bar-track { background: #e5e7eb; border-radius: 4px; height: 11px; flex: 1; position: relative; }
+  .bar-fill { height: 11px; border-radius: 4px; }
+  .bar-val { font-size: 12px; font-weight: 700; width: 36px; text-align: right; flex-shrink: 0; }
+  .bar-meta { font-size: 10px; width: 56px; flex-shrink: 0; }
+
+  /* ===== RISK BLOCKS ===== */
+  .risk-block { border-left: 4px solid; border-radius: 0 10px 10px 0; padding: 14px 18px; margin-bottom: 10px; background: var(--card); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .risk-block h3 { font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .risk-block p { font-size: 13px; color: #374151; margin-top: 4px; line-height: 1.65; }
+  .risk-block ul { font-size: 13px; color: #374151; margin: 6px 0 0 18px; line-height: 1.7; }
+
+  /* ===== QUICK WIN CARDS ===== */
+  .qw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .qw-card { background: var(--card); border-radius: 10px; padding: 14px 16px; border-top: 3px solid; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .qw-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .qw-detail { font-size: 12px; color: var(--muted); }
+  .qw-impact { font-size: 12px; font-weight: 600; margin-top: 6px; }
+
+  /* ===== STRUCTURAL RISK GRID ===== */
+  .struct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .struct-cell { border-radius: 10px; padding: 14px 16px; }
+
+  /* ===== DECISIONS ===== */
+  .decision-row { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border-bottom: 1px solid #f3f4f6; cursor: pointer; }
+  .decision-row:hover { background: #f5f3ff; }
+  .decision-row:last-child { border-bottom: none; }
+  .dc-check { width: 20px; height: 20px; border: 2px solid #d1d5db; border-radius: 4px; flex-shrink: 0; margin-top: 1px; transition: all 0.15s; appearance: none; -webkit-appearance: none; cursor: pointer; background: #fff; position: relative; }
+  .dc-check:checked { background: var(--green); border-color: var(--green); }
+  .dc-check:checked::after { content: ''; position: absolute; left: 5px; top: 2px; width: 6px; height: 10px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg); }
+  .decision-text { flex: 1; font-size: 13px; line-height: 1.5; }
+
+  /* ===== ACTION TABLE ===== */
+  .action-group { margin-bottom: 20px; }
+  .action-group-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f1f0fb; color: var(--text); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; padding: 9px 12px; text-align: left; border-bottom: 2px solid var(--border); font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
+  tbody tr:hover { background: #f5f3ff; }
+
+  /* ===== IMPACT CARDS ===== */
+  .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .impact-card { border-radius: 10px; padding: 18px 20px; }
+  .impact-card .ic-label { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+  .impact-card .ic-score { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+  .impact-card ul { font-size: 12px; color: #374151; margin: 0 0 0 16px; line-height: 1.8; }
+
+  /* ===== FOOTER ===== */
+  footer { background: #f9fafb; border-top: 1px solid var(--border); padding: 16px 0; margin-top: 8px; }
+  footer p { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+  .legend-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ===== SECTION DIVIDER ===== */
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 18px 0 8px; font-weight: 700; }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { background: #fff; font-size: 10pt; }
+    header { background: #1e1b4b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card { box-shadow: none; border: 1px solid #e5e7eb; break-inside: avoid; }
+    .no-print { display: none !important; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 680px) {
+    .qw-grid { grid-template-columns: 1fr; }
+    .struct-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .bar-label { width: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <div class="title">Portfolio Review</div>
+    <p class="sub">Iteration 7.1 &mdash; Day 2 of 14 &nbsp;|&nbsp; April 7, 2026 &nbsp;|&nbsp; 9 Teams</p>
+    <p class="sub" style="margin-top:2px;">Ramon Aseniero (CEO) &nbsp;+&nbsp; Karl Caumban (PDM)</p>
+    <div class="badges">
+      <span class="badge badge-duration">30 min</span>
+      <span class="badge badge-white">PI 7 &mdash; Sprint 7.1</span>
+      <span class="badge badge-white">4 High Risk &nbsp;|&nbsp; 0 Critical</span>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+
+<!-- ===== AGENDA TIMELINE ===== -->
+<div class="card">
+  <h2 style="font-size:14px; font-weight:700; margin-bottom:10px;">Agenda Timeline</h2>
+  <div class="agenda-bar">
+    <div class="seg" style="flex:3; background:#6366f1;">Snapshot<span class="seg-time">3 min</span></div>
+    <div class="seg" style="flex:8; background:#ef4444;">At-Risk Teams<span class="seg-time">8 min</span></div>
+    <div class="seg" style="flex:5; background:#22c55e;">Quick Wins<span class="seg-time">5 min</span></div>
+    <div class="seg" style="flex:5; background:#f97316;">Struct. Risks<span class="seg-time">5 min</span></div>
+    <div class="seg" style="flex:4; background:#8b5cf6;">Decisions<span class="seg-time">4 min</span></div>
+    <div class="seg" style="flex:3; background:#0ea5e9;">Actions<span class="seg-time">3 min</span></div>
+    <div class="seg" style="flex:2; background:#64748b;">Wrap<span class="seg-time">2 min</span></div>
+  </div>
+  <div class="tip">Facilitator tip: Topics 2&ndash;3 carry the most value. If time runs short, skip Topic 4 and capture structural risks as async follow-ups.</div>
+</div>
+
+<!-- ===== TOPIC 1: PORTFOLIO SNAPSHOT ===== -->
+<div class="card">
+  <div class="card-header">
+    <span class="num" style="background:#6366f1;">1</span>
+    <h2>Portfolio Snapshot + Scorecard</h2>
+    <span class="time-badge" style="background:#ede9fe; color:#4f46e5;">3 min</span>
+  </div>
+
+  <!-- Metric Cards -->
+  <div class="metrics">
+    <div class="metric metric-orange">
+      <div class="m-label">Portfolio Mean</div>
+      <div class="m-value" style="color:var(--orange);">64.4</div>
+      <div class="m-delta up">&#9650; +2.4 vs Apr 6 (62.0)</div>
+    </div>
+    <div class="metric metric-orange">
+      <div class="m-label">Portfolio Median</div>
+      <div class="m-value" style="color:var(--orange);">66.3</div>
+      <div class="m-delta" style="color:var(--muted);">Finance team anchor</div>
+    </div>
+    <div class="metric metric-risk">
+      <div class="m-label" style="color:#9ca3af;">Teams at Risk</div>
+      <div class="m-value" style="color:#f87171;">4 <span style="font-size:14px; color:#9ca3af; font-weight:400;">of 9</span></div>
+      <div class="m-delta" style="color:#9ca3af;">4 High &nbsp;|&nbsp; 0 Critical</div>
+    </div>
+  </div>
+
+  <!-- SVG Trend Chart -->
+  <!-- Data points (8 points): Mar25=64.3, Mar28=66.1, Mar30=67.6, Apr1=64.7, Apr2=59.6, Apr5=56.9, Apr6=62.0, Apr7=64.4 -->
+  <!-- Y range 50-85, canvas height 120px (y=10 top, y=130 bottom). Scale: (score-50)/(85-50)*120 from bottom -->
+  <!-- y = 130 - (score - 50) * 120/35 = 130 - (score-50)*3.4286 -->
+  <!-- Mar25=64.3: y=130-(14.3*3.4286)=130-49.03=80.97 -->
+  <!-- Mar28=66.1: y=130-(16.1*3.4286)=130-55.2=74.8 -->
+  <!-- Mar30=67.6: y=130-(17.6*3.4286)=130-60.34=69.66 -->
+  <!-- Apr1=64.7: y=130-(14.7*3.4286)=130-50.4=79.6 -->
+  <!-- Apr2=59.6: y=130-(9.6*3.4286)=130-32.9=97.1 -->
+  <!-- Apr5=56.9: y=130-(6.9*3.4286)=130-23.66=106.34 -->
+  <!-- Apr6=62.0: y=130-(12*3.4286)=130-41.14=88.86 -->
+  <!-- Apr7=64.4: y=130-(14.4*3.4286)=130-49.37=80.63 -->
+  <!-- x positions: 8 points across 60-660, step=(660-60)/7=85.7 -->
+  <!-- x: 60, 145.7, 231.4, 317.1, 402.9, 488.6, 574.3, 660 -->
+  <h3 class="section-label">Mean Score Trend (8 snapshots)</h3>
+  <svg viewBox="0 0 740 170" width="100%" style="max-height:170px; display:block;">
+    <!-- Grid -->
+    <line x1="60" y1="10" x2="60" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+    <line x1="60" y1="140" x2="700" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+    <line x1="60" y1="97" x2="700" y2="97" stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4"/>
+    <line x1="60" y1="55" x2="700" y2="55" stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4"/>
+    <line x1="60" y1="10" x2="700" y2="10" stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4"/>
+    <!-- Y-axis labels -->
+    <text x="55" y="144" text-anchor="end" font-size="10" fill="#9ca3af">50</text>
+    <text x="55" y="100" text-anchor="end" font-size="10" fill="#9ca3af">62</text>
+    <text x="55" y="58" text-anchor="end" font-size="10" fill="#9ca3af">74</text>
+    <text x="55" y="14" text-anchor="end" font-size="10" fill="#9ca3af">85</text>
+    <!-- Low Risk threshold (80): y=130-(30*3.4286)=130-102.86=27.14 -->
+    <line x1="60" y1="27" x2="700" y2="27" stroke="#22c55e" stroke-width="1.2" stroke-dasharray="6,3" opacity="0.7"/>
+    <text x="705" y="31" font-size="9" fill="#22c55e" font-weight="600">Low Risk (80)</text>
+    <!-- Trend line -->
+    <polyline points="60,81 146,75 231,70 317,80 403,97 489,106 574,89 660,81"
+      fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- Data points + labels -->
+    <circle cx="60" cy="81" r="4" fill="#6366f1"/>
+    <text x="60" y="72" text-anchor="middle" font-size="9" fill="#6366f1" font-weight="600">64.3</text>
+    <circle cx="146" cy="75" r="4" fill="#6366f1"/>
+    <text x="146" y="66" text-anchor="middle" font-size="9" fill="#6366f1" font-weight="600">66.1</text>
+    <circle cx="231" cy="70" r="4" fill="#6366f1"/>
+    <text x="231" y="61" text-anchor="middle" font-size="9" fill="#6366f1" font-weight="600">67.6</text>
+    <circle cx="317" cy="80" r="4" fill="#eab308"/>
+    <text x="317" y="71" text-anchor="middle" font-size="9" fill="#b45309" font-weight="600">64.7</text>
+    <circle cx="403" cy="97" r="4" fill="#ef4444"/>
+    <text x="403" y="112" text-anchor="middle" font-size="9" fill="#ef4444" font-weight="600">59.6</text>
+    <circle cx="489" cy="106" r="4" fill="#ef4444"/>
+    <text x="489" y="121" text-anchor="middle" font-size="9" fill="#ef4444" font-weight="600">56.9</text>
+    <circle cx="574" cy="89" r="4" fill="#f97316"/>
+    <text x="574" y="80" text-anchor="middle" font-size="9" fill="#f97316" font-weight="600">62.0</text>
+    <circle cx="660" cy="81" r="5" fill="#22c55e" stroke="#fff" stroke-width="2"/>
+    <text x="660" y="72" text-anchor="middle" font-size="9" fill="#16a34a" font-weight="700">64.4</text>
+    <!-- X-axis labels -->
+    <text x="60" y="158" text-anchor="middle" font-size="9" fill="#9ca3af">Mar 25</text>
+    <text x="146" y="158" text-anchor="middle" font-size="9" fill="#9ca3af">Mar 28</text>
+    <text x="231" y="158" text-anchor="middle" font-size="9" fill="#9ca3af">Mar 30</text>
+    <text x="317" y="158" text-anchor="middle" font-size="9" fill="#9ca3af">Apr 1</text>
+    <text x="403" y="158" text-anchor="middle" font-size="9" fill="#9ca3af">Apr 2</text>
+    <text x="489" y="158" text-anchor="middle" font-size="9" fill="#9ca3af">Apr 5</text>
+    <text x="574" y="158" text-anchor="middle" font-size="9" fill="#9ca3af">Apr 6</text>
+    <text x="660" y="158" text-anchor="middle" font-size="9" fill="#16a34a" font-weight="600">Apr 7 &#9650;</text>
+  </svg>
+
+  <!-- Team Score Bar Chart -->
+  <!-- Bar width scaled: score/100 * 55% of container. Using inline width% directly on bar-fill -->
+  <h3 class="section-label" style="margin-top:20px;">Team Scorecard — Iteration 7.1 Day 2</h3>
+
+  <div class="bar-row">
+    <span class="bar-label">HR Recruitment</span>
+    <div class="bar-track"><div class="bar-fill" style="width:91.1%; background:var(--green);"></div></div>
+    <span class="bar-val" style="color:var(--green);">91.1</span>
+    <span class="bar-meta"><span class="pill pill-green">Low</span></span>
+    <span class="pill pill-ado">ADO</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Administration</span>
+    <div class="bar-track"><div class="bar-fill" style="width:74.9%; background:var(--yellow);"></div></div>
+    <span class="bar-val" style="color:var(--yellow);">74.9</span>
+    <span class="bar-meta"><span class="pill pill-yellow">Mod</span></span>
+    <span class="pill pill-ado">ADO</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">JIT Operation</span>
+    <div class="bar-track"><div class="bar-fill" style="width:71.4%; background:var(--yellow);"></div></div>
+    <span class="bar-val" style="color:var(--yellow);">71.4</span>
+    <span class="bar-meta"><span class="pill pill-yellow">Mod</span></span>
+    <span class="pill pill-ado">ADO</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Office of President</span>
+    <div class="bar-track"><div class="bar-fill" style="width:67.8%; background:var(--yellow);"></div></div>
+    <span class="bar-val" style="color:var(--yellow);">67.8</span>
+    <span class="bar-meta"><span class="pill pill-yellow">Mod</span></span>
+    <span class="pill pill-ado">ADO</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Finance</span>
+    <div class="bar-track"><div class="bar-fill" style="width:66.3%; background:var(--yellow);"></div></div>
+    <span class="bar-val" style="color:var(--yellow);">66.3</span>
+    <span class="bar-meta"><span class="pill pill-yellow">Mod</span></span>
+    <span class="pill pill-ado">ADO</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Auto Allies</span>
+    <div class="bar-track"><div class="bar-fill" style="width:59.6%; background:var(--orange);"></div></div>
+    <span class="bar-val" style="color:var(--orange);">59.6</span>
+    <span class="bar-meta"><span class="pill pill-orange">High</span></span>
+    <span class="pill pill-git">Git</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Colina Health</span>
+    <div class="bar-track"><div class="bar-fill" style="width:51.9%; background:var(--orange);"></div></div>
+    <span class="bar-val" style="color:var(--orange);">51.9</span>
+    <span class="bar-meta"><span class="pill pill-orange">High</span></span>
+    <span class="pill pill-git">Git</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Life Style Help App</span>
+    <div class="bar-track"><div class="bar-fill" style="width:51.3%; background:var(--orange);"></div></div>
+    <span class="bar-val" style="color:var(--orange);">51.3</span>
+    <span class="bar-meta"><span class="pill pill-orange">High</span></span>
+    <span class="pill pill-ado">ADO</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Flawless Wedding App</span>
+    <div class="bar-track"><div class="bar-fill" style="width:45.7%; background:var(--orange);"></div></div>
+    <span class="bar-val" style="color:var(--orange);">45.7</span>
+    <span class="bar-meta"><span class="pill pill-orange">High</span></span>
+    <span class="pill pill-ado">ADO</span>
+  </div>
+
+  <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:10px 14px; margin-top:12px; font-size:12px; color:#166534;">
+    <strong>Early-Sprint SGPI Note (Day 2 of 14):</strong> Both Git teams are on Day 2. SGPI is expected to be 0&ndash;12% at this stage and does not yet reflect sprint health. Auto Allies ex-SGPI = <strong>74.4</strong> (Moderate); Colina Health ex-SGPI = <strong>61.9</strong> (Moderate). Full UPS meaningful after Day 5&ndash;7.
+  </div>
+</div>
+
+<!-- ===== TOPIC 2: HIGH RISK TEAMS ===== -->
+<div class="card">
+  <div class="card-header">
+    <span class="num" style="background:#ef4444;">2</span>
+    <h2>Critical &amp; High Risk Teams</h2>
+    <span class="time-badge" style="background:#fee2e2; color:#991b1b;">8 min</span>
+  </div>
+
+  <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong style="color:var(--green);">No Critical teams this cycle.</strong> All 4 at-risk teams are High Risk (Orange). Spend full 8 min on these.</p>
+
+  <!-- Auto Allies -->
+  <div class="risk-block" style="border-color:var(--orange);">
+    <h3>
+      <span class="pill pill-orange">High Risk</span>
+      Auto Allies &mdash; 59.6
+      <span class="up" style="font-size:12px;">&#9650; +4.1 vs prior</span>
+      <span class="pill pill-git">Git</span>
+    </h3>
+    <p><strong>HCI = 36/100 (Critical health check).</strong> Zero PR reviews on all 13 production merges this sprint. No branch protection configured on any repository. SGPI is early-sprint (Day 2) &mdash; not yet meaningful.</p>
+    <ul>
+      <li><strong>Finding 1:</strong> 13 merged PRs with 0 code reviews &mdash; unreviewed code in production</li>
+      <li><strong>Finding 2:</strong> No branch protection rules on any repo &mdash; direct pushes to main allowed</li>
+    </ul>
+    <p style="margin-top:8px; color:var(--red);"><strong>P0 Recommendation:</strong> Earl Carino to enable branch protection on all AA repos today (15 min). Mandate peer review as PR merge requirement before next merge.</p>
+  </div>
+
+  <!-- Colina Health -->
+  <div class="risk-block" style="border-color:var(--orange);">
+    <h3>
+      <span class="pill pill-orange">High Risk</span>
+      Colina Health &mdash; 51.9
+      <span class="down" style="font-size:12px;">&#9660; &minus;1.9 vs prior (53.8)</span>
+      <span class="pill pill-git">Git</span>
+    </h3>
+    <p><strong>ICS declined 76.7 &rarr; 63.0</strong> as new defects entered scope. 8 new defects (#202436&ndash;202448) entered scope and are unassigned &mdash; require triage by Apr 8. Critical dependency: <strong>testing window closes Apr 9&ndash;10 (Luzmibel off)</strong> with 8 SP currently at QA gate.</p>
+    <ul>
+      <li><strong>Finding 1:</strong> 8 unassigned defects need triage + AC added before Apr 8 deadline</li>
+      <li><strong>Finding 2:</strong> Testing window Apr 9&ndash;10 at risk &mdash; 8 SP in QA with no coverage plan</li>
+    </ul>
+    <p style="margin-top:8px; color:var(--red);"><strong>P0 Recommendation:</strong> Karl to approve triage of 8 defects (#202436&ndash;202448) by Apr 8 and confirm testing coverage plan for Apr 9&ndash;10.</p>
+  </div>
+
+  <!-- Life Style Help App -->
+  <div class="risk-block" style="border-color:var(--orange);">
+    <h3>
+      <span class="pill pill-orange">High Risk</span>
+      Life Style Help App &mdash; 51.3
+      <span class="flat" style="font-size:12px;">&rarr; flat (0.0 delta)</span>
+      <span class="pill pill-ado">ADO</span>
+    </h3>
+    <p><strong>Backlog Refinement = 0.0 for 12th consecutive audit</strong> &mdash; longest stagnation streak in portfolio. 39 items are &gt;180 days stale with no grooming activity. Single contributor risk (Samantha). No iteration goals defined for 7.1.</p>
+    <ul>
+      <li><strong>Finding 1:</strong> Backlog Refinement score 0.0 for 12 straight audits &mdash; structural decay</li>
+      <li><strong>Finding 2:</strong> 39 backlog items older than 180 days &mdash; no triage plan in place</li>
+    </ul>
+    <p style="margin-top:8px; color:var(--red);"><strong>P0 Recommendation:</strong> Authorize dedicated grooming sprint at PI Planning. Escalate to PI Planning agenda.</p>
+  </div>
+
+  <!-- Flawless Wedding App -->
+  <div class="risk-block" style="border-color:var(--orange);">
+    <h3>
+      <span class="pill pill-orange">High Risk</span>
+      Flawless Wedding App &mdash; 45.7
+      <span class="up" style="font-size:12px;">&#9650; +0.1 vs prior (45.6)</span>
+      <span class="pill pill-ado">ADO</span>
+    </h3>
+    <p><strong>Iteration Planning completeness = 6.2%</strong> (lowest in portfolio). DoR compliance = 20% &mdash; 8 of 10 sprint items lack Acceptance Criteria. 73 backlog items older than 90 days. Improvement minimal (+0.1) despite Day 2.</p>
+    <ul>
+      <li><strong>Finding 1:</strong> IP=6.2% and DoR=20% &mdash; sprint started without proper planning baseline</li>
+      <li><strong>Finding 2:</strong> 73 stale items (&gt;90d) with no grooming activity since last PI</li>
+    </ul>
+    <p style="margin-top:8px; color:var(--red);"><strong>P0 Recommendation:</strong> Authorize dedicated backlog grooming sprint to address 73 stale items. Ramon/Karl decision required at PI Planning.</p>
+  </div>
+</div>
+
+<!-- ===== TOPIC 3: QUICK WINS ===== -->
+<div class="card">
+  <div class="card-header">
+    <span class="num" style="background:#22c55e;">3</span>
+    <h2>Quick Wins &amp; Escalations</h2>
+    <span class="time-badge" style="background:#dcfce7; color:#166534;">5 min</span>
+  </div>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">High-impact, low-effort items &mdash; each under 30 minutes. Assign owners now.</p>
+
+  <div class="qw-grid">
+    <div class="qw-card" style="border-color:var(--green);">
+      <div class="qw-title">&#8987; Move #199522 to 7.1 (ado_otp)</div>
+      <div class="qw-detail">PhilGeps item assigned to wrong iteration. 2-minute fix in ADO.</div>
+      <div class="qw-impact" style="color:var(--green);">Impact: Corrects OTP iteration planning score</div>
+      <div class="qw-detail" style="margin-top:6px;">Owner: <strong>Ramon</strong> &mdash; Est: 2 min</div>
+    </div>
+    <div class="qw-card" style="border-color:var(--green);">
+      <div class="qw-title">&#128276; Touch 9 Untouched JIT Items</div>
+      <div class="qw-detail">9 items have 0 activity this sprint &mdash; armelita to assign/update.</div>
+      <div class="qw-impact" style="color:var(--green);">Impact: BR 80 &rarr; 100, JIT overall 71.4 &rarr; 74.3</div>
+      <div class="qw-detail" style="margin-top:6px;">Owner: <strong>armelita</strong> &mdash; Est: 15 min</div>
+    </div>
+    <div class="qw-card" style="border-color:var(--yellow);">
+      <div class="qw-title">&#128221; Add SP to ado_fin #202416</div>
+      <div class="qw-detail">Missing story points on Finance item blocks estimation score.</div>
+      <div class="qw-impact" style="color:var(--yellow);">Impact: Improves Finance Estimation dimension</div>
+      <div class="qw-detail" style="margin-top:6px;">Owner: <strong>Finance TL</strong> &mdash; Est: 15 min</div>
+    </div>
+    <div class="qw-card" style="border-color:var(--orange);">
+      <div class="qw-title">&#128274; Enable Branch Protection (AA repos)</div>
+      <div class="qw-detail">All Auto Allies repos lack branch protection. P1 overdue since Day 1.</div>
+      <div class="qw-impact" style="color:var(--orange);">Impact: Closes critical engineering gap, HCI improvement</div>
+      <div class="qw-detail" style="margin-top:6px;">Owner: <strong>Earl Carino</strong> &mdash; Est: 15 min</div>
+    </div>
+    <div class="qw-card" style="border-color:var(--red);">
+      <div class="qw-title">&#9999; Add AC to 5 cc_dev Defects</div>
+      <div class="qw-detail">5 Colina Health defects missing Acceptance Criteria blocking ICS.</div>
+      <div class="qw-impact" style="color:var(--red);">Impact: Recovers ICS from Red to Yellow band</div>
+      <div class="qw-detail" style="margin-top:6px;">Owner: <strong>cc_dev lead</strong> &mdash; Est: 45 min</div>
+    </div>
+    <div class="qw-card" style="border-color:var(--yellow);">
+      <div class="qw-title">&#9203; Release 5 Finance Blocked Items</div>
+      <div class="qw-detail">5 items blocked in Review awaiting PO acceptance from Ramon (24 SP total).</div>
+      <div class="qw-impact" style="color:var(--yellow);">Impact: Unblocks Finance delivery, frees 24 SP</div>
+      <div class="qw-detail" style="margin-top:6px;">Owner: <strong>Ramon</strong> &mdash; Est: 30 min</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOPIC 4: STRUCTURAL RISKS ===== -->
+<div class="card">
+  <div class="card-header">
+    <span class="num" style="background:#f97316;">4</span>
+    <h2>Structural Risks</h2>
+    <span class="time-badge" style="background:#ffedd5; color:#9a3412;">5 min</span>
+  </div>
+  <p style="font-size:12px; color:var(--orange); font-style:italic; margin-bottom:12px;">If running short on time, capture these as async follow-ups.</p>
+
+  <div class="struct-grid">
+    <div class="struct-cell" style="background:#fef2f2;">
+      <div style="font-size:13px; font-weight:700; color:var(--red); margin-bottom:6px;">Backlog Debt</div>
+      <div style="font-size:12px; color:#374151; line-height:1.7;">
+        <strong>ado_fl_dev:</strong> 73 items &gt;90d stale<br>
+        <strong>ado_ls_dev:</strong> 39 items &gt;180d stale<br>
+        BR = 0.0 for 12 consecutive audits
+      </div>
+      <div style="font-size:11px; color:var(--orange); margin-top:8px; font-weight:600;">Requires dedicated grooming sprint at PI Planning</div>
+    </div>
+    <div class="struct-cell" style="background:#fef2f2;">
+      <div style="font-size:13px; font-weight:700; color:var(--red); margin-bottom:6px;">Engineering Gaps</div>
+      <div style="font-size:12px; color:#374151; line-height:1.7;">
+        Zero PR reviews across ALL merges (both Git teams)<br>
+        No branch protection on any branch<br>
+        Unreviewed code shipping to production continuously
+      </div>
+      <div style="font-size:11px; color:var(--red); margin-top:8px; font-weight:600;">P1 overdue since Day 1 &mdash; mandate for PI7 DoD</div>
+    </div>
+    <div class="struct-cell" style="background:#fff7ed;">
+      <div style="font-size:13px; font-weight:700; color:var(--orange); margin-bottom:6px;">Bus Factor = 1</div>
+      <div style="font-size:12px; color:#374151; line-height:1.7;">
+        <strong>ado_hr:</strong> Almera sole contributor (26 audits)<br>
+        <strong>ado_fin:</strong> 5 items blocked on Ramon (PO)<br>
+        <strong>ado_jit:</strong> armelita carries 77.5% of sprint
+      </div>
+      <div style="font-size:11px; color:var(--orange); margin-top:8px; font-weight:600;">Cross-training plan needed for PI7</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOPIC 5: DECISIONS ===== -->
+<div class="card">
+  <div class="card-header">
+    <span class="num" style="background:#8b5cf6;">5</span>
+    <h2>Decisions</h2>
+    <span class="time-badge" style="background:#ede9fe; color:#6d28d9;">4 min</span>
+  </div>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:10px;">Check each decision as resolved during the meeting.</p>
+
+  <div>
+    <label class="decision-row">
+      <input type="checkbox" class="dc-check">
+      <div class="decision-text">
+        <strong>URGENT &mdash; Colina Health:</strong> Approve triage of 8 new defects (#202436&ndash;202448) by Apr 8
+        <div style="font-size:11px; color:var(--muted); margin-top:2px;">Owner: <strong>Karl</strong> &nbsp;|&nbsp; Deadline: Apr 8</div>
+      </div>
+      <span class="pill pill-urgent">URGENT</span>
+    </label>
+
+    <label class="decision-row">
+      <input type="checkbox" class="dc-check">
+      <div class="decision-text">
+        <strong>URGENT &mdash; Colina Health:</strong> Confirm testing window coverage Apr 9&ndash;10 (Luzmibel off; 8 SP at QA gate)
+        <div style="font-size:11px; color:var(--muted); margin-top:2px;">Owner: <strong>Karl</strong> &nbsp;|&nbsp; Coverage plan by Apr 8</div>
+      </div>
+      <span class="pill pill-urgent">URGENT</span>
+    </label>
+
+    <label class="decision-row">
+      <input type="checkbox" class="dc-check">
+      <div class="decision-text">
+        <strong>This Sprint &mdash; Auto Allies:</strong> Confirm #202426 scope expansion
+        <div style="font-size:11px; color:var(--muted); margin-top:2px;">Owner: <strong>Karl</strong></div>
+      </div>
+      <span class="pill pill-sprint">This Sprint</span>
+    </label>
+
+    <label class="decision-row">
+      <input type="checkbox" class="dc-check">
+      <div class="decision-text">
+        <strong>This Sprint &mdash; Finance:</strong> Release 5 items blocked in Review awaiting PO acceptance (24 SP total)
+        <div style="font-size:11px; color:var(--muted); margin-top:2px;">Owner: <strong>Ramon</strong></div>
+      </div>
+      <span class="pill pill-sprint">This Sprint</span>
+    </label>
+
+    <label class="decision-row">
+      <input type="checkbox" class="dc-check">
+      <div class="decision-text">
+        <strong>PI Planning &mdash; Flawless Wedding App:</strong> Authorize dedicated backlog grooming sprint to address 73 stale items
+        <div style="font-size:11px; color:var(--muted); margin-top:2px;">Owner: <strong>Ramon + Karl</strong></div>
+      </div>
+      <span class="pill pill-pi">PI Planning</span>
+    </label>
+  </div>
+</div>
+
+<!-- ===== TOPIC 6: ACTION ITEMS ===== -->
+<div class="card">
+  <div class="card-header">
+    <span class="num" style="background:#0ea5e9;">6</span>
+    <h2>Action Items &amp; Owners</h2>
+    <span class="time-badge" style="background:#e0f2fe; color:#0369a1;">3 min</span>
+  </div>
+
+  <div class="action-group">
+    <div class="action-group-label" style="color:var(--red);">P0 &mdash; Do Today</div>
+    <table>
+      <thead><tr><th>Action</th><th style="width:140px;">Owner</th><th style="width:70px;">Est.</th></tr></thead>
+      <tbody>
+        <tr><td>Move #199522 (PhilGeps) to 7.1 &mdash; ado_otp</td><td>Ramon</td><td>2 min</td></tr>
+        <tr><td>Accept/reject 5 Finance items in Review (24 SP)</td><td>Ramon</td><td>30 min</td></tr>
+        <tr><td>Triage 8 new cc_dev defects (#202436&ndash;202448)</td><td>Karl</td><td>30 min</td></tr>
+        <tr><td>Enable branch protection &mdash; Auto Allies repos</td><td>Earl Carino</td><td>15 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="action-group">
+    <div class="action-group-label" style="color:var(--orange);">P1 &mdash; Before Sprint Close</div>
+    <table>
+      <thead><tr><th>Action</th><th style="width:140px;">Owner</th><th style="width:70px;">Est.</th></tr></thead>
+      <tbody>
+        <tr><td>Add AC to 5 cc_dev defects &mdash; ICS recovery</td><td>cc_dev lead</td><td>45 min</td></tr>
+        <tr><td>Touch 9 untouched JIT items (BR 80 &rarr; 100)</td><td>armelita</td><td>15 min</td></tr>
+        <tr><td>Add SP + AC to ado_fin #202416</td><td>Finance TL</td><td>15 min</td></tr>
+        <tr><td>Confirm testing coverage Apr 9&ndash;10 (cc_dev)</td><td>Karl</td><td>&mdash;</td></tr>
+        <tr><td>Add AC to #201564 &mdash; aa_dev</td><td>Jerlyn</td><td>20 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="action-group">
+    <div class="action-group-label" style="color:var(--yellow);">P2 &mdash; Next PI Planning</div>
+    <table>
+      <thead><tr><th>Action</th><th style="width:140px;">Owner</th><th style="width:70px;">Est.</th></tr></thead>
+      <tbody>
+        <tr><td>Authorize ado_fl_dev dedicated grooming sprint (73 stale items)</td><td>Ramon / Karl</td><td>PI</td></tr>
+        <tr><td>Address ado_ls_dev stale backlog (39 items &gt;180d)</td><td>LS Dev TL</td><td>PI</td></tr>
+        <tr><td>Define iteration goals for ado_hr and ado_jit</td><td>Team leads</td><td>PI</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== TOPIC 7: WRAP-UP ===== -->
+<div class="card">
+  <div class="card-header">
+    <span class="num" style="background:#64748b;">7</span>
+    <h2>Wrap-up &amp; Next Steps</h2>
+    <span class="time-badge" style="background:#f1f5f9; color:#475569;">2 min</span>
+  </div>
+
+  <!-- Impact Comparison -->
+  <h3 class="section-label">Impact: Act Today vs. Do Nothing</h3>
+  <div class="impact-grid">
+    <div class="impact-card" style="background:#f0fdf4; border:2px solid #86efac;">
+      <div class="ic-label" style="color:var(--green);">&#10003; Act Today (P0 Done)</div>
+      <div class="ic-score" style="color:var(--green);">~68&ndash;70 Mean</div>
+      <ul>
+        <li>Quick wins close &rarr; +5&ndash;8 portfolio mean pts</li>
+        <li>ado_hr stays Low Risk (91.1)</li>
+        <li>cc_dev recovery possible before Apr 9 testing window</li>
+        <li>Finance unblocked &mdash; 24 SP released</li>
+        <li>AA branch protection closes critical engineering gap</li>
+      </ul>
+    </div>
+    <div class="impact-card" style="background:#fef2f2; border:2px solid #fca5a5;">
+      <div class="ic-label" style="color:var(--red);">&#10007; No Action</div>
+      <div class="ic-score" style="color:var(--red);">~64.4 (flat)</div>
+      <ul>
+        <li>cc_dev testing gap hardens &mdash; 8 SP may miss sprint</li>
+        <li>AA engineering debt compounds sprint-over-sprint</li>
+        <li>fl_dev / ls_dev structural decay continues into 7.2</li>
+        <li>Finance 24 SP stays blocked through sprint close</li>
+        <li>Bus factor risk unaddressed entering next PI</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Next Steps -->
+  <div style="background:#f5f3ff; border-radius:8px; padding:14px 18px; margin-top:14px; font-size:13px;">
+    <strong style="color:#4f46e5;">Next Review:</strong> Portfolio review after Iteration 7.1 Day 7 to re-baseline with full SGPI data (both Git teams). Target date: <strong>Apr 14, 2026</strong>.
+    <div style="margin-top:8px; font-size:12px; color:var(--muted);">
+      <strong>Karl to own:</strong> Define iteration goals for all 9 teams &nbsp;|&nbsp; Colina Health testing coverage plan &nbsp;|&nbsp; Cross-training plan for single-contributor teams
+    </div>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <p><strong>Source:</strong> PORTFOLIO_20260407_1800.html + 9 team audits (AUDIT_20260407_0900.md &times;7 ADO &nbsp;|&nbsp; AUDIT_20260407_1719.md + AUDIT_20260407_1708.md &times;2 Git)</p>
+    <p><strong>Methodology:</strong> UPS = ADO Overall Score (ADO) &nbsp;|&nbsp; ICS&times;0.50 + HCI&times;0.30 + SGPI&times;0.20 (Git)</p>
+    <p><strong>Generated:</strong> April 7, 2026 &nbsp;|&nbsp; Iteration 7.1, Day 2 of 14</p>
+    <div class="legend-row">
+      <div class="legend-item"><span class="legend-dot" style="background:#22c55e;"></span>Low Risk (&ge;80)</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#eab308;"></span>Moderate (60&ndash;79.9)</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#f97316;"></span>High Risk (40&ndash;59.9)</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#ef4444;"></span>Critical (&lt;40)</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

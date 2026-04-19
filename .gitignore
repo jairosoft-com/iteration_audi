@@ -18,3 +18,14 @@ dist/
 **/.claude/data/sessions/
 logs/
 temp/
+
+# Local machine/editor artifacts
+**/.claude/settings.local.json
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.orig
