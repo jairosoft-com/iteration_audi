@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **SAFe iteration audit portfolio** for Jairosoft LLC. It contains workspace folders for 9 teams across Azure DevOps and GitHub, plus shared audit skills and portfolio-level reporting. The primary user is Ramon Aseniero (CEO), who runs audits via Claude Code CLI skills.
+This is a **SAFe iteration audit portfolio** for Jairosoft LLC. It contains workspace folders for 10 teams across Azure DevOps and GitHub, plus shared audit skills and portfolio-level reporting. The primary user is Ramon Aseniero (CEO), who runs audits via Claude Code CLI skills.
 
 ## Repository Structure
 
-```
+```text
 iteration_audit/
-├── ado_*/           # Azure DevOps workspace audits (7 teams)
+├── ado_*/           # Azure DevOps workspace audits (8 teams)
 ├── git_*/           # GitHub workspace audits (2 teams)
 ├── portfolio_report/          # Generated portfolio health dashboards (HTML)
 ├── portfolio_meeting_agenda/  # Meeting agenda/prep documents (HTML)
@@ -22,7 +22,7 @@ iteration_audit/
 ### Workspaces
 
 | Folder | Team | Type | ADO Project / GitHub Repos |
-|--------|------|------|---------------------------|
+| -------- | ------ | ------ | --------------------------- |
 | `ado_admin` | Administration | ADO | Jairosoft FINOPS |
 | `ado_fin` | Finance | ADO | Jairosoft FINOPS |
 | `ado_fl_dev` | Flawless Wedding App | ADO | Jairosoft FINOPS |
@@ -30,10 +30,12 @@ iteration_audit/
 | `ado_jit` | JIT Operation | ADO | Jairosoft FINOPS |
 | `ado_ls_dev` | Life Style Help App | ADO | Jairosoft FINOPS |
 | `ado_otp` | Office of the President | ADO | Jairosoft FINOPS |
+| `ado_shared` | Shared Services | ADO | Jairosoft Portfolio |
 | `git_aa_dev` | Auto Allies | Git | GitHub repos |
 | `git_cc_dev` | Colina Health | Git | GitHub repos |
 
 Each workspace contains:
+
 - `CLAUDE.md` — local context, team members, audit history, project exceptions
 - `audit/` — timestamped audit reports (`AUDIT_YYYYMMDD_HHMM.md`)
 - `todo/` — compliance fix lists (when applicable)
@@ -43,7 +45,7 @@ Each workspace contains:
 Skills are the authority for workflow, scoring, and output policy. Workspace `CLAUDE.md` files provide local context but defer to skills on process.
 
 | Skill | Purpose | Invocation |
-|-------|---------|------------|
+| ------- | --------- | ------------ |
 | `ado-safe-audit` | ADO SAFe iteration audit | `/ado-safe-audit [folder]` or `all-projects` |
 | `git_iteration_audit` | GitHub iteration audit | `/git_iteration_audit [folder]` or `all-git-projects` |
 | `portfolio-health` | Aggregate dashboard (HTML) | `/portfolio-health` |
@@ -75,13 +77,14 @@ Skills are the authority for workflow, scoring, and output policy. Workspace `CL
 
 ### Batch Audits
 
-- ADO batch (`all-projects`): 3 parallel agent teams (3+2+2 workspace split), Team Lead ranks non-critical to critical
+- ADO batch (`all-projects`): 3 parallel agent teams (with 8 ADO workspaces, use a 3+3+2 split; Team Lead ranks non-critical to critical)
 - Git batch (`all-git-projects`): 2 parallel agents
 - Audits never mix ADO and Git in the same batch
 
 ## MCP Servers
 
 This repo relies on these MCP integrations:
+
 - **azure-devops** — iterations, work items, backlogs, capacity, team data
 - **github** — PRs, commits, branches, code search
 - **mail** — send via Graph API (`ramon@jairosoft.com`), read via IMAP
