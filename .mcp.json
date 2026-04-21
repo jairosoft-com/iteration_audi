@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+     "ado": {
+      "command": "npx",
+      "args": ["-y", "@azure-devops/mcp", "Jairo"]
+    },
+    "github": {
+     "type": "http",
+     "url": "https://api.githubcopilot.com/mcp",
+     "headers": {
+      "Authorization": "Bearer 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"
+     }
+    }
+  }
+}
