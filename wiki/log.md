@@ -1,5 +1,7 @@
 # Wiki Log
 
+<!-- markdownlint-disable MD013 MD022 MD032 MD058 MD060 -->
+
 Append-only chronological record. Newest at the bottom. Each entry header prefix `## [YYYY-MM-DD HH:MM]` so `grep '^## \[' log.md | tail` works.
 
 ---
@@ -269,3 +271,143 @@ User asked "what are the most common compliance issues?" — answered via freque
 All 16 issues map to one of the 4 systemic changes in [[synthesis/pi7-plan]] or to residual fixes queued elsewhere (ci-health, compliance-tag, service-tier, stale-amnesty, iteration-goal-gate).
 
 Index updated: synthesis count 11 → 12.
+
+## [2026-04-20 04:40] query-to-synthesis | team-rankings filed
+User asked for a ranking of projects by score + trend direction. Computed programmatically from 270 audit summaries: extracted Overall/UPS scores chronologically per team, derived latest + 7d slope + volatility σ + min/max range + historical mean. Filed as [[synthesis/team-rankings]] with methodology note so future runs are reproducible.
+
+**Key findings:**
+- 🏆 **Portfolio leader:** [[entities/team-ado-fin]] at 93.7 (+1.71/d).
+- 🌊 **Highest momentum:** [[entities/team-ado-fl-dev]] at +4.72/d (from rubric-era floor of 6.1; genuine climb).
+- 📉 **Only genuine negative slope + high confidence:** [[entities/team-ado-otp]] at −0.88/d, σ 4.01.
+- ⚠️ **Hidden decline:** [[entities/team-git-aa-dev]] UPS stable +1.14/d while HCI 49 (Critical) + SGPI 21.2% (Red) — masking remains.
+- 🔄 **Fresh drop:** [[entities/team-ado-jit]] Δ −9.6 last audit (DP collapse to 0.0); 7d slope still flat because earlier rise cancels it.
+- 📏 **Below own historical mean:** only [[entities/team-ado-otp]] (−4.5 below mean of 75.7).
+- 🚩 **Volatility leaders (σ):** HR 22.56, Flawless 20.85, JIT 20.03 — artifact-prone.
+
+PI7.2 forward-look buckets: **Strong bets** (Finance · Colina · Admin · HR with caveats). **Watch closely** (JIT · OTP · Life Style). **Structural intervention** (Auto Allies UPS fix · Shared Services tier-aware rubric).
+
+Index updated: synthesis count 12 → 13.
+
+## [2026-04-20 04:55] query-to-synthesis | score-streaks filed
+User asked "which project has the most streak maintaining 80% score?" Computed consecutive ≥80 runs across all 270 audit summaries per team. Filed as [[synthesis/score-streaks]] with three different leaderboards (longest single streak · currently-active streak · cumulative frequency) plus artifact-break analysis.
+
+**Three crowns, three teams:**
+- 🏆 **Longest single streak ever:** [[entities/team-ado-jit]] JIT Operation — **13 consecutive audits** (2026-03-18 → 2026-04-04), broken by 2026-04-05 rubric transition.
+- 🔥 **Longest active streak:** [[entities/team-git-cc-dev]] Colina Health — **7 consecutive audits** and still running (2026-04-08 → 2026-04-19). Immune to the 04-05 ADO rubric change because Git teams use UPS.
+- 📊 **Highest cumulative ≥80 share:** [[entities/team-ado-fin]] Finance — **16 of 33 audits (48%)**.
+
+**Pattern:** 4 of the top 5 streaks were broken by **scoring artifacts** (rubric transition + perfect-sprint), not real performance regressions. Reinforces the case for the rubric-version-baseline carve-out in [[synthesis/scoring-artifacts]].
+
+**Three teams have never hit 80+:** Flawless (max 79.3, close), Auto Allies (max UPS 68.9, masked), Shared Services (1 audit baseline).
+
+Index updated: synthesis count 13 → 14.
+
+## [2026-04-20 05:05] correction | team member full names on JIT
+User provided full-name corrections for three [[entities/team-ado-jit]] members:
+
+- **Grace → Grace Garcia** (already in [[entities/person-grace]]; no change needed)
+- **Teofilo → Teofilo Limpag** (was incorrectly listed as "Teofilo Manosa" in [[entities/team-ado-jit]]; fixed)
+- **Armelita → Armelita Pulido** (no last name was on record; added)
+
+Changes:
+- [[entities/team-ado-jit]] — description paragraph + Stakeholders table updated with corrected full names; now links to [[entities/person-armelita]] and [[entities/person-grace]]
+- New: [[entities/person-armelita]] — PM + PO + IC triple-hat on JIT; routinely carries 70–80%+ of sprint SP. Bus-factor risk parallel to [[entities/person-mark-colina]] on Admin (cited in [[synthesis/top-compliance-issues]] rank #4)
+
+**Open question raised:** the earliest JIT audit ([[summaries/audit-ado-jit-20260224-2100]]) logs the third member as "Samantha Babael" but subsequent summaries consistently call her "Samantha Manosa". One of the two is a transcription error — flagged in the entity page as pending confirmation.
+
+No changes to summary files (historical record; short-form names acceptable in context). Raw workspace `ado_jit/CLAUDE.md` not modified per wiki schema ("never modify raw sources") — the corrections live in the wiki layer.
+
+## [2026-04-20 05:25] correction + query-to-synthesis | Teofilo's role + GitHub compliance
+User corrected Teofilo Limpag's role: **Instructor** (CSS NC II / TESDA training delivery), not generic "Team member (Training)". Updated in [[entities/team-ado-jit]] and [[entities/person-armelita]].
+
+Then answered: "what are the common GitHub compliance issues?" Scanned 48 Git audit summaries across [[entities/team-git-aa-dev]] (26) and [[entities/team-git-cc-dev]] (22). Ranked 14 issues by frequency + per-team split. Filed as [[synthesis/github-compliance-issues]].
+
+**Key finding: two distinct failure modes on the two Git teams:**
+- 🔴 **Auto Allies — engineering-health degradation:** traceability gaps (20/26), HCI Critical (12/26), zero-contribution (Jerlyn 3), branch protection (16/26). UPS composite math hides it.
+- 🔴 **Colina Health — review-discipline + HIPAA exposure:** review latency (4/22), unreviewed merges (3/22), HIPAA-adjacent PRs unreviewed (2/22, includes BE#55 42-file PR). Strong UPS headline hides the review-discipline gap.
+
+**4-tier remediation proposal:**
+- **P0** — branch protection on all 5 repos (addresses 3 ranks at once)
+- **P1** — Colina HIPAA review gate (≥2 reviewers for `hipaa`-labeled PRs)
+- **P2** — AA AB# traceability enforcement (pre-commit hook)
+- **P3/P4** — SGPI linking + silent-contributor weekly alert
+
+Index updated: synthesis 14 → 15.
+
+## [2026-04-20 05:55] content-wave 4 | 3 synthesis pages: ci-health · bus-factor · audit-automation
+Drafted the three next-candidate syntheses in parallel:
+
+1. [[synthesis/ci-health]] — **Engineering-health baseline for Git teams.** Pre-P0 HCI: Auto Allies **49** (High; Section-9 sub-score 48 Critical), Colina Health **74** (Moderate). Top 3 post-P0 metrics to track: % of PRs with required-reviewer approval at merge · mean PR review latency · `hipaa`-labeled PR 2-reviewer compliance. Establishes the "before" reading for measuring the branch-protection remediation in [[synthesis/github-compliance-issues]].
+
+2. [[synthesis/bus-factor]] — **Portfolio single-point-of-failure catalog.** 9 bus-factor signals across 7 of 10 teams. Five delivery-side: Admin/Mark · HR/Almera · Finance/Grace · OTP/Grace · JIT/Armelita (70–80%+ SP). Two near-1: LS Dev/Samantha (~90%), Flawless/Carol (100% of open). Two review-side: CC Dev (`raseniero` sole approver), AA Dev (Jerlyn inverse case — zero-contribution hidden). Proposed guardrail: ≥40% SP-concentration flag at planning with mandatory backup-plan sentence + <2-distinct-reviewer `review-bus-factor` flag per repo.
+
+3. [[synthesis/audit-automation]] — **Consolidated engineering roadmap.** 29 automation rules across 4 execution layers (L1 planning gates ×5, L2 per-audit flags ×11, L3 repo enforcement ×5, L4 dashboard widgets ×8), drawn from 9 prior synthesis pages + both SKILL.md sources. Top-3 priorities:
+   - **L2.1** UPS component-breakdown surfacing (kills Auto Allies's 9-audit masking streak at lowest cost)
+   - **L1.1** capacity-configured gate (eliminates Shared Services' deterministic 0.0)
+   - **L2.7** tier-aware scoring (reclassifies Shared Services 32.2 Critical → ~55–60 on real issues only)
+
+Dependency highlights:
+- L2.7 blocks on `team_type` convention being added to workspace `CLAUDE.md` files first
+- L2.6 blocks on ADO `compliance` tag + `deadline` custom field
+- L3.2–L3.5 block on L3.1 branch protection
+- All L4 widgets depend on their source L2 rule being live
+
+Index updated: synthesis 15 → 18.
+
+## [2026-04-21 14:30] batch-audit | /ado-safe-audit all-projects + /git_iteration_audit all-git-projects
+Full-portfolio iteration audit on Day 2 of Iteration 7.2 (early-sprint). 5 parallel agent teams (3 ADO + 2 Git) per batch conventions. **10 new audits written; 10 summaries ingested; all 10 entity audit-history sections refreshed.**
+
+### ADO scoreboard (Iteration 7.2 Day 2)
+| Team | 7.1 close | 7.2 Day 2 | Δ | Note |
+|------|----------:|----------:|--:|------|
+| [[entities/team-ado-admin]] | 87.0 🟢 | 69.5 🟡 | −17.5 | 39 SP vs 27 SP ceiling · #202894 DoR gap · 9 PI7-root legacy un-iterated |
+| [[entities/team-ado-fin]] | 93.7 🟢 | 77.9 🟡 | −15.8 | #201448 eAFS DROPPED from backlog (trail broken) · WIB −30 (no Spike) |
+| [[entities/team-ado-fl-dev]] | 79.3 🟡 | 59.6 🟠 | −19.7 | zero User Stories in 7.2 → −40 WIB; 8/11 items untouched since iter start |
+| [[entities/team-ado-hr]] | 87.0 🟢 | 81.4 🟢 | −5.6 | 37 SP vs 22 SP cap (68% overbook) · bus-factor-1 Almera |
+| [[entities/team-ado-jit]] | 68.8 🟡 | 72.9 🟡 | **+4.1** | ⭐ Grace's #201504/#201514 chronic blocker REMOVED from backlog |
+| [[entities/team-ado-ls-dev]] | 82.4 🟢 | 41.0 🟠 | **−41.4** | 2-item sprint · capacity 0.0 · #187240 246d stale (10th consecutive audit) |
+| [[entities/team-ado-otp]] | 71.2 🟡 | 64.8 🟡 | −6.4 | ⭐ #198587 (negative-slope driver) CLOSED 04-20 · new DoR gaps on 3 items |
+| [[entities/team-ado-shared]] | 32.2 🔴 | 37.7 🔴 | +5.5 | Team Capacity **STILL NOT CONFIGURED** for 7.2 (baseline P1 unresolved) · DoR +43.3 |
+
+### Git scoreboard (Iteration 7.2 Day 2)
+| Team | Prior | 7.2 Day 2 | Δ | Notable |
+|------|-------|-----------|---|---------|
+| [[entities/team-git-aa-dev]] | ICS 99.4 · HCI 49 · SGPI 21.2% | ICS 95.3 · HCI 53 · SGPI 0.0% | HCI +4 | ⭐ **First human PR review in team history** (Earl→Cliff, TS compile errors) · retro #202168 CLOSED by Jerlyn · Jerlyn ADO-active first time in 4 sprints |
+| [[entities/team-git-cc-dev]] | ICS 96.8 · HCI 74 · SGPI 100% | ICS 93.6 · HCI 79 · SGPI 0.0% | HCI +5 | ⭐ **Reviewer bottleneck BROKE** — raseniero 10-finding HIPAA review on BE#55; pcoronia first peer-approval · HCI 1 pt from Low band |
+
+### Headline wins
+- **[[entities/team-ado-otp]] recovery signal:** the only team with genuine negative slope at 7.1 close is now post-blocker — #198587 signage closed 04-20. [[synthesis/team-rankings]] forecast likely to turn.
+- **[[entities/team-ado-jit]] Grace blocker resolved:** the chronic pair of items cited across every recent JIT summary + [[entities/person-grace]] is gone from the visible backlog. Wait for confirmation of close vs re-path.
+- **[[entities/team-git-aa-dev]] UPS masking crack:** Jerlyn's return to ADO-activity + retro #202168 closure + the first-ever human PR review broke a 3-sprint pattern of engineering-health stagnation.
+- **[[entities/team-git-cc-dev]] reviewer concentration addressed:** `raseniero`'s adversarial review on the HIPAA PR BE#55 + `pcoronia` providing a peer approval suggests the review-bus-factor pattern flagged in [[synthesis/bus-factor]] is actively remediating.
+
+### New concerns
+- **[[entities/team-ado-ls-dev]] sharp drop to 41.0** — no capacity configured AND sprint under-planned AND #187240 now 246d stale. The [[synthesis/capacity-planning]] "not configured" failure mode is biting harder.
+- **[[entities/team-ado-shared]] capacity still missing** after explicit P1 recommendation at baseline. Most-repeated recommendation in the workspace history remains unactioned.
+- **[[entities/team-ado-fin]] #201448 eAFS disappeared** from backlog without explicit disposition trail — [[synthesis/compliance-misalignment]] concern worsened.
+- **[[entities/team-ado-fl-dev]] zero User Stories** in 7.2 commitment (−40 WIB penalty is structural for this cycle).
+- **[[entities/team-git-aa-dev]] branch protection still 0/4** — biggest single HCI move available, still unactioned despite retro spike #202169.
+
+### Wiki updates
+- 10 new summary pages: `wiki/summaries/audit-*-20260421-*.md`
+- All 10 entity pages' **Audit history** sections refreshed (prepended 2026-04-21 entry, newest first)
+- `wiki/index.md` — totals: summaries 289 → 299; per-team counts bumped by 1 each; Latest-audit table now shows Iteration 7.2 Day 2 scores with Δ vs 7.1 close
+- Entity page "Current state" sections NOT rewritten (still show 7.1 close numbers; 7.2 data lives in summaries + audit-history). This is intentional — the entity pages capture the most recently **completed** iteration as canonical state; mid-sprint is too early.
+
+### Next suggested follow-ups
+- Refresh [[synthesis/team-rankings]] with 7.2 Day 2 deltas (the OTP outlook has shifted; JIT's direction flipped positive)
+- Refresh [[synthesis/score-streaks]] (Colina's 7-streak extended to 8; only audits ≥80 carry streaks)
+- Watch [[synthesis/ups-masking-pattern]] — if AA's HCI breaks 60 this sprint, the masking pattern breaks with it
+- Update [[synthesis/compliance-misalignment]] with the #201448 eAFS disappearance
+
+## [2026-04-20 06:05] chart-embed | portfolio-trend Mermaid timelines
+User asked for a portfolio UPS trend chart with Mermaid. Clarified that UPS is Git-specific (only 2 teams); produced portfolio-MEAN timeline + dedicated Git-UPS timeline. Honored the "no xychart-beta" rule from root CLAUDE.md by using Mermaid `timeline` diagram type.
+
+Embedded three visualizations into [[synthesis/portfolio-trend]] between the Timeline table and the Themes section:
+1. **Mermaid `timeline`** — portfolio mean 3-arc narrative (PI6 close → IP/nadir → PI7.1 climb → peak → recomposition)
+2. **Mermaid `timeline`** — Git-team UPS trajectories (AA 53→68.6 masked · CC 51.9→90.6 clean)
+3. **Text sparkline** — 20-snapshot compact view with arc labels
+
+Also added a headline-numbers summary: start 64.3 · nadir 56.9 · peak 81.0 · current 76.1 · window delta +11.8 mean / +23.1 median (median growing faster signals bottom-band teams pulled up).
+
+File updated: `synthesis/portfolio-trend.md` — frontmatter `updated: 2026-04-20`.

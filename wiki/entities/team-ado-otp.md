@@ -69,6 +69,7 @@ Administrative/operations function inside ADO project `OTP`, covering executive 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-21 09:30** — [[summaries/audit-ado-otp-20260421-0930]] · [raw](../../ado_otp/audit/AUDIT_20260421_0930.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-otp-20260419-1345]] · [raw](../../ado_otp/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-otp-20260417-0900]] · [raw](../../ado_otp/audit/AUDIT_20260417_0900.md)
 - **2026-04-16 09:00** — [[summaries/audit-ado-otp-20260416-0900]] · [raw](../../ado_otp/audit/AUDIT_20260416_0900.md)

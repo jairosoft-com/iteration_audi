@@ -12,7 +12,7 @@ updated: 2026-04-19
 
 # JIT Operation Team (ADO)
 
-Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors (Armelita as PM/PO, Teofilo, Grace) plus Samantha with documentation capacity.
+Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors ([[entities/person-armelita|Armelita Pulido]] as PM/PO, Teofilo Limpag, [[entities/person-grace|Grace Garcia]]) plus Samantha with documentation capacity.
 
 ## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
 
@@ -56,10 +56,10 @@ Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairoso
 
 | Who | Role | Email |
 |-----|------|-------|
-| Armelita | Project Manager & Product Owner, JIT Operation Team | — |
-| Samantha Manosa | Team member (Documentation, no open 7.1 items) | — |
-| Teofilo Manosa | Team member (Training, 6h/day) | — |
-| Grace | Documentation, 1h/day; owner of the two untouched items | <grace@jairosoft.com> |
+| Armelita Pulido | Project Manager & Product Owner, JIT Operation Team · [[entities/person-armelita]] | — |
+| Teofilo Limpag | Instructor (6h/day) — delivers CSS NC II / TESDA training | — |
+| Samantha (Babael?) | Team member (Documentation, no open 7.1 items) — ⚠️ last name uncertain; earliest audit logs "Samantha Babael" but later summaries consistently use "Samantha Manosa". Pending confirmation. | — |
+| Grace Garcia | Documentation, 1h/day; owner of the two untouched items · [[entities/person-grace]] | <grace@jairosoft.com> |
 | Ramon Aseniero | Project owner / SAFe PM consultant | <ramon@jairosoft.com> |
 
 ## Linked concepts
@@ -71,6 +71,7 @@ Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairoso
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-21 14:00** — [[summaries/audit-ado-jit-20260421-1400]] · [raw](../../ado_jit/audit/AUDIT_20260421_1400.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-jit-20260419-1345]] · [raw](../../ado_jit/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-jit-20260417-0900]] · [raw](../../ado_jit/audit/AUDIT_20260417_0900.md)
 - **2026-04-16 09:00** — [[summaries/audit-ado-jit-20260416-0900]] · [raw](../../ado_jit/audit/AUDIT_20260416_0900.md)

@@ -72,6 +72,7 @@ Team roster beyond Ramon is captured from ADO assignees / capacity; emails TBD a
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-21 14:00** — [[summaries/audit-ado-ls-dev-20260421-1400]] · [raw](../../ado_ls_dev/audit/AUDIT_20260421_1400.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-ls-dev-20260419-1345]] · [raw](../../ado_ls_dev/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-ls-dev-20260417-0900]] · [raw](../../ado_ls_dev/audit/AUDIT_20260417_0900.md)
 - **2026-04-16 09:00** — [[summaries/audit-ado-ls-dev-20260416-0900]] · [raw](../../ado_ls_dev/audit/AUDIT_20260416_0900.md)

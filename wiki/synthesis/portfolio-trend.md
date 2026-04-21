@@ -23,7 +23,7 @@ sources:
   - "../summaries/portfolio-20260419-1345.md"
   - "../summaries/portfolio-20260419-1953.md"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-20
 ---
 
 # Portfolio Trend — 2026-03-25 → 2026-04-19
@@ -63,6 +63,79 @@ Cross-cutting synthesis of 19 portfolio snapshots + 1 trend rollup spanning **PI
 | 2026-04-17 09:00 | 72.1 | 78.4 | 3 | 4 | 1 | 1 | 🚧 Life Style 77.1→11.2 (sprint-close formula artifact); AA color override |
 | **2026-04-19 13:45** | 81.0 | 82.4 | 5 | 4 | 0 | 0 | 🎯 **Peak portfolio health** — first full-cycle zero-Critical |
 | 2026-04-19 19:53 | 76.1 | 80.9 | 5 | 4 | 0 | 1 | 🔴 Shared Services joins (32.2) — 10-team recomposition |
+
+## Visual trend (Mermaid)
+
+### Portfolio mean — three arcs
+
+Trend of the portfolio's aggregate mean score across all audited teams. The `xychart-beta` Mermaid type isn't used here because Obsidian doesn't render it reliably (see root `../../CLAUDE.md`); `timeline` is the supported equivalent.
+
+```mermaid
+timeline
+    title Portfolio Mean Score (3-arc narrative)
+    section PI6 close
+        Mar-25 1900 : 64.3 (1 Critical · bimodal)
+        Mar-26 1651 : 65.7 (OTP enters 78.2)
+        Mar-28 0900 : 66.1 (LS Dev Moderate)
+        Mar-30 0900 : 67.6 (AA exits Critical)
+        Mar-31 0900 : 72.4 (Admin +22 · Colina +20)
+    section PI boundary / IP week
+        Apr-01 0900 : 64.7 (HR -63 artifact)
+        Apr-02 0900 : 59.6 (Admin Holy Week)
+        Apr-04 0155 : 60.4 (JIT leads 86.8)
+        Apr-05 0900 : 56.9 NADIR (rubric transition)
+    section PI7.1 climb
+        Apr-06 0900 : 62.0 (PI7 Day 1)
+        Apr-07 1800 : 64.4 (HR 91.1)
+        Apr-08 1800 : 68.5 (Colina +28)
+        Apr-09 1800 : 70.4 (JIT Low)
+        Apr-12 1800 : 70.0 (JIT -10)
+        Apr-13 1800 : 75.6 (High band empty)
+        Apr-16 0900 : 77.6 (zero High · zero C)
+        Apr-17 0900 : 72.1 (LS formula artifact)
+    section PI7.1 close
+        Apr-19 1345 : 81.0 PEAK (9 teams)
+        Apr-19 1953 : 76.1 (10 teams · recomposition)
+```
+
+### Git-team UPS trajectories
+
+Pure-UPS read — the two teams whose audits use [[concepts/scoring-git-ups]]. Auto Allies and Colina Health over the same window, highlighting the diverging engineering-health stories covered in [[synthesis/ups-masking-pattern]] and [[synthesis/github-compliance-issues]].
+
+```mermaid
+timeline
+    title Auto Allies UPS + Colina Health UPS
+    section Auto Allies (AA)
+        Mar-09 : UPS 53.0 (floor)
+        Mar-26 : 59.4
+        Apr-05 : 60.6
+        Apr-13 : 66.7
+        Apr-19 : 68.6 (masked HCI 49)
+    section Colina Health (CC)
+        Mar-11 : UPS 51.9 (floor)
+        Mar-26 : 62.8
+        Apr-04 : 72.5
+        Apr-08 : 82.9 (crosses Low)
+        Apr-13 : 88.6
+        Apr-19 : 90.6 (7-streak active)
+```
+
+### Text sparkline — portfolio mean at a glance
+
+Compact visualization of the 20-snapshot mean trajectory. Each block approximates the score relative to the 56.9–81.0 window range.
+
+```
+64.3 65.7 66.1 67.6 72.4 | 64.7 59.6 60.4 56.9 | 62.0 64.4 68.5 70.4 70.0 75.6 77.6 72.1 | 81.0 76.1
+▄▄▄▄ ▄▄▄▄ ▄▄▄▄ ▅▄▄▄ ▅▅▅▅ | ▄▄▄▄ ▃▃▃▃ ▄▄▄▄ ▃▃▃▃ | ▄▄▄▄ ▄▄▄▄ ▄▄▄▄ ▅▄▄▄ ▅▄▄▄ ▅▅▅▅ ▆▆▅▅ ▅▄▄▄ | ▇▇▆▆ ▆▆▅▅
+   PI6 close ↑          ↑ IP/Holy/rubric nadir   ↑ PI7.1 monotonic climb              ↑ peak → 10-team
+```
+
+**Headline numbers:**
+- Start (Mar-25): **64.3** mean, **57.8** median
+- Nadir (Apr-05): **56.9** mean, **63.1** median (rubric transition)
+- Peak (Apr-19 13:45): **81.0** mean, **82.4** median
+- Current (Apr-19 19:53 · 10-team): **76.1** mean, **80.9** median
+- Window delta: **+11.8 mean · +23.1 median** (median grew faster — bottom-band teams pulled up)
 
 ## Themes
 

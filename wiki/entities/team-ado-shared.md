@@ -73,6 +73,7 @@ Team roster TBD — capture from ADO capacity/assignees at next audit.
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-21 09:30** — [[summaries/audit-ado-shared-20260421-0930]] · [raw](../../ado_shared/audit/AUDIT_20260421_0930.md)
 - **2026-04-19 19:47** — [[summaries/audit-ado-shared-20260419-1947]] · [raw](../../ado_shared/audit/AUDIT_20260419_1947.md)
 
 ## Open questions

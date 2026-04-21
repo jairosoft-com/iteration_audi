@@ -2,7 +2,7 @@
 
 Catalog of every page in this wiki. Agent updates this file on every ingest.
 
-**Page counts:** entities 17 · concepts 5 · summaries 289 active + 1 tombstone · synthesis 12
+**Page counts:** entities 18 · concepts 5 · summaries 299 active + 1 tombstone · synthesis 18
 
 ## Synthesis
 
@@ -20,6 +20,12 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[synthesis/compliance-misalignment]] | Regulatory work decoupled from ADO | #201448 Active 9 days across BIR deadline; proposes `compliance` tag + `deadline` field + receipt-based scoring |
 | [[synthesis/stale-work-items]] | Chronic backlog debt | LS Dev #187240 at 244 days stalest; proposes PI-close quarterly amnesty sweep |
 | [[synthesis/top-compliance-issues]] | Portfolio-wide issue ranking | 16 issues ranked by frequency; DoR + WIB + stale + bus-factor + capacity account for ~60% |
+| [[synthesis/team-rankings]] | Team-by-team current score + momentum + outlook | Reproducible ranking from 270 audits; OTP only genuine decline; Auto Allies masked decline; Flawless highest momentum |
+| [[synthesis/score-streaks]] | Longest runs of ≥80 Low Risk | JIT 13-streak (record) · Colina 7-streak (active) · Finance 48% cumulative; 4 of top 5 streaks broken by rubric-transition artifact |
+| [[synthesis/github-compliance-issues]] | GitHub compliance for Git-audited teams | 14 issues ranked across 48 Git audits; two distinct failure modes — AA engineering-health degradation · CC review-discipline + HIPAA exposure |
+| [[synthesis/ci-health]] | Engineering-health baseline for Git teams | Pre-P0 HCI: AA 49, CC 74; top 3 post-P0 metrics: required-reviewer rate · PR review latency · HIPAA 2-reviewer compliance |
+| [[synthesis/bus-factor]] | Portfolio SPOF catalog | 9 signals across 7 teams; 5 delivery-side (Mark/Admin, Armelita/JIT, etc.), 2 near-1, 2 review-side; proposes ≥40% SP-concentration flag |
+| [[synthesis/audit-automation]] | Consolidated roadmap | 29 auto-check rules across 4 layers (planning gates · per-audit flags · repo enforcement · dashboard widgets); priority 1: UPS component surfacing |
 
 ## Summaries — Portfolio snapshots (chronological, newest first)
 
@@ -47,38 +53,40 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 ## Summaries — Per-team audits
 
-**270 audit summaries** across 10 workspaces. Full per-team lists live in each team entity page's "Audit history" section (click through).
+**280 audit summaries** across 10 workspaces. Full per-team lists live in each team entity page's "Audit history" section (click through).
 
-### Latest audit per team (Iteration 7.1 close, 2026-04-19)
+### Latest audit per team (Iteration 7.2 Day 2 sprint-open, 2026-04-21)
 
-| Page | Team | Score | Band |
-|------|------|------:|------|
-| [[summaries/audit-ado-admin-20260419-1345]] | Administration | 87.0 | 🟢 Low |
-| [[summaries/audit-ado-fin-20260419-1345]] | Finance | 93.7 | 🟢 Low |
-| [[summaries/audit-ado-fl-dev-20260419-1345]] | Flawless | 79.3 | 🟡 Moderate |
-| [[summaries/audit-ado-hr-20260419-1345]] | HR | 87.0 | 🟢 Low |
-| [[summaries/audit-ado-jit-20260419-1345]] | JIT | 68.8 | 🟡 Moderate |
-| [[summaries/audit-ado-ls-dev-20260419-1345]] | Life Style | 82.4 | 🟢 Low |
-| [[summaries/audit-ado-otp-20260419-1345]] | OTP | 71.2 | 🟡 Moderate |
-| [[summaries/audit-ado-shared-20260419-1947]] | Shared Services | 32.2 | 🔴 Critical (baseline) |
-| [[summaries/audit-git-aa-dev-20260419-1345]] | Auto Allies | UPS 68.6 | 🟡 Moderate (masking Critical) |
-| [[summaries/audit-git-cc-dev-20260419-1345]] | Colina | UPS 90.6 | 🟢 Low |
+| Page | Team | Score | Band | Δ vs 7.1 close |
+|------|------|------:|------|:--------------:|
+| [[summaries/audit-ado-admin-20260421-0800]] | Administration | 69.5 | 🟡 Moderate | −17.5 |
+| [[summaries/audit-ado-fin-20260421-0800]] | Finance | 77.9 | 🟡 Moderate | −15.8 |
+| [[summaries/audit-ado-fl-dev-20260421-0800]] | Flawless | 59.6 | 🟠 High | −19.7 |
+| [[summaries/audit-ado-hr-20260421-1400]] | HR | 81.4 | 🟢 Low | −5.6 |
+| [[summaries/audit-ado-jit-20260421-1400]] | JIT | 72.9 | 🟡 Moderate | **+4.1** (Grace blocker removed) |
+| [[summaries/audit-ado-ls-dev-20260421-1400]] | Life Style | 41.0 | 🟠 High | −41.4 (2-item sprint) |
+| [[summaries/audit-ado-otp-20260421-0930]] | OTP | 64.8 | 🟡 Moderate | −6.4 (#198587 CLOSED ✓) |
+| [[summaries/audit-ado-shared-20260421-0930]] | Shared Services | 37.7 | 🔴 Critical | +5.5 (capacity STILL missing) |
+| [[summaries/audit-git-aa-dev-20260421-0900]] | Auto Allies | ICS 95.3 · HCI 53 · SGPI 0.0% | HCI 🔴 Critical | HCI +4 · 1st human PR review in team |
+| [[summaries/audit-git-cc-dev-20260421-0055]] | Colina | ICS 93.6 · HCI 79 · SGPI 0.0% | HCI 🟡 Moderate+ | HCI +5 · reviewer bottleneck broke |
+
+> **Day 2 early-sprint context:** Delivery Predictability = 0.0 across all ADO teams; SGPI 0.0% on both Git teams. Many "drops" are denominator effects from un-started iteration items, not regressions. See each summary's TL;DR for the distinction.
 
 ### Full audit backlog per team (counts)
 
 | Team | Audits ingested | Span | Entity page |
 |------|-----------------|------|-------------|
-| Administration | 34 | 2026-02-25 → 2026-04-19 | [[entities/team-ado-admin]] |
-| Finance | 33 | 2026-02-25 → 2026-04-19 | [[entities/team-ado-fin]] |
-| Flawless Wedding App | 25 | 2026-03-11 → 2026-04-19 | [[entities/team-ado-fl-dev]] |
-| HR Recruitment | 33 | 2026-02-25 → 2026-04-19 | [[entities/team-ado-hr]] |
-| JIT Operation | 38 | 2026-02-24 → 2026-04-19 | [[entities/team-ado-jit]] |
-| Life Style Help App | 26 | 2026-03-11 → 2026-04-19 | [[entities/team-ado-ls-dev]] |
-| Office of the President | 32 | 2026-02-24 → 2026-04-19 | [[entities/team-ado-otp]] |
-| Shared Services | 1 | 2026-04-19 baseline | [[entities/team-ado-shared]] |
-| Auto Allies (Git) | 26 | 2026-03-09 → 2026-04-19 | [[entities/team-git-aa-dev]] |
-| Colina Health (Git) | 22 | 2026-03-11 → 2026-04-19 | [[entities/team-git-cc-dev]] |
-| **Total** | **270** | **2026-02-24 → 2026-04-19** | — |
+| Administration | 35 | 2026-02-25 → 2026-04-21 | [[entities/team-ado-admin]] |
+| Finance | 34 | 2026-02-25 → 2026-04-21 | [[entities/team-ado-fin]] |
+| Flawless Wedding App | 26 | 2026-03-11 → 2026-04-21 | [[entities/team-ado-fl-dev]] |
+| HR Recruitment | 34 | 2026-02-25 → 2026-04-21 | [[entities/team-ado-hr]] |
+| JIT Operation | 39 | 2026-02-24 → 2026-04-21 | [[entities/team-ado-jit]] |
+| Life Style Help App | 27 | 2026-03-11 → 2026-04-21 | [[entities/team-ado-ls-dev]] |
+| Office of the President | 33 | 2026-02-24 → 2026-04-21 | [[entities/team-ado-otp]] |
+| Shared Services | 2 | 2026-04-19 → 2026-04-21 | [[entities/team-ado-shared]] |
+| Auto Allies (Git) | 27 | 2026-03-09 → 2026-04-21 | [[entities/team-git-aa-dev]] |
+| Colina Health (Git) | 23 | 2026-03-11 → 2026-04-21 | [[entities/team-git-cc-dev]] |
+| **Total** | **280** | **2026-02-24 → 2026-04-21** | — |
 
 ## Entities (teams · people · systems)
 
@@ -113,6 +121,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[entities/person-jerlyn]] | Auto Allies QA/Requirements · zero-contribution 3+ sprints | [[entities/team-git-aa-dev]] |
 | [[entities/person-karl]] | Portfolio Delivery Manager | All 10 workspaces (portfolio-wide) |
 | [[entities/person-bomar]] | Engineering Manager | Portfolio-wide; primarily Git + ADO dev teams |
+| [[entities/person-armelita]] | PM + PO + IC for JIT (triple-hat) | [[entities/team-ado-jit]] — routinely 70–80%+ SP concentration |
 
 ## Concepts
 
