@@ -1,11 +1,13 @@
 # Jairosoft FINOPS — Company Context
 
 ## Organization
+
 - **ADO Org:** dev.azure.com/jairo
 - **Project:** Jairosoft FINOPS (ID: e0bb302f-40f9-46c3-8164-6f1acb317d63)
 - **Framework:** SAFe 6.0 (Scaled Agile Framework)
 
 ## Teams in Jairosoft FINOPS
+
 | Team | ID | Description |
 |------|----|-------------|
 | FINOPS Program Team | da58789d | Default project team |
@@ -14,6 +16,7 @@
 | Human Resource Recruitment Team | 248f59a6 | HR recruitment (audit target) |
 
 ## Tools & Systems
+
 | Tool | Used For |
 |------|----------|
 | Azure DevOps | Project management, boards, work items |
@@ -21,6 +24,7 @@
 | PowerApps | Employee Portal (201 files) |
 
 ## Iteration Structure (PI6)
+
 | Iteration | Dates | ID |
 |-----------|-------|----|
 | Iteration 6.1 | Jan 12 – Jan 25, 2026 | 7aa57c69 |
@@ -30,6 +34,7 @@
 | Iteration 6.5 | Mar 9 – Mar 22, 2026 | (next) |
 
 ## Board Configuration
+
 - Board: Stories and Deliverables
 - Work item types: Feature → User Story → Task
 - Feature states: Requirements Gathering → Estimation → Approved → Active → Closed

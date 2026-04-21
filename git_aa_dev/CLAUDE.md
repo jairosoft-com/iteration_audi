@@ -11,6 +11,7 @@
 ### Objective
 
 Audit the **Auto Allies Development Team** for the **current active Azure DevOps iteration** using the shared Git standard:
+
 - GitHub developer productivity
 - SAFe compliance
 - ADO-to-GitHub traceability
@@ -49,28 +50,36 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 # Memory
 
 ## Me
+
 **Ramon** (Ramon Aseniero Jr), `ramon@jairosoft.com`. Manages ADO projects at Jairo organization. Uses SAFe framework for project auditing.
 
 ## People
+
 | Who | Role |
 |-----|------|
 | **Ramon** | Ramon Aseniero Jr, Project Owner, `ramon@jairosoft.com` |
 | **Karl** | Karl Caumban, Project Manager, `kcaumban@jairosoft.com` |
+
 > Full list: `memory/glossary.md`, profiles: `memory/people/`
 
 ## Terms
+
 | Term | Meaning |
 |------|---------|
 | **AA** | AutoAllies |
+
 > Full glossary: `memory/glossary.md`
 
 ## Projects
+
 | Name | What |
 |------|------|
 | **AutoAllies** | AutoAllies.com |
+
 > Details: `memory/projects/`
 
 ## ADO Context
+
 - **Org:** `jairo` (`dev.azure.com/jairo`)
 - **Project:** `Auto Allies`
 - **Project ID:** `2d7af571-6ef6-4ad0-a509-c440e008b0fb`
@@ -82,12 +91,14 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 - **Backlog Focus:** `Stories and Deliverables`
 
 ## GitHub Repositories
+
 | Repo | URL |
 |------|-----|
 | **Frontend** | `https://github.com/jairosoft-com/autoallies-version2` |
 | **Backend** | `https://github.com/jairosoft-com/autoallies-api-core` |
 
 ## Audit History
+
 | Date | File | Status |
 |------|------|--------|
 | 2026-03-09 | `audit/AUDIT_2026-03-09_000000.md` | Complete |
@@ -116,6 +127,7 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 | 2026-04-17 | `audit/AUDIT_20260417_0900.md` | Complete |
 
 ## Preferences
+
 - Audit reports authored as Markdown in `audit/` folder
 - PDF export is done manually by Ramon via Obsidian (Export to PDF)
 - Exported PDFs are saved to the `report/` folder for sharing with colleagues

@@ -3,6 +3,7 @@
 Workplace shorthand, acronyms, and internal language for Jairosoft FINOPS Administration Team.
 
 ## Acronyms
+
 | Term | Meaning | Context |
 |------|---------|---------|
 | ADO | Azure DevOps | Project management platform |
@@ -25,6 +26,7 @@ Workplace shorthand, acronyms, and internal language for Jairosoft FINOPS Admini
 | SO | Special Order | Certificate type at TESDA |
 
 ## Internal Terms
+
 | Term | Meaning |
 |------|---------|
 | Admin Team | Administration Team in Jairosoft FINOPS |
@@ -37,13 +39,15 @@ Workplace shorthand, acronyms, and internal language for Jairosoft FINOPS Admini
 | alpha list | BIR tax document listing |
 
 ## People
+
 | Name/Nickname | Person | Role |
 |---------------|--------|------|
-| Mark | Mark Colina (mcolina@jairosoft.com) | Sole Admin Team member, handles all operational items |
-| Ramon | Ramon (ramon@jairosoft.com) | Project owner, audit requestor |
+| Mark | Mark Colina (<mcolina@jairosoft.com>) | Sole Admin Team member, handles all operational items |
+| Ramon | Ramon (<ramon@jairosoft.com>) | Project owner, audit requestor |
 | Edmund Mina | Edmund Mina | Deceased (St. Peter payment reference) |
 
 ## Project Codenames / References
+
 | Reference | Meaning |
 |-----------|---------|
 | PI 6 | Current Program Increment (Jan-Apr 2026) |

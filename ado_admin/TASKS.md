@@ -23,4 +23,3 @@
 - [ ] **Cross-training plan for Admin Team** - Single-person team is a bus-factor risk
 
 ## Done
-

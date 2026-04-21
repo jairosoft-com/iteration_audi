@@ -1,6 +1,7 @@
 # Tasks
 
 ## Active
+
 - [ ] **Audit developer productivity in GitHub for current iteration** — Run full EngProd audit on AutoAllies repos (Frontend + Backend), analyzing PR velocity, commit frequency, code review turnaround, branch strategy, and CI/CD health. Save report to `./audit/` per naming convention.
 - [ ] **Define deterministic SAFe compliance scorecard** — Add a repeatable SAFe scoring rubric to `CLAUDE.md`, including named dimensions, weights, score meanings, and compliance thresholds so two audits on the same evidence produce the same score.
 - [ ] **Define PI objective / parent-link inspection boundary** — Clarify in `CLAUDE.md` whether the audit may follow parent links from scoped backlog items for PI objective alignment, and explicitly document the allowed depth and stopping rules.

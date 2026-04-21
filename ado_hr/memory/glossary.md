@@ -3,6 +3,7 @@
 Workplace shorthand, acronyms, and internal language for Jairosoft FINOPS HR auditing.
 
 ## Acronyms
+
 | Term | Meaning | Context |
 |------|---------|---------|
 | APE | Annual Performance Evaluation | Employee yearly review process |
@@ -18,6 +19,7 @@ Workplace shorthand, acronyms, and internal language for Jairosoft FINOPS HR aud
 | ADO | Azure DevOps | Project management tool |
 
 ## Internal Terms
+
 | Term | Meaning |
 |------|---------|
 | 201 file | Employee personnel file (Philippine HR term) |
@@ -28,10 +30,11 @@ Workplace shorthand, acronyms, and internal language for Jairosoft FINOPS HR aud
 | Probationary Contract | Employment contract during probation period |
 
 ## People (Nicknames → Full Names)
+
 | Nickname | Person |
 |----------|--------|
-| Almera | Almera Kleer Tayao (HR team, atayao@jairosoft.com) |
-| Grace | Grace (grace@jairosoft.com, leadership/BOD) |
+| Almera | Almera Kleer Tayao (HR team, <atayao@jairosoft.com>) |
+| Grace | Grace (<grace@jairosoft.com>, leadership/BOD) |
 | Ike | Ike Lloyd Yana (departing employee, offboarding) |
 | Jove | Jove Moralde (employee, Japan visa application) |
 | Samantha | Samantha Babael (new hire, probationary) |
@@ -50,6 +53,7 @@ Workplace shorthand, acronyms, and internal language for Jairosoft FINOPS HR aud
 | Paul Albrick | Coronia, Paul Albrick (APE evaluation) |
 
 ## Project / Feature Codenames
+
 | Name | Feature ID | Description |
 |------|-----------|-------------|
 | Offboarding Ike | #198202 | Offboarding of Ike Lloyd Yana |

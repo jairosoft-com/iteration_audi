@@ -7,6 +7,7 @@
 **Status:** Active, Iteration 6.5
 
 ## Current Iteration
+
 - **Iteration 6.5:** Mar 9 – Mar 22, 2026
 - **User Stories:** 15 (42 SP committed) — +1 late addition (#201373, 3 SP)
 - **Capacity:** Grace at 2 hrs/day (28 hrs total), Ramon at 0
@@ -18,6 +19,7 @@
 - **Overall Status:** YELLOW — 100% effective completion, 60% credited. Administrative closure gap.
 
 ## Previous Iteration — 6.4 Final Outcome
+
 - **Iteration 6.4:** Feb 23 – Mar 8, 2026
 - **Result:** 6 of 17 stories closed (35%), 9 of 41+ SP completed (22%)
 - **3-day closure stall** from Mar 3–8 (no closures in final stretch)
@@ -25,6 +27,7 @@
 - **AC deadlines breached:** #199524 (3/5/26), #199578 (3/6/26)
 
 ## Audit History (13 reports)
+
 | # | Date | Iteration | Key Event |
 |---|------|-----------|-----------|
 | A1 | Feb 24 | 6.4 Day 2 | Initial: 10 findings (3 Critical, 3 Structural, 3 Process, 1 Governance) |
@@ -42,6 +45,7 @@
 | A13 | Mar 22 | 6.5 Day 14 | CLOSING AUDIT: 25 SP credited (60%), 42 SP effective (100%), 26/26 tasks Closed, +#201373 late, 7 stories uncredited |
 
 ## Finding History (29 findings across 13 audits)
+
 | # | Finding | Status (A13) |
 |---|---------|-------------|
 | 1 | No team capacity | 🟡 Medium — Ramon 0 (13 audits) |
@@ -77,6 +81,7 @@
 **Summary: 18 Resolved/Fixed/Accepted, 7 Open (0 Critical, 2 HIGH, 3 Medium, 2 Low)**
 
 ## Key Work Items
+
 - **#178753** — ROD Requirements (5 SP, **Closed** after 370 days)
 - **#199353** — Cross Training - Buddy System (4 SP, **Closed** 3/17/26)
 - **#199524** — Intercompany Service Proposal (3 SP, **Closed** 3/13/26)
@@ -86,4 +91,5 @@
 - **#199835** — Hire Principal Software Engineer for SSI (3 tasks)
 
 ## SAFe Hierarchy
+
 Epic → Feature → User Story → Task

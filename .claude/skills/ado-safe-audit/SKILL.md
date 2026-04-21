@@ -10,6 +10,7 @@ allowed-tools: Read, Glob, Grep, Bash, Edit, Write, Agent
 Use this skill for standardized Azure DevOps SAFe audits for `ado_*` workspaces in this repository.
 
 Do not use this skill for:
+
 - `git_*` workspaces
 - mixed GitHub + ADO EngProd audits
 - PDF generation or report packaging workflows
@@ -17,6 +18,7 @@ Do not use this skill for:
 ## Authority and precedence
 
 This skill is the authoritative source for:
+
 - audit workflow
 - scoring rubric
 - evidence precedence
@@ -25,6 +27,7 @@ This skill is the authoritative source for:
 - batch behavior
 
 Each project `CLAUDE.md` remains the local source of truth for:
+
 - project, team, and board metadata
 - people and glossary
 - audit history
@@ -42,6 +45,7 @@ This skill accepts exactly two invocation styles:
 ### Single-project mode
 
 When given a single project folder:
+
 - the folder must be a top-level `ado_*` workspace
 - the folder must contain `CLAUDE.md`
 - write exactly one report to that folder's `audit/` directory
@@ -49,6 +53,7 @@ When given a single project folder:
 ### Batch mode
 
 When given `all-projects`:
+
 - enumerate only top-level folders matching `ado_*`
 - keep only folders that contain `CLAUDE.md`
 - process folders in alphabetical order
@@ -84,6 +89,7 @@ Use this order of precedence:
 5. Prior audit report for delta comparison only
 
 Never broaden scope beyond:
+
 - the project named in the local `CLAUDE.md`
 - the team named in the local `CLAUDE.md`
 - the Stories and Deliverables backlog for that team
@@ -206,6 +212,7 @@ Score each dimension on `0-100`.
 - `Overall Score = round((Iteration Planning + Team Capacity + Estimation + DoR Compliance + Work Item Balance + Backlog Refinement + Delivery Predictability) / 7, 1)`
 
 Use these fixed risk bands:
+
 - `Low Risk` = `>= 80`
 - `Moderate Risk` = `60 - 79.9`
 - `High Risk` = `40 - 59.9`
@@ -214,6 +221,7 @@ Use these fixed risk bands:
 ### Evidence gaps
 
 If a required field is unavailable:
+
 - note the gap explicitly in the report
 - do not invent missing values
 - keep the score deterministic using only visible evidence
@@ -237,6 +245,7 @@ Every report must be Markdown only and include these sections in this order:
 ### Required report content
 
 Near the top of the report, include:
+
 - project name
 - team name
 - workspace folder
@@ -247,6 +256,7 @@ Near the top of the report, include:
 - overall score and risk band
 
 The `SAFe Compliance Scorecard` must include a table with:
+
 - Dimension
 - Score
 - Evidence
@@ -259,6 +269,7 @@ The recommendations section must be prioritized and actionable.
 Use Mermaid when visualization adds value.
 
 At minimum, include one Mermaid visualization when enough evidence exists, using one of:
+
 - score breakdown
 - state distribution
 - backlog age / refinement trend
@@ -280,6 +291,7 @@ Do not create chart image files.
 ### Single-project mode
 
 If the required ADO context cannot be resolved:
+
 - stop
 - report the failure explicitly
 - do not improvise missing scope
@@ -287,6 +299,7 @@ If the required ADO context cannot be resolved:
 ### Batch mode
 
 If one project fails:
+
 - continue processing remaining valid `ado_*` projects
 - record failed or skipped projects in the final batch summary
 - do not let one failed project block the rest of the batch
@@ -294,6 +307,7 @@ If one project fails:
 ### Missing evidence
 
 When some evidence is missing but the audit can still proceed:
+
 - continue in degraded mode
 - record the missing evidence in `Evidence Gaps and Limitations`
 - avoid fabricated conclusions
@@ -301,6 +315,7 @@ When some evidence is missing but the audit can still proceed:
 ## Completion checklist
 
 Before finishing, verify all of the following:
+
 - the target is an `ado_*` workspace or `all-projects`
 - the local `CLAUDE.md` was read
 - the current active iteration was resolved

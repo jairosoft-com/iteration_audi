@@ -10,6 +10,7 @@ allowed-tools: Read, Glob, Grep, Bash, Write
 Generate an interactive, self-contained HTML dashboard that aggregates the latest audit scores from every `ado_*` and `git_*` workspace into a unified portfolio view.
 
 Do not use this skill for:
+
 - Running individual project audits (use `ado-safe-audit` or `git_iteration_audit`)
 - Re-computing individual audit scores
 - PDF generation
@@ -17,12 +18,14 @@ Do not use this skill for:
 ## Authority and precedence
 
 This skill is the authoritative source for:
+
 - portfolio scoring methodology (UPS formula, normalization)
 - portfolio report structure and output policy
 - cross-project analysis methodology
 - risk band definitions for portfolio-level comparison
 
 This skill defers to:
+
 - `ado-safe-audit` SKILL.md for how ADO scores are computed
 - `git_iteration_audit` SKILL.md for how Git scores (ICS, SGPI, HCI) are computed
 - individual workspace `CLAUDE.md` files for team metadata
@@ -54,9 +57,11 @@ This skill defers to:
 ### ADO audit reports (`ado_*`)
 
 Look for the Overall Score in the Audit Metadata table:
+
 ```
 | **Overall Score** | **90.8 / 100 (Low Risk)** |
 ```
+
 Pattern: `Overall\s+Score.*?(\d+\.?\d*)\s*/\s*100`
 
 Also extract the risk band text from the same match: `(Low Risk|Moderate Risk|High Risk|Critical)`
@@ -64,12 +69,15 @@ Also extract the risk band text from the same match: `(Low Risk|Moderate Risk|Hi
 ### Git audit reports (`git_*`)
 
 Look for the three scores in the Scores at a Glance table or KPI table:
+
 ```
 | Iteration Compliance Score | **54.7% (Red)** |
 | SGPI (Committed Scope)     | **0.0%**        |
 | HCI                        | **20/100**      |
 ```
+
 Patterns:
+
 - ICS: `Iteration Compliance.*?(\d+\.?\d*)%`
 - SGPI: `SGPI.*?(\d+\.?\d*)%`
 - HCI: `HCI.*?(\d+\.?\d*)\s*/\s*100`
@@ -112,17 +120,21 @@ Round UPS to 1 decimal place.
 ## Portfolio-level metrics
 
 ### Tier 1 — Aggregate
+
 - **Portfolio Mean** — average UPS across all teams with data, rounded to 1 decimal
 - **Portfolio Median** — median UPS, rounded to 1 decimal
 - **Tier Distribution** — count of teams per risk band
 
 ### Tier 2 — Cross-cutting indicators
+
 Identify from individual audit reports:
+
 - **Bus Factor Index** — count of teams where a single person carries all work
 - **Stagnation Count** — teams with no iteration activity or empty iterations
 - **Recommendation Adoption** — qualitative patterns of unfixed issues repeated across audits
 
 ### Tier 3 — Trend (vs. prior portfolio snapshot)
+
 - **Score Movement** — per-team UPS delta from prior portfolio report
 - **Risk Band Transitions** — teams that moved up or down a band
 - **Portfolio Mean Trend** — direction of the overall average
@@ -146,6 +158,7 @@ Use Stitch mockup `6ca7618e` as the visual reference. The design is saved at `po
 ### Required HTML sections (in order)
 
 #### 1. Header
+
 - Full-width, no sidebar
 - Left: Title "Portfolio Health Dashboard" (large, bold, Manrope), subtitle with iteration name and date
 - Right: Three metric cards in a row:
@@ -154,6 +167,7 @@ Use Stitch mockup `6ca7618e` as the visual reference. The design is saved at `po
   - "Teams at Risk" with count, dark/red background
 
 #### 2. Portfolio Scorecard Table
+
 - Section title "Portfolio Scorecard" with "Export PDF" button (print trigger)
 - Full-width styled table with columns:
   - Rank (zero-padded, e.g., 01)
@@ -167,10 +181,12 @@ Use Stitch mockup `6ca7618e` as the visual reference. The design is saved at `po
 - Hover highlight on rows
 
 #### 3. Charts Row (two-column grid)
+
 - **Left — Risk Distribution:** SVG donut chart showing team counts per band. Center text: total team count. Legend beside the chart with colored dots and labels.
 - **Right — Score Comparison:** Horizontal bar chart with one bar per team, sorted descending. Bar color matches risk band. Score value at end of each bar.
 
 #### 4. Tier Analysis and Cross-Cutting Themes (two-column grid, 2/3 + 1/3)
+
 - **Left — Tier Analysis:** Four collapsible cards with colored left borders:
   - "Top Performers" (green border, expanded by default)
   - "Moderate" (yellow border, collapsed)
@@ -180,13 +196,16 @@ Use Stitch mockup `6ca7618e` as the visual reference. The design is saved at `po
 - **Right — Cross-Cutting Themes:** Numbered items with colored circle badges and brief descriptions
 
 #### 5. Trend Analysis (if prior portfolio report exists)
+
 - Table: Team, Prior UPS, Current UPS, Delta, Direction arrow
 - Highlight risk band transitions
 
 #### 6. Evidence Gaps
+
 - Teams with no audit data, stale audits, or extraction failures
 
 #### 7. Footer
+
 - Methodology: "UPS = ADO Overall Score (ADO teams) | UPS = ICS×0.50 + HCI×0.30 + SGPI×0.20 (Git teams)"
 - Generation timestamp
 - Risk band legend
@@ -194,6 +213,7 @@ Use Stitch mockup `6ca7618e` as the visual reference. The design is saved at `po
 ### Color scheme
 
 Use these colors consistently throughout:
+
 - Low Risk / Green: `#22c55e`
 - Moderate / Yellow: `#eab308`
 - High Risk / Orange: `#f97316`
@@ -231,6 +251,7 @@ No separate data store. The most recent `portfolio_report/PORTFOLIO_*.html` file
 ## Completion checklist
 
 Before finishing, verify:
+
 - All `ado_*` and `git_*` directories with `CLAUDE.md` were scanned
 - Scores were extracted from existing audit reports only (no re-computation)
 - UPS formula applied correctly for Git teams (ICS×0.50 + HCI×0.30 + SGPI×0.20)

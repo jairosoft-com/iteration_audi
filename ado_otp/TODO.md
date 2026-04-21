@@ -1,6 +1,6 @@
 # TODO
 
-## Grace (@grace@jairosoft.com)
+## Grace (@<grace@jairosoft.com>)
 
 - [ ] **Clean up duplicate User Stories #199352 and #199353 ("Cross Training - Buddy System")**
   - User Story #199352 has no parent and is incorrectly acting as a parent to Feature #197326 ("Reduce Absenteeism - Increase Project Billable Hours"), which inverts the standard Agile hierarchy (Features should be parents of User Stories, not the other way around).

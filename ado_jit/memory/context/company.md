@@ -1,6 +1,7 @@
 # Company Context
 
 ## Organization
+
 - **Company:** Jairosoft
 - **Industry:** IT Training / TESDA Accredited Technical Education
 - **Location:** Philippines (Buhangin area references)

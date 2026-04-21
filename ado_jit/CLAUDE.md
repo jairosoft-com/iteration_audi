@@ -45,6 +45,7 @@ Then the auditor must always create diagrams to visualize the data
 # Memory
 
 ## Me
+
 Ramon, Project Owner at Jairosoft. Oversees SAFe audits of JIT Operation Team via Azure DevOps.
 
 ## People
@@ -84,6 +85,7 @@ Ramon, Project Owner at Jairosoft. Oversees SAFe audits of JIT Operation Team vi
 > Details: memory/projects/
 
 ## Preferences
+
 - Audit reports with Mermaid diagrams for data visualization
 - Follow-up audits tracking remediation of previous findings
 - SAFe 6.0 framework standards

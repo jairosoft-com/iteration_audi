@@ -11,6 +11,7 @@
 ### Objective
 
 Audit the **Colina Health Product Team** for the **current active Azure DevOps iteration** using the shared Git standard:
+
 - GitHub developer productivity
 - SAFe compliance
 - ADO-to-GitHub traceability

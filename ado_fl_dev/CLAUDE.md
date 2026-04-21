@@ -53,13 +53,13 @@ Your goal is to audit the project current iteration
 
 ## Me
 
-**Ramon** (Ramon Aseniero Jr), ramon@jairosoft.com. Manages ADO projects at Jairo organization. Uses SAFe framework for project auditing.
+**Ramon** (Ramon Aseniero Jr), <ramon@jairosoft.com>. Manages ADO projects at Jairo organization. Uses SAFe framework for project auditing.
 
 ## People
 
 | Who | Role |
 |-----|------|
-| **Ramon** | Ramon Aseniero Jr, Project Owner, ramon@jairosoft.com |
+| **Ramon** | Ramon Aseniero Jr, Project Owner, <ramon@jairosoft.com> |
 
 > Full list: memory/glossary.md, profiles: memory/people/
 

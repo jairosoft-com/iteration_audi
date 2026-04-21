@@ -10,6 +10,7 @@ allowed-tools: Read, Glob, Grep, Bash, Edit, Write, Agent
 Use this skill for standardized GitHub + ADO iteration audits for `git_*` workspaces in this repository.
 
 Do not use this skill for:
+
 - `ado_*` workspaces
 - ADO-only SAFe audits
 - PDF generation or report packaging workflows
@@ -18,6 +19,7 @@ Do not use this skill for:
 ## Authority and precedence
 
 This skill is the authoritative source for:
+
 - audit workflow
 - evidence precedence
 - scoring rules
@@ -26,6 +28,7 @@ This skill is the authoritative source for:
 - batch behavior
 
 Each project `CLAUDE.md` remains the local source of truth for:
+
 - project scope
 - ADO team and backlog context
 - GitHub repository scope
@@ -45,6 +48,7 @@ This skill accepts exactly two invocation styles:
 ### Single-project mode
 
 When given a single project folder:
+
 - the folder must be a top-level `git_*` workspace
 - the folder must contain `CLAUDE.md`
 - write exactly one report to that folder's `audit/` directory
@@ -52,6 +56,7 @@ When given a single project folder:
 ### Batch mode
 
 When given `all-git-projects`:
+
 - enumerate only top-level folders matching `git_*`
 - keep only folders that contain `CLAUDE.md`
 - process folders in alphabetical order
@@ -91,6 +96,7 @@ Use this order of precedence:
 5. Latest prior audit for delta comparison only
 
 Never broaden scope beyond:
+
 - the ADO project named in the local `CLAUDE.md`
 - the ADO team named in the local `CLAUDE.md`
 - the scoped `Stories and Deliverables` backlog
@@ -99,6 +105,7 @@ Never broaden scope beyond:
 ## Standard scoring rubric
 
 Every Git audit report must contain these three explicit named scores:
+
 - `Iteration Compliance Score`
 - `SGPI`
 - `HCI`
@@ -217,6 +224,7 @@ Every report must be Markdown only and include these sections in this order:
 ### Required report content
 
 Near the top of the report, include:
+
 - current iteration name
 - current iteration start and finish dates
 - scoped ADO team and backlog
@@ -231,6 +239,7 @@ Do not emit a separate `SCORECARD_*.md`.
 Use Mermaid when visualization adds value.
 
 At minimum, include one Mermaid visualization when enough evidence exists, using one of:
+
 - score summary
 - state distribution
 - SGPI trend
@@ -254,6 +263,7 @@ Do not use `xychart-beta`.
 ### Single-project mode
 
 If required ADO or GitHub context cannot be resolved:
+
 - stop
 - report the failure explicitly
 - do not improvise missing scope
@@ -261,6 +271,7 @@ If required ADO or GitHub context cannot be resolved:
 ### Batch mode
 
 If one project fails:
+
 - continue processing remaining valid `git_*` projects
 - record failed or skipped projects in the final batch summary
 - do not let one failed project block the rest of the batch
@@ -268,6 +279,7 @@ If one project fails:
 ### Missing evidence
 
 When some evidence is missing but the audit can still proceed:
+
 - continue in degraded mode
 - record the missing evidence in `Evidence Gaps and Limitations`
 - avoid fabricated conclusions
@@ -275,6 +287,7 @@ When some evidence is missing but the audit can still proceed:
 ## Completion checklist
 
 Before finishing, verify all of the following:
+
 - the target is a `git_*` workspace or `all-git-projects`
 - the local `CLAUDE.md` was read
 - the current active iteration was resolved

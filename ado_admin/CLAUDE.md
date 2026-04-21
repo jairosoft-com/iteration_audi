@@ -45,16 +45,19 @@ Your goal is to audit the `Administration Team Board` current iteration in `Jair
 # Memory
 
 ## Me
-Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administration Team.
+
+Ramon (<ramon@jairosoft.com>). SAFe audit consultant for Jairosoft FINOPS Administration Team.
 
 ## People
+
 | Who | Role |
 |-----|------|
-| **Mark** | Mark Colina (mcolina@jairosoft.com), sole Admin Team member, handles all work items |
+| **Mark** | Mark Colina (<mcolina@jairosoft.com>), sole Admin Team member, handles all work items |
 | **Ramon** | Ramon, project owner / audit requestor |
 -> Full list: memory/glossary.md, profiles: memory/people/
 
 ## Terms
+
 | Term | Meaning |
 |------|---------|
 | FINOPS | Jairosoft FINOPS — the ADO project |
@@ -72,6 +75,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 -> Full glossary: memory/glossary.md
 
 ## Projects / ADO IDs
+
 | Name | What |
 |------|------|
 | **PI 6** | Current Program Increment (Jan-Apr 2026), Iterations 6.1-6.6 |
@@ -82,6 +86,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 -> Details: memory/projects/
 
 ## Teams in FINOPS
+
 | Team | ID |
 |------|-----|
 | FINOPS Program Team | da58789d-dfdf-4cc3-880d-8a2091bced9b |
@@ -90,6 +95,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 | HR Recruitment Team | 248f59a6-372c-4b74-8129-9eaf260f211e |
 
 ## Backlog Levels
+
 | Level | ADO Category | Work Item Types |
 |-------|-------------|-----------------|
 | Epics & Objectives | Microsoft.EpicCategory | Epic |
@@ -98,6 +104,7 @@ Ramon (ramon@jairosoft.com). SAFe audit consultant for Jairosoft FINOPS Administ
 | Tasks | Microsoft.TaskCategory | Task, Bug |
 
 ## Recurring Audit Findings (Persistent Issues)
+
 - Capacity planning often missing or inconsistent
 - Story points often missing or inconsistent
 - Single assignee (Mark Colina) on all items — bus factor risk
@@ -127,6 +134,7 @@ Numbered rows below are the early audit series. **Additional runs** after Mar 22
 | 11 | AUDIT_20260322_2329 | Mar 22, 2026 |
 
 ## Preferences
+
 - Audit reports saved to `./audit/` folder
 - Mermaid diagrams for data visualization
 - SAFe 6.0 framework standards

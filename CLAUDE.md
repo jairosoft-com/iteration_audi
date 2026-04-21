@@ -93,3 +93,13 @@ This repo relies on these MCP integrations:
 ## Output Style
 
 The user prefers YAML-structured responses (configured in `settings.local.json`). Structure responses with `task`, `status`, `details`, `files`, `notes` keys.
+
+## LLM Wiki (second brain)
+
+`wiki/` is an **LLM-maintained knowledge wiki** that sits on top of this repo's raw sources. It is the user's second brain — a persistent, interlinked markdown knowledge base that the agent writes and maintains.
+
+- **Schema:** [`wiki/CLAUDE.md`](wiki/CLAUDE.md) — full rules for ingest, query, lint, page format, and domain conventions. Auto-loads when working inside `wiki/`.
+- **Raw source roots** (immutable — read, never write): all `ado_*/`, all `git_*/`, `portfolio_report/`, and `raw/`.
+- **Navigation:** start at [`wiki/index.md`](wiki/index.md) (catalog) and [`wiki/log.md`](wiki/log.md) (chronology).
+- **Layers:** `wiki/entities/` (teams, people, systems) · `wiki/concepts/` (rubrics, bands) · `wiki/summaries/` (per-source) · `wiki/synthesis/` (cross-cutting).
+- **Default workflow:** ingest one source at a time; discuss takeaways before writing; update index + log on every ingest; flag contradictions, never silently overwrite.

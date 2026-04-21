@@ -46,14 +46,14 @@ Then the auditor must always create diagrams to visualize the data
 
 ## Me
 
-Ramon (ramon@jairosoft.com). SAFe audit consultant for the Jairosoft FINOPS Finance Team board.
+Ramon (<ramon@jairosoft.com>). SAFe audit consultant for the Jairosoft FINOPS Finance Team board.
 
 ## People
 
 | Who | Role |
 |-----|------|
-| **Ramon** | Ramon, project owner / audit requestor, ramon@jairosoft.com |
-| **Grace** | Sole Finance Team member on the board; primary capacity owner (Deployment, Documentation, Requirements), grace@jairosoft.com |
+| **Ramon** | Ramon, project owner / audit requestor, <ramon@jairosoft.com> |
+| **Grace** | Sole Finance Team member on the board; primary capacity owner (Deployment, Documentation, Requirements), <grace@jairosoft.com> |
 
 ## Terms
 

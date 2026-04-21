@@ -3,6 +3,7 @@
 Workplace shorthand, acronyms, and internal language.
 
 ## Acronyms
+
 | Term | Meaning | Context |
 |------|---------|---------|
 | OTP | Office of the President | ADO project, SAFe audited |
@@ -16,6 +17,7 @@ Workplace shorthand, acronyms, and internal language.
 | PRD | Product Requirements Document | Tactical requirements doc |
 
 ## Internal Terms
+
 | Term | Meaning |
 |------|---------|
 | Jairo org | Azure DevOps organization (dev.azure.com/jairo) |
@@ -25,12 +27,14 @@ Workplace shorthand, acronyms, and internal language.
 | the audit | SAFe compliance audit of OTP project |
 
 ## People
+
 | Name | Person |
 |------|--------|
 | Ramon | Ramon Aseniero Jr (project owner) |
 | Grace | Sole assignee for all OTP work items |
 
 ## Project Codenames
+
 | Name | Project |
 |------|---------|
 | OTP | Office of the President ADO project |

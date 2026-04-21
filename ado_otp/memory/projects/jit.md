@@ -5,8 +5,10 @@
 **Status:** Active
 
 ## Context
+
 - Separate ADO project in the Jairo organization
 - User Story #199834 was created here initially for hiring Principal Software Engineer (SSI), then also created in OTP (#199835)
 
 ## Recent Work Items
+
 - **#199834** — Hire Principal Software Engineer for SSI Project (User Story)

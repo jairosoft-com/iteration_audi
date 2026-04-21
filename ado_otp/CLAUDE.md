@@ -49,16 +49,20 @@ Then the auditor must always create diagrams to visualize the data
 # Memory
 
 ## Me
-**Ramon** (Ramon Aseniero Jr), ramon@jairosoft.com. Manages ADO projects at Jairo organization. Uses SAFe framework for project auditing.
+
+**Ramon** (Ramon Aseniero Jr), <ramon@jairosoft.com>. Manages ADO projects at Jairo organization. Uses SAFe framework for project auditing.
 
 ## People
+
 | Who | Role |
 |-----|------|
-| **Ramon** | Ramon Aseniero Jr, project owner, ramon@jairosoft.com |
+| **Ramon** | Ramon Aseniero Jr, project owner, <ramon@jairosoft.com> |
 | **Grace** | Sole assignee for all OTP work items (accepted by team) |
+
 > Full list: memory/glossary.md, profiles: memory/people/
 
 ## Terms
+
 | Term | Meaning |
 |------|---------|
 | **OTP** | Office of the President — ADO project (SAFe audited) |
@@ -69,23 +73,28 @@ Then the auditor must always create diagrams to visualize the data
 | **PI** | Program Increment |
 | **DoR** | Definition of Ready (Description + Acceptance Criteria) |
 | **BRD/PRD** | Business/Product Requirements Document |
+
 > Full glossary: memory/glossary.md
 
 ## Projects
+
 | Name | What |
 |------|------|
 | **OTP** | Office of the President, current: Iteration 6.5 (Mar 9 – Mar 22, 2026), SAFe audited |
 | **JIT** | Separate ADO project in Jairo org |
 | **SSI** | Project hiring a Principal Software Engineer |
+
 > Details: memory/projects/
 
 ## ADO Organization
+
 - **Org:** jairo (dev.azure.com/jairo)
 - **OTP Project ID:** e7739905-28a3-4ae1-9173-7f6cd13b3494
 - **JIT Project ID:** f169a7d0-b2e3-40b1-9e63-9c7e556d5100
 - **OTP Team:** OTP Team
 
 ## Audit History
+
 | # | Date | File | Iteration | Status |
 |---|------|------|-----------|--------|
 | A1 | Feb 24, 2026 | AUDIT_20260224_221243 | 6.4 (Day 2) | Initial audit — 10 findings |
@@ -103,6 +112,7 @@ Then the auditor must always create diagrams to visualize the data
 | A13 | Mar 22, 2026 | AUDIT_20260322_232928 | 6.5 (Day 14) | CLOSING AUDIT — 25 SP credited (60%), 42 SP effective (100%), 26/26 tasks Closed, +#201373 (3 SP late addition), 7 stories uncredited |
 
 ## Preferences
+
 - Audit reports as Markdown
 - Mermaid diagrams for visualization (rendered via matplotlib)
 - Opens ADO work items in Chrome for review

@@ -45,16 +45,19 @@ Then the auditor must always create diagrams to visualize the data
 # Memory
 
 ## Me
-Ramon (ramon@jairosoft.com), SAFe Agile PM Consultant auditing the HR Recruitment Team board in Jairosoft FINOPS.
+
+Ramon (<ramon@jairosoft.com>), SAFe Agile PM Consultant auditing the HR Recruitment Team board in Jairosoft FINOPS.
 
 ## People
+
 | Who | Role |
 |-----|------|
-| **Almera** | Almera Kleer Tayao (atayao@jairosoft.com), sole HR team member, handles all stories |
-| **Grace** | grace@jairosoft.com, team member with 0 capacity allocated |
+| **Almera** | Almera Kleer Tayao (<atayao@jairosoft.com>), sole HR team member, handles all stories |
+| **Grace** | <grace@jairosoft.com>, team member with 0 capacity allocated |
 → Full list: memory/people/
 
 ## Terms
+
 | Term | Meaning |
 |------|---------|
 | APE | Annual Performance Evaluation |
@@ -70,6 +73,7 @@ Ramon (ramon@jairosoft.com), SAFe Agile PM Consultant auditing the HR Recruitmen
 | JIT | Jairosoft IT (or Just-In-Time operations) |
 
 ## Projects / Features
+
 | Name | What | State |
 |------|------|-------|
 | **Offboarding Ike Lloyd** | #198202 — Offboarding of Ike Lloyd Yana | All 5 stories CLOSED ✅ |
@@ -87,6 +91,7 @@ Ramon (ramon@jairosoft.com), SAFe Agile PM Consultant auditing the HR Recruitmen
 → Details: memory/projects/
 
 ## ADO IDs
+
 | ID | Quick Reference |
 |----|----------------|
 | e0bb302f | Jairosoft FINOPS project ID |
@@ -95,6 +100,7 @@ Ramon (ramon@jairosoft.com), SAFe Agile PM Consultant auditing the HR Recruitmen
 | c6fa4021-19bd-4b1c-93e4-954fa0eefd75 | Iteration 6.5 ID |
 
 ## Audit History
+
 | Date | File | Score |
 |------|------|-------|
 | Feb 25, 2026 | audit/AUDIT_2026-02-25_1200.md | 2/10 (Critical) |
@@ -111,6 +117,7 @@ Ramon (ramon@jairosoft.com), SAFe Agile PM Consultant auditing the HR Recruitmen
 | Mar 22, 2026 | audit/AUDIT_2026-03-22_2329.md | 8.0/10 (Low Risk ↑ ⭐ Series High) |
 
 ## Key Findings (Persistent)
+
 - **SPRINT 100% COMPLETE** ✅ — 18/18 items closed, 34/34 SP burned (first perfect sprint)
 - **Score 8.0/10** — Series high, first time reaching SAFe target line
 - **Story points** — FIXED ✅ (18/18 = 100%)
