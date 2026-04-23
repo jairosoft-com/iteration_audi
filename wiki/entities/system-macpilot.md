@@ -46,6 +46,7 @@ scripts/agents/
 | 09:00 | `git-audit-all`      | `/git_iteration_audit all-git-projects`  | sonnet · 40 · 1200s         | `AUDIT_TARGET=all-git-projects` (or single workspace folder)                                                  |
 | 09:30 | `portfolio-health`   | `/portfolio-health`                      | sonnet · 15 · 600s          | (none — skill takes no target)                                                                                |
 | 09:45 | `portfolio-email`    | `/portfolio-email <recipients>`          | sonnet · 20 · 300s          | `PORTFOLIO_EMAIL_RECIPIENTS` + `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` + `PORTFOLIO_EMAIL_AUTO_SEND=true`     |
+| 09:50 | `portfolio-meeting-prep` | `/portfolio-meeting-prep [duration]` | sonnet · 20 · 600s          | `MEETING_DURATION` (default `30m`; accepts `45m`, `60m`)                                                      |
 
 The schedule encodes dependency order via **time gaps**, not a launchd DAG (which doesn't exist). Each downstream agent has slack past the upstream's worst-case timeout:
 
@@ -54,11 +55,12 @@ The schedule encodes dependency order via **time gaps**, not a launchd DAG (whic
 09:00 ─ git (20-min ceiling) ─────▶ ~09:20 worst case
 09:30 ─ portfolio-health (10-min ceiling) ─▶ ~09:40
 09:45 ─ portfolio-email ─▶ ~09:46
+09:50 ─ portfolio-meeting-prep ─▶ ~09:55 (typical) / ~10:00 (worst)
 ```
 
 `portfolio-email.sh` adds a defensive **freshness guard**: if `portfolio_report/PORTFOLIO_<today>_*.html` doesn't exist (i.e. portfolio-health failed), skip cleanly with a `notify` warning rather than email a stale dashboard.
 
-## Conventions encoded across the 4 wrappers
+## Conventions encoded across the 5 wrappers
 
 - **Skip `sync_repo`.** OneDrive routinely keeps the working tree dirty; `sync_repo` would fail on every run. Audit files are append-only new paths so dirtiness doesn't compromise correctness.
 - **`--allowedTools` matches the skill's declared `allowed-tools`** (or its prefix variant for MCP servers — e.g. `mcp__ado mcp__azure-devops` covers both name-prefix conventions for the same Azure DevOps MCP).
@@ -92,3 +94,5 @@ Notifications fan out to ntfy.sh (if `NTFY_TOPIC` set) + osascript local fallbac
 - **Upstream docs drift:** `scripts/agents/CLAUDE.md` and `README.md` are Raul Riera's originals, with Xcode/BugSnag/digest examples that don't apply here. Localize before adding more agents.
 - **Attribution:** MIT `LICENSE` with © Raul Riera intact inside `scripts/agents/` — keep it if this repo is ever published.
 - **Email-send blast radius:** `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` defaults to `ramon, kcaumban, grace, bsinday @jairosoft.com` (4 internal addresses). Edits to the plist must be reviewed before re-install — `portfolio-email` is the only agent whose misuse is not local-only.
+- **09:00 plist collision (harmless):** `com.macpilot.git-audit-all.plist` and the Raul Riera template `com.macpilot.example.plist` both fire at 09:00. Example is haiku · max-turns 1 · prints today's date — finishes in <1s and touches no project files. Uninstall via `scripts/agents/uninstall.sh` selecting the example plist once the production agents are settled.
+- **No freshness guard on `portfolio-meeting-prep`:** unlike `portfolio-email`, the meeting-prep agent does not pre-flight check today's `PORTFOLIO_*.html` because (a) the skill degrades gracefully on stale/missing inputs and (b) the output is local-only — a stale agenda is harmless to leave on disk. Freshness guards are reserved for shared-state actions (e.g., email).

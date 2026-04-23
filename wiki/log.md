@@ -442,3 +442,23 @@ Initial recipient allowlist: `ramon, kcaumban, grace, bsinday @jairosoft.com` (4
 **Index updated:** concepts count 5 → 6; Systems status changed from "no custom agents written yet" to "4 production wrappers shipped".
 
 **Still open:** P0 git-tracking decision for `scripts/agents/` (vendor subtree vs submodule vs local-only) — independent of this work; tracked in `../scripts/TODO.md`. Lint consolidation (P2) also still open.
+
+## [2026-04-23 01:13] ship | portfolio-meeting-prep MacPilot agent (5th)
+
+Added the last portfolio-cycle wrapper, completing the daily 08:30→09:50 chain:
+
+- `agents/portfolio-meeting-prep.sh` + plist (09:50 daily, sonnet, max-turns 20, timeout 600s) — wraps `/portfolio-meeting-prep <duration>`
+- `MEETING_DURATION` env var defaults to `"30m"` (also accepts `"45m"`, `"60m"`)
+- **No freshness guard.** Skill degrades gracefully on stale/missing inputs and the output is local-only HTML — a stale agenda is harmless to leave on disk. Contrast with `portfolio-email`, which DOES need a guard (shared-state action).
+- Slot at 09:50 = 5 min after `portfolio-email`. Meeting-prep is independent of email's success: even if email fails or skips (per its freshness guard), the agenda still has all the inputs it needs from earlier in the chain (latest portfolio HTML + audits + workspace todos + memory/user_*.md).
+- Same-day re-runs auto-suffix with `_HHMM` per the skill's documented behavior — no clobbering when Ramon manually invokes before a meeting.
+
+Discovered orthogonal **09:00 plist collision**: `com.macpilot.example.plist` (Raul Riera's template, haiku · max-turns 1 · prints today's date) fires at the same minute as `git-audit-all`. Harmless — example finishes in <1s and touches no project files — but flagged in [[entities/system-macpilot]] §Caveats so it's uninstalled once the production chain is settled.
+
+**Updated:** [[entities/system-macpilot]] — Production agents table 4 → 5 rows; schedule diagram extended to 09:50; "Conventions" heading bumped 4 → 5 wrappers; new caveat for the 09:00 collision and the freshness-guard rationale.
+
+**No new concept page** — meeting-prep is a straight application of the read-render-write shape pioneered by portfolio-health; introduces no novel pattern.
+
+**Index unchanged** — no new entities/concepts/summaries/syntheses; the Systems-row status text "4 production wrappers" is close enough to be left as is until the next batch.
+
+**Still open:** P0 git-tracking decision (`scripts/agents/`); lint consolidation (P2); first install + first scheduled run (Ramon's call).
