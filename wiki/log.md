@@ -543,3 +543,21 @@ First scheduled launchd run (`portfolio-health` at 09:30) failed with exit 1; ma
 - [[entities/system-macpilot]] §"Operational defaults" table refreshed with the new format flag and reason.
 
 **Still open:** validate the next kickstart actually completes (or fails informatively). If Opus + 20-min timeout + stream-json preserves enough detail to show progress, that's the production-ready configuration. If Opus also runs >20 min, we have evidence-based grounds to either bump again or slim the skill inputs.
+
+## [2026-04-23 16:00] iterate | meeting-prep cascade resolved + plist-caching caveat + 1 ingest
+
+**The cascade that started at 13:09 reached its diagnostic conclusion this turn:**
+
+1. **First Opus-attempt run** (13:55) timed out at 20 min watchdog → stream-json patch surfaced full event stream → confirmed claude was making progress (not stuck); the 200k Sonnet context window had been the actual ceiling all along.
+2. **Switched MEETING_MODEL=opus + timeout 1200s + plist edited** — but the next run STILL exhausted Sonnet's 200k window, returned `terminal_reason: "blocking_limit"`, and was reported as exit 1.
+3. **Two new findings from that JSON:**
+    - The model swap **did not take effect** — launchd caches plist `EnvironmentVariables` at first load; editing the file alone is not enough. Requires `launchctl bootout` + `bootstrap` to refresh. Filed as new caveat in [[entities/system-macpilot]] §Caveats.
+    - The harness reports **false negatives when output is written before context exhausts** — `PORTFOLIO_MEETING_AGENDA_20260423_1600.html` IS on disk (Write tool fired in the preserved stream events), but the lib treated `is_error: true` as a clean failure. Filed as second new caveat — "always check the expected output path before assuming a failure means no work was done."
+
+**Lib state today (commit `e5a4b29`):** `--output-format stream-json --verbose` is now the default; `WATCHDOG_KILL after <timeout>s` labels exit 143 explicitly; partial events preserved on every failure mode.
+
+**Created [[summaries/meeting-agenda-20260423-1600]]** — first ingest of a portfolio meeting agenda artifact (new convention; meeting agendas are synthesis-of-audits rather than primary source data, but this one captures the full Day-4 picture across 10 teams in one place and is worth indexing).
+
+**Index updated:** summaries 299 → 300.
+
+**Still open in TODO:** P0 Localize CLAUDE.md, Verify .env. P2 lint consolidation. P3 daily-portfolio.sh / rotate-logs / pmset.

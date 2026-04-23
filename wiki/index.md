@@ -2,7 +2,7 @@
 
 Catalog of every page in this wiki. Agent updates this file on every ingest.
 
-**Page counts:** entities 19 · concepts 6 · summaries 299 active + 1 tombstone · synthesis 18
+**Page counts:** entities 19 · concepts 6 · summaries 300 active + 1 tombstone · synthesis 18
 
 ## Synthesis
 
