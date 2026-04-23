@@ -23,8 +23,8 @@ sources:
   - "../summaries/portfolio-20260419-1345.md"
   - "../summaries/portfolio-20260419-1953.md"
 created: 2026-04-19
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Portfolio Trend — 2026-03-25 → 2026-04-19
 

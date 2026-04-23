@@ -11,8 +11,8 @@ sources:
   - "../synthesis/service-model-scoring.md"
   - "../synthesis/portfolio-trend.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # PI7.2 Planning — Consolidated Checklist
 

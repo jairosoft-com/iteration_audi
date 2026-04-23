@@ -9,8 +9,8 @@ sources:
   - "../concepts/risk-bands.md"
   - "../summaries/portfolio-20260419-1953.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Service-Model Scoring — Tier-Aware Rubric Proposal
 

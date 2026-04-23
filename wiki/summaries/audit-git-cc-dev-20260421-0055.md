@@ -4,8 +4,8 @@ type: summary
 tags: [git, colina-health, iteration-7.2, audit]
 sources: ["../../git_cc_dev/audit/AUDIT_20260421_0055.md"]
 created: 2026-04-21
-updated: 2026-04-21
----
+
+## updated: 2026-04-21
 
 # Colina Health Audit — 2026-04-21 00:55
 

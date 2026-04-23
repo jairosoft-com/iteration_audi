@@ -8,8 +8,8 @@ sources:
   - "../synthesis/scoring-artifacts.md"
   - "../synthesis/iteration-7.1-close.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Score Streaks — Longest ≥80 Runs per Team
 

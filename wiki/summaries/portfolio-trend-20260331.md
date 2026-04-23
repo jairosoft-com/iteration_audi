@@ -4,8 +4,8 @@ type: summary
 tags: [portfolio, archived, deleted-source]
 archived: 2026-04-20
 created: 2026-04-19
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # [ARCHIVED] Portfolio Trend Rollup — 2026-03-31
 

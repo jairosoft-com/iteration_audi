@@ -4,8 +4,8 @@ type: summary
 tags: [ado, ado-ls-dev, audit, backfill]
 sources: ["../../ado_ls_dev/audit/AUDIT_20260407_0900.md"]
 created: 2026-04-19
-updated: 2026-04-19
----
+
+## updated: 2026-04-19
 
 # Life Style Help App Audit — 2026-04-07
 

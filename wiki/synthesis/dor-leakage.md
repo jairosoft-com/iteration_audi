@@ -18,8 +18,8 @@ sources:
   - "../summaries/audit-ado-fl-dev-20260416-0900.md"
   - "../summaries/audit-ado-fl-dev-20260417-0900.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # DoR Leakage — Items Committed Without Definition of Ready
 

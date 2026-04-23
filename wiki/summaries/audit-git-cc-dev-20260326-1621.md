@@ -4,8 +4,8 @@ type: summary
 tags: [git, git-cc-dev, audit, backfill]
 sources: ["../../git_cc_dev/audit/AUDIT_20260326_1621.md"]
 created: 2026-04-19
-updated: 2026-04-19
----
+
+## updated: 2026-04-19
 
 # Colina Health Audit — 2026-03-26
 

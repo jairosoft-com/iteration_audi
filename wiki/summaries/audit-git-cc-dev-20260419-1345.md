@@ -5,8 +5,8 @@ tags: [audit, git, colina-health, iteration-7.1, safe]
 sources:
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
 created: 2026-04-19
-updated: 2026-04-19
----
+
+## updated: 2026-04-19
 
 # Audit — Colina Health · Iteration 7.1 Day 14
 

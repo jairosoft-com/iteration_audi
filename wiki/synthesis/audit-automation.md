@@ -17,8 +17,8 @@ sources:
   - "../../.claude/skills/ado-safe-audit/SKILL.md"
   - "../../.claude/skills/git_iteration_audit/SKILL.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Audit Automation Roadmap — From Synthesis Proposals to Skill Rules
 

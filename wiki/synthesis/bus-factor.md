@@ -21,8 +21,8 @@ sources:
   - "../synthesis/iteration-7.1-close.md"
   - "../concepts/scoring-ado-rubric.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Bus Factor — Single-Point-of-Failure Catalog
 

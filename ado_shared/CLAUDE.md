@@ -56,7 +56,7 @@ Your goal is to audit the `Shared Services Team` current iteration in `Jairosoft
 ## People
 
 | Who | Role |
-| ----- | ------ |
+|-----|------|
 | **Ramon** | Ramon Aseniero Jr, project owner, [ramon@jairosoft.com](mailto:ramon@jairosoft.com) |
 | **Carol** | Carol, Project Manager, [carol@jairosoft.com](mailto:carol@jairosoft.com) |
 | **Karl** | Karl Caumban, Portfolio Delivery Manager, [kcaumban@jairosoft.com](mailto:kcaumban@jairosoft.com) |
@@ -67,7 +67,7 @@ Your goal is to audit the `Shared Services Team` current iteration in `Jairosoft
 ## Terms
 
 | Term | Meaning |
-| ------ | --------- |
+|------|---------|
 | **ADO** | Azure DevOps |
 | **SAFe** | Scaled Agile Framework |
 | **PI** | Program Increment |
@@ -81,7 +81,7 @@ Your goal is to audit the `Shared Services Team` current iteration in `Jairosoft
 ## Projects
 
 | Name | What |
-| ------ | ------ |
+|------|------|
 | **Shared Services** | Shared Services — UIUX, IT, and DevOps |
 | **Current Iteration** | Resolve at each audit via `mcp__azure-devops__work_list_team_iterations` timeframe=current |
 | **Current PI** | Portfolio-level PI (align with ART calendar when captured) |

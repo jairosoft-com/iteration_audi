@@ -16,8 +16,8 @@ sources:
   - "../summaries/audit-git-aa-dev-20260419-1345.md"
   - "../summaries/audit-git-cc-dev-20260419-1345.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Iteration 7.1 Close — Cross-Team Retrospective
 

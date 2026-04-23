@@ -21,8 +21,8 @@ sources:
   - "../summaries/audit-git-aa-dev-20260331-0900.md"
   - "../summaries/audit-git-cc-dev-20260331-0900.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # PI6 Close — Retrospective
 

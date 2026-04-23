@@ -10,8 +10,8 @@ sources:
   - "../entities/person-jerlyn.md"
   - "../concepts/scoring-git-ups.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # GitHub Compliance Issues — Git-audited Teams
 

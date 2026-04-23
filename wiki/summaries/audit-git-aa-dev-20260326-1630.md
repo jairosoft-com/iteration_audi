@@ -4,8 +4,8 @@ type: summary
 tags: [git, git-aa-dev, audit, backfill, iteration-6.6]
 sources: ["../../git_aa_dev/audit/AUDIT_20260326_1630.md"]
 created: 2026-04-19
-updated: 2026-04-19
----
+
+## updated: 2026-04-19
 
 # Auto Allies Audit — 2026-03-26 16:30 (Iter 6.6 Day 4)
 

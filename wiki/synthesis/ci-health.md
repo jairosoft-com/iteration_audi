@@ -21,8 +21,8 @@ sources:
   - "../summaries/audit-git-cc-dev-20260407-1708.md"
   - "../concepts/scoring-git-ups.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # CI / Engineering-Health Baseline — Git Teams (Pre-P0)
 

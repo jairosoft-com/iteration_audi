@@ -4,8 +4,8 @@ type: summary
 tags: [ado, ado-shared, iteration-7.2, audit]
 sources: ["../../ado_shared/audit/AUDIT_20260421_0930.md"]
 created: 2026-04-21
-updated: 2026-04-21
----
+
+## updated: 2026-04-21
 
 # Shared Services Audit — 2026-04-21 0930
 

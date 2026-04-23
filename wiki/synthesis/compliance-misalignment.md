@@ -13,8 +13,8 @@ sources:
   - "../summaries/portfolio-20260419-1953.md"
   - "../synthesis/iteration-7.1-close.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Compliance Misalignment — Regulatory Work Decoupled from ADO
 

@@ -14,8 +14,8 @@ sources:
   - "../summaries/audit-ado-ls-dev-20260417-0900.md"
   - "../summaries/audit-ado-ls-dev-20260419-1345.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Scoring Artifacts — Rubric Transitions, Formula Edge Cases, PI Boundaries
 

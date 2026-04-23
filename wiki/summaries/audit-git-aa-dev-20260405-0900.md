@@ -4,8 +4,8 @@ type: summary
 tags: [git, git-aa-dev, audit, backfill, iteration-6.6, sprint-close]
 sources: ["../../git_aa_dev/audit/AUDIT_20260405_0900.md"]
 created: 2026-04-19
-updated: 2026-04-19
----
+
+## updated: 2026-04-19
 
 # Auto Allies Audit — 2026-04-05 09:00 (Iter 6.6 Sprint Close)
 

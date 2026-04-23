@@ -19,8 +19,8 @@ sources:
   - "../synthesis/portfolio-trend.md"
   - "../concepts/scoring-ado-rubric.md"
 created: 2026-04-20
-updated: 2026-04-20
----
+
+## updated: 2026-04-20
 
 # Capacity Planning — Portfolio's Consistent Weak Spot
 
