@@ -1,26 +1,11 @@
+# =========================
+# OS / Filesystem Artifacts
+# =========================
 .DS_Store
-.obsidian/
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.venv/
-venv/
-.ipynb_checkpoints/
-.env
-.env.*
-!.env.example
-.temp/
-.report/
-*.pdf
-*.png
-node_modules/
-dist/
-**/.claude/data/sessions/
-logs/
-temp/
 
-# Local machine/editor artifacts
-**/.claude/settings.local.json
+# =========================
+# Editor / IDE Artifacts
+# =========================
 .idea/
 .vscode/
 *.swp
@@ -29,3 +14,45 @@ temp/
 *.tmp
 *.bak
 *.orig
+
+# Workspace-local Claude settings and session data
+**/.claude/settings.local.json
+**/.claude/data/sessions/
+
+# =========================
+# Python Artifacts
+# =========================
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# =========================
+# JavaScript / Node Artifacts
+# =========================
+node_modules/
+dist/
+
+# =========================
+# Environment Files
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Generated / Binary Outputs
+# =========================
+*.pdf
+*.png
+
+# =========================
+# Project Runtime / Temp Folders
+# =========================
+.obsidian/
+.temp/
+.report/
+logs/
+temp/

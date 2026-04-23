@@ -519,3 +519,27 @@ First scheduled launchd run (`portfolio-health` at 09:30) failed with exit 1; ma
 **Generalizable lesson filed to [[entities/system-macpilot]] §Conventions:** new bullet — *"`Skill` tool MUST be in `--allowedTools`"* with the failure-mode signature (`error_max_turns` + Skill in `.permission_denials`) so future debugging is faster.
 
 **Diagnostic infrastructure also kept:** the 3-line patch to `lib/macpilot.sh:257` that preserves the JSON response in the agent log on failure. Without it, this diagnosis would have required several more blind kickstart cycles to triangulate.
+
+## [2026-04-23 13:50] fix | lib/macpilot.sh stream-json + WATCHDOG_KILL labeling
+
+`portfolio-meeting-prep` failure cascade today exposed two diagnostic gaps:
+
+1. **Sonnet 4.6 (200k context) blew the context window** during the rich agenda render — `result: "Prompt is too long"`, `terminal_reason: "blocking_limit"`, $1.50/run. Switched MEETING_MODEL to **opus** (claude-opus-4-7, 1M context) to give 5x headroom.
+2. **The next Opus run hit the 1200s watchdog** with empty preserved stdout — because `--output-format json` buffers the full response and SIGTERM flushes nothing. The earlier "preserve JSON on failure" patch couldn't help here.
+
+**Lib fix shipped this turn:**
+
+- `--output-format json` → `--output-format stream-json --verbose` (line 236). JSONL one-event-per-line emission means partial progress is on disk at every moment, even when killed.
+- Result/subtype/turn parsers updated to JSONL idiom: `jq 'select(.type == "result") | .X' | tail -n 1` instead of the prior single-object branching (lines 271, 286, 297).
+- Failure branch now explicitly labels exit 143 as `WATCHDOG_KILL after ${timeout}s` (line 261). Eliminates the "is this a timeout or a real exit 1?" ambiguity that cost us a couple of cycles today.
+- 5 small edits, no behavioral change on success path; failure path is strictly more informative.
+
+`scripts/agents/test.sh` 55/55 still passing. End-to-end validation pending the next launchctl kickstart of `portfolio-meeting-prep`.
+
+**Generalizable wins:**
+
+- All 5 agents inherit this immediately (shared lib).
+- Future watchdog kills now leave a partial transcript in the agent's `.log` between `--- claude CLI stream-json events` delimiters — enough to see which file the agent was reading or which tool call was in flight at the moment of kill.
+- [[entities/system-macpilot]] §"Operational defaults" table refreshed with the new format flag and reason.
+
+**Still open:** validate the next kickstart actually completes (or fails informatively). If Opus + 20-min timeout + stream-json preserves enough detail to show progress, that's the production-ready configuration. If Opus also runs >20 min, we have evidence-based grounds to either bump again or slim the skill inputs.

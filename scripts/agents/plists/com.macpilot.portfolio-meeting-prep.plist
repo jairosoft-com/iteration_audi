@@ -13,11 +13,11 @@
     <key>MEETING_DURATION</key>
     <string>30m</string>
     <key>MEETING_MODEL</key>
-    <string>sonnet</string>
+    <string>opus</string>
     <key>MEETING_MAX_TURNS</key>
     <string>20</string>
     <key>MEETING_TIMEOUT</key>
-    <string>600</string>
+    <string>1200</string>
   </dict>
   <key>ProgramArguments</key>
   <array>

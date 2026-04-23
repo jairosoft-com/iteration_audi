@@ -39,6 +39,10 @@ See [[wiki/entities/system-macpilot]] for context.
   - Expand scope to all 10 workspaces + `wiki/` + `portfolio_report/` + `portfolio_meeting_agenda/`.
   - Deliver either (a) a weekly plist, or (b) a pre-commit hook.
   - Delete dead duplicates (`comprehensive_lint.py` vs `comprehensive_linting.py`, `fix_linting.py` vs `fix_code_blocks.py`).
+- [x] **Switch `lib/macpilot.sh` from `--output-format json` to `--output-format stream-json` + `--verbose`** — **SHIPPED 2026-04-23 same session.**
+  - **Why:** `portfolio-meeting-prep` watchdog kill (2026-04-23 13:09) yielded empty stdout because `json` mode buffers the full response and only flushes at the end. The 3-line JSON-preservation patch from earlier in the session couldn't help on SIGTERM — by the time the lib reads the tmpfile, claude was killed before it could write anything.
+  - **Implementation that landed:** swapped `--output-format json` for `--output-format stream-json --verbose` (line 236); changed the result/subtype/turns parsers from "single object/array" to "JSONL stream → filter type=='result' → tail -n 1" (lines 271, 286, 297); added explicit `WATCHDOG_KILL after ${timeout}s` label in the failure branch when exit code is 143 (line 261). All preserved-on-failure logic continues to work — now with partial events on SIGTERM kills, not empty payloads.
+  - **Test result:** `scripts/agents/test.sh` 55/55 passed. End-to-end validation pending the next kickstart.
 
 ### P3 — ergonomics
 
@@ -54,9 +58,11 @@ See [[wiki/entities/system-macpilot]] for context.
 - [x] **OneDrive correction.** Project moved out of `~/Library/CloudStorage/OneDrive-…/`; `system-macpilot.md` `sync_repo` rationale updated; OneDrive demoted to a historical-notes parenthetical.
 - [x] **`com.macpilot.example.plist` uninstalled.** Resolved the harmless 09:00 collision with `git-audit-all`.
 - [x] **Wiki kept reconciled.** `entities/system-macpilot.md` rewritten with Production agents table + Conventions section; new [[wiki/concepts/headless-skill-mode]] page; index counts updated; 5 chronological log entries spanning the session.
+- [x] **`portfolio-meeting-prep` model bumped sonnet→opus + timeout 600→1200s.** Cascade: (a) first run blew Sonnet 4.6's 200k context window during agenda render — `result: "Prompt is too long"`, `terminal_reason: "blocking_limit"`. (b) Switched to Opus 4.7 (1M context) — but plist edit didn't auto-apply, so the next run still used Sonnet, exhausted context again, AND yet still successfully wrote the output file before the parent agent's wrap-up ran out of room. The `_1600.html` agenda IS on disk despite the harness reporting exit 1.
 
 ## Caveats
 
 - MacPilot default `--timeout 300s` (5 min) is too short for full portfolio audits — override per-agent.
 - Upstream MIT `LICENSE` attributes Raul Riera; keep it intact if this repo is ever published.
 - `config/.env` reads are blocked by the repo's pre-tool-use hook; verify that file via shell directly, not via Claude's Read tool.
+- **Plist env-var changes require `launchctl bootout` + `bootstrap` to take effect.** launchd caches the EnvironmentVariables block at first load — editing the plist file alone does not propagate to subsequent kickstarts. Discovered 2026-04-23 when MEETING_MODEL=opus edit didn't reach the running service. Fix: `launchctl bootout gui/$(id -u)/com.macpilot.<name> && launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.macpilot.<name>.plist`. Verify with `launchctl print gui/$(id -u)/com.macpilot.<name> | grep <ENV>`.

@@ -228,9 +228,15 @@ run_agent() {
   tmpfile="$(mktemp)"
   trap 'rm -f "$tmpfile"' EXIT INT TERM
 
+  # stream-json + --verbose emits one JSON event per line as work happens.
+  # Critical: this preserves partial progress on watchdog kills (SIGTERM/exit 143).
+  # With --output-format json, claude buffers the full response and flushes only at
+  # the end — a SIGTERM mid-run leaves an empty tmpfile and zero diagnostic value.
+  # See scripts/TODO.md "Completed 2026-04-23 session" for the diagnosis history.
   "$CLAUDE_BIN" \
     -p "$prompt" \
-    --output-format json \
+    --output-format stream-json \
+    --verbose \
     --model "$model" \
     --max-turns "$max_turns" \
     --no-session-persistence \
@@ -255,30 +261,29 @@ run_agent() {
   result_timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
 
   if [ "$exit_code" -ne 0 ]; then
-    echo "[$result_timestamp] FAILED (exit $exit_code)" >> "$log_file"
-    echo "--- claude CLI stdout (preserved on failure) ---" >> "$log_file"
+    # Exit 143 = SIGTERM, almost always our watchdog firing. Label it explicitly
+    # so failures are unambiguous in the log.
+    if [ "$exit_code" = "143" ]; then
+      echo "[$result_timestamp] FAILED (exit 143 — WATCHDOG_KILL after ${timeout}s)" >> "$log_file"
+    else
+      echo "[$result_timestamp] FAILED (exit $exit_code)" >> "$log_file"
+    fi
+    echo "--- claude CLI stream-json events (preserved on failure) ---" >> "$log_file"
     printf '%s\n' "$result" >> "$log_file"
-    echo "--- end claude stdout ---" >> "$log_file"
+    echo "--- end claude stream ---" >> "$log_file"
     echo "Agent $AGENT_NAME failed (exit $exit_code). See $log_file"
     notify "MacPilot: $AGENT_NAME" "Agent failed. Check logs." "high"
     exit 1
   fi
 
-  # Parse the text response from JSON output
+  # Parse the text response from the stream-json output (JSONL: one event per line)
+  # Filters to events with type=="result" and takes the last one (the terminal event).
   # Note: printf avoids echo's escape sequence mangling; || true prevents set -e kills
-  text="$(printf '%s\n' "$result" | jq -r '
-    if type == "array" then
-      map(select(.type == "result")) | last | .result // empty
-    elif .result then
-      .result
-    else
-      empty
-    end
-  ' 2>/dev/null || true)"
+  text="$(printf '%s\n' "$result" | jq -r 'select(.type == "result") | .result // empty' 2>/dev/null | tail -n 1 || true)"
 
   # Handle missing result (e.g. error_max_turns)
   if [ -z "$text" ]; then
-    subtype="$(printf '%s\n' "$result" | jq -r '.subtype // empty' 2>/dev/null || true)"
+    subtype="$(printf '%s\n' "$result" | jq -r 'select(.type == "result") | .subtype // empty' 2>/dev/null | tail -n 1 || true)"
     if [ -n "$subtype" ]; then
       text="Agent stopped: $subtype"
     else
@@ -286,14 +291,8 @@ run_agent() {
     fi
   fi
 
-  # Extract turn usage from JSON output
-  turns_used="$(printf '%s\n' "$result" | jq -r '
-    if type == "array" then
-      map(select(.type == "result")) | last | .num_turns // empty
-    else
-      .num_turns // empty
-    end
-  ' 2>/dev/null || true)"
+  # Extract turn usage from stream-json output (last result event has the totals)
+  turns_used="$(printf '%s\n' "$result" | jq -r 'select(.type == "result") | .num_turns // empty' 2>/dev/null | tail -n 1 || true)"
 
   # Log
   if [ -n "$turns_used" ]; then

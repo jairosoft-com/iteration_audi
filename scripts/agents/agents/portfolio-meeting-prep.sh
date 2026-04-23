@@ -11,11 +11,11 @@
 #   PROJECT_DIR        — absolute path to the iteration_audit repo
 # Optional:
 #   MEETING_DURATION   — agenda time budget; one of "30m" (default), "45m", "60m"
-#   MEETING_MODEL      — claude model; default "sonnet"
+#   MEETING_MODEL      — claude model; default "opus" (= claude-opus-4-7, 1M context). Bumped from "sonnet" on 2026-04-23 after Sonnet 4.6's 200k window was exhausted by the skill's input scope (10 audits + up to 7 trend portfolios + workspace todos + memory files); see scripts/TODO.md "Completed 2026-04-23 session" for the diagnosis.
 #   MEETING_MAX_TURNS  — default 20 (skill reads more sources than portfolio-health:
 #                        per-workspace audits + todos + memory + multiple portfolio
 #                        HTMLs for trend)
-#   MEETING_TIMEOUT    — default 600 (10 min ceiling; observed runtime 2–5 min)
+#   MEETING_TIMEOUT    — default 1200 (20 min ceiling; bumped from 600 on 2026-04-23 after a launchd run hit the watchdog with --output-format json yielding empty stdout. Skill-tool path observed at ~10–15 min; portfolio-health on the same Skill path takes ~6 min.)
 #
 # Output:
 #   portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_YYYYMMDD.html
@@ -48,7 +48,7 @@ cd "$PROJECT_DIR" || exit 1
 DURATION="${MEETING_DURATION:-30m}"
 
 run_agent "Use the portfolio-meeting-prep skill with duration '${DURATION}'. Execute the full workflow described in the skill: discover the most recent portfolio_report/PORTFOLIO_*.html (excluding _SUMMARY, _TREND, and _MEETING_PREP variants), read it plus the latest audit/AUDIT_*.md per ado_* and git_* workspace, plus any workspace todo/*.md files, plus memory/user_*.md for attendee identification, and render a single self-contained interactive HTML agenda to portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_YYYYMMDD.html (the skill will auto-append _HHMM if a file with today's date already exists). After the agenda file is written to disk, stop immediately. Do not run /portfolio-health, do not run /portfolio-email, do not run any individual project audits, do not open a browser, do not write to the wiki, do not write to any workspace folder, do not modify the source dashboard or audit files, do not send any notifications beyond the standard MacPilot one." \
-  --model "${MEETING_MODEL:-sonnet}" \
+  --model "${MEETING_MODEL:-opus}" \
   --max-turns "${MEETING_MAX_TURNS:-20}" \
-  --timeout "${MEETING_TIMEOUT:-600}" \
+  --timeout "${MEETING_TIMEOUT:-1200}" \
   --allowedTools "Read Write Bash Glob Grep Agent Skill"
