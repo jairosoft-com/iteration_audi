@@ -2,7 +2,7 @@
 
 Catalog of every page in this wiki. Agent updates this file on every ingest.
 
-**Page counts:** entities 18 · concepts 5 · summaries 299 active + 1 tombstone · synthesis 18
+**Page counts:** entities 19 · concepts 5 · summaries 299 active + 1 tombstone · synthesis 18
 
 ## Synthesis
 
@@ -122,6 +122,12 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[entities/person-karl]] | Portfolio Delivery Manager | All 10 workspaces (portfolio-wide) |
 | [[entities/person-bomar]] | Engineering Manager | Portfolio-wide; primarily Git + ADO dev teams |
 | [[entities/person-armelita]] | PM + PO + IC for JIT (triple-hat) | [[entities/team-ado-jit]] — routinely 70–80%+ SP concentration |
+
+### Systems
+
+| Page | Scope | Status |
+|------|-------|--------|
+| [[entities/system-macpilot]] | `scripts/agents/` — launchd-scheduled Claude CLI harness (MacPilot, MIT, © Raul Riera) | Scaffolding vendored, untracked in git; no custom agents written yet (only `example.sh`) |
 
 ## Concepts
 

@@ -411,3 +411,12 @@ Embedded three visualizations into [[synthesis/portfolio-trend]] between the Tim
 Also added a headline-numbers summary: start 64.3 · nadir 56.9 · peak 81.0 · current 76.1 · window delta +11.8 mean / +23.1 median (median growing faster signals bottom-band teams pulled up).
 
 File updated: `synthesis/portfolio-trend.md` — frontmatter `updated: 2026-04-20`.
+
+## [2026-04-22 22:30] ingest | scripts/ automation scaffolding
+
+- Source: `../scripts/` (untracked in git as of ingest)
+- `scripts/agents/` = unmodified vendoring of [MacPilot](https://github.com/raulriera/MacPilot) (MIT, © Raul Riera). Only `example.sh` + `com.macpilot.example.plist` ship — no project-specific agents yet.
+- `scripts/lint/` = 6 ad-hoc Python files (~580 LoC total) for markdown linting. **Scope gap:** hardcoded to 4 ADO workspaces only (`ado_fin`, `ado_fl_dev`, `ado_ls_dev`, `ado_otp`); misses `ado_admin`, `ado_hr`, `ado_jit`, `ado_shared`, both Git workspaces, and `wiki/`. Two `*_lint(ing).py` file pairs look like iteration duplicates — candidates for consolidation.
+- **Created:** [[entities/system-macpilot]] — documents origin, harness shape, operational defaults (sonnet · max-turns 10 · timeout 300s · JSON→jq), Ramon's 4 target agents (ado-audit-all, git-audit-all, portfolio-health, portfolio-email), and caveats (launchd wake behavior, `.env` hook-blocked, upstream doc drift, MIT attribution).
+- **Index updated:** entity count 18 → 19; new Systems subsection added under Entities.
+- **Next seeded at `scripts/TODO.md`:** P0 git-tracking decision → P1 ado-audit-all agent → P1 git-audit-all → P1 portfolio-health → P2 portfolio-email (gated on authorized recipient list) → P2 lint consolidation.
