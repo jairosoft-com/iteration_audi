@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.macpilot.git-audit-all</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>MACPILOT_AGENT_NAME</key>
+    <string>git-audit-all</string>
+    <key>PROJECT_DIR</key>
+    <string>__HOME__/Projects/iteration_audit</string>
+    <key>AUDIT_TARGET</key>
+    <string>all-git-projects</string>
+    <key>AUDIT_MODEL</key>
+    <string>sonnet</string>
+    <key>AUDIT_MAX_TURNS</key>
+    <string>40</string>
+    <key>AUDIT_TIMEOUT</key>
+    <string>1200</string>
+  </dict>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>__MACPILOT_DIR__/agents/git-audit-all.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>9</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>__MACPILOT_DIR__/logs/git-audit-all.out</string>
+  <key>StandardErrorPath</key>
+  <string>__MACPILOT_DIR__/logs/git-audit-all.err</string>
+</dict>
+</plist>
