@@ -2,7 +2,7 @@
 
 Catalog of every page in this wiki. Agent updates this file on every ingest.
 
-**Page counts:** entities 19 · concepts 5 · summaries 299 active + 1 tombstone · synthesis 18
+**Page counts:** entities 19 · concepts 6 · summaries 299 active + 1 tombstone · synthesis 18
 
 ## Synthesis
 
@@ -127,7 +127,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 | Page | Scope | Status |
 |------|-------|--------|
-| [[entities/system-macpilot]] | `scripts/agents/` — launchd-scheduled Claude CLI harness (MacPilot, MIT, © Raul Riera) | Scaffolding vendored, untracked in git; no custom agents written yet (only `example.sh`) |
+| [[entities/system-macpilot]] | `scripts/agents/` — launchd-scheduled Claude CLI harness (MacPilot, MIT, © Raul Riera) | 4 production wrappers shipped 2026-04-23 (08:30/09:00/09:30/09:45 daily portfolio chain); still untracked in git |
 
 ## Concepts
 
@@ -138,6 +138,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[concepts/risk-bands]] | Both | every entity, every summary, every synthesis |
 | [[concepts/compliance-deadlines]] | Regulatory (BIR / eAFS) | [[entities/team-ado-fin]], [[entities/person-grace]], [[synthesis/iteration-7.1-close]], [[synthesis/compliance-misalignment]] |
 | [[concepts/stakeholder-roles]] | Governance (PDM/PM/EM/PO/SM) | All person entities; [[synthesis/pi7-plan]] |
+| [[concepts/headless-skill-mode]] | Skill design (scheduled / unattended invocation) | [[entities/system-macpilot]], `.claude/skills/portfolio-email/SKILL.md` §Step 6.5 |
 
 ## Next content candidates
 

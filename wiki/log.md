@@ -420,3 +420,25 @@ File updated: `synthesis/portfolio-trend.md` — frontmatter `updated: 2026-04-2
 - **Created:** [[entities/system-macpilot]] — documents origin, harness shape, operational defaults (sonnet · max-turns 10 · timeout 300s · JSON→jq), Ramon's 4 target agents (ado-audit-all, git-audit-all, portfolio-health, portfolio-email), and caveats (launchd wake behavior, `.env` hook-blocked, upstream doc drift, MIT attribution).
 - **Index updated:** entity count 18 → 19; new Systems subsection added under Entities.
 - **Next seeded at `scripts/TODO.md`:** P0 git-tracking decision → P1 ado-audit-all agent → P1 git-audit-all → P1 portfolio-health → P2 portfolio-email (gated on authorized recipient list) → P2 lint consolidation.
+
+## [2026-04-23 00:55] ship | 3 MacPilot agents + portfolio-email headless mode
+
+Wrote three new MacPilot agent wrappers + plists, completing the daily portfolio chain (08:30 ado → 09:00 git → 09:30 health → 09:45 email):
+
+- `agents/git-audit-all.sh` + plist (09:00 daily, sonnet, max-turns 40, timeout 1200s) — wraps `/git_iteration_audit all-git-projects`
+- `agents/portfolio-health.sh` + plist (09:30 daily, sonnet, max-turns 15, timeout 600s) — wraps `/portfolio-health`
+- `agents/portfolio-email.sh` + plist (09:45 daily, sonnet, max-turns 20, timeout 300s) — wraps `/portfolio-email <allowlist>` in headless mode
+
+Patched `.claude/skills/portfolio-email/SKILL.md` to add **Step 6.5 — Headless mode (scheduled invocation)**: an env-var-gated bypass of the previously "non-negotiable" Step 7 confirmation. Three-var handshake (`AUTO_SEND` trigger + `AUTHORIZED_RECIPIENTS` allowlist + `DRY_RUN` escape hatch); fail-closed on every partial-config or off-list-recipient case. Interactive behavior unchanged when all three vars are unset.
+
+Initial recipient allowlist: `ramon, kcaumban, grace, bsinday @jairosoft.com` (4 internal addresses, mirrors the past send pattern). Edits to the plist's recipient list should be reviewed before re-install — this is the only wrapper whose misuse is not local-only.
+
+`portfolio-email.sh` adds a defensive **freshness guard**: skip cleanly (exit 0) if today's `PORTFOLIO_*.html` doesn't exist, instead of emailing a stale dashboard. Catches the case where portfolio-health failed silently.
+
+**Created:** [[concepts/headless-skill-mode]] — generalized pattern for taking interactive-only skills unattended; cites portfolio-email as reference implementation.
+
+**Updated:** [[entities/system-macpilot]] — replaced "Intended agents (not yet written)" section with "Production agents" table (4 agents · schedule · env vars). Added "Conventions encoded across the 4 wrappers" section. Bumped `updated: 2026-04-23`.
+
+**Index updated:** concepts count 5 → 6; Systems status changed from "no custom agents written yet" to "4 production wrappers shipped".
+
+**Still open:** P0 git-tracking decision for `scripts/agents/` (vendor subtree vs submodule vs local-only) — independent of this work; tracked in `../scripts/TODO.md`. Lint consolidation (P2) also still open.
