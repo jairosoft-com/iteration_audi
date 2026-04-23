@@ -5,17 +5,13 @@ See [[wiki/entities/system-macpilot]] for context.
 
 ## Next step
 
-- [ ] **Decide git-tracking for `scripts/agents/`** (MacPilot upstream, currently untracked).
-  - Option A: vendor as subtree — commit the copy as-is, track drift manually.
-  - Option B: git submodule pointing at an own fork of `raulriera/MacPilot` — clean upstream pulls, extra indirection.
-  - Option C: leave untracked, treat as local-only tooling. Simplest; loses reproducibility on a second machine.
-  - **Blocker for all downstream tasks** — custom agents should land on a tracking decision first so they aren't orphaned.
+- [x] **Decide git-tracking for `scripts/agents/`** — **RESOLVED 2026-04-23 as Option A (vendor as subtree).** Whole `scripts/` tree committed across 3 commits: `60f4dce` (initial bulk add), `a4708d6` (portfolio-email follow-up), `b156c15` (portfolio-meeting-prep follow-up). 28 files tracked; `.claude/data/sessions/*.json` correctly excluded by root `.gitignore`'s `**/.claude/data/sessions/` rule; `scripts/agents/.gitignore` preserved inside the subtree.
 
 ## Roadmap (priority order)
 
 ### P0 — prerequisites
 
-- [ ] Decide git tracking (see above).
+- [x] Decide git tracking (see above) — **resolved 2026-04-23 as Option A (subtree).**
 - [ ] Localize `scripts/agents/CLAUDE.md` — strip upstream Xcode/BugSnag/digest examples; document the 4 target agents and this repo's `PROJECT_DIR`.
 - [ ] Verify `scripts/agents/config/.env` holds `PROJECT_DIR=/Users/jairo/.../iteration_audit` and a valid `NTFY_TOPIC`. (File is hook-blocked from tool reads — check manually.)
 

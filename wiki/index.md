@@ -127,7 +127,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 | Page | Scope | Status |
 |------|-------|--------|
-| [[entities/system-macpilot]] | `scripts/agents/` — launchd-scheduled Claude CLI harness (MacPilot, MIT, © Raul Riera) | 4 production wrappers shipped 2026-04-23 (08:30/09:00/09:30/09:45 daily portfolio chain); still untracked in git |
+| [[entities/system-macpilot]] | `scripts/agents/` — launchd-scheduled Claude CLI harness (MacPilot, MIT, © Raul Riera) | 5 production wrappers shipped 2026-04-23 (08:30/09:00/09:30/09:45/09:50 daily portfolio chain); vendored as git subtree (3 commits) |
 
 ## Concepts
 

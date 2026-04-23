@@ -462,3 +462,31 @@ Discovered orthogonal **09:00 plist collision**: `com.macpilot.example.plist` (R
 **Index unchanged** — no new entities/concepts/summaries/syntheses; the Systems-row status text "4 production wrappers" is close enough to be left as is until the next batch.
 
 **Still open:** P0 git-tracking decision (`scripts/agents/`); lint consolidation (P2); first install + first scheduled run (Ramon's call).
+
+## [2026-04-23 01:40] update | system-macpilot conventions + caveats refresh
+
+Two corrections to [[entities/system-macpilot]] (no new pages, no concept-page candidate):
+
+- **OneDrive no longer load-bearing.** Project moved to `/Users/jairo/Projects/iteration_audit` (off `~/Library/CloudStorage/OneDrive-…/`). The "skip `sync_repo`" rationale was rewritten to lead with "in-progress work + untracked `scripts/`" and demoted OneDrive to a historical note. Resolves a stale claim that has been in the entity page since the original ingest (2026-04-22).
+- **Env-leakage caveat.** Discovered during today's `portfolio-meeting-prep` dry-run (exit 1 in 99 s, no stderr): `lib/macpilot.sh:225` unsets only 2 of the 5 `CLAUDE*` env vars present in a Claude Code session. Production launchd is unaffected (clean env). Documented the workaround (`env -u …` prefix) and the 1-line lib hardening opportunity. Filing the caveat without the lib fix because (a) the fix is Ramon's call and (b) the dry-run was killed before the env-scrubbed re-run could confirm the hypothesis end-to-end.
+
+No log line for the failed dry-run itself — too speculative until either the lib is hardened or a confirmed reproduction is captured.
+
+## [2026-04-23 02:00] resolve | scripts/ git-tracking (P0) → Option A subtree
+
+Ramon resolved the P0 blocker that had been open since the original [[entities/system-macpilot]] ingest (2026-04-22): `scripts/agents/` is now vendored as a git subtree, not a submodule and not local-only. 28 files tracked across 3 commits:
+
+- `60f4dce` "Add MacPilot agent scripts and comprehensive linting tools" — initial bulk add (covered 4 of 5 production agents + lib + harness + lint)
+- `a4708d6` "Add portfolio-email agent script and plist for automated email sending"
+- `b156c15` "Add portfolio-meeting-prep agent script and plist for automated meeting agenda generation"
+
+`scripts/agents/.claude/data/sessions/*.json` (5 files) correctly excluded by root `.gitignore`'s `**/.claude/data/sessions/` rule. `scripts/agents/.gitignore` preserved inside the subtree to keep MacPilot's own `logs/` `reports/` `tmp/` `.env` exclusions in scope.
+
+**Stale wiki claims cleaned up this turn:**
+
+- [[entities/system-macpilot]] paragraph 1 — "untracked in git" → "vendored as a git subtree (3 commits)" with the commit SHAs cited.
+- [[entities/system-macpilot]] Conventions §"Skip `sync_repo`" — dropped the "untracked `scripts/` folder" half of the dirty-tree rationale (only "in-progress audit work" stands now). Demoted the OneDrive churn to a historical-notes parenthetical.
+- [[wiki/index]] Systems row — "still untracked in git" → "vendored as git subtree (3 commits)"; also bumped 4 → 5 production wrappers (caught up the meeting-prep count that was deferred earlier).
+- `../scripts/TODO.md` — both copies of the P0 git-tracking checkbox marked `[x]` with commit refs and Option-A label.
+
+**Still open in `scripts/TODO.md`:** P0 "Localize `CLAUDE.md`" (upstream Raul Riera doc still in place — superficial cleanup, not load-bearing); P0 "Verify `config/.env`" (Ramon's manual check, hook-blocked from tool reads); P2 lint consolidation; P3 ergonomics. Most of P1 + portfolio-email + portfolio-meeting-prep checkboxes are also stale (the agents shipped this session) — left unchanged this turn since the user only asked for the git-tracking cleanup; flag as a separate ~5-min sweep if you want it.
