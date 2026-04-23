@@ -1,7 +1,7 @@
 ---
 name: portfolio-email
 description: Send the latest portfolio health dashboard as an email-safe HTML summary to specified recipients via Graph API.
-argument-hint: [recipient-email or name] or [multiple emails comma-separated]
+argument-hint: "[recipient-email or name] or [multiple emails comma-separated]"
 allowed-tools: Read, Glob, Grep, Bash, ToolSearch, mcp__mail__list_all_accounts, mcp__mail__graph_send_message
 ---
 
