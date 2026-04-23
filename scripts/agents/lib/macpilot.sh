@@ -256,6 +256,9 @@ run_agent() {
 
   if [ "$exit_code" -ne 0 ]; then
     echo "[$result_timestamp] FAILED (exit $exit_code)" >> "$log_file"
+    echo "--- claude CLI stdout (preserved on failure) ---" >> "$log_file"
+    printf '%s\n' "$result" >> "$log_file"
+    echo "--- end claude stdout ---" >> "$log_file"
     echo "Agent $AGENT_NAME failed (exit $exit_code). See $log_file"
     notify "MacPilot: $AGENT_NAME" "Agent failed. Check logs." "high"
     exit 1

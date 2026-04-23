@@ -39,4 +39,4 @@ run_agent "Use the git_iteration_audit skill with target '${TARGET}'. Execute th
   --model "${AUDIT_MODEL:-sonnet}" \
   --max-turns "${AUDIT_MAX_TURNS:-40}" \
   --timeout "${AUDIT_TIMEOUT:-1200}" \
-  --allowedTools "Read Write Edit Bash Glob Grep Agent TodoWrite mcp__ado mcp__azure-devops mcp__github"
+  --allowedTools "Read Write Edit Bash Glob Grep Agent TodoWrite Skill mcp__ado mcp__azure-devops mcp__github"

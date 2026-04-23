@@ -67,6 +67,7 @@ The schedule encodes dependency order via **time gaps**, not a launchd DAG (whic
 - **Trailing stop instruction in every prompt.** Each wrapper prompt ends with an explicit "Do not …" list that forbids cross-team synthesis, calling sibling skills (`/portfolio-health`, `/portfolio-email`, `/portfolio-meeting-prep`), opening a browser, writing to the wiki, writing to other workspaces. Primary defense against scope creep when the agent has a broad allowlist.
 - **No `--print-only` / smoke-test flag.** Verification happens via lint + manual one-off invocation; lint covers `sh -n` + `plutil -lint`.
 - **Headless email send is gated.** `portfolio-email` is the only wrapper that touches a shared-state action (mail). It works only because [[concepts/headless-skill-mode]] adds an env-var allowlist gate to the skill's otherwise non-negotiable confirmation step.
+- **`Skill` tool MUST be in `--allowedTools`.** Wrappers whose prompt says "Use the X skill" need the `Skill` tool granted, otherwise the agent's `Skill` tool-call is denied (`.permission_denials` in the response JSON) and it silently falls back to executing the skill's workflow manually — which blows past `--max-turns` on any non-trivial skill. Discovered 2026-04-23 when `portfolio-health` failed twice from launchd with `subtype=error_max_turns` and a `Skill` denial in the JSON. All 5 production wrappers were patched the same day to include `Skill` in their allowlist; `portfolio-health` also got `--max-turns 15 → 25` as defense-in-depth.
 
 ## Operational defaults (`lib/macpilot.sh::run_agent`)
 

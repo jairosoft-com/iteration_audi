@@ -89,4 +89,4 @@ run_agent "Use the portfolio-email skill with recipients '${PORTFOLIO_EMAIL_RECI
   --model "${EMAIL_MODEL:-sonnet}" \
   --max-turns "${EMAIL_MAX_TURNS:-20}" \
   --timeout "${EMAIL_TIMEOUT:-300}" \
-  --allowedTools "Read Bash Glob Grep ToolSearch mcp__mail__list_all_accounts mcp__mail__graph_send_message"
+  --allowedTools "Read Bash Glob Grep ToolSearch Skill mcp__mail__list_all_accounts mcp__mail__graph_send_message"

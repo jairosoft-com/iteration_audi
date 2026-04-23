@@ -490,3 +490,32 @@ Ramon resolved the P0 blocker that had been open since the original [[entities/s
 - `../scripts/TODO.md` — both copies of the P0 git-tracking checkbox marked `[x]` with commit refs and Option-A label.
 
 **Still open in `scripts/TODO.md`:** P0 "Localize `CLAUDE.md`" (upstream Raul Riera doc still in place — superficial cleanup, not load-bearing); P0 "Verify `config/.env`" (Ramon's manual check, hook-blocked from tool reads); P2 lint consolidation; P3 ergonomics. Most of P1 + portfolio-email + portfolio-meeting-prep checkboxes are also stale (the agents shipped this session) — left unchanged this turn since the user only asked for the git-tracking cleanup; flag as a separate ~5-min sweep if you want it.
+
+## [2026-04-23 11:55] fix | Skill tool missing from all 5 wrapper allowlists (P0 launchd defect)
+
+First scheduled launchd run (`portfolio-health` at 09:30) failed with exit 1; manual `launchctl kickstart` at 11:29 reproduced. After patching `lib/macpilot.sh` to preserve the claude CLI JSON on failure (3-line diagnostic patch), the next failure exposed the actual issue:
+
+```
+.permission_denials = [{"tool_name":"Skill","tool_input":{"skill":"portfolio-health"}}]
+.subtype             = "error_max_turns"
+.errors              = ["Reached maximum number of turns (15)"]
+.num_turns           = 16
+```
+
+**Root cause:** wrapper prompts all say "Use the X skill" but none of the 5 wrappers had the `Skill` tool in `--allowedTools`. The agent's first move (call the Skill tool) was denied; it fell back to executing the skill's workflow manually (Glob audits → Read 10 files → extract scores → render HTML → Write), which exhausted the 15-turn budget.
+
+**Fix applied:** `Skill` added to `--allowedTools` in all 5 wrapper scripts:
+
+- `ado-audit-all.sh`
+- `git-audit-all.sh`
+- `portfolio-health.sh` (also bumped default `AUDIT_MAX_TURNS` 15 → 25 + matching plist value, as defense-in-depth)
+- `portfolio-email.sh`
+- `portfolio-meeting-prep.sh`
+
+**Why this slipped past lint:** `sh -n` and `plutil -lint` validate syntax, not semantics. The `--allowedTools` value is a free-form string; nothing in the verification pipeline asserts that the tools the prompt invokes are present in the allowlist. A future `lint.py` consolidation (TODO P2) could add a parsing rule: "if prompt contains 'Use the X skill', allowlist must contain `Skill`."
+
+**Why earlier `ado-audit-all` runs (yesterday 23:59) appeared to succeed:** still uncertain. Possibilities: the earlier successful runs may have been done in interactive Claude Code mode where the Skill tool isn't gated the same way; or the agent fan-out path (3 parallel sub-agents via `Agent` tool, which IS in the allowlist) sidestepped the parent's need to invoke `Skill` at all. Worth confirming on the next 08:30 launchd fire.
+
+**Generalizable lesson filed to [[entities/system-macpilot]] §Conventions:** new bullet — *"`Skill` tool MUST be in `--allowedTools`"* with the failure-mode signature (`error_max_turns` + Skill in `.permission_denials`) so future debugging is faster.
+
+**Diagnostic infrastructure also kept:** the 3-line patch to `lib/macpilot.sh:257` that preserves the JSON response in the agent log on failure. Without it, this diagnosis would have required several more blind kickstart cycles to triangulate.

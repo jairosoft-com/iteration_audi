@@ -10,7 +10,7 @@
 #   PROJECT_DIR      — absolute path to the iteration_audit repo
 # Optional:
 #   AUDIT_MODEL      — claude model; default "sonnet"
-#   AUDIT_MAX_TURNS  — default 15 (skill is tight: read ~10 audits, render 1 HTML)
+#   AUDIT_MAX_TURNS  — default 25 (Skill tool invocation + ~12 file reads + 1 write; bumped from 15 on 2026-04-23 after launchd run hit error_max_turns)
 #   AUDIT_TIMEOUT    — default 600 (10 min ceiling; observed runtime <3 min)
 #
 # Ordering:
@@ -40,6 +40,6 @@ cd "$PROJECT_DIR" || exit 1
 
 run_agent "Use the portfolio-health skill. Execute the full workflow described in the skill: discover all ado_* and git_* workspaces, read each workspace's most recent audit/AUDIT_*.md, extract the scoring fields per the skill's regex rules, and render one self-contained HTML dashboard to portfolio_report/PORTFOLIO_YYYYMMDD_HHMM.html using the current local date and time. After the dashboard file is written to disk, stop immediately. Do not run /portfolio-email, do not run /portfolio-meeting-prep, do not open a browser, do not write to the wiki, do not write to any workspace folder, do not send any extra notifications, do not re-compute individual audit scores." \
   --model "${AUDIT_MODEL:-sonnet}" \
-  --max-turns "${AUDIT_MAX_TURNS:-15}" \
+  --max-turns "${AUDIT_MAX_TURNS:-25}" \
   --timeout "${AUDIT_TIMEOUT:-600}" \
-  --allowedTools "Read Write Bash Glob Grep"
+  --allowedTools "Read Write Bash Glob Grep Skill"

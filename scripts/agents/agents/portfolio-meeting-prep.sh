@@ -51,4 +51,4 @@ run_agent "Use the portfolio-meeting-prep skill with duration '${DURATION}'. Exe
   --model "${MEETING_MODEL:-sonnet}" \
   --max-turns "${MEETING_MAX_TURNS:-20}" \
   --timeout "${MEETING_TIMEOUT:-600}" \
-  --allowedTools "Read Write Bash Glob Grep Agent"
+  --allowedTools "Read Write Bash Glob Grep Agent Skill"

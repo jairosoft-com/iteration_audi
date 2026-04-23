@@ -36,4 +36,4 @@ run_agent "Use the ado-safe-audit skill with target '${TARGET}'. Execute the ful
   --model "${AUDIT_MODEL:-sonnet}" \
   --max-turns "${AUDIT_MAX_TURNS:-60}" \
   --timeout "${AUDIT_TIMEOUT:-2400}" \
-  --allowedTools "Read Write Edit Bash Glob Grep Agent TodoWrite mcp__ado mcp__azure-devops"
+  --allowedTools "Read Write Edit Bash Glob Grep Agent TodoWrite Skill mcp__ado mcp__azure-devops"

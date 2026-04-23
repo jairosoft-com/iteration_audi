@@ -13,7 +13,7 @@
     <key>AUDIT_MODEL</key>
     <string>sonnet</string>
     <key>AUDIT_MAX_TURNS</key>
-    <string>15</string>
+    <string>25</string>
     <key>AUDIT_TIMEOUT</key>
     <string>600</string>
   </dict>
