@@ -131,6 +131,22 @@ Convert the dashboard into email-compatible HTML following these rules:
 
 Attach the original portfolio HTML file so recipients can open the full interactive dashboard in a browser. Use the `attachments` parameter with `file_path`.
 
+### Step 6.5 — Headless mode (scheduled invocation)
+
+If the environment satisfies ALL of the following, skip Step 7's confirmation prompt and proceed directly to Step 8:
+
+1. `PORTFOLIO_EMAIL_AUTO_SEND` is set to `true`.
+2. `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` is set to a non-empty comma-separated allowlist of email addresses.
+3. **Every** recipient resolved in Step 1 (after name → email lookup) appears in the allowlist (case-insensitive, trimmed of whitespace).
+
+When proceeding in headless mode, still **print the full preview to stdout** (the To / Subject / Body summary / Attachment block from Step 7) so the launchd log captures exactly what was sent, who it went to, and which dashboard file was attached.
+
+If `PORTFOLIO_EMAIL_AUTO_SEND` is `true` but `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` is unset/empty, OR any resolved recipient is not on the allowlist, **fail closed**: print which recipient failed the check and exit without sending. Do NOT fall back silently to interactive mode and do NOT send to the subset that does match.
+
+`PORTFOLIO_EMAIL_DRY_RUN=true` overrides headless send — print the full preview as above but **do not invoke** `mcp__mail__graph_send_message`. Use this for verification.
+
+When all three env vars are unset (the default), behavior is unchanged from the existing interactive flow described in Step 7.
+
 ### Step 7 — Preview and confirm
 
 Before sending, show the user a preview:
@@ -142,7 +158,7 @@ Body: Email-safe HTML dashboard (scorecard, tiers, themes)
 Attachment: PORTFOLIO_YYYYMMDD_HHMM.html
 ```
 
-**Wait for explicit user confirmation before sending.** This is a non-negotiable step.
+**Wait for explicit user confirmation before sending.** This is non-negotiable in interactive mode. The only exception is the headless mode in Step 6.5, where the env-var-gated allowlist check substitutes for live human confirmation.
 
 ### Step 8 — Send
 
@@ -178,6 +194,7 @@ Example: `Portfolio Health Dashboard — April 2, 2026`
 - If recipient email cannot be resolved: Ask the user for the email address
 - If mail account is not configured: Show error and suggest running `mcp__mail__list_all_accounts`
 - If send fails: Report the error and suggest the user check their mail configuration
+- If `PORTFOLIO_EMAIL_AUTO_SEND=true` but a resolved recipient is not in `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS`: fail closed, print the offending recipient, do not send
 
 ## Completion checklist
 
@@ -185,6 +202,6 @@ Example: `Portfolio Health Dashboard — April 2, 2026`
 2. Latest portfolio dashboard identified and read
 3. Email-safe HTML built with inline styles only (no external deps)
 4. Original HTML attached
-5. User confirmed the send
+5. User confirmed the send (interactive mode) OR headless allowlist check passed (Step 6.5)
 6. Email sent successfully
 7. Delivery status reported to user

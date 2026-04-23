@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.macpilot.portfolio-email</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>MACPILOT_AGENT_NAME</key>
+    <string>portfolio-email</string>
+    <key>PROJECT_DIR</key>
+    <string>__HOME__/Projects/iteration_audit</string>
+    <key>PORTFOLIO_EMAIL_RECIPIENTS</key>
+    <string>ramon@jairosoft.com,kcaumban@jairosoft.com,grace@jairosoft.com,bsinday@jairosoft.com</string>
+    <key>PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS</key>
+    <string>ramon@jairosoft.com,kcaumban@jairosoft.com,grace@jairosoft.com,bsinday@jairosoft.com</string>
+    <key>PORTFOLIO_EMAIL_AUTO_SEND</key>
+    <string>true</string>
+    <key>EMAIL_MODEL</key>
+    <string>sonnet</string>
+    <key>EMAIL_MAX_TURNS</key>
+    <string>20</string>
+    <key>EMAIL_TIMEOUT</key>
+    <string>300</string>
+  </dict>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>__MACPILOT_DIR__/agents/portfolio-email.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>9</integer>
+    <key>Minute</key><integer>45</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>__MACPILOT_DIR__/logs/portfolio-email.out</string>
+  <key>StandardErrorPath</key>
+  <string>__MACPILOT_DIR__/logs/portfolio-email.err</string>
+</dict>
+</plist>
