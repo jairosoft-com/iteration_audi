@@ -3,31 +3,37 @@ title: "Team — Finance (ADO)"
 type: entity
 tags: [team, ado, finance, finops, safe]
 sources:
+  - "../../ado_fin/audit/AUDIT_20260422_0646.md"
+  - "../../ado_fin/audit/AUDIT_20260421_0800.md"
   - "../../ado_fin/audit/AUDIT_20260419_1345.md"
   - "../../ado_fin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Finance Team (ADO)
 
 Single-contributor finance operations function inside ADO project `Jairosoft FINOPS`. Scope covers monthly P&L reporting, financial presentations, BIR regulatory filings (Annual ITR, eAFS), and escalation workflow. Grace Garcia owns every work item; the lean 5-item sprint format and clean DoR habits make this the strongest process-score team in the FINOPS portfolio.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 06:46 UTC, live-data run)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **93.7** | 🟢 Low |
-| Iteration Planning | 100.0 | 🟢 Low |
+| **Overall** | **77.9** | 🟡 Moderate |
+| Iteration Planning | 75.0 | 🟡 Moderate (3/4 — #203043 in PI7 root) |
 | Team Capacity | 100.0 | 🟢 Low |
 | Estimation | 100.0 | 🟢 Low |
 | DoR Compliance | 100.0 | 🟢 Low |
-| Work Item Balance | 70.0 | 🟡 Moderate (structural) |
-| Backlog Refinement | 100.0 | 🟢 Low |
-| Delivery Predictability | 85.7 | 🟢 Low |
+| Work Item Balance | 70.0 | 🟡 Moderate (66.7% US dominance → −30) |
+| Backlog Refinement | 100.0 | 🟢 Low (4th consecutive 100.0) |
+| Delivery Predictability | 0.0 | 🔴 Critical (Day 3; 0 SP closed) |
 
-Sprint closed at **12 of 14 committed SP (85.7%)**; score unchanged from Day 12. The sole unclosed item is **#201448 (eAFS Portal Submission, 2 SP)** — still Active with last ChangedDate Apr 10, crossing the BIR eAFS deadline of Apr 15.
+Source: [[summaries/audit-ado-fin-20260423-0905]]. Flat 77.9 for 5 consecutive audits. Day 4 confirms Grace Active on #203038 + #203040. **Day 5 (Apr 24) is LAST early-sprint DP annotation day.** Fastest Low path: move #203043 → Iter 7.2 (60 sec) = 82.9.
+
+## Historical (Iter 7.1 close — 2026-04-19, 93.7 Low)
+
+Iteration 7.1 closed at **93.7 (Low)** with 12/14 SP (85.7%) delivered across 5 items; the sole unclosed item was **#201448 (eAFS Portal Submission, 2 SP)** which remains missing from this sprint's backlog with BIR Apr 15 deadline now 7 days elapsed. See [[summaries/audit-ado-fin-20260419-1345]].
 
 ## Real fixable issues
 
@@ -68,6 +74,8 @@ Sprint closed at **12 of 14 committed SP (85.7%)**; score unchanged from Day 12.
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 09:05** — [[summaries/audit-ado-fin-20260423-0905]] · [raw](../../ado_fin/audit/AUDIT_20260423_0905.md)
+- **2026-04-22 06:46** — [[summaries/audit-ado-fin-20260422-0646]] · [raw](../../ado_fin/audit/AUDIT_20260422_0646.md)
 - **2026-04-21 08:00** — [[summaries/audit-ado-fin-20260421-0800]] · [raw](../../ado_fin/audit/AUDIT_20260421_0800.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-fin-20260419-1345]] · [raw](../../ado_fin/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-fin-20260417-0900]] · [raw](../../ado_fin/audit/AUDIT_20260417_0900.md)

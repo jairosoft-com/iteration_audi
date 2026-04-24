@@ -46,6 +46,8 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 ## Project Exceptions
 
 - Historical `SCORECARD_*.md` files remain in `audit/` as legacy artifacts. New audits for this workspace use one integrated `AUDIT_<date>_<time>.md` report only.
+- **Non-developer team members are not penalized for GitHub absence.** Luzmibel Paculanang (QA) and Jaszmeine Villanueva (Design) are not expected to produce GitHub commits or PRs. Their GitHub activity — if any — is QA review dialog or design-review context. Follow the same principle Ramon articulated for Auto Allies on 2026-04-23 (see [[wiki/summaries/transcript-lpm-review-2026-04-23]]): non-devs don't need GitHub → no HCI penalty.
+- **GitHub API 404 on `raseniero` token (2026-04-21 onward)** is a known access-scope issue pending Ramon's fix. Audit runs during this window should carry `data_mode: partial` in frontmatter and treat HCI dimensions 1–6 as Day-2 (2026-04-21) carry-forward rather than fresh-evidence scoring. Do not penalize the team for stale GitHub evidence while the token issue is unresolved.
 
 ---
 

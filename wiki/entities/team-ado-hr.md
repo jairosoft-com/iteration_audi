@@ -3,31 +3,37 @@ title: "Team — HR Recruitment (ADO)"
 type: entity
 tags: [team, ado, hr, recruitment, safe]
 sources:
+  - "../../ado_hr/audit/AUDIT_20260422_0900.md"
+  - "../../ado_hr/audit/AUDIT_20260421_1400.md"
   - "../../ado_hr/audit/AUDIT_20260419_1345.md"
   - "../../ado_hr/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # HR Recruitment Team (ADO)
 
 Single-operator HR function inside ADO project `Jairosoft FINOPS` handling end-to-end recruitment (Sr. Tech Lead, Bubble Dev, DevOps, Sales & Mktg) and annual performance evaluation (APE) workflows. Almera Kleer Tayao is the sole active contributor; Grace holds a zero-capacity allocation. 33-audit history across PI6 and PI7.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT / A35)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **87.0** | 🟢 Low |
-| Iteration Planning | 39.3 | 🔴 Critical (rubric artifact — sprint-close) |
-| Team Capacity | 100.0 | 🟢 Low |
-| Estimation | 100.0 | 🟢 Low |
-| DoR Compliance | 100.0 | 🟢 Low |
-| Work Item Balance | 70.0 | 🟡 Moderate (100% User Story, structural) |
-| Backlog Refinement | 100.0 | 🟢 Low |
-| Delivery Predictability | 100.0 | 🟢 Low |
+| **Overall** | **83.4** | 🟢 Low |
+| Iteration Planning | 100.0 | 🟢 Low (21/21 scoped) |
+| Team Capacity | 100.0 | 🟢 Low (Almera 5h/day; May 1 off) |
+| Estimation | 100.0 | 🟢 Low (21/21 estimated, 37 SP total) |
+| DoR Compliance | 100.0 | 🟢 Low (char thresholds; 2 content-accuracy flags) |
+| Work Item Balance | 70.0 | 🟡 Moderate (100% US, structural) |
+| Backlog Refinement | 100.0 | 🟢 Low (#200671 at 4.8% < 10% threshold) |
+| Delivery Predictability | 13.5 | 🟠 High (5/37 SP — first non-zero PI7 early) |
 
-**Day 14 sprint close** — Overall jumps +8.6 from Day 12 (78.4 Moderate → 87.0 Low). First Low Risk band at sprint close in PI7. 22 of 22 committed SP delivered across 11 items.
+Source: [[summaries/audit-ado-hr-20260423-0914]]. **Low band 4 consecutive audits** (sustained Low streak). 83.3 Day 4. 4-item activation wave Apr 22 (Dalino/Castillo APEs + Buenaventura/Beltran Sr. Tech Lead). **Overbook 38/22 SP = +73%; P0 de-scope unactioned 4th audit.** Copy-paste body defects in #203057/#203063 persist 3 audits.
+
+## Historical (Iter 7.1 close — 2026-04-19, 87.0 Low)
+
+Iteration 7.1 closed at **87.0 (Low, series high)** — 22/22 SP delivered across 11 items. Overall jumped +8.6 from Day 12 (78.4 Moderate → 87.0 Low); first Low Risk band at sprint close in PI7. See [[summaries/audit-ado-hr-20260419-1345]].
 
 ## Real fixable issues
 
@@ -69,6 +75,8 @@ Single-operator HR function inside ADO project `Jairosoft FINOPS` handling end-t
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 09:14** — [[summaries/audit-ado-hr-20260423-0914]] · [raw](../../ado_hr/audit/AUDIT_20260423_0914.md)
+- **2026-04-22 09:00** — [[summaries/audit-ado-hr-20260422-0900]] · [raw](../../ado_hr/audit/AUDIT_20260422_0900.md)
 - **2026-04-21 14:00** — [[summaries/audit-ado-hr-20260421-1400]] · [raw](../../ado_hr/audit/AUDIT_20260421_1400.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-hr-20260419-1345]] · [raw](../../ado_hr/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-hr-20260417-0900]] · [raw](../../ado_hr/audit/AUDIT_20260417_0900.md)

@@ -3,31 +3,37 @@ title: "Team — Flawless Wedding App (ADO)"
 type: entity
 tags: [team, ado, flawless-wedding-app, product-dev, safe]
 sources:
+  - "../../ado_fl_dev/audit/AUDIT_20260422_0646.md"
+  - "../../ado_fl_dev/audit/AUDIT_20260421_0800.md"
   - "../../ado_fl_dev/audit/AUDIT_20260419_1345.md"
   - "../../ado_fl_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Flawless Wedding App Team (ADO)
 
 Product development team delivering the Flawless Wedding App (FlawlessWeddingApp.com) inside its own ADO project `Flawless Wedding App`. Primary contributors: Luke Colina (Dev), Ressa Paracuelles (Test). Mixed work composition — defects dominate, with User Stories and Spikes in the mix. Sprint 7.1 delivered a large, substantive backlog refresh that moved the team out of Moderate-Risk bottom tier.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 06:46 UTC, live-data)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **79.3** | 🟡 Moderate (0.7 from Low) |
-| Iteration Planning | 6.7 | 🔴 Critical (rubric artifact) |
-| Team Capacity | 66.7 | 🟡 Moderate |
-| Estimation | 100.0 | 🟢 Low |
-| DoR Compliance | 81.8 | 🟢 Low |
-| Work Item Balance | 100.0 | 🟢 Low |
-| Backlog Refinement | 100.0 | 🟢 Low |
-| Delivery Predictability | 100.0 | 🟢 Low |
+| **Overall** | **62.5** | 🟡 Moderate |
+| Iteration Planning | 7.4 | 🔴 Critical (12/162 — structural) |
+| Team Capacity | 100.0 | 🟢 Low (Luke + Ressa active) |
+| Estimation | 90.0 | 🟢 Low (−10 for #203230 added 0 SP) |
+| DoR Compliance | 91.7 | 🟢 Low (#202827 Desc = 29 chars, 1 char short) |
+| Work Item Balance | 30.0 | 🔴 Critical (0 US; −40 + −30 double penalty) |
+| Backlog Refinement | 90.0 | 🟢 Low (untouched 25%; −10) |
+| Delivery Predictability | 28.6 | 🟠 High (4 / 14 SP closed — first non-zero) |
 
-Sprint closed at **13 of 13 committed SP delivered**. Overall score jumped **+10.5 from Day 12 (68.8 → 79.3)** — largest single-audit improvement in the workspace's recorded history. Driver: a **substantive backlog refresh** executed Apr 13–17 that brought all 164 visible items to ChangedDate ≥ Apr 8 (Backlog Refinement 26.9 → 100.0, +73.1).
+Source: [[summaries/audit-ado-fl-dev-20260423-0910]]. 63.5 Moderate at Day 4 (Δ +1.0 vs 4/22). **5 SP delivered** — 3 Defects closed by Ressa (#202072, #202119, #202569). Delivery Predictability 35.7% (first meaningful). 2 items regressed to Back-to-Dev (#200791, #202723, 4 SP rework). Structural WIB ceiling 30.0 persists (0 User Stories, 4th audit).
+
+## Historical (Iter 7.1 close — 2026-04-19, 79.3 Moderate)
+
+Iteration 7.1 closed at **79.3 (Moderate, 0.7 from Low)** with 13/13 SP delivered; Overall jumped +10.5 from Day 12 (68.8 → 79.3) — largest single-audit improvement in workspace history. Driver was Apr 13–17 substantive backlog refresh (Backlog Refinement 26.9 → 100.0, +73.1). See [[summaries/audit-ado-fl-dev-20260419-1345]].
 
 ## Real fixable issues
 
@@ -73,6 +79,8 @@ Sprint closed at **13 of 13 committed SP delivered**. Overall score jumped **+10
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 09:10** — [[summaries/audit-ado-fl-dev-20260423-0910]] · [raw](../../ado_fl_dev/audit/AUDIT_20260423_0910.md)
+- **2026-04-22 06:46** — [[summaries/audit-ado-fl-dev-20260422-0646]] · [raw](../../ado_fl_dev/audit/AUDIT_20260422_0646.md)
 - **2026-04-21 08:00** — [[summaries/audit-ado-fl-dev-20260421-0800]] · [raw](../../ado_fl_dev/audit/AUDIT_20260421_0800.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-fl-dev-20260419-1345]] · [raw](../../ado_fl_dev/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-fl-dev-20260417-0900]] · [raw](../../ado_fl_dev/audit/AUDIT_20260417_0900.md)

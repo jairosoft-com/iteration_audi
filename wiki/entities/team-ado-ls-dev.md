@@ -3,31 +3,37 @@ title: "Team — Life Style Help App (ADO)"
 type: entity
 tags: [team, ado, ls-dev, life-style-help-app, safe]
 sources:
+  - "../../ado_ls_dev/audit/AUDIT_20260422_0900.md"
+  - "../../ado_ls_dev/audit/AUDIT_20260421_1400.md"
   - "../../ado_ls_dev/audit/AUDIT_20260419_1345.md"
   - "../../ado_ls_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Life Style Help App Team (ADO)
 
 Product team delivering **LifeStyleHelpApp.com** (mobile/web membership, workout, blog, and admin tooling) inside ADO project `Life Style Help App`. Small squad — Samantha Babael (Dev), Ike Yana (Dev), Luzmibel Paculanang (Test) — with mixed User Story and Defect work and a recurring ownership-concentration risk on Samantha.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT / A27, degraded)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **82.4** | 🟢 Low |
-| Iteration Planning | 58.3 | 🟠 High (healthy for team size per audit) |
-| Team Capacity | 100.0 | 🟢 Low |
+| **Overall** | **41.0** | 🟠 High |
+| Iteration Planning | 16.7 | 🔴 Critical (2/12) |
+| Team Capacity | 0.0 | 🔴 Critical (NOT configured for 7.2, 3 days in) |
 | Estimation | 100.0 | 🟢 Low |
 | DoR Compliance | 100.0 | 🟢 Low |
-| Work Item Balance | 100.0 | 🟢 Low |
-| Backlog Refinement | 18.3 | 🔴 Critical |
-| Delivery Predictability | 100.0 | 🟢 Low |
+| Work Item Balance | 70.0 | 🟡 Moderate (2 US, 100% dominance) |
+| Backlog Refinement | 0.0 | 🔴 Critical (3 penalties stacked) |
+| Delivery Predictability | 0.0 | 🔴 Critical (Day 3; 0/5 SP) |
 
-**Sprint closed clean** — 7 of 7 committed root items Closed, 10 of 10 SP delivered. Overall resolves the prior-audit (A24) formula artifact (11.2 Critical) that was driven by a transient board-state window during mid-sprint closure.
+Source: [[summaries/audit-ado-ls-dev-20260423-0900]] (live). **Plateau confirmed — 4 consecutive audits at 41.0.** Zero ADO activity between A27 and A28. #187240 Enabler now **248 days stale** (12th audit flag). #195727 untouched **6 consecutive days** (longest single-item streak in workspace PI7 history). All four P0 recoveries (capacity, #195727 touch, sprint planning, #187240 disposition) unactioned — < 2 hours total effort for ~60 Overall.
+
+## Historical (Iter 7.1 close — 2026-04-19, 82.4 Low)
+
+Iteration 7.1 closed at **82.4 (Low)** — 7 of 7 committed items Closed, 10/10 SP delivered. Δ −41.4 sprint-open regression is compound: no capacity config (−100), under-scoped sprint, Backlog Refinement collapse (stale_90 + stale_180 + untouched all triggered), DP reset. See [[summaries/audit-ado-ls-dev-20260419-1345]].
 
 ## Real fixable issues
 
@@ -72,6 +78,8 @@ Team roster beyond Ramon is captured from ADO assignees / capacity; emails TBD a
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 09:00** — [[summaries/audit-ado-ls-dev-20260423-0900]] · [raw](../../ado_ls_dev/audit/AUDIT_20260423_0900.md) (live)
+- **2026-04-22 09:00** — [[summaries/audit-ado-ls-dev-20260422-0900]] · [raw](../../ado_ls_dev/audit/AUDIT_20260422_0900.md) (degraded-mode)
 - **2026-04-21 14:00** — [[summaries/audit-ado-ls-dev-20260421-1400]] · [raw](../../ado_ls_dev/audit/AUDIT_20260421_1400.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-ls-dev-20260419-1345]] · [raw](../../ado_ls_dev/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-ls-dev-20260417-0900]] · [raw](../../ado_ls_dev/audit/AUDIT_20260417_0900.md)

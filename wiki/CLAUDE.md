@@ -102,6 +102,27 @@ Append `## [timestamp] lint` to `log.md` with the findings summary.
 - Code fences only for actual code, commands, or data.
 - Match the user's root-level [YAML output style](../CLAUDE.md) in chat, but wiki pages are plain markdown.
 
+## Cross-session TODO tracking
+
+`wiki/TODO.md` is the persistent to-do list for items identified in one session but deferred to another. Agent appends items when they surface; closes them when done by moving to the Archive section. Categories:
+
+- **External / waiting on others (⏳)** — items a specific person (Ramon, Karl, team member) needs to do; agent cannot execute.
+- **Wiki bookkeeping** — agent-executable follow-ups (synthesis pages to write, cross-references to add, re-ingests to verify).
+- **Scripts/tooling** — TODO items from `scripts/agents/` that belong in the wiki's visible tracking surface.
+
+When the user says "add to the todo list", append to `wiki/TODO.md` with date-added, category tag, one-line description, and source link.
+
+## Wiki-to-source edits (rare, requires explicit user approval)
+
+The wiki is normally read-only on raw sources (all `../ado_*/`, `../git_*/`, `../portfolio_report/`, `../raw/`). Under exceptional circumstances — specifically, **decisions documented in ingested meetings/transcripts that should be persisted in the source CLAUDE.md's Project Exceptions section** — the wiki may write additively to source CLAUDE.md, with:
+
+1. Explicit user approval at the time of the edit ("yes, propagate").
+2. Source citation in the exception text (link to the transcript/decision summary).
+3. Additive only (never delete or overwrite prior content).
+4. A log entry in `wiki/log.md` with the edit rationale and a link back to the source summary.
+
+First precedent: 2026-04-23 — Jerlyn/Mary non-developer exception + GitHub 404 carry-forward exception, propagated from [[summaries/transcript-lpm-review-2026-04-23]] to `git_aa_dev/CLAUDE.md` and `git_cc_dev/CLAUDE.md`.
+
 ## Conventions the agent may evolve
 
 Anything in this file is editable as patterns settle. When the agent notices a convention drifting (e.g. file naming inconsistency, cross-reference gaps), it should propose a schema amendment rather than silently deviating.

@@ -3,31 +3,37 @@ title: "Team — Office of the President (ADO)"
 type: entity
 tags: [team, ado, otp, office-of-the-president, safe]
 sources:
+  - "../../ado_otp/audit/AUDIT_20260422_0644.md"
+  - "../../ado_otp/audit/AUDIT_20260421_0930.md"
   - "../../ado_otp/audit/AUDIT_20260419_1345.md"
   - "../../ado_otp/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Office of the President Team (ADO)
 
 Administrative/operations function inside ADO project `OTP`, covering executive correspondence, compliance filings (PhilGeps, H1B, visa paperwork), facility work (fire extinguisher canvassing, JIT signage, solar installation chain), and board-level documentation. Work is 100% User-Story-shaped and, by accepted team exception, executed under a **single-assignee model** with **Grace** as sole owner of every board item.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 06:44 UTC / A35)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **71.2** | 🟡 Moderate |
-| Iteration Planning | 28.6 | 🔴 Critical (board-view artifact) |
+| **Overall** | **65.2** | 🟡 Moderate |
+| Iteration Planning | 53.8 | 🟠 High (7/13 committed) |
 | Team Capacity | 100.0 | 🟢 Low |
-| Estimation | 100.0 | 🟢 Low |
-| DoR Compliance | 100.0 | 🟢 Low |
+| Estimation | 85.7 | 🟢 Low (6/7 — #202913 no SP) |
+| DoR Compliance | 57.1 | 🟠 High (4/7 — #175360 no AC, #202911/#202913 title-only) |
 | Work Item Balance | 70.0 | 🟡 Moderate (−30 for 100% User Story, accepted exception) |
-| Backlog Refinement | 100.0 | 🟢 Low |
-| Delivery Predictability | 0.0 | 🔴 Critical (0 / 5 SP on visible 7.1) |
+| Backlog Refinement | 90.0 | 🟢 Low (−10 for #201811 untouched since Apr 8) |
+| Delivery Predictability | 0.0 | 🔴 Critical (Day 3; 0 closed of 14 SP committed) |
 
-**Score frozen from A30** — no board movement in the final 35 hours. Historical sprint delivery was ~14 SP (Apr 16 wave of 7 closures) but those items are no longer on the visible board, so the rubric cannot count them.
+Source: [[summaries/audit-ado-otp-20260423-0900]] (first live-data read of 7.2). Δ −1.5 from 4/22 prior. Live surfaces #201811 untouched penalty (BR 100 → 90). A33 "first unassigned item" finding retracted — #202913 was Grace-assigned since Apr 20. DoR remediation overdue for 2nd post-return workday. **Zero board movement at Day 4** — all 6 items still New.
+
+## Historical (Iter 7.1 close — 2026-04-19)
+
+Iteration 7.1 final state remained frozen at **71.2** (Moderate); see [[summaries/audit-ado-otp-20260419-1345]]. Score frozen from A30 — no board movement in the final 35 hours. Historical sprint delivery was ~14 SP (Apr 16 wave of 7 closures) but those items were no longer on the visible board by sprint close, so the rubric could not count them.
 
 ## Real fixable issues
 
@@ -69,6 +75,8 @@ Administrative/operations function inside ADO project `OTP`, covering executive 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 09:00** — [[summaries/audit-ado-otp-20260423-0900]] · [raw](../../ado_otp/audit/AUDIT_20260423_0900.md) (first live 7.2 read)
+- **2026-04-22 06:44** — [[summaries/audit-ado-otp-20260422-0644]] · [raw](../../ado_otp/audit/AUDIT_20260422_0644.md)
 - **2026-04-21 09:30** — [[summaries/audit-ado-otp-20260421-0930]] · [raw](../../ado_otp/audit/AUDIT_20260421_0930.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-otp-20260419-1345]] · [raw](../../ado_otp/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-otp-20260417-0900]] · [raw](../../ado_otp/audit/AUDIT_20260417_0900.md)

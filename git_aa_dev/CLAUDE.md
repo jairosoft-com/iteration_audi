@@ -43,7 +43,8 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 
 ## Project Exceptions
 
-- None documented.
+- **Jerlyn Ates and Mary Secusana are not developers.** Jerlyn is QA/Requirements; Mary is Documentation. Their absence of GitHub commits, PRs, and reviews is expected and **must not be scored as a team compliance gap or HCI penalty**. Source: LPM Review meeting with Ramon Aseniero on 2026-04-23 — "we can just put that in the knowledge base that they're not developers, so they don't need GitHub." See [[wiki/summaries/transcript-lpm-review-2026-04-23]].
+- **GitHub API 404 on `raseniero` token (2026-04-21 onward)** is a known access-scope issue pending Ramon's fix. Audit runs during this window should carry `data_mode: partial` in frontmatter and treat HCI dimensions 1–6 as Day-2 (2026-04-21) carry-forward rather than fresh-evidence scoring. Do not penalize the team for stale GitHub evidence while the token issue is unresolved.
 
 ---
 

@@ -3,37 +3,37 @@ title: "Team — Shared Services (ADO)"
 type: entity
 tags: [team, ado, shared-services, safe]
 sources:
+  - "../../ado_shared/audit/AUDIT_20260422_0644.md"
+  - "../../ado_shared/audit/AUDIT_20260421_0930.md"
   - "../../ado_shared/audit/AUDIT_20260419_1947.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
   - "../../ado_shared/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Shared Services Team (ADO)
 
 Cross-cutting services function covering **UIUX, IT, and DevOps** inside ADO project `Jairosoft Portfolio`. Work routinely flows through other product teams' boards, so this team's own backlog under-reports real delivery.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 06:44 UTC / A5)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **32.2** | 🔴 Critical |
-| Iteration Planning | 15.6 | 🔴 Critical |
-| Team Capacity | 0.0 | 🔴 Critical (not configured) |
-| Estimation | — | see source |
-| DoR Compliance | — | see source |
-| Work Item Balance | penalty −70 | 🔴 Critical (Enabler-dominant, no User Stories) |
-| Backlog Refinement | 100 | 🟢 Low |
-| Delivery Predictability | 0.0 | 🔴 Critical (0 / 3 SP closed Day 14) |
+| **Overall** | **53.1** | 🟠 High |
+| Iteration Planning | 41.9 | 🟠 High (13/31) |
+| Team Capacity | 0.0 | 🔴 Critical (STILL not configured — 5th audit) |
+| Estimation | 53.8 | 🟠 High (7/13 estimated) |
+| DoR Compliance | 69.2 | 🟡 Moderate (4 fails: #202396, #202464, #202687, #203229) |
+| Work Item Balance | 60.0 | 🟡 Moderate (−40 no-User-Story; Enabler 53.8% no longer dominant) |
+| Backlog Refinement | 90.0 | 🟢 Low (−10 for 2 untouched items) |
+| Delivery Predictability | 57.1 | 🟡 Moderate (8 / 14 SP closed — **first non-zero**) |
 
-**Baseline audit** — first audit in `ado_shared/`. Score is a mix of real issues and service-model rubric artifacts. See notes below.
+Source: [[summaries/audit-ado-shared-20260423-0900]] (A4, team-owned scope). **35.3 Critical on tight scope.** The 4/22 afternoon audit (A5, 53.1 High) used broader cross-team visible-iteration scope including DevOps IT deliverables; A4 tightens to Shared Services Team's own items only. **Not a real regression — scoping correction.** Persistent: capacity unconfigured (4 audits); #202687 title-only (4 audits); #202551 + #202687 untouched 6 days. New positive: #203221 is first User Story in 7.2.
 
-## Real fixable issues
+## Historical (baseline — Iter 7.1 close — 2026-04-19)
 
-1. **Team capacity not configured** for Iteration 7.1 — deterministic zero on that dimension.
-2. **3 of 5 iteration items are in `Grooming`** with no Story Points, Description, or Acceptance Criteria — committed without DoR.
-3. **0 SP closed out of 3 SP committed** on Day 14 (sprint close today).
+First audit in `ado_shared/` scored **32.2 (Critical)**; see [[summaries/audit-ado-shared-20260419-1947]]. Score was a mix of real issues and service-model rubric artifacts (Iteration Planning 15.6, Work Item Balance −70, Delivery Predictability 0 of 3 SP on Day 14).
 
 ## Structural (don't over-weight)
 
@@ -73,6 +73,8 @@ Team roster TBD — capture from ADO capacity/assignees at next audit.
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 09:00** — [[summaries/audit-ado-shared-20260423-0900]] · [raw](../../ado_shared/audit/AUDIT_20260423_0900.md) (A4, team-owned scope)
+- **2026-04-22 06:44** — [[summaries/audit-ado-shared-20260422-0644]] · [raw](../../ado_shared/audit/AUDIT_20260422_0644.md)
 - **2026-04-21 09:30** — [[summaries/audit-ado-shared-20260421-0930]] · [raw](../../ado_shared/audit/AUDIT_20260421_0930.md)
 - **2026-04-19 19:47** — [[summaries/audit-ado-shared-20260419-1947]] · [raw](../../ado_shared/audit/AUDIT_20260419_1947.md)
 

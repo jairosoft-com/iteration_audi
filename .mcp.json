@@ -8,7 +8,7 @@
      "type": "http",
      "url": "https://api.githubcopilot.com/mcp",
      "headers": {
-      "Authorization": "Bearer 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"
+      "Authorization": "Bearer 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"
      }
     }
   }

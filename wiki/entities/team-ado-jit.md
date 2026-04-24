@@ -3,31 +3,37 @@ title: "Team — JIT Operation (ADO)"
 type: entity
 tags: [team, ado, jit, training, safe]
 sources:
+  - "../../ado_jit/audit/AUDIT_20260422_0900.md"
+  - "../../ado_jit/audit/AUDIT_20260421_1400.md"
   - "../../ado_jit/audit/AUDIT_20260419_1345.md"
   - "../../ado_jit/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # JIT Operation Team (ADO)
 
 Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors ([[entities/person-armelita|Armelita Pulido]] as PM/PO, Teofilo Limpag, [[entities/person-grace|Grace Garcia]]) plus Samantha with documentation capacity.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT / A35, degraded)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **68.8** | 🟡 Moderate |
-| Iteration Planning | 31.6 | 🔴 Critical (sprint-end artifact) |
+| **Overall** | **72.9** | 🟡 Moderate |
+| Iteration Planning | 50.0 | 🟠 High (11/22 scoped) |
 | Team Capacity | 100.0 | 🟢 Low |
-| Estimation | 100.0 | 🟢 Low |
+| Estimation | 100.0 | 🟢 Low (11/11 at 26 SP) |
 | DoR Compliance | 100.0 | 🟢 Low |
-| Work Item Balance | 70.0 | 🟡 Moderate (83.3% User Story) |
-| Backlog Refinement | 80.0 | 🟢 Low (−20 untouched penalty) |
-| Delivery Predictability | 0.0 | 🔴 Critical (0 / 14 visible SP closed) |
+| Work Item Balance | 70.0 | 🟡 Moderate (90.9% US dominance) |
+| Backlog Refinement | 90.0 | 🟢 Low (−10 for #199092, #198615 untouched) |
+| Delivery Predictability | 0.0 | 🔴 Critical (Day 3; 0/26 SP) |
 
-**Day 14 sprint close** — Overall dropped −9.6 from Day 12 (78.4 → 68.8) as Delivery Predictability collapsed from 67.4 to 0.0 under the strict visible-state formula. Historical cumulative delivery was 29 SP / 20 items across Waves 1–4 (Apr 7–17).
+Source: [[summaries/audit-ado-jit-20260423-0916]] (live). **Sprint expanded 11 → 20 items / 26 → 50 SP.** Teofilo activated with 7 AD Training items (21 SP); Samantha active on Facebook post; Grace picked up SAFe MCCs (+ Summer Camp Apr 25). Concentration risk eased — armelita 92% → 46% of SP. Δ +2.6 to 75.5. **New DoR gap:** 6 of 7 Teofilo Training items (#203154–#203159) added bare-title (no Desc/AC) — DoR 100 → 70. Fix = +4.3 to Overall 79.8.
+
+## Historical (Iter 7.1 close — 2026-04-19, 68.8 Moderate)
+
+Iteration 7.1 closed at 68.8 (Moderate) — Delivery Predictability collapsed from 67.4 to 0.0 under strict visible-state formula. See [[summaries/audit-ado-jit-20260419-1345]].
 
 ## Real fixable issues
 
@@ -71,6 +77,8 @@ Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairoso
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 09:16** — [[summaries/audit-ado-jit-20260423-0916]] · [raw](../../ado_jit/audit/AUDIT_20260423_0916.md) (live)
+- **2026-04-22 09:00** — [[summaries/audit-ado-jit-20260422-0900]] · [raw](../../ado_jit/audit/AUDIT_20260422_0900.md) (degraded-mode)
 - **2026-04-21 14:00** — [[summaries/audit-ado-jit-20260421-1400]] · [raw](../../ado_jit/audit/AUDIT_20260421_1400.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-jit-20260419-1345]] · [raw](../../ado_jit/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-jit-20260417-0900]] · [raw](../../ado_jit/audit/AUDIT_20260417_0900.md)

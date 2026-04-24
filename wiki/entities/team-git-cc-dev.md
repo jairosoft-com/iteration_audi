@@ -3,26 +3,31 @@ title: "Team — Colina Health (Git)"
 type: entity
 tags: [team, git, colina-health, safe, healthcare]
 sources:
+  - "../../git_cc_dev/audit/AUDIT_20260422_0900.md"
+  - "../../git_cc_dev/audit/AUDIT_20260421_0055.md"
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_cc_dev/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Colina Health Product Team (Git)
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT, partial)
 
-| Index | Score | Band |
+| Score | Value | Band |
 |-------|------:|------|
-| **UPS (Overall)** | **90.6** | 🟢 Low |
-| ICS (×0.50) | 96.8% | 🟢 Low |
-| HCI (×0.30) | 74/100 | 🟡 Moderate |
-| SGPI (×0.20) | 100.0% | 🟢 Low (Sprint Complete) |
+| **ICS — Iteration Compliance** | 90.3% | 🟢 Green (fragile — 0.3 above Yellow) |
+| **SGPI — Committed Scope** | 0.0% headline / 20.0% Delivered-Proxy | 🔴 Red headline; 🟡 activating via QA funnel |
+| **HCI — Engineering Health** | 77/100 | 🟡 Moderate |
 
-Sprint closes Green on Day 14. All 11 committed defect items (21 SP) Closed. UPS improved +0.3 from Day 12 on a +1 HCI tick driven by FE PR#144 actually merging to `develop`.
+Source: [[summaries/audit-git-cc-dev-20260423-0856]] (partial). Day 4 Movement Day — **net positive**: #202690 + #200828 advanced to Peer Testing (resolving Day-3 HIPAA urgency); #202033 regressed Active → Back to Dev (QA failure). HCI +1 to 78 (Traceability 8→9, 9/11 items now have GitHub artifacts). **ICS still fragile 90.3** — 3 DoD failures (#200093, #200828, #202028) unremediated 2nd day. **BE#55 HIPAA rework Day 6** — critical.
+
+## Historical (Iter 7.1 close — 2026-04-19, UPS 90.6 Low)
+
+Iteration 7.1 closed at UPS **90.6 Green** — all 11 committed defects (21 SP) Closed. See [[summaries/audit-git-cc-dev-20260419-1345]]. First AI-assisted PR in team history (BE#55 with Claude Code assistance). Weekend pause real. Governance max at 10/10 HCI enabler re-scoping.
 
 ## Real fixable issues
 
@@ -69,6 +74,8 @@ Sprint closes Green on Day 14. All 11 committed defect items (21 SP) Closed. UPS
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 08:56** — [[summaries/audit-git-cc-dev-20260423-0856]] · [raw](../../git_cc_dev/audit/AUDIT_20260423_0856.md) (partial — GitHub 404)
+- **2026-04-22 09:00** — [[summaries/audit-git-cc-dev-20260422-0900]] · [raw](../../git_cc_dev/audit/AUDIT_20260422_0900.md) (partial — GitHub 404)
 - **2026-04-21 00:55** — [[summaries/audit-git-cc-dev-20260421-0055]] · [raw](../../git_cc_dev/audit/AUDIT_20260421_0055.md)
 - **2026-04-19 13:45** — [[summaries/audit-git-cc-dev-20260419-1345]] · [raw](../../git_cc_dev/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-git-cc-dev-20260417-0900]] · [raw](../../git_cc_dev/audit/AUDIT_20260417_0900.md)
@@ -99,3 +106,8 @@ Every audit in this workspace is ingested as a wiki summary. Click any entry for
 - Do the 11 project/PI-level defects belong to Iteration 7.2, or should they land in a later PI?
 - What is the review SLA commitment for HIPAA-critical PRs like BE#55 — is 2+ days acceptable?
 - Should Kyaa-A's final-week inactivity trigger a capacity/ownership review before 7.2 planning?
+
+## Notes on project exceptions (added 2026-04-23)
+
+- **Non-developer team members** (Luzmibel QA, Jaszmeine Design) are not penalized for GitHub absence per the same principle Ramon established for AA on 2026-04-23. Filed in `git_cc_dev/CLAUDE.md` Project Exceptions. See [[summaries/transcript-lpm-review-2026-04-23]].
+- **GitHub API 404 (Apr 21 onward)** — token access-scope issue affecting all 3 Colina repos. Audits through resolution carry `data_mode: partial` and conservative HCI carry-forwards. Not a team failure.

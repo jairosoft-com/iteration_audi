@@ -3,31 +3,37 @@ title: "Team — Administration (ADO)"
 type: entity
 tags: [team, ado, administration, finops, safe]
 sources:
+  - "../../ado_admin/audit/AUDIT_20260422_0646.md"
+  - "../../ado_admin/audit/AUDIT_20260421_0800.md"
   - "../../ado_admin/audit/AUDIT_20260419_1345.md"
   - "../../ado_admin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Administration Team (ADO)
 
 Single-contributor administrative operations function inside ADO project `Jairosoft FINOPS`. Scope covers facilities, utilities payables, government compliance (BFP, PhilGeps, DOLE, EGOV), and procurement. Mark Colina owns every work item — delivery is reliable but carries persistent bus-factor risk.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 4 — 2026-04-23 01:13 UTC, live)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **87.0** | 🟢 Low |
-| Iteration Planning | 39.3 | 🔴 Critical (rubric artifact) |
-| Team Capacity | 100.0 | 🟢 Low |
-| Estimation | 100.0 | 🟢 Low |
-| DoR Compliance | 100.0 | 🟢 Low |
-| Work Item Balance | 70.0 | 🟡 Moderate |
-| Backlog Refinement | 100.0 | 🟢 Low |
-| Delivery Predictability | 100.0 | 🟢 Low |
+| **Overall** | **71.0** | 🟡 Moderate |
+| Iteration Planning | 55.0 | 🟠 High (11/20 — 9 PI7-root legacy) |
+| Team Capacity | 100.0 | 🟢 Low (Mark 5h/day, 0 days off) |
+| Estimation | 100.0 | 🟢 Low (11/11 estimated) |
+| DoR Compliance | 81.8 | 🟢 Low (2 fails: #202898, #202909) |
+| Work Item Balance | 70.0 | 🟡 Moderate (90.9% US dominance → −30) |
+| Backlog Refinement | 90.0 | 🟢 Low (untouched 18.2%, −10) |
+| Delivery Predictability | 0.0 | 🔴 Critical (Day 3; 39 SP committed, 0 closed) |
 
-Sprint closed cleanly at **27/27 SP delivered** across 11 items; the 1.6-point drop from Day 12 (88.6 → 87.0) was caused by six new 7.2 items created on the final sprint day, which inflated the Iteration Planning denominator.
+Source: [[summaries/audit-ado-admin-20260423-0113]]. Δ 0.0 vs 4/22 ingest. Live confirms Backlog Refinement 90. **DoR deadline missed 2nd day**: #202898 + #202909 still executing without Desc/AC. Over-commit 39 SP vs 27 SP ceiling unchanged.
+
+## Historical (Iter 7.1 close — 2026-04-19, 87.0 Low)
+
+Iteration 7.1 closed at **87.0 (Low)** with **27/27 SP delivered** across 11 items; 1.6-point drop from Day 12 (88.6 → 87.0) was caused by six new 7.2 items created on the final sprint day inflating the Iteration Planning denominator. See [[summaries/audit-ado-admin-20260419-1345]].
 
 ## Real fixable issues
 
@@ -70,6 +76,8 @@ Sprint closed cleanly at **27/27 SP delivered** across 11 items; the 1.6-point d
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 01:13** — [[summaries/audit-ado-admin-20260423-0113]] · [raw](../../ado_admin/audit/AUDIT_20260423_0113.md)
+- **2026-04-22 06:46** — [[summaries/audit-ado-admin-20260422-0646]] · [raw](../../ado_admin/audit/AUDIT_20260422_0646.md)
 - **2026-04-21 08:00** — [[summaries/audit-ado-admin-20260421-0800]] · [raw](../../ado_admin/audit/AUDIT_20260421_0800.md)
 - **2026-04-19 13:45** — [[summaries/audit-ado-admin-20260419-1345]] · [raw](../../ado_admin/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-ado-admin-20260417-0900]] · [raw](../../ado_admin/audit/AUDIT_20260417_0900.md)

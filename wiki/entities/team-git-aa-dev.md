@@ -3,32 +3,37 @@ title: "Team — Auto Allies (Git)"
 type: entity
 tags: [team, git, auto-allies, safe]
 sources:
+  - "../../git_aa_dev/audit/AUDIT_20260422_0900.md"
+  - "../../git_aa_dev/audit/AUDIT_20260421_0900.md"
   - "../../git_aa_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_aa_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-22
 ---
 
 # Auto Allies Development Team (Git)
 
 Product development team for **AutoAllies.com**, working across two GitHub repos (`jairosoft-com/autoallies-version2` frontend, `jairosoft-com/autoallies-api-core` backend) with story tracking in ADO project `Auto Allies` under team `AA Development Team`. Audits are iteration-bounded and combine GitHub developer productivity, SAFe compliance, and ADO-to-GitHub traceability.
 
-## Current state (Iteration 7.1 — 2026-04-06 → 2026-04-19)
+## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT, partial)
 
-| Index | Score | Band |
+| Score | Value | Band |
 |-------|------:|------|
-| **UPS (Overall)** | **68.6** | 🟡 Moderate |
-| ICS (×0.50) | 99.4% | 🟢 Low |
-| HCI (×0.30) | 49 / 100 | 🟠 High (Section 9 breakdown: 48 — Critical) |
-| SGPI (×0.20) | 21.2% | 🔴 Critical |
+| **ICS — Iteration Compliance** | 95.3% | 🟢 Green |
+| **SGPI — Committed Scope** | 0.0% | 🔴 Red (early-sprint; expected) |
+| **HCI — Engineering Health** | 53/100 | 🟠 Critical (gap to Moderate +7) |
 
-> UPS Moderate band masks a Critical SGPI and a High/Critical HCI. The 99.4% ICS (well-formed backlog items) pulls the composite up despite sprint-end delivery collapse. See [[concepts/scoring-git-ups]].
+Source: [[summaries/audit-git-aa-dev-20260423-0855]] (partial). **Three material improvements at Day 4:** (1) **ICS 100% (first perfect)** — both DoR gaps remediated Apr 22; (2) **all 5 Estimation items sprint-locked**; (3) **#202530 → QA Testing** (PR#123 inferred merged — first complete review loop). HCI +5 to 58 (gap to Moderate = +2, branch protection alone fixes). Sprint pruned 35 → 27 SP (3 items moved to 7.3). GitHub still 404 — 4th day.
+
+## Historical (Iter 7.1 close — 2026-04-19, UPS 68.6 Moderate)
+
+Iteration 7.1 closed with UPS 68.6 **masking** Critical SGPI 21.2% + High/Critical HCI 49 under the 0.50-weight ICS. See [[summaries/audit-git-aa-dev-20260419-1345]] and [[synthesis/ups-masking-pattern]].
 
 ## Real fixable issues
 
 1. **QA gating collapse** — 6 stories (14 SP) parked in QA Testing at sprint end, unchanged 2+ days. Jerlyn Ates contributed zero GitHub artifacts across all 14 sprint days; this is the third consecutive sprint where QA capacity is the binding constraint.
-2. **Zero formal PR reviews** on ~48 merged sprint PRs (4.2% had a reviewer assigned, none with approval evidence). Retro spike `#202169` (PR reviews/branch protection) Active but unacted full sprint.
+2. **Zero formal PR reviews** on ~48 merged sprint PRs (4.2% had a reviewer assigned, none with approval evidence). Retro spike `#202169` (PR reviews/branch protection) Active but unacted full sprint. *(Note: by Day 4 of 7.2, Earl delivered the first human PR review in team history on PR#123 — see [[summaries/audit-git-aa-dev-20260423-0855]].)*
 3. **No branch protection** on `develop`/`dev`/`staging`/`main` in either repo — self-merge continues on all branches. Day-1 of 7.2 action: Earl Carino to configure 1-reviewer minimum.
 4. **Weekend dormancy** — April 18–19 produced zero PRs/commits; no mitigation window after Day 12 escalation. Sprint planning treats 14 days as working capacity when it is effectively 10.
 5. **Commitment miscalibration** — 33 SP committed, 7 SP closed (21.2%) — third consecutive Red SGPI. Either reduce commitment to ~15 SP or invest in QA capacity.
@@ -72,6 +77,8 @@ Product development team for **AutoAllies.com**, working across two GitHub repos
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-23 08:55** — [[summaries/audit-git-aa-dev-20260423-0855]] · [raw](../../git_aa_dev/audit/AUDIT_20260423_0855.md) (partial — GitHub 404)
+- **2026-04-22 09:00** — [[summaries/audit-git-aa-dev-20260422-0900]] · [raw](../../git_aa_dev/audit/AUDIT_20260422_0900.md) (partial — GitHub 404)
 - **2026-04-21 09:00** — [[summaries/audit-git-aa-dev-20260421-0900]] · [raw](../../git_aa_dev/audit/AUDIT_20260421_0900.md)
 - **2026-04-19 13:45** — [[summaries/audit-git-aa-dev-20260419-1345]] · [raw](../../git_aa_dev/audit/AUDIT_20260419_1345.md)
 - **2026-04-17 09:00** — [[summaries/audit-git-aa-dev-20260417-0900]] · [raw](../../git_aa_dev/audit/AUDIT_20260417_0900.md)
@@ -104,5 +111,5 @@ Every audit in this workspace is ingested as a wiki summary. Click any entry for
 
 - Should the team adopt a **QA-capacity-weighted commitment model** (effective ~15 SP vs committed 33 SP) to produce Green SGPI?
 - Will retro spikes `#202168` (descriptions/AC) and `#202169` (PR reviews/branch protection) carry into 7.2 as concrete Day-1 deliverables with acceptance criteria?
-- What is the escalation path for Jerlyn Ates' third consecutive zero-contribution sprint — redistribution, protocol change, or HR review?
+- ~~What is the escalation path for Jerlyn Ates' third consecutive zero-contribution sprint — redistribution, protocol change, or HR review?~~ **Resolved 2026-04-23 (LPM Review meeting):** Jerlyn (QA/Requirements) and Mary Secusana (Documentation) are not developers — GitHub absence is expected and not a compliance gap. Filed as Project Exception in `git_aa_dev/CLAUDE.md`. See [[summaries/transcript-lpm-review-2026-04-23]].
 - Should weekend days be formally excluded from sprint capacity planning (10-day effective sprint for a 14-day cadence)?
