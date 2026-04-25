@@ -11,12 +11,47 @@ sources:
   - "../synthesis/scoring-artifacts.md"
   - "../synthesis/top-compliance-issues.md"
 created: 2026-04-20
-updated: 2026-04-20
+updated: 2026-04-24
 ---
 
 # Team Rankings — Current Score, Momentum, and Forward Outlook
 
 Composite ranking of all 10 portfolio teams as of **2026-04-19 close** (Iteration 7.1). Combines three signals: **current score** (snapshot health), **7-day slope** (momentum), and **volatility σ** (reliability of the reading). Built from a programmatic scan of 270 audit summaries; the math is reproducible — see *Methodology* at the bottom.
+
+## 2026-04-24 snapshot — Iter 7.2 Day 5 (superseding table below)
+
+Current live rankings from [[summaries/portfolio-20260424-0935]]. **Critical band cleared for the first time in PI7.2**; 2 upward band crossings overnight; portfolio mean **+5.3 in one snapshot** (64.6 → 69.9). The 2026-04-19-close tier structure further down is historical context and should not be used for current decisions.
+
+| # | Team | Type | UPS (Day 5) | Δ vs 4/23 PM | Band | Direction |
+|--:|------|:----:|------------:|-------------:|------|:---------:|
+| 1 | [[entities/team-ado-hr]] HR Recruitment | ADO | **83.7** | +0.4 | 🟢 Low | steady (4-audit Low streak) |
+| 2 | [[entities/team-ado-fin]] Finance | ADO | 77.9 | 0.0 | 🟡 Mod | qualitative ↑ (all 3 items Active) |
+| 3 | [[entities/team-ado-jit]] JIT Operation | ADO | 74.0 | +0.8 | 🟡 Mod | ↑ |
+| 4 | [[entities/team-ado-admin]] Administration | ADO | 71.0 | 0.0 | 🟡 Mod | ➡️ 4-audit stasis |
+| 5 | [[entities/team-git-cc-dev]] Colina Health | Git | 70.9 | +2.3 | 🟡 Mod | ↑ (GitHub restored) |
+| 6 | [[entities/team-ado-fl-dev]] Flawless Wedding | ADO | **69.5** | **+11.1** | 🟡 Mod ↑ | 🔺 High→Moderate |
+| 7 | [[entities/team-ado-otp]] Office of the President | ADO | 68.7 | +3.5 | 🟡 Mod | ↑ |
+| 8 | [[entities/team-git-aa-dev]] Auto Allies | Git | 65.7 | −1.7 | 🟡 Mod ↓ | mixed (first closure, but scope added) |
+| 9 | [[entities/team-ado-ls-dev]] Life Style Help | ADO | **61.1** | **+21.4** | 🟡 Mod ↑↑ | 🔺 Critical→Moderate (LARGEST PI7.2 gain) |
+| 10 | [[entities/team-ado-shared]] Shared Services | ADO | 56.1 | +15.0 | 🟠 High | ↑↑ (exits 6-audit TC zero-streak) |
+
+**Band distribution:** 1 Low · 8 Moderate · 1 High · 0 Critical (prior day: 1 / 6 / 2 / 1).
+
+### Noteworthy shifts vs 2026-04-19 close
+
+- **Finance moved from #1 (93.7) to #2 (77.9).** 7.2 reset dropped DP to 0.0; path back to Low Risk is a single IterationPath edit on #203043 + closing #203040.
+- **HR now leads the portfolio** — #202042 closure overnight cements the 4-audit Low streak.
+- **Flawless Wedding climbed from #6 (79.3 at close) past the 7.2-open collapse and back through the Moderate band** on +11.1 in one day. Luke's 5-Defect close streak is the acceleration point.
+- **Life Style broke the +3.21/d artifact-boosted slope** in a very different way: Mode-1 capacity fix + DoR remediation in one overnight window, not a close-day formula event. Real fix, real gain.
+- **Shared Services escaped its baseline-only status** — first real trend data point (41.1 on 4/23 → 56.1 on 4/24, with Team Capacity finally configured). Two audits still below the Moderate threshold but moving up fast.
+
+### Auto Allies masking pattern — still live
+
+UPS 65.7 continues to mask **HCI 59/100 (Critical, 1 pt from Moderate)**. Branch protection remains the single highest-ROI action for this team — see [[synthesis/ups-masking-pattern]] option (B) "composite-masks-component override" proposal, which would downgrade AA's displayed band to the worst component.
+
+---
+
+## Historical context — 2026-04-19 close rankings
 
 ## Top takeaways
 

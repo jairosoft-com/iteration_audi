@@ -1028,3 +1028,122 @@ The `transcript-<scope>-<date>.md` filename pattern established earlier still ho
 The raw-source taxonomy (filing the same DOCX in both `jit/` and `lean_portfolio_leadership/`) is presumably intentional — LPL leadership wants to find it in their folder; JIT program stakeholders want to find it in theirs. The wiki summary abstracts this via `sources: [...]` listing both paths, so search/navigation from either direction reaches the same summary.
 
 If future meetings continue this pattern (dual-filed by scope), the same approach works: one summary, multi-path frontmatter.
+
+## [2026-04-24 10:05] bookkeeping | Filed 2026-04-24 cron observations — 3 TODO items + 1 entity caveat
+
+Reviewed today's MacPilot cron logs at `scripts/agents/logs/` (ado/git/portfolio-health/portfolio-email/portfolio-meeting-prep). 4 of 5 agents succeeded; `portfolio-email` was watchdog-killed at 300s (exit 143). Two other agents (`portfolio-health`, `portfolio-meeting-prep`) exceeded `--max-turns` caps but completed.
+
+### Filings
+
+1. **`wiki/TODO.md` — 3 new tooling items** (under "Open — scripts/agents/ tooling"):
+   - P0: `portfolio-email` watchdog-kill — today's dashboard undistributed, diagnose and re-send.
+   - P2: budget drift across `portfolio-health` (32/15) and `portfolio-meeting-prep` (33/20) — raise caps or tighten prompts.
+   - P3: `.claude/hooks/session_start.py` ENOENT on every agent run (+ related `SessionEnd` ENOENT since ≥2026-04-22).
+2. **`wiki/TODO.md` — 1 new bookkeeping item**: investigate silent-stdout regression on batch-audit agents — the 2026-04-24 runs wrote AUDIT files but dropped the customary YAML summary from stdout, and `turns: 1/60` is implausible for an 8-workspace batch. Diagnose before the 2026-04-25 08:30 run.
+3. **`entities/system-macpilot.md` — new caveat** under Caveats list: *"Budget drift: skill complexity outpacing configured caps."* Cites two-day, two-agent evidence and notes the 2026-04-23 `--max-turns 15→25` bump on `portfolio-health` either didn't propagate or was already outgrown. Links back to the TODO P2.
+
+### Why filed here vs a new synthesis page
+
+Considered `synthesis/macpilot-budget-drift.md` but the evidence is 2 days × 2 agents — too thin for a standalone synthesis page (existing synthesis pages aggregate 9+ sources). Extending the existing `entities/system-macpilot.md` Caveats list — which already follows an `observed 2026-04-XX` format for operational patterns — keeps the observation close to the other MacPilot ops content.
+
+### Not filed
+
+- ~~Yesterday's 3× `portfolio-health` FAILED exit-1 → today's first-try OK. Clean explanation (the 2026-04-23 fix bumped max-turns and added `Skill` to allowlist) already captured in the system-macpilot entity and 2026-04-23 log entries — nothing new to file.~~ Revisited in the 10:30 entry below — two sub-observations were in fact worth filing.
+
+## [2026-04-24 10:30] bookkeeping | Filed yesterday's recovery observation — 2026-04-23 fix revisited with 2026-04-24 evidence
+
+Reopened the "not filed" item from the 10:05 entry. Today's logs actually contain two corrections/resolutions to the 2026-04-23 fix narrative that are worth the wiki's memory:
+
+### 1. Failure count correction (2 → 3)
+
+The 2026-04-23 11:55 fix entry (log.md line 494) and the then-new entity caveat both described `portfolio-health` as having "failed twice" from launchd. Actual count from `scripts/agents/logs/portfolio-health.log` is three: 09:35, 11:31, 11:45 (all exit 1 with `subtype=error_max_turns` and `Skill` in `.permission_denials`) — then success at 12:20. **Corrected in place** on [[entities/system-macpilot]] §Conventions (the `Skill` tool caveat).
+
+### 2. `--max-turns 15 → 25` bump never reached the running service
+
+The 2026-04-23 fix claimed `portfolio-health` got `--max-turns 15 → 25` as defense-in-depth. Today's 09:38 run logs `turns: 32/15` — the cap is still 15. Possibilities: (a) plist edited but `launchctl bootout` / `bootstrap` never executed (there's a caveat on that exact class of bug — plist env-var changes are cached at first load); (b) the `AUDIT_MAX_TURNS` default in `portfolio-health.sh` was bumped but the plist's `EnvironmentVariables` override still carries 15; (c) edit was reverted. **Flagged on [[entities/system-macpilot]] §Conventions** with a `⚠️ Contradicted 2026-04-24` blockquote next to the original claim, per wiki schema (flag contradictions, don't silently overwrite).
+
+Verification command committed to the flag: `launchctl print gui/$(id -u)/com.macpilot.portfolio-health | grep -i max`.
+
+### 3. Resolution of the 2026-04-23 "still uncertain" open question
+
+The 2026-04-23 11:55 fix entry left this open: *"Why earlier `ado-audit-all` runs (yesterday 23:59) appeared to succeed: still uncertain. Possibilities: the earlier successful runs may have been done in interactive Claude Code mode where the Skill tool isn't gated the same way; or the agent fan-out path (3 parallel sub-agents via `Agent` tool, which IS in the allowlist) sidestepped the parent's need to invoke `Skill` at all."*
+
+Two additional data points now resolve it:
+
+- `ado-audit-all.log` **2026-04-22 23:59 run: `turns: 8/60`** — agent took 8 turns. Consistent with the parent manually orchestrating the workflow (glob → fan-out via `Agent` → aggregate) without calling `Skill`.
+- `ado-audit-all.log` **2026-04-23 08:46 + 2026-04-24 08:46 runs: `turns: 1/60`** — agent took only 1 turn. Consistent with a single `Skill` call delegating the entire workflow.
+
+**Conclusion:** the 2026-04-22 run succeeded not because it was in interactive mode, but because (a) `ado-audit-all`'s `--max-turns 60` gave plenty of headroom for the manual workflow, *and* (b) the `Agent` tool was already in its allowlist so the 3-parallel sub-agent fan-out worked independently of `Skill`. `portfolio-health` had neither protection — only 15 turns and no `Agent` fan-out — so its manual-fallback path hit the cap.
+
+This confirms the fan-out-path hypothesis from the original entry. No edit to the 2026-04-23 entry itself (keeping it append-only); resolution lives here and is linked from the updated caveat.
+
+### Not updated
+
+- [[entities/system-macpilot]] §Conventions also claims the 2026-04-23 fix patched *"all 5 production wrappers"* — this remains accurate; the Skill tool is present in all 5 allowlists, only the max-turns bump is what didn't propagate.
+
+## [2026-04-24 10:45] diagnosis | portfolio-health max-turns contradiction — root cause confirmed
+
+Ramon ran the verification command proposed in the 10:30 entry. Result from `launchctl print gui/$(id -u)/com.macpilot.portfolio-health | grep -i max`: **`15`**.
+
+### Three-location audit
+
+| Location | `AUDIT_MAX_TURNS` value |
+|---|---|
+| `scripts/agents/agents/portfolio-health.sh` (script default) | `25` ✅ (matches 2026-04-23 fix) |
+| `scripts/agents/plists/com.macpilot.portfolio-health.plist` (repo source) | `25` ✅ (matches 2026-04-23 fix) |
+| `~/Library/LaunchAgents/com.macpilot.portfolio-health.plist` (loaded by launchd) | `15` ❌ (stale — pre-fix) |
+
+Root cause is (a) from the 10:30 entry: the 2026-04-23 repo plist edit was made and committed, but `scripts/agents/install.sh` was never re-run to copy the new plist into `~/Library/LaunchAgents/` and `launchctl bootstrap` it. This is exactly the failure mode documented in the existing *"Plist env-var changes require `launchctl bootout` + `bootstrap`"* caveat — the fix entry itself hit it.
+
+### Wiki updates
+
+- **[[entities/system-macpilot]] §Caveats — Skill-tool ⚠️ blockquote**: rewritten from three-possibility hedge to confirmed root cause + concrete fix command.
+- **[[entities/system-macpilot]] §Caveats — "Budget drift"**: softened from "agents exceed their caps" to "agents log `num_turns` above their caps *and still return OK*, pending a 3-turn diagnostic kickstart to distinguish aggregate-turn-rollup from advisory-cap." The original claim was too strong — with cap actually enforced at 15, a real 16th turn would have triggered `error_max_turns`; either the display counts sub-agent turns or the cap is advisory on success paths. TBD.
+- **`wiki/TODO.md`**: upgraded P2 to P1 with specific remediation (`./install.sh` or `bootout`+`bootstrap`); added a new P2 for the 3-turn diagnostic experiment that decides whether the other agents have real drift or a display artifact.
+
+### Open
+
+- Running `./install.sh` picks up **all** repo plist edits, not just `portfolio-health`. Worth a quick `diff ~/Library/LaunchAgents/com.macpilot.*.plist scripts/agents/plists/com.macpilot.*.plist` (or reading install.sh's copy logic) before re-running, in case other agents have intentional local plist overrides that a re-install would clobber. Adding to this check to the P1 remediation step is conservative; skipping it and just running `./install.sh` is the normal MacPilot workflow.
+
+## [2026-04-24 11:15] ingest | Day-5 batch — 10 audits + portfolio + meeting agenda
+
+Full batch ingest of today's cron output. First ingest of a PI7.2 day where the audit-to-action feedback loop is visible.
+
+### Sources ingested (12)
+
+- 8 ADO audits: `ado_{admin,fin,fl_dev,hr,jit,ls_dev,otp,shared}/audit/AUDIT_20260424_08{33,33,33,34,34,34,35,35}.md`
+- 2 Git audits: `git_{aa_dev,cc_dev}/audit/AUDIT_20260424_0902.md`
+- 1 portfolio dashboard: `portfolio_report/PORTFOLIO_20260424_0935.html`
+- 1 meeting agenda: `portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_20260424.html`
+
+### Headline — record overnight recovery
+
+**Portfolio mean 69.9 (+5.3) · Critical band cleared (0 teams) · 2 upward band crossings.** Three record-gainer teams: **Life Style +21.4 (largest single-session gain in PI7.2 series; exits Critical), Shared Services +15.0 (ends 6-audit capacity-zero streak), Flawless +11.1 (High→Moderate).** Portfolio recovered to within 6.2 points of the 7.1-close baseline (76.1) after the 7.2-reset dip. First PI7.2 cycle with no Critical teams.
+
+### Writes
+
+- **12 new summaries** under `wiki/summaries/`: 10 per-team audit summaries + [[summaries/portfolio-20260424-0935]] + [[summaries/meeting-agenda-20260424]]. All follow the existing `-YYYYMMDD-HHMM` naming convention.
+- **10 entity updates** (team-ado-×8, team-git-×2). Each gets a new "## Latest (Iteration 7.2 Day 5 — 2026-04-24 HH:MM PHT)" section prepended before the existing "Current state" block (which becomes historical context). Frontmatter `sources:` lists prepended with today's audit; `updated: 2026-04-24`.
+- **3 synthesis updates**:
+  - [[synthesis/capacity-planning]] — "two of four capacity issues resolved" update section; 2026-04-20's Mode-1 findings on Shared + LS (new issue surfaced in 7.2) both closed this cycle. HR + Admin Mode-2 overbooks remain.
+  - [[synthesis/team-rankings]] — prepended "2026-04-24 snapshot" table superseding the 2026-04-19-close table (kept below as historical context). Band distribution 1·8·1·0.
+  - [[synthesis/portfolio-trend]] — timeline extended through 2026-04-24; added "PI7.2 window" analysis section covering the reset dip + Day-5 breakthrough; flagged the audit-to-action feedback-loop candidate pattern.
+- **`wiki/TODO.md` — 3 external-action closures** moved to Archive with outcomes:
+  - `ramon-action` raseniero GitHub token → CLOSED (GitHub API live on both Git teams)
+  - `team-action` LS-Dev configure capacity → CLOSED (3 contributors configured overnight)
+  - `carol-ramon-action` Shared Services capacity → CLOSED (3 contributors configured overnight)
+  Plus 2 synthesis-bookkeeping items closed (team-rankings HCI-cap annotation → superseded by token fix; portfolio-trend extend → done). `grace-action` partially updated (#175360 remediated; #202911 + #202913 still open).
+- **[[index]]** — portfolio snapshot table prepended with 4/24 row; "Latest audit per team" block replaced 4/23 → 4/24 with updated scores/bands/deltas; entity tables (ADO 8 / Git 2) refreshed with today's summaries; audit-backlog counts bumped +1 per team (total 300 → 310).
+
+### Patterns worth noting for future work
+
+- **Audit-to-action feedback loop (candidate pattern).** The 3 record-gainer teams all moved on issues explicitly P0 in the 2026-04-23 meeting agenda. First observed one-day cycle between "audit surfaces a problem" and "team fixes it." Recorded in [[synthesis/portfolio-trend]] as candidate; track over next 3 sprints before promoting to standalone synthesis.
+- **Mode-1 capacity fix is fast when a team chooses it.** Both Shared + LS fixed capacity in a single overnight window; the delay was decisional, not technical. Mode-2 overbook (HR, Admin) stays open because Karl must tell teams to drop work — a different class of problem.
+- **AA masking pattern persists.** UPS 65.7 Moderate continues to hide HCI 59 Critical (1 point from Moderate). Branch protection remains the single highest-ROI fix.
+- **GitHub API restoration = +4 HCI on Colina from evidence quality alone.** Meaningful data point for the `synthesis/ci-health` / `synthesis/ups-masking-pattern` pages: score can move on evidence access changes independently of team behavior.
+
+### Not ingested this cycle
+
+- No wiki page created for the "audit-to-action feedback loop" candidate pattern (2 days of data is too thin for standalone synthesis; captured as note in portfolio-trend).
+- No update to `synthesis/dor-leakage` despite LS + Flawless DoR remediation events — existing synthesis already has strong evidence; no new pattern variant surfaced.
+- 2 TODO bookkeeping items still open (spot-check 4/22 re-runs, spot-check 4/23 PM re-runs) — low priority, deferred.

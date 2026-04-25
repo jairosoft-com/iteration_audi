@@ -3,18 +3,24 @@ title: "Team — Finance (ADO)"
 type: entity
 tags: [team, ado, finance, finops, safe]
 sources:
+  - "../../ado_fin/audit/AUDIT_20260424_0833.md"
+  - "../../ado_fin/audit/AUDIT_20260423_0913.md"
   - "../../ado_fin/audit/AUDIT_20260422_0646.md"
   - "../../ado_fin/audit/AUDIT_20260421_0800.md"
   - "../../ado_fin/audit/AUDIT_20260419_1345.md"
   - "../../ado_fin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-22
+updated: 2026-04-24
 ---
 
 # Finance Team (ADO)
 
 Single-contributor finance operations function inside ADO project `Jairosoft FINOPS`. Scope covers monthly P&L reporting, financial presentations, BIR regulatory filings (Annual ITR, eAFS), and escalation workflow. Grace Garcia owns every work item; the lean 5-item sprint format and clean DoR habits make this the strongest process-score team in the FINOPS portfolio.
+
+## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT)
+
+**Overall 77.9 🟡 Moderate — Δ 0.0 numerically, major qualitative shift.** All 3 sprint items now Active; Grace activated them Apr 23–24 with #203034 updated today at 11:54 UTC (live work confirmed). **#203043 (2 SP) still PI7-root unscoped 5 days** — single 60-second edit → 82.9 Low Risk. Day 5 last early-sprint annotation day; closing #203040 (1 SP) today → 83.5. #201448 eAFS 9 days past BIR deadline; 5-audit silence — escalation overdue. See [[summaries/audit-ado-fin-20260424-0833]].
 
 ## Current state (Iteration 7.2 Day 3 — 2026-04-22 06:46 UTC, live-data run)
 

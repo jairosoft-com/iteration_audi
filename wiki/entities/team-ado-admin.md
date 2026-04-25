@@ -3,18 +3,24 @@ title: "Team — Administration (ADO)"
 type: entity
 tags: [team, ado, administration, finops, safe]
 sources:
+  - "../../ado_admin/audit/AUDIT_20260424_0833.md"
+  - "../../ado_admin/audit/AUDIT_20260423_0900.md"
   - "../../ado_admin/audit/AUDIT_20260422_0646.md"
   - "../../ado_admin/audit/AUDIT_20260421_0800.md"
   - "../../ado_admin/audit/AUDIT_20260419_1345.md"
   - "../../ado_admin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-22
+updated: 2026-04-24
 ---
 
 # Administration Team (ADO)
 
 Single-contributor administrative operations function inside ADO project `Jairosoft FINOPS`. Scope covers facilities, utilities payables, government compliance (BFP, PhilGeps, DOLE, EGOV), and procurement. Mark Colina owns every work item — delivery is reliable but carries persistent bus-factor risk.
+
+## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT)
+
+**Overall 71.0 🟡 Moderate — Δ 0.0** · 4th consecutive audit at 71.0, 23-hour stasis. Day 5 is final early-sprint annotation day; 0/39 SP closed. Karl's authorized 12-SP de-scope still unexecuted (4th audit flag). See [[summaries/audit-ado-admin-20260424-0833]].
 
 ## Current state (Iteration 7.2 Day 4 — 2026-04-23 01:13 UTC, live)
 

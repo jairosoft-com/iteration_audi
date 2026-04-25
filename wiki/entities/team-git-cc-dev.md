@@ -3,17 +3,23 @@ title: "Team — Colina Health (Git)"
 type: entity
 tags: [team, git, colina-health, safe, healthcare]
 sources:
+  - "../../git_cc_dev/audit/AUDIT_20260424_0902.md"
+  - "../../git_cc_dev/audit/AUDIT_20260423_1515.md"
   - "../../git_cc_dev/audit/AUDIT_20260422_0900.md"
   - "../../git_cc_dev/audit/AUDIT_20260421_0055.md"
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_cc_dev/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-22
+updated: 2026-04-24
 ---
 
 # Colina Health Product Team (Git)
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
+
+## Latest (Iteration 7.2 Day 5 — 2026-04-24 09:02 PHT) — GitHub API restored
+
+**UPS 70.85 🟡 Moderate · Δ +2.30 · ICS 90.5 fragile Green (+0.2) · HCI 82/100 (+4 on live GitHub) · SGPI 0.0% early-sprint.** **All 3 repos fully live** — raseniero token fix confirmed (4-day partial/denied window closed). **#202033 back on track** (Kyaa-A shipped FE#162 → FE#163 in <2h; ADO advanced Ready for QA 10:08 UTC). **#200828 merged to `main`** (FE#161, 08:01 UTC — production). Compounding risks: **#202028 PRN defect 10 days in Ready-for-Dev**, **untriaged defect backlog at 11** (+2 today), **BE#55 HIPAA Day 8+ CHANGES_REQUESTED** (pcoronia-blocked). See [[summaries/audit-git-cc-dev-20260424-0902]].
 
 ## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT, partial)
 

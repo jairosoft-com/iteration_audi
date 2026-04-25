@@ -3,18 +3,24 @@ title: "Team — Flawless Wedding App (ADO)"
 type: entity
 tags: [team, ado, flawless-wedding-app, product-dev, safe]
 sources:
+  - "../../ado_fl_dev/audit/AUDIT_20260424_0833.md"
+  - "../../ado_fl_dev/audit/AUDIT_20260423_0914.md"
   - "../../ado_fl_dev/audit/AUDIT_20260422_0646.md"
   - "../../ado_fl_dev/audit/AUDIT_20260421_0800.md"
   - "../../ado_fl_dev/audit/AUDIT_20260419_1345.md"
   - "../../ado_fl_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-22
+updated: 2026-04-24
 ---
 
 # Flawless Wedding App Team (ADO)
 
 Product development team delivering the Flawless Wedding App (FlawlessWeddingApp.com) inside its own ADO project `Flawless Wedding App`. Primary contributors: Luke Colina (Dev), Ressa Paracuelles (Test). Mixed work composition — defects dominate, with User Stories and Spikes in the mix. Sprint 7.1 delivered a large, substantive backlog refresh that moved the team out of Moderate-Risk bottom tier.
+
+## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT) — 🔺 band crossing
+
+**Overall 69.5 🟡 Moderate — Δ +11.1 (High→Moderate)** · First Moderate score of 7.2. DP 0.0 → 50.0 (Luke closed 5 Defects: 202072, 202119, 202569 on Apr 23; 190892, 201326 on Apr 24). DoR 81.8 → 100 (both Spikes groomed overnight). BR 90 → 100. Remaining ceiling: WIB 30.0 — no User Story in sprint commitment. Adding one US → ~79.6 (0.4 from Low). See [[summaries/audit-ado-fl-dev-20260424-0833]].
 
 ## Current state (Iteration 7.2 Day 3 — 2026-04-22 06:46 UTC, live-data)
 

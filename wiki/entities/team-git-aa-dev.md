@@ -3,18 +3,24 @@ title: "Team — Auto Allies (Git)"
 type: entity
 tags: [team, git, auto-allies, safe]
 sources:
+  - "../../git_aa_dev/audit/AUDIT_20260424_0902.md"
+  - "../../git_aa_dev/audit/AUDIT_20260423_1515.md"
   - "../../git_aa_dev/audit/AUDIT_20260422_0900.md"
   - "../../git_aa_dev/audit/AUDIT_20260421_0900.md"
   - "../../git_aa_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_aa_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-22
+updated: 2026-04-24
 ---
 
 # Auto Allies Development Team (Git)
 
 Product development team for **AutoAllies.com**, working across two GitHub repos (`jairosoft-com/autoallies-version2` frontend, `jairosoft-com/autoallies-api-core` backend) with story tracking in ADO project `Auto Allies` under team `AA Development Team`. Audits are iteration-bounded and combine GitHub developer productivity, SAFe compliance, and ADO-to-GitHub traceability.
+
+## Latest (Iteration 7.2 Day 5 — 2026-04-24 09:02 PHT) — GitHub API restored
+
+**UPS 65.7 🟡 Moderate · Δ −1.7 · ICS 96.0 (−4.0) · HCI 59/100 (+1, ONE POINT from Moderate) · SGPI 0.0% headline** · **FIRST 7.2 CLOSURE — #202530 Attorney Case Review (3 SP) closed via FE PRs #123/125/127/129 Apr 21–24** (first complete open→review→fix→merge loop in AA history; closed on 7.1 path so SGPI committed unchanged). **GitHub API fully restored** — 4-day 404 gap closed. ICS −4.0 from mid-sprint scope additions (#203281, #203287, #203289 — 3 New items by Joseph Gerona without planning ceremony). Branch protection still 0 — single action to Moderate HCI. See [[summaries/audit-git-aa-dev-20260424-0902]].
 
 ## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT, partial)
 

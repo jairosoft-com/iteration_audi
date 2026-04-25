@@ -24,11 +24,11 @@ sources:
   - "../summaries/portfolio-20260419-1953.md"
 created: 2026-04-19
 
-## updated: 2026-04-20
+updated: 2026-04-24
 
-# Portfolio Trend — 2026-03-25 → 2026-04-19
+# Portfolio Trend — 2026-03-25 → 2026-04-24
 
-Cross-cutting synthesis of 19 portfolio snapshots + 1 trend rollup spanning **PI6 close → PI7.1 close**. Goal: separate the signal (real team trajectories) from noise (rubric artifacts, scoring transitions, PI/holiday boundaries, recomposition).
+Cross-cutting synthesis of portfolio snapshots spanning **PI6 close → PI7.2 Day 5**. Goal: separate the signal (real team trajectories) from noise (rubric artifacts, scoring transitions, PI/holiday boundaries, recomposition).
 
 ## Headline
 
@@ -63,6 +63,11 @@ Cross-cutting synthesis of 19 portfolio snapshots + 1 trend rollup spanning **PI
 | 2026-04-17 09:00 | 72.1 | 78.4 | 3 | 4 | 1 | 1 | 🚧 Life Style 77.1→11.2 (sprint-close formula artifact); AA color override |
 | **2026-04-19 13:45** | 81.0 | 82.4 | 5 | 4 | 0 | 0 | 🎯 **Peak portfolio health** — first full-cycle zero-Critical |
 | 2026-04-19 19:53 | 76.1 | 80.9 | 5 | 4 | 0 | 1 | 🔴 Shared Services joins (32.2) — 10-team recomposition |
+| 2026-04-21 (7.2 D2) | 63.9 | — | 1 | — | — | — | 7.2 sprint reset — DP zeroes across portfolio; mean −12.2 |
+| 2026-04-22 (7.2 D3) | 63.9 | — | 1 | — | — | — | Flat — degraded-data run (GitHub 404 on Git teams) |
+| 2026-04-23 AM (D4) | 64.1 | — | 1 | — | — | — | +0.2 |
+| 2026-04-23 PM (D4) | 64.6 | 68.0 | 1 | 6 | 2 | 1 | First upward tick; LS→Critical (band inversion with Shared) |
+| **2026-04-24 (D5)** | **69.9** | — | 1 | 8 | 1 | **0** | 🎯 **Critical band cleared**; +5.3 in one snapshot (largest 7.2 jump); 2 upward band crossings (fl_dev High→Mod, ls_dev Critical→Mod) |
 
 ## Visual trend (Mermaid)
 
@@ -156,6 +161,19 @@ Three events in this window look like regressions but are rubric/formula effects
 | Sprint-close formula | 04-17 | Life Style (77.1→11.2), Auto Allies color override | Same Day-14 close artifact as HR, different team |
 
 **Implication:** Any trend pattern-matcher must **exclude these three timestamps** from slope calculations. See [[concepts/risk-bands]] for the "baseline" carve-out and propose applying a similar rule for formula-close artifacts.
+
+### 3. PI7.2 window (2026-04-21 → 2026-04-24) — reset dip + Day-5 recovery
+
+Fourth distinct arc to add to the narrative above:
+
+- **Sprint reset (04-19 19:53 → 04-21):** 76.1 → 63.9 (−12.2). Expected — Delivery Predictability resets to 0 across all 10 teams at the start of any iteration. Not an artifact, not a regression; it's the rubric reflecting that no work has been closed yet against the new commitment.
+- **Flat floor (04-21 → 04-23 AM):** 63.9 → 63.9 → 64.1. Three days of near-zero movement. Two complications: GitHub API 404 on both Git teams (4-day partial-evidence window) and Shared Services + Life Style Mode-1 capacity unconfigured through the first 4 sprint days.
+- **First upward tick (04-23 PM):** 64.6 (+0.5). Admin +1.5 (BR 80→90), AA +3.8 (ICS 100% first perfect), Shared exited Critical (35.3→41.1). But LS-Dev **fell into** Critical (39.7, first inversion below Shared).
+- **🎯 Day-5 breakthrough (04-24):** 69.9 (+5.3 in one snapshot — **largest 7.2 jump**). Critical band cleared. Three record gains: **LS +21.4 (largest single-session gain in PI7.2), Shared +15.0, Flawless +11.1**. Root causes: LS + Shared Mode-1 capacity finally configured overnight (both teams); Flawless closed 5 Defects and groomed both Spikes to full DoR. GitHub API restored across both Git teams (raseniero token fix visible).
+
+**Day-5 is the final early-sprint annotation day.** From 2026-04-25 onward, teams with 0 SP closed lose the early-sprint shield on Delivery Predictability. Six teams (Finance, OTP, Admin, Shared, LS, JIT) are at that boundary this morning — the portfolio's Day 6–7 trajectory will be decided by how many close at least one item today. Auto Allies already broke the seal with #202530.
+
+The **audit-to-action feedback loop** is the unusual signal here: the three record-gainer teams all moved on issues explicitly flagged as P0s in the 2026-04-23 meeting agenda. For the first time in the trend window, we see a one-day cycle between "audit surfaces a problem" and "team fixes the problem." Too early to call it a pattern, but worth tracking over the next 3 sprints.
 
 ### 3. Recomposition shock (04-19 19:53)
 

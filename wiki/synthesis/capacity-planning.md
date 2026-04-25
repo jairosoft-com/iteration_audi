@@ -19,8 +19,7 @@ sources:
   - "../synthesis/portfolio-trend.md"
   - "../concepts/scoring-ado-rubric.md"
 created: 2026-04-20
-
-## updated: 2026-04-20
+updated: 2026-04-24
 
 # Capacity Planning — Portfolio's Consistent Weak Spot
 
@@ -89,6 +88,17 @@ What [[summaries/portfolio-20260419-1953]] could surface explicitly:
 - **Bus-factor flag column** — top-assignee share of committed SP; flag > 75% as Yellow and > 90% as Red. Would flag Admin, HR, OTP, and Life Style simultaneously.
 - **Fractional-allocation watch list** — contributors at ≤2h/day with any open committed SP on the current iteration. Would surface Grace-on-JIT without needing a person page.
 
+## Update — 2026-04-24 (Iter 7.2 Day 5) — two of four capacity issues resolved
+
+The "four-team capacity debt" finding from the 2026-04-20 synthesis has been partially resolved. Today's Day-5 batch shows:
+
+- **✅ Shared Services (Mode 1 — "Not configured") RESOLVED.** `work_get_team_capacity` returned three contributors overnight: Teofilo (6h/day Dev), Jaszmeine (3h/day Design), Vicsante (6h/day Dev). Team Capacity 0.0 → 100.0 (+14.3 Overall). Ends 5-audit zero-streak. See [[summaries/audit-ado-shared-20260424-0835]].
+- **✅ Life Style Help (separate Mode 1 — new issue surfaced in 7.2) RESOLVED.** Not in the original 2026-04-20 synthesis (LS was clean at 7.1 close), but regressed to TC 0.0 at 7.2 open. Fix: Samantha Babael (1h/day Dev), Luzmibel Paculanang (1h/day Test), Ike Yana (1h/day Dev) all configured overnight. TC 0.0 → 100.0 (+14.3 Overall). Same mechanism, same fix, same magnitude of score impact. See [[summaries/audit-ado-ls-dev-20260424-0834]].
+- **⏳ HR (Mode 2 — "Overbooked") still open.** 38 SP committed vs ≤22 SP empirical ceiling. Ramon authorized the de-scope in the 2026-04-23 LPM review; Karl has not yet executed. 5-audit flag.
+- **⏳ Admin (Mode 2 — "Overbooked") still open.** 39 SP vs 27 SP ceiling. Karl's authorized 12-SP de-scope unexecuted; 4-audit stasis, 23-hour no-ADO-activity window confirmed in today's audit. See [[summaries/audit-ado-admin-20260424-0833]].
+
+**Pattern observation:** Mode 1 (not-configured) is a 5-minute ADO fix when the team chooses to do it — both Shared and LS were remediated in a single overnight window. Mode 2 (overbooked) is a human-decision problem (Karl must tell a team to drop work), and those 2 are still open after 4–5 flags. The rubric structure encodes this: TC 0.0 is a zero-ambiguity 14.3-point drop visible to anyone reading the score; overbook is invisible to the dimension until delivery fails. **Pre-planning capacity-config gate (Recommendation #1) would have caught both Mode 1 instances.** Recommendation #2 (commitment-vs-capacity guardrail) is the outstanding structural fix for HR + Admin.
+
 ## Related
 
 - [[synthesis/iteration-7.1-close]] — cross-team retrospective where capacity is named the portfolio's weakest spot
@@ -96,5 +106,5 @@ What [[summaries/portfolio-20260419-1953]] could surface explicitly:
 - [[synthesis/service-model-scoring]] — tier-aware rubric proposal (Shared Services)
 - [[synthesis/scoring-artifacts]] — close-day / rubric-transition carve-outs this synthesis dovetails with
 - [[concepts/scoring-ado-rubric]] — 7-dimension rubric, Team Capacity definition
-- [[entities/team-ado-shared]] · [[entities/team-ado-hr]] · [[entities/team-ado-jit]] · [[entities/team-ado-admin]] · [[entities/team-ado-fl-dev]]
-- [[entities/person-grace]] · [[entities/person-mark-colina]]
+- [[entities/team-ado-shared]] · [[entities/team-ado-hr]] · [[entities/team-ado-jit]] · [[entities/team-ado-admin]] · [[entities/team-ado-fl-dev]] · [[entities/team-ado-ls-dev]]
+- [[entities/person-grace]] · [[entities/person-mark-colina]] · [[entities/person-teofilo]] · [[entities/person-jaszmeine]] · [[entities/person-samantha-babael]] · [[entities/person-ike]]

@@ -3,18 +3,24 @@ title: "Team — HR Recruitment (ADO)"
 type: entity
 tags: [team, ado, hr, recruitment, safe]
 sources:
+  - "../../ado_hr/audit/AUDIT_20260424_0834.md"
+  - "../../ado_hr/audit/AUDIT_20260423_1500.md"
   - "../../ado_hr/audit/AUDIT_20260422_0900.md"
   - "../../ado_hr/audit/AUDIT_20260421_1400.md"
   - "../../ado_hr/audit/AUDIT_20260419_1345.md"
   - "../../ado_hr/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-22
+updated: 2026-04-24
 ---
 
 # HR Recruitment Team (ADO)
 
 Single-operator HR function inside ADO project `Jairosoft FINOPS` handling end-to-end recruitment (Sr. Tech Lead, Bubble Dev, DevOps, Sales & Mktg) and annual performance evaluation (APE) workflows. Almera Kleer Tayao is the sole active contributor; Grace holds a zero-capacity allocation. 33-audit history across PI6 and PI7.
+
+## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:34 PHT)
+
+**Overall 83.7 🟢 Low — Δ +0.4 · 4th consecutive Low Risk audit** (only Low team in portfolio). #202042 Sales & Mktg. closed Apr 23 19:29 UTC (now 4 items / 6 SP closed, DP 13.2 → 15.8). #203067 APE Tayao advanced Ready → Active. Karl's 38→22 SP de-scope still unactioned (5th flag). 3 body-accuracy defects (#203057, #203063, #202887) unresolved 6th audit. See [[summaries/audit-ado-hr-20260424-0834]].
 
 ## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT / A35)
 

@@ -3,18 +3,24 @@ title: "Team — Life Style Help App (ADO)"
 type: entity
 tags: [team, ado, ls-dev, life-style-help-app, safe]
 sources:
+  - "../../ado_ls_dev/audit/AUDIT_20260424_0834.md"
+  - "../../ado_ls_dev/audit/AUDIT_20260423_1510.md"
   - "../../ado_ls_dev/audit/AUDIT_20260422_0900.md"
   - "../../ado_ls_dev/audit/AUDIT_20260421_1400.md"
   - "../../ado_ls_dev/audit/AUDIT_20260419_1345.md"
   - "../../ado_ls_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-22
+updated: 2026-04-24
 ---
 
 # Life Style Help App Team (ADO)
 
 Product team delivering **LifeStyleHelpApp.com** (mobile/web membership, workout, blog, and admin tooling) inside ADO project `Life Style Help App`. Small squad — Samantha Babael (Dev), Ike Yana (Dev), Luzmibel Paculanang (Test) — with mixed User Story and Defect work and a recurring ownership-concentration risk on Samantha.
+
+## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:34 PHT) — 🔺🔺 band crossing, record gain
+
+**Overall 61.1 🟡 Moderate — Δ +21.4 (Critical→Moderate) · LARGEST single-session gain in PI7.2.** Two breakthroughs overnight: (1) **Team Capacity CONFIGURED for 7.2** — Samantha 1h/day Dev, Luzmibel 1h/day Test, Ike 1h/day Dev → TC 0.0 → 100.0 (+14.3 overall); (2) **#203239 + #203247 DoR remediated** Apr 24 00:56–01:09 UTC (DoR 75 → 100); #203247 also advanced New → Active. Structural headwinds remain: IP 28.6, BR 24.3, DP 0.0. #187240 Enabler now **250 days stale** (12th+ audit flag — Ike to dispose). See [[summaries/audit-ado-ls-dev-20260424-0834]].
 
 ## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT / A27, degraded)
 
