@@ -3,6 +3,7 @@ title: "Team — Life Style Help App (ADO)"
 type: entity
 tags: [team, ado, ls-dev, life-style-help-app, safe]
 sources:
+  - "../../ado_ls_dev/audit/AUDIT_20260425_1533.md"
   - "../../ado_ls_dev/audit/AUDIT_20260424_0834.md"
   - "../../ado_ls_dev/audit/AUDIT_20260423_1510.md"
   - "../../ado_ls_dev/audit/AUDIT_20260422_0900.md"
@@ -11,14 +12,18 @@ sources:
   - "../../ado_ls_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Life Style Help App Team (ADO)
 
 Product team delivering **LifeStyleHelpApp.com** (mobile/web membership, workout, blog, and admin tooling) inside ADO project `Life Style Help App`. Small squad — Samantha Babael (Dev), Ike Yana (Dev), Luzmibel Paculanang (Test) — with mixed User Story and Defect work and a recurring ownership-concentration risk on Samantha.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:34 PHT) — 🔺🔺 band crossing, record gain
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT) — riskiest Moderate team
+
+**Overall 61.1 🟡 Moderate — unchanged from Day 5.** Zero sprint closures; DP 0.0 annotation removed (now real penalty). #187240 Enabler now **251 days stale** (15th consecutive audit flag — Ike to dispose). Ike's #195727 untouched 8 calendar / 6 sprint days; untouched ratio 1/4 = 25% — one more untouched item triggers −20 BR penalty and drops LS Dev into High Risk. #203247 SP still null → Est 75.0. See [[summaries/audit-ado-ls-dev-20260425-1533]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 08:34 PHT) — band crossing, record gain
 
 **Overall 61.1 🟡 Moderate — Δ +21.4 (Critical→Moderate) · LARGEST single-session gain in PI7.2.** Two breakthroughs overnight: (1) **Team Capacity CONFIGURED for 7.2** — Samantha 1h/day Dev, Luzmibel 1h/day Test, Ike 1h/day Dev → TC 0.0 → 100.0 (+14.3 overall); (2) **#203239 + #203247 DoR remediated** Apr 24 00:56–01:09 UTC (DoR 75 → 100); #203247 also advanced New → Active. Structural headwinds remain: IP 28.6, BR 24.3, DP 0.0. #187240 Enabler now **250 days stale** (12th+ audit flag — Ike to dispose). See [[summaries/audit-ado-ls-dev-20260424-0834]].
 
@@ -84,6 +89,8 @@ Team roster beyond Ramon is captured from ADO assignees / capacity; emails TBD a
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 15:33** — [[summaries/audit-ado-ls-dev-20260425-1533]] · [raw](../../ado_ls_dev/audit/AUDIT_20260425_1533.md) (A31 — Day 6)
+- **2026-04-24 08:34** — [[summaries/audit-ado-ls-dev-20260424-0834]] · [raw](../../ado_ls_dev/audit/AUDIT_20260424_0834.md) (A30 — Day 5)
 - **2026-04-23 09:00** — [[summaries/audit-ado-ls-dev-20260423-0900]] · [raw](../../ado_ls_dev/audit/AUDIT_20260423_0900.md) (live)
 - **2026-04-22 09:00** — [[summaries/audit-ado-ls-dev-20260422-0900]] · [raw](../../ado_ls_dev/audit/AUDIT_20260422_0900.md) (degraded-mode)
 - **2026-04-21 14:00** — [[summaries/audit-ado-ls-dev-20260421-1400]] · [raw](../../ado_ls_dev/audit/AUDIT_20260421_1400.md)

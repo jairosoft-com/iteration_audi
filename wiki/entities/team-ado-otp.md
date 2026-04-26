@@ -3,6 +3,7 @@ title: "Team — Office of the President (ADO)"
 type: entity
 tags: [team, ado, otp, office-of-the-president, safe]
 sources:
+  - "../../ado_otp/audit/AUDIT_20260425_0833.md"
   - "../../ado_otp/audit/AUDIT_20260424_0835.md"
   - "../../ado_otp/audit/AUDIT_20260423_1100.md"
   - "../../ado_otp/audit/AUDIT_20260422_0644.md"
@@ -11,14 +12,18 @@ sources:
   - "../../ado_otp/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Office of the President Team (ADO)
 
 Administrative/operations function inside ADO project `OTP`, covering executive correspondence, compliance filings (PhilGeps, H1B, visa paperwork), facility work (fire extinguisher canvassing, JIT signage, solar installation chain), and board-level documentation. Work is 100% User-Story-shaped and, by accepted team exception, executed under a **single-assignee model** with **Grace** as sole owner of every board item.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:35 PHT)
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 08:33 PHT)
+
+**Overall 68.7 🟡 Moderate — unchanged from Day 5 (A36).** #202911 and #202913 remain bare-title at Day 6 — zero content added since sprint start (Apr 20). #203026 and #203029 still Active; no closures; DP 0.0 annotation removed (now real penalty). Score ceiling if P0s remediated: ~74.8 (still Moderate). See [[summaries/audit-ado-otp-20260425-0833]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 08:35 PHT)
 
 **Overall 68.7 🟡 Moderate — Δ +3.5** · Two overnight remediations by Grace at 03:08–03:11 PHT: #175360 DoR remediated (AC added; DoR 57.1 → 71.4) and #201811 touched (BR 90 → 100). #202911 + #202913 remain zero-content DoR failures (sole remaining P0 DoR/Est barrier). Post-P0 ceiling: 75.4. See [[summaries/audit-ado-otp-20260424-0835]].
 
@@ -81,6 +86,8 @@ Iteration 7.1 final state remained frozen at **71.2** (Moderate); see [[summarie
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 08:33** — [[summaries/audit-ado-otp-20260425-0833]] · [raw](../../ado_otp/audit/AUDIT_20260425_0833.md) (A37 — Day 6)
+- **2026-04-24 08:35** — [[summaries/audit-ado-otp-20260424-0835]] · [raw](../../ado_otp/audit/AUDIT_20260424_0835.md) (A36 — Day 5)
 - **2026-04-23 09:00** — [[summaries/audit-ado-otp-20260423-0900]] · [raw](../../ado_otp/audit/AUDIT_20260423_0900.md) (first live 7.2 read)
 - **2026-04-22 06:44** — [[summaries/audit-ado-otp-20260422-0644]] · [raw](../../ado_otp/audit/AUDIT_20260422_0644.md)
 - **2026-04-21 09:30** — [[summaries/audit-ado-otp-20260421-0930]] · [raw](../../ado_otp/audit/AUDIT_20260421_0930.md)

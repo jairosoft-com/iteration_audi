@@ -3,6 +3,7 @@ title: "Team — Administration (ADO)"
 type: entity
 tags: [team, ado, administration, finops, safe]
 sources:
+  - "../../ado_admin/audit/AUDIT_20260425_1533.md"
   - "../../ado_admin/audit/AUDIT_20260424_0833.md"
   - "../../ado_admin/audit/AUDIT_20260423_0900.md"
   - "../../ado_admin/audit/AUDIT_20260422_0646.md"
@@ -11,14 +12,18 @@ sources:
   - "../../ado_admin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Administration Team (ADO)
 
 Single-contributor administrative operations function inside ADO project `Jairosoft FINOPS`. Scope covers facilities, utilities payables, government compliance (BFP, PhilGeps, DOLE, EGOV), and procurement. Mark Colina owns every work item — delivery is reliable but carries persistent bus-factor risk.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT)
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+
+**Overall 71.0 🟡 Moderate — Δ 0.0** · Unchanged for 5 consecutive audits. DP 0.0 is now a **real penalty** — the early-sprint annotation was removed Day 6. Burst-delivery anti-pattern (PI7.1: 18 SP closed in one day) at immediate risk of repeating; 0 SP closed through Day 6 of 11 items / 39 SP committed. Empirical ceiling ~27 SP (44% over-commit). Quickest closure path: #202939 (Professional Fee IC, 2 SP, Ready, full DoR). 9 PI7-root legacy items unscoped — 6th consecutive flag. See [[summaries/audit-ado-admin-20260425-1533]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT)
 
 **Overall 71.0 🟡 Moderate — Δ 0.0** · 4th consecutive audit at 71.0, 23-hour stasis. Day 5 is final early-sprint annotation day; 0/39 SP closed. Karl's authorized 12-SP de-scope still unexecuted (4th audit flag). See [[summaries/audit-ado-admin-20260424-0833]].
 
@@ -82,6 +87,7 @@ Iteration 7.1 closed at **87.0 (Low)** with **27/27 SP delivered** across 11 ite
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 15:33** — [[summaries/audit-ado-admin-20260425-1533]] · [raw](../../ado_admin/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 01:13** — [[summaries/audit-ado-admin-20260423-0113]] · [raw](../../ado_admin/audit/AUDIT_20260423_0113.md)
 - **2026-04-22 06:46** — [[summaries/audit-ado-admin-20260422-0646]] · [raw](../../ado_admin/audit/AUDIT_20260422_0646.md)
 - **2026-04-21 08:00** — [[summaries/audit-ado-admin-20260421-0800]] · [raw](../../ado_admin/audit/AUDIT_20260421_0800.md)

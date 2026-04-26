@@ -3,6 +3,7 @@ title: "Team — Flawless Wedding App (ADO)"
 type: entity
 tags: [team, ado, flawless-wedding-app, product-dev, safe]
 sources:
+  - "../../ado_fl_dev/audit/AUDIT_20260425_1533.md"
   - "../../ado_fl_dev/audit/AUDIT_20260424_0833.md"
   - "../../ado_fl_dev/audit/AUDIT_20260423_0914.md"
   - "../../ado_fl_dev/audit/AUDIT_20260422_0646.md"
@@ -11,14 +12,18 @@ sources:
   - "../../ado_fl_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Flawless Wedding App Team (ADO)
 
 Product development team delivering the Flawless Wedding App (FlawlessWeddingApp.com) inside its own ADO project `Flawless Wedding App`. Primary contributors: Luke Colina (Dev), Ressa Paracuelles (Test). Mixed work composition — defects dominate, with User Stories and Spikes in the mix. Sprint 7.1 delivered a large, substantive backlog refresh that moved the team out of Moderate-Risk bottom tier.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT) — 🔺 band crossing
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+
+**Overall 70.1 🟡 Moderate — Δ +0.6** · **Portfolio's highest Day-6 delivery rate** (DP 53.3%, 8/15 SP closed). Luke Abram Colina closed 6 Defects; #203230 added and closed same day (Apr 24). Two items Back to Dev: #200791 and #202723 — both contract calculation domain, suggesting a potential systemic billing bug. WIB 30.0 (Critical) structural ceiling prevents overall exceeding ~76 this sprint (0 User Stories). IP 7.4 (Critical) — 163-item backlog; Ressa's CleanUp Spike #202873 active mitigation. Projected end-sprint if both regressions pass QA: DP 93.3%, overall ~76.9. See [[summaries/audit-ado-fl-dev-20260425-1533]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT) — band crossing
 
 **Overall 69.5 🟡 Moderate — Δ +11.1 (High→Moderate)** · First Moderate score of 7.2. DP 0.0 → 50.0 (Luke closed 5 Defects: 202072, 202119, 202569 on Apr 23; 190892, 201326 on Apr 24). DoR 81.8 → 100 (both Spikes groomed overnight). BR 90 → 100. Remaining ceiling: WIB 30.0 — no User Story in sprint commitment. Adding one US → ~79.6 (0.4 from Low). See [[summaries/audit-ado-fl-dev-20260424-0833]].
 
@@ -85,6 +90,7 @@ Iteration 7.1 closed at **79.3 (Moderate, 0.7 from Low)** with 13/13 SP delivere
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 15:33** — [[summaries/audit-ado-fl-dev-20260425-1533]] · [raw](../../ado_fl_dev/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 09:10** — [[summaries/audit-ado-fl-dev-20260423-0910]] · [raw](../../ado_fl_dev/audit/AUDIT_20260423_0910.md)
 - **2026-04-22 06:46** — [[summaries/audit-ado-fl-dev-20260422-0646]] · [raw](../../ado_fl_dev/audit/AUDIT_20260422_0646.md)
 - **2026-04-21 08:00** — [[summaries/audit-ado-fl-dev-20260421-0800]] · [raw](../../ado_fl_dev/audit/AUDIT_20260421_0800.md)

@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 19 · concepts 6 · summaries 325 active + 1 tombstone · synthesis 18
+**Page counts:** entities 19 · concepts 6 · summaries 337 active + 1 tombstone · synthesis 18
 
 ## Synthesis
 
@@ -33,6 +33,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 | Page | Date | Mean / Median | Dist (L·M·H·C) | Headline |
 |------|------|--------------:|----------------|----------|
+| [[summaries/portfolio-20260425-1533]] | 04-25 15:33 | **69.7** / 69.4 | **1·8·1·0** | Day 6 DP inflection — annotation removed; JIT +2.2 (3 closures); Flawless 53.3% DP leads; Finance 2.1 pts from Low; LS Dev one BR trigger from High Risk |
 | [[summaries/portfolio-20260424-0935]] | 04-24 09:35 | **69.9** / — | **1·8·1·0** | 🎯 **Critical band cleared** (first in 7.2); **+5.3 overnight** (largest 7.2 jump); 2 upward band crossings (fl_dev, ls_dev); 3 record gains (LS +21.4, Shared +15.0, Flawless +11.1) |
 | [[summaries/portfolio-20260423-1535]] | 04-23 15:35 | 64.6 / 68.0 | 1·6·2·1 | Day-4 afternoon: **Shared exits Critical · LS-Dev falls in** (first inversion); AA ICS 100% |
 | [[summaries/portfolio-20260422-1000]] | 04-22 10:00 | 63.9 / 66.6 | 1·6·2·1 | Day 3 flat; only HR moved (+2.0 from 3 closures) |
@@ -61,41 +62,39 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 **300 audit summaries + 24 portfolio snapshots + 2 meeting agendas + 1 raw transcript = 325 total summary pages.** Full per-team lists live in each team entity page's "Audit history" section (click through).
 
-### Latest audit per team (Iteration 7.2 Day 5 — 2026-04-24 for all 10 teams)
+### Latest audit per team (Iteration 7.2 Day 6 — 2026-04-25)
 
-> **Data modes:** all 10 live (GitHub API restored on both Git teams — `raseniero` token fix confirmed; 4-day 404 gap closed).
+> **Data modes:** ADO teams all live. Git teams partial — raseniero GitHub token 404 active since 2026-04-21; HCI dims 1–6 carry forward from Day 2/5 baseline. Early-sprint DP annotation **removed** as of Day 6 for all teams.
 
-| Page | Team | Score | Band | Δ vs 4/23 PM |
-|------|------|------:|------|:--------------:|
-| [[summaries/audit-ado-admin-20260424-0833]] | Administration | 71.0 | 🟡 Moderate | 0.0 (4th audit at 71.0; 23-hour stasis) |
-| [[summaries/audit-ado-fin-20260424-0833]] | Finance | 77.9 | 🟡 Moderate | 0.0 (numerical; all 3 items Active — qualitative progress; #203034 touched today) |
-| [[summaries/audit-ado-fl-dev-20260424-0833]] | Flawless | **69.5** | 🟡 Mod ↑ | **+11.1** (🔺 High→Mod; 5 Defects closed; both Spikes groomed) |
-| [[summaries/audit-ado-hr-20260424-0834]] | HR | **83.7** | 🟢 Low | +0.4 (4-audit Low streak; #202042 closed overnight) |
-| [[summaries/audit-ado-jit-20260424-0834]] | JIT | 74.0 | 🟡 Moderate | +0.8 (#203154 DoR remediated; #203268 added with full DoR) |
-| [[summaries/audit-ado-ls-dev-20260424-0834]] | Life Style | **61.1** | 🟡 Mod ↑↑ | **+21.4** (🔺 Critical→Mod; LARGEST PI7.2 single-session gain; capacity configured) |
-| [[summaries/audit-ado-otp-20260424-0835]] | OTP | 68.7 | 🟡 Moderate | +3.5 (Grace remediated #175360; #201811 touched) |
-| [[summaries/audit-ado-shared-20260424-0835]] | Shared Services | 56.1 | 🟠 High | **+15.0** (TC configured for first time in 6 audits; capacity zero-streak ends) |
-| [[summaries/audit-git-aa-dev-20260424-0902]] | Auto Allies | ICS 96.0 · HCI **59** · SGPI 0.0 · UPS 65.7 | HCI 🟠 (1pt from Moderate) | **FIRST 7.2 CLOSURE** (#202530 via 4 PRs); ICS −4.0 on scope add |
-| [[summaries/audit-git-cc-dev-20260424-0902]] | Colina | ICS 90.5 · HCI **82** · SGPI 0.0 · UPS 70.85 | ICS 🟢 fragile · HCI 🟡 | **+2.30** (GitHub API live — HCI +4); #202033 back on track |
-
-> **Day 5 = final early-sprint annotation day.** From Day 6, 0 SP closed becomes fully penalizing DP across teams that haven't delivered yet.
+| Page | Team | Score | Band | Δ vs Day 5 |
+|------|------|------:|------|:-----------:|
+| [[summaries/audit-ado-admin-20260425-1533]] | Administration | 71.0 | 🟡 Moderate | 0.0 (DP 0.0 now real; burst-delivery risk escalating; 39 SP committed, 0 closed) |
+| [[summaries/audit-ado-fin-20260425-1533]] | Finance | 77.9 | 🟡 Moderate | 0.0 (locked 6 days; 2-edit path to Low Risk: +#203043 to iter + close #203040) |
+| [[summaries/audit-ado-fl-dev-20260425-1533]] | Flawless | 70.1 | 🟡 Moderate | **+0.6** (53.3% DP — portfolio's highest; 2 Back-to-Dev regressions in contract calc domain) |
+| [[summaries/audit-ado-hr-20260425-1533]] | HR | **83.7** | 🟢 Low | 0.0 (6-audit Low streak; #203057/#203063 body defects at **7th audit** — escalated) |
+| [[summaries/audit-ado-jit-20260425-1533]] | JIT | 76.2 | 🟡 Moderate | **+2.2** (first real deliveries: 3 closures = 7 SP; DP 0→14.0) |
+| [[summaries/audit-ado-ls-dev-20260425-1533]] | Life Style | 61.1 | 🟡 Moderate | 0.0 (riskiest Moderate; #187240 at 251 days stale; one BR trigger from High Risk) |
+| [[summaries/audit-ado-otp-20260425-0833]] | OTP | 68.7 | 🟡 Moderate | 0.0 (#202911 + #202913 bare-title; DP 0.0 now real penalty) |
+| [[summaries/audit-ado-shared-20260425-0833]] | Shared Services | 56.1 | 🟠 High | 0.0 (2nd consecutive stagnant; #202464+#203231 at Passed UAT — 3 SP two-click unlock) |
+| [[summaries/audit-git-aa-dev-20260425-1533]] | Auto Allies | ICS 96.0 · HCI **59** · SGPI 0.0 · UPS 65.7 | HCI 🟠 Critical | 0.0 (Earl direct commit to dev — no PR, no reviewer; #203118 only near-term closure) |
+| [[summaries/audit-git-cc-dev-20260425-1533]] | Colina | ICS 90.5 · HCI **82** · SGPI 0.0 · UPS **69.85** | ICS 🟢 fragile · HCI 🟡 | **−1.0** (rounding correction; 4 items in Passed QA = 8 SP ready to credit) |
 
 ### Full audit backlog per team (counts)
 
 | Team | Audits ingested | Span | Entity page |
 |------|-----------------|------|-------------|
-| Administration | 38 | 2026-02-25 → 2026-04-24 | [[entities/team-ado-admin]] |
-| Finance | 37 | 2026-02-25 → 2026-04-24 | [[entities/team-ado-fin]] |
-| Flawless Wedding App | 29 | 2026-03-11 → 2026-04-24 | [[entities/team-ado-fl-dev]] |
-| HR Recruitment | 37 | 2026-02-25 → 2026-04-24 | [[entities/team-ado-hr]] |
-| JIT Operation | 42 | 2026-02-24 → 2026-04-24 | [[entities/team-ado-jit]] |
-| Life Style Help App | 30 | 2026-03-11 → 2026-04-24 | [[entities/team-ado-ls-dev]] |
-| Office of the President | 36 | 2026-02-24 → 2026-04-24 | [[entities/team-ado-otp]] |
-| Shared Services | 5 | 2026-04-19 → 2026-04-24 | [[entities/team-ado-shared]] |
-| Auto Allies (Git) | 30 | 2026-03-09 → 2026-04-24 | [[entities/team-git-aa-dev]] |
-| Colina Health (Git) | 26 | 2026-03-11 → 2026-04-24 | [[entities/team-git-cc-dev]] |
-| **Total** | **310** | **2026-02-24 → 2026-04-24** | — |
-| (Plus 4 portfolio snapshots + 2 meeting agendas + 1 transcript ingested 4/23–4/24) | | | |
+| Administration | 39 | 2026-02-25 → 2026-04-25 | [[entities/team-ado-admin]] |
+| Finance | 38 | 2026-02-25 → 2026-04-25 | [[entities/team-ado-fin]] |
+| Flawless Wedding App | 30 | 2026-03-11 → 2026-04-25 | [[entities/team-ado-fl-dev]] |
+| HR Recruitment | 39 | 2026-02-25 → 2026-04-25 | [[entities/team-ado-hr]] |
+| JIT Operation | 43 | 2026-02-24 → 2026-04-25 | [[entities/team-ado-jit]] |
+| Life Style Help App | 31 | 2026-03-11 → 2026-04-25 | [[entities/team-ado-ls-dev]] |
+| Office of the President | 37 | 2026-02-24 → 2026-04-25 | [[entities/team-ado-otp]] |
+| Shared Services | 7 | 2026-04-19 → 2026-04-25 | [[entities/team-ado-shared]] |
+| Auto Allies (Git) | 31 | 2026-03-09 → 2026-04-25 | [[entities/team-git-aa-dev]] |
+| Colina Health (Git) | 27 | 2026-03-11 → 2026-04-25 | [[entities/team-git-cc-dev]] |
+| **Total** | **322** | **2026-02-24 → 2026-04-25** | — |
+| (Plus 5 portfolio snapshots + 3 meeting agendas + 1 transcript ingested 4/23–4/25) | | | |
 
 ## Entities (teams · people · systems)
 
@@ -103,21 +102,21 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 | Page | Latest overall | Band | Latest summary |
 |------|---------------:|------|----------------|
-| [[entities/team-ado-admin]] | 71.0 | 🟡 Moderate | [[summaries/audit-ado-admin-20260424-0833]] |
-| [[entities/team-ado-fin]] | 77.9 | 🟡 Moderate | [[summaries/audit-ado-fin-20260424-0833]] |
-| [[entities/team-ado-fl-dev]] | **69.5** | 🟡 Mod ↑ | [[summaries/audit-ado-fl-dev-20260424-0833]] |
-| [[entities/team-ado-hr]] | **83.7** | 🟢 Low | [[summaries/audit-ado-hr-20260424-0834]] |
-| [[entities/team-ado-jit]] | 74.0 | 🟡 Moderate | [[summaries/audit-ado-jit-20260424-0834]] |
-| [[entities/team-ado-ls-dev]] | **61.1** | 🟡 Mod ↑↑ | [[summaries/audit-ado-ls-dev-20260424-0834]] |
-| [[entities/team-ado-otp]] | 68.7 | 🟡 Moderate | [[summaries/audit-ado-otp-20260424-0835]] |
-| [[entities/team-ado-shared]] | 56.1 | 🟠 High | [[summaries/audit-ado-shared-20260424-0835]] |
+| [[entities/team-ado-admin]] | 71.0 | 🟡 Moderate | [[summaries/audit-ado-admin-20260425-1533]] |
+| [[entities/team-ado-fin]] | 77.9 | 🟡 Moderate | [[summaries/audit-ado-fin-20260425-1533]] |
+| [[entities/team-ado-fl-dev]] | 70.1 | 🟡 Moderate | [[summaries/audit-ado-fl-dev-20260425-1533]] |
+| [[entities/team-ado-hr]] | **83.7** | 🟢 Low | [[summaries/audit-ado-hr-20260425-1533]] |
+| [[entities/team-ado-jit]] | 76.2 | 🟡 Moderate | [[summaries/audit-ado-jit-20260425-1533]] |
+| [[entities/team-ado-ls-dev]] | 61.1 | 🟡 Moderate | [[summaries/audit-ado-ls-dev-20260425-1533]] |
+| [[entities/team-ado-otp]] | 68.7 | 🟡 Moderate | [[summaries/audit-ado-otp-20260425-0833]] |
+| [[entities/team-ado-shared]] | 56.1 | 🟠 High | [[summaries/audit-ado-shared-20260425-0833]] |
 
 ### Teams — Git (2)
 
 | Page | Latest UPS | Band | Latest summary |
 |------|-----------:|------|----------------|
-| [[entities/team-git-aa-dev]] | ICS 96.0 · HCI 59 · SGPI 0.0 · UPS 65.7 | HCI 🟠 (**1 pt from Moderate**) | [[summaries/audit-git-aa-dev-20260424-0902]] |
-| [[entities/team-git-cc-dev]] | ICS 90.5 · HCI **82** · SGPI 0.0 · UPS 70.85 | ICS 🟢 fragile · HCI 🟡 | [[summaries/audit-git-cc-dev-20260424-0902]] |
+| [[entities/team-git-aa-dev]] | ICS 96.0 · HCI 59 · SGPI 0.0 · UPS 65.7 | HCI 🟠 Critical | [[summaries/audit-git-aa-dev-20260425-1533]] |
+| [[entities/team-git-cc-dev]] | ICS 90.5 · HCI **82** · SGPI 0.0 · UPS 69.85 | ICS 🟢 fragile · HCI 🟡 | [[summaries/audit-git-cc-dev-20260425-1533]] |
 
 ### People
 

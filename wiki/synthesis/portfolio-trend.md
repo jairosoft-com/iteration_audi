@@ -1,5 +1,5 @@
 ---
-title: "Portfolio Trend — 2026-03-25 → 2026-04-19"
+title: "Portfolio Trend — 2026-03-25 → 2026-04-25"
 type: synthesis
 tags: [portfolio, trend, safe, pi6, pi7]
 sources:
@@ -22,11 +22,12 @@ sources:
   - "../summaries/portfolio-20260417-0900.md"
   - "../summaries/portfolio-20260419-1345.md"
   - "../summaries/portfolio-20260419-1953.md"
+  - "../summaries/portfolio-20260425-1533.md"
 created: 2026-04-19
 
-updated: 2026-04-24
+updated: 2026-04-25
 
-# Portfolio Trend — 2026-03-25 → 2026-04-24
+# Portfolio Trend — 2026-03-25 → 2026-04-25
 
 Cross-cutting synthesis of portfolio snapshots spanning **PI6 close → PI7.2 Day 5**. Goal: separate the signal (real team trajectories) from noise (rubric artifacts, scoring transitions, PI/holiday boundaries, recomposition).
 
@@ -68,6 +69,7 @@ Cross-cutting synthesis of portfolio snapshots spanning **PI6 close → PI7.2 Da
 | 2026-04-23 AM (D4) | 64.1 | — | 1 | — | — | — | +0.2 |
 | 2026-04-23 PM (D4) | 64.6 | 68.0 | 1 | 6 | 2 | 1 | First upward tick; LS→Critical (band inversion with Shared) |
 | **2026-04-24 (D5)** | **69.9** | — | 1 | 8 | 1 | **0** | 🎯 **Critical band cleared**; +5.3 in one snapshot (largest 7.2 jump); 2 upward band crossings (fl_dev High→Mod, ls_dev Critical→Mod) |
+| 2026-04-25 15:33 (D6) | 69.7 | 69.4 | 1 | 8 | 1 | 0 | DP inflection — early-sprint annotation lifted; micro-regression −0.2 driven by Colina HCI rubric correction (82→72), not delivery; JIT +2.2 (3 closures), Flawless +0.6; 7 teams flat |
 
 ## Visual trend (Mermaid)
 
@@ -174,6 +176,8 @@ Fourth distinct arc to add to the narrative above:
 **Day-5 is the final early-sprint annotation day.** From 2026-04-25 onward, teams with 0 SP closed lose the early-sprint shield on Delivery Predictability. Six teams (Finance, OTP, Admin, Shared, LS, JIT) are at that boundary this morning — the portfolio's Day 6–7 trajectory will be decided by how many close at least one item today. Auto Allies already broke the seal with #202530.
 
 The **audit-to-action feedback loop** is the unusual signal here: the three record-gainer teams all moved on issues explicitly flagged as P0s in the 2026-04-23 meeting agenda. For the first time in the trend window, we see a one-day cycle between "audit surfaces a problem" and "team fixes the problem." Too early to call it a pattern, but worth tracking over the next 3 sprints.
+
+- **🔁 Day-6 micro-regression (04-25 15:33):** 69.9 → 69.7 (−0.2). Mean and median are both 69.4–69.7 — the portfolio is holding, not recovering. Root cause of the dip is a Colina Health HCI rubric correction (82 → 72), not delivery failure. Two positive movers: JIT +2.2 (only ADO team with closed SP today — 3 items, 7 SP) and Flawless +0.6 (DP now at 53.3%, 8/15 SP). Distribution unchanged at 1L · 8M · 1H · 0C. Key signal: DP inflection is now live — 9 of 10 teams at zero or near-zero closed SP, meaning any team that closes work gains; any team that doesn't now accumulates a measurable DP deficit. Finance is 2.1 pts from Low Risk (two ADO edits); LS Dev is one BR trigger from High Risk. Portfolio floor remains Shared Services 56.1. See [[summaries/portfolio-20260425-1533]].
 
 ### 3. Recomposition shock (04-19 19:53)
 

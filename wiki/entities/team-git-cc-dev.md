@@ -3,6 +3,7 @@ title: "Team — Colina Health (Git)"
 type: entity
 tags: [team, git, colina-health, safe, healthcare]
 sources:
+  - "../../git_cc_dev/audit/AUDIT_20260425_1533.md"
   - "../../git_cc_dev/audit/AUDIT_20260424_0902.md"
   - "../../git_cc_dev/audit/AUDIT_20260423_1515.md"
   - "../../git_cc_dev/audit/AUDIT_20260422_0900.md"
@@ -10,14 +11,18 @@ sources:
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_cc_dev/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Colina Health Product Team (Git)
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 09:02 PHT) — GitHub API restored
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT) — GitHub token 404 ongoing
+
+**UPS 69.85 🟡 Moderate · −1.0 vs Day 5 (rounding correction, not regression) · ICS 90.5 fragile Green · HCI 82/100 (carry-forward) · SGPI 0.0% headline / 26.7% proxy** · **4 items in `Passed QA Testing` = 8 SP ready to credit** — ADO closure clicks are the only velocity unlock needed. **#202028 PRN defect (2 SP) in `Ready for Dev` for 11+ days** with no GitHub branch or PR — most overdue delivery failure in sprint. FE repo: 3 commits in Apr 24 window; BE repo: no commits since Apr 20 (5-day dead window). Data mode: `partial` — raseniero token 404 since Apr 21; HCI dims 1–6 carry-forward from Day 5. 8 days remaining in sprint. See [[summaries/audit-git-cc-dev-20260425-1533]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 09:02 PHT) — GitHub API restored
 
 **UPS 70.85 🟡 Moderate · Δ +2.30 · ICS 90.5 fragile Green (+0.2) · HCI 82/100 (+4 on live GitHub) · SGPI 0.0% early-sprint.** **All 3 repos fully live** — raseniero token fix confirmed (4-day partial/denied window closed). **#202033 back on track** (Kyaa-A shipped FE#162 → FE#163 in <2h; ADO advanced Ready for QA 10:08 UTC). **#200828 merged to `main`** (FE#161, 08:01 UTC — production). Compounding risks: **#202028 PRN defect 10 days in Ready-for-Dev**, **untriaged defect backlog at 11** (+2 today), **BE#55 HIPAA Day 8+ CHANGES_REQUESTED** (pcoronia-blocked). See [[summaries/audit-git-cc-dev-20260424-0902]].
 
@@ -80,6 +85,7 @@ Iteration 7.1 closed at UPS **90.6 Green** — all 11 committed defects (21 SP) 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 15:33** — [[summaries/audit-git-cc-dev-20260425-1533]] · [raw](../../git_cc_dev/audit/AUDIT_20260425_1533.md) (partial — GitHub 404)
 - **2026-04-23 08:56** — [[summaries/audit-git-cc-dev-20260423-0856]] · [raw](../../git_cc_dev/audit/AUDIT_20260423_0856.md) (partial — GitHub 404)
 - **2026-04-22 09:00** — [[summaries/audit-git-cc-dev-20260422-0900]] · [raw](../../git_cc_dev/audit/AUDIT_20260422_0900.md) (partial — GitHub 404)
 - **2026-04-21 00:55** — [[summaries/audit-git-cc-dev-20260421-0055]] · [raw](../../git_cc_dev/audit/AUDIT_20260421_0055.md)

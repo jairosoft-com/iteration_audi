@@ -3,6 +3,7 @@ title: "Team — Shared Services (ADO)"
 type: entity
 tags: [team, ado, shared-services, safe]
 sources:
+  - "../../ado_shared/audit/AUDIT_20260425_0833.md"
   - "../../ado_shared/audit/AUDIT_20260424_0835.md"
   - "../../ado_shared/audit/AUDIT_20260423_1105.md"
   - "../../ado_shared/audit/AUDIT_20260422_0644.md"
@@ -11,14 +12,18 @@ sources:
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
   - "../../ado_shared/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Shared Services Team (ADO)
 
 Cross-cutting services function covering **UIUX, IT, and DevOps** inside ADO project `Jairosoft Portfolio`. Work routinely flows through other product teams' boards, so this team's own backlog under-reports real delivery.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:35 PHT) — breakthrough
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 08:33 PHT) — 2nd consecutive stagnant audit
+
+**Overall 56.1 🟠 High — unchanged from Day 5 (A6).** All A6 P0 actions remain open: #202464 + #203231 still at "Passed UAT Testing" (3 SP uncredited — only state transitions needed; easiest fix in portfolio), #202687 still title-only, #202551 still untouched (−20 BR penalty), #203221 still no SP. New item #203266 (2 SP, Apr 24, clean DoR) is the sole positive. TC 100.0 preserved. Score ceiling: ~73.8 if all P0s addressed in one session. See [[summaries/audit-ado-shared-20260425-0833]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 08:35 PHT) — breakthrough
 
 **Overall 56.1 🟠 High — Δ +15.0 · largest gain in team series.** **Team Capacity CONFIGURED for first time in 6 audits** — Teofilo (6h/day Dev), Jaszmeine (3h/day Design), Vicsante (6h/day Dev) → TC 0.0 → 100.0 (+14.3 overall; ends 5-audit zero-streak). New Enabler #203266 added with full DoR. Two design items (#202553, #202724) moved to 7.3 — sprint shrinks to 6 items. Post-P0 ceiling if today's actions land: **73.8 (Moderate)**. See [[summaries/audit-ado-shared-20260424-0835]].
 
@@ -79,6 +84,8 @@ Team roster TBD — capture from ADO capacity/assignees at next audit.
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 08:33** — [[summaries/audit-ado-shared-20260425-0833]] · [raw](../../ado_shared/audit/AUDIT_20260425_0833.md) (A7 — Day 6)
+- **2026-04-24 08:35** — [[summaries/audit-ado-shared-20260424-0835]] · [raw](../../ado_shared/audit/AUDIT_20260424_0835.md) (A6 — Day 5)
 - **2026-04-23 09:00** — [[summaries/audit-ado-shared-20260423-0900]] · [raw](../../ado_shared/audit/AUDIT_20260423_0900.md) (A4, team-owned scope)
 - **2026-04-22 06:44** — [[summaries/audit-ado-shared-20260422-0644]] · [raw](../../ado_shared/audit/AUDIT_20260422_0644.md)
 - **2026-04-21 09:30** — [[summaries/audit-ado-shared-20260421-0930]] · [raw](../../ado_shared/audit/AUDIT_20260421_0930.md)

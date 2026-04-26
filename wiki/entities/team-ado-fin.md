@@ -3,6 +3,7 @@ title: "Team — Finance (ADO)"
 type: entity
 tags: [team, ado, finance, finops, safe]
 sources:
+  - "../../ado_fin/audit/AUDIT_20260425_1533.md"
   - "../../ado_fin/audit/AUDIT_20260424_0833.md"
   - "../../ado_fin/audit/AUDIT_20260423_0913.md"
   - "../../ado_fin/audit/AUDIT_20260422_0646.md"
@@ -11,14 +12,18 @@ sources:
   - "../../ado_fin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Finance Team (ADO)
 
 Single-contributor finance operations function inside ADO project `Jairosoft FINOPS`. Scope covers monthly P&L reporting, financial presentations, BIR regulatory filings (Annual ITR, eAFS), and escalation workflow. Grace Garcia owns every work item; the lean 5-item sprint format and clean DoR habits make this the strongest process-score team in the FINOPS portfolio.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT)
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+
+**Overall 77.9 🟡 Moderate — Δ 0.0** · Score locked at 77.9 for **all 6 sprint days** — no movement in any dimension. **2-edit path to Low Risk documented**: assign #203043 to Iter 7.2 (+3.6 pts) + close #203040 (1 SP, Active, full DoR, +2.0 pts) → projected 83.5. #201448 BIR eAFS deadline passed Apr 15 — **10 days elapsed** with no ADO confirmation; escalation overdue (6-audit silence). Grace last activity: Apr 24 11:54 UTC. See [[summaries/audit-ado-fin-20260425-1533]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 08:33 PHT)
 
 **Overall 77.9 🟡 Moderate — Δ 0.0 numerically, major qualitative shift.** All 3 sprint items now Active; Grace activated them Apr 23–24 with #203034 updated today at 11:54 UTC (live work confirmed). **#203043 (2 SP) still PI7-root unscoped 5 days** — single 60-second edit → 82.9 Low Risk. Day 5 last early-sprint annotation day; closing #203040 (1 SP) today → 83.5. #201448 eAFS 9 days past BIR deadline; 5-audit silence — escalation overdue. See [[summaries/audit-ado-fin-20260424-0833]].
 
@@ -80,6 +85,7 @@ Iteration 7.1 closed at **93.7 (Low)** with 12/14 SP (85.7%) delivered across 5 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 15:33** — [[summaries/audit-ado-fin-20260425-1533]] · [raw](../../ado_fin/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 09:05** — [[summaries/audit-ado-fin-20260423-0905]] · [raw](../../ado_fin/audit/AUDIT_20260423_0905.md)
 - **2026-04-22 06:46** — [[summaries/audit-ado-fin-20260422-0646]] · [raw](../../ado_fin/audit/AUDIT_20260422_0646.md)
 - **2026-04-21 08:00** — [[summaries/audit-ado-fin-20260421-0800]] · [raw](../../ado_fin/audit/AUDIT_20260421_0800.md)

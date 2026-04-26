@@ -3,6 +3,7 @@ title: "Team — JIT Operation (ADO)"
 type: entity
 tags: [team, ado, jit, training, safe]
 sources:
+  - "../../ado_jit/audit/AUDIT_20260425_1533.md"
   - "../../ado_jit/audit/AUDIT_20260424_0834.md"
   - "../../ado_jit/audit/AUDIT_20260423_1505.md"
   - "../../ado_jit/audit/AUDIT_20260422_0900.md"
@@ -11,14 +12,18 @@ sources:
   - "../../ado_jit/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # JIT Operation Team (ADO)
 
 Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors ([[entities/person-armelita|Armelita Pulido]] as PM/PO, Teofilo Limpag, [[entities/person-grace|Grace Garcia]]) plus Samantha with documentation capacity.
 
-## Latest (Iteration 7.2 Day 5 — 2026-04-24 08:34 PHT)
+## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+
+**Overall 76.2 🟡 Moderate — Δ +2.2 (from Day 5's 74.0)** · Portfolio's biggest Day-6 mover. First real deliveries of PI7.2: 7 SP closed across 3 items (#203153 Teofilo, #198615 armelita, #203047 grace) → DP 0.0 → 14.0. Early-sprint annotation removed. Teofilo Training items (#203155–203159) still bare — 5th consecutive audit flag. #203241 Tech Talk Spike still unassigned + unestimated (3rd flag). See [[summaries/audit-ado-jit-20260425-1533]].
+
+## Previous (Iteration 7.2 Day 5 — 2026-04-24 08:34 PHT)
 
 **Overall 74.0 🟡 Moderate — Δ +0.8** · #203154 "Create AD User Accounts" DoR-compliant overnight (DoR 65.0 → 71.4). New item #203268 "Prepare Presentation for Bubble.io" (1 SP, full DoR) added by Samantha. 5 Teofilo Training items (#203155–203159) still bare (4th audit flag). #203241 Tech Talk Spike still unassigned + unestimated. See [[summaries/audit-ado-jit-20260424-0834]].
 
@@ -83,6 +88,8 @@ Iteration 7.1 closed at 68.8 (Moderate) — Delivery Predictability collapsed fr
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-25 15:33** — [[summaries/audit-ado-jit-20260425-1533]] · [raw](../../ado_jit/audit/AUDIT_20260425_1533.md) (Audit #40 — Day 6)
+- **2026-04-24 08:34** — [[summaries/audit-ado-jit-20260424-0834]] · [raw](../../ado_jit/audit/AUDIT_20260424_0834.md) (Day 5)
 - **2026-04-23 09:16** — [[summaries/audit-ado-jit-20260423-0916]] · [raw](../../ado_jit/audit/AUDIT_20260423_0916.md) (live)
 - **2026-04-22 09:00** — [[summaries/audit-ado-jit-20260422-0900]] · [raw](../../ado_jit/audit/AUDIT_20260422_0900.md) (degraded-mode)
 - **2026-04-21 14:00** — [[summaries/audit-ado-jit-20260421-1400]] · [raw](../../ado_jit/audit/AUDIT_20260421_1400.md)

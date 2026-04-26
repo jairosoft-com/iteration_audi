@@ -1147,3 +1147,38 @@ Full batch ingest of today's cron output. First ingest of a PI7.2 day where the 
 - No wiki page created for the "audit-to-action feedback loop" candidate pattern (2 days of data is too thin for standalone synthesis; captured as note in portfolio-trend).
 - No update to `synthesis/dor-leakage` despite LS + Flawless DoR remediation events — existing synthesis already has strong evidence; no new pattern variant surfaced.
 - 2 TODO bookkeeping items still open (spot-check 4/22 re-runs, spot-check 4/23 PM re-runs) — low priority, deferred.
+
+## [2026-04-25 15:33] ingest | Day-6 batch — 10 audits + portfolio + meeting agenda
+
+Full batch ingest of Iteration 7.2 Day 6 cron output. Day 6 is the DP inflection point — early-sprint annotation removed for all teams; 0 SP closed now carries full penalty.
+
+### Sources ingested (12)
+
+- 6 ADO audits (1533): `ado_{admin,fin,fl_dev,hr,jit,ls_dev}/audit/AUDIT_20260425_1533.md`
+- 2 ADO audits (0833): `ado_{otp,shared}/audit/AUDIT_20260425_0833.md`
+- 2 Git audits: `git_{aa_dev,cc_dev}/audit/AUDIT_20260425_1533.md`
+- 1 portfolio dashboard: `portfolio_report/PORTFOLIO_20260425_1533.html`
+- 1 meeting agenda: `portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_20260425.html`
+
+### Headline
+
+**Portfolio mean 69.7 (−0.2 from Day 5) · 1 Low · 8 Moderate · 1 High · 0 Critical.** Day 6 = DP annotation removed; 7 of 10 teams at 0 SP closed entering real-penalty territory. Only movers: **JIT +2.2** (3 closures = 7 SP; first real delivery in PI7.2 ADO portfolio), **Flawless +0.6** (53.3% DP — portfolio-highest), **Colina −1.0** (rounding correction, not a behavioral regression).
+
+### Writes
+
+- **12 new summaries:** 10 per-team audit summaries + [[summaries/portfolio-20260425-1533]] + [[summaries/meeting-agenda-20260425]]
+- **10 entity updates** (team-ado-×8, team-git-×2): `updated: 2026-04-25`; "Latest (Day 6)" section prepended to each
+- **1 synthesis update:** [[synthesis/portfolio-trend]] — Day 6 row appended to timeline table; Day-6 DP-inflection narrative bullet added
+- **[[index]]:** portfolio snapshot row prepended; "Latest audit per team" replaced Day 5 → Day 6; entity table scores/links updated; audit-backlog counts bumped (total 310 → 322)
+
+### Escalations surfaced (carried forward to TODO)
+
+- **HR #203057 / #203063 body defects — 7th consecutive audit.** Wrong candidate names in Active/Ready items. Operational quality risk requiring immediate team fix (<5 min).
+- **Earl Carino direct commit to `dev` (AA, Apr 24)** — no PR, no reviewer, no AB# link — sensitive lawyer onboarding CLI logic. Second consecutive sprint pattern.
+- **Shared Services #202464 + #203231 at Passed UAT** — 3 SP uncredited requiring only 2 state-transition clicks.
+- **LS Dev #187240** — 251 days stale (15th consecutive audit); no disposal action taken.
+
+### Not ingested this cycle
+
+- [[synthesis/team-rankings]] not updated — scores unchanged for 7 of 10 teams; update deferred until a meaningful band crossing or score shift warrants a new snapshot.
+- No new synthesis pages written — no novel cross-cutting patterns surfaced beyond those already in existing synthesis pages.
