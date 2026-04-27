@@ -12,14 +12,18 @@ sources:
   - "../../ado_fin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-25
+updated: 2026-04-26
 ---
 
 # Finance Team (ADO)
 
 Single-contributor finance operations function inside ADO project `Jairosoft FINOPS`. Scope covers monthly P&L reporting, financial presentations, BIR regulatory filings (Annual ITR, eAFS), and escalation workflow. Grace Garcia owns every work item; the lean 5-item sprint format and clean DoR habits make this the strongest process-score team in the FINOPS portfolio.
 
-## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+## Latest (Iteration 7.2 Day 8 — 2026-04-26 22:00 PHT)
+
+**Overall 77.9 🟡 Moderate — Δ 0.0 · 7 consecutive sprint days at 77.9.** 72+ hour ADO silence (last update Apr 24 11:54 UTC). 0 SP closed; 7 SP committed. #203043 still in PI7-root (8 days unscoped). Two-edit Low Risk path remains open: assign #203043 + close #203040 → 83.5 in < 5 minutes. See [[summaries/audit-ado-fin-20260426-2200]].
+
+## Previous (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
 
 **Overall 77.9 🟡 Moderate — Δ 0.0** · Score locked at 77.9 for **all 6 sprint days** — no movement in any dimension. **2-edit path to Low Risk documented**: assign #203043 to Iter 7.2 (+3.6 pts) + close #203040 (1 SP, Active, full DoR, +2.0 pts) → projected 83.5. #201448 BIR eAFS deadline passed Apr 15 — **10 days elapsed** with no ADO confirmation; escalation overdue (6-audit silence). Grace last activity: Apr 24 11:54 UTC. See [[summaries/audit-ado-fin-20260425-1533]].
 
@@ -85,6 +89,7 @@ Iteration 7.1 closed at **93.7 (Low)** with 12/14 SP (85.7%) delivered across 5 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-26 22:00** — [[summaries/audit-ado-fin-20260426-2200]] · [raw](../../ado_fin/audit/AUDIT_20260426_2200.md) (A40 — Day 8)
 - **2026-04-25 15:33** — [[summaries/audit-ado-fin-20260425-1533]] · [raw](../../ado_fin/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 09:05** — [[summaries/audit-ado-fin-20260423-0905]] · [raw](../../ado_fin/audit/AUDIT_20260423_0905.md)
 - **2026-04-22 06:46** — [[summaries/audit-ado-fin-20260422-0646]] · [raw](../../ado_fin/audit/AUDIT_20260422_0646.md)

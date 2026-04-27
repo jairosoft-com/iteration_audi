@@ -1182,3 +1182,64 @@ Full batch ingest of Iteration 7.2 Day 6 cron output. Day 6 is the DP inflection
 
 - [[synthesis/team-rankings]] not updated — scores unchanged for 7 of 10 teams; update deferred until a meaningful band crossing or score shift warrants a new snapshot.
 - No new synthesis pages written — no novel cross-cutting patterns surfaced beyond those already in existing synthesis pages.
+
+## [2026-04-26 22:15] ingest | Day-7/8 batch — 10 audits + 2 portfolio snapshots + 2 meeting agendas
+
+Full batch ingest of Iteration 7.2 Day 7 EOD / Day 8 cron output. Continued in a new session after context compaction; entity page updates resumed from where prior session left off (5 of 10 entities updated in prior session; 5 remaining completed this session).
+
+### Sources ingested (14)
+
+- 8 ADO audits (22:00–22:10 PHT): `ado_{admin,fin,fl_dev}/AUDIT_20260426_2200.md` + `ado_{hr,jit,ls_dev}/AUDIT_20260426_2205.md` + `ado_{otp,shared}/AUDIT_20260426_2210.md`
+- 2 Git audits (22:15 PHT): `git_{aa_dev,cc_dev}/AUDIT_20260426_2215.md`
+- 2 portfolio dashboards: `PORTFOLIO_20260426_0935.html` (morning) + `PORTFOLIO_20260426_1400.html` (afternoon) — both predate evening audit batch
+- 2 meeting agendas: `PORTFOLIO_MEETING_AGENDA_20260426.html` (14:00 PHT) + `PORTFOLIO_MEETING_AGENDA_20260426_2130.html` (21:30 PHT) — sourced from 1400 portfolio; 21:30 version has more structured P0/P1/P2 action tables
+
+### Headline
+
+**Portfolio mean ~71.3 (estimated, evening batch only) · 1 Low · 9 Moderate · 0 High · 0 Critical.** Two headline band crossings: **Shared Services +8.1 High→Moderate** (first delivery 5 SP; Est regression 66.7→42.9). **OTP +6.1 (+Largest single-session gain in 7.2 series)** — Grace completed all P0s in one 14-minute window ~23:15–23:29 PHT. Counter-signals: **JIT −2.3** (WIB regression; 2 new items activated without DoR), **LS Dev** unchanged with live BR trap race condition (#195727 vs #203239), **HR** 9th consecutive body-content defect streak.
+
+### Writes
+
+- **14 new summaries:** 10 per-team audit summaries + [[summaries/portfolio-20260426-0935]] + [[summaries/portfolio-20260426-1400]] + [[summaries/meeting-agenda-20260426]] + [[summaries/meeting-agenda-20260426-2130]]
+- **10 entity updates** (team-ado-×8, team-git-×2): `updated: 2026-04-26`; "Latest (Day 7/8)" section prepended to each; audit history rows prepended
+- **[[index]]:** 2 portfolio snapshot rows prepended; "Latest audit per team" table replaced Day 6 → Day 7/8 with new scores/bands/deltas; entity table scores and summary links updated; audit-backlog counts bumped (total 322 → 332); page count 337 → 351
+- **`wiki/TODO.md`:** `grace-action` (#202911/#202913 DoR remediation) closed and moved to Archive — confirmed resolved by OTP A39. New `ike-action` item added for BR trap race condition (#195727 activation urgency).
+
+### Key findings per team
+
+| Team | Δ | Key signal |
+|------|---|-----------|
+| Admin A40 | 0.0 | #202898 moved Active with zero DoR/AC — CRITICAL; DP 0.0 at Day 8 |
+| Finance A40 | 0.0 | 72+ hr ADO silence; two-edit Low path (83.5) still open |
+| Flawless A39 | +0.1 | Only ADO team with non-zero DP (53.3%); WIB 30.0 8th audit |
+| HR A41 | 0.0 | **9th body defect streak** #203057/#203063; 79+ hr zero-closure |
+| JIT A42 | **−2.3** | #203157–159 re-pathed (−9 SP); WIB 100→70; 2 New→Active without DoR |
+| LS Dev A33 | 0.0 | BR trap: #195727 must activate before #203239 closes; #187240 now 253 days |
+| OTP A39 | **+6.1** 🏆 | Grace all P0s done; DoR/Est both 100.0; DP still 0.0 |
+| Shared A9 | **+8.1** ✅ | **High→Moderate band change**; Est regression 66.7→42.9 (3 unestimated items) |
+| AA (partial) | +0.3 | ICS 100.0 first perfect; HCI 61 (+1); SGPI 0.0 |
+| CC (partial) | +1.64 | **First sprint closure #202810 (2 SP)**; 5 PRs await raseniero = 18 SP blocked |
+
+### Not ingested this cycle
+
+- [[synthesis/team-rankings]] not updated — Shared band crossing noted but net portfolio distribution unchanged (9M vs 8M: Shared moved from High to Moderate, net same row count).
+- No new synthesis pages — existing synthesis pages cover all patterns surfaced (BR trap → [[synthesis/stale-work-items]]; body-content defects → [[synthesis/dor-leakage]]; AA masking → [[synthesis/ups-masking-pattern]]).
+
+## [2026-04-26 22:45] lint | Full wiki health check post Apr-26 ingest
+
+### Clean
+
+- **No orphan summary pages.** All 14 new summaries have ≥2 inbound links. No zero-inbound pages across the entire summaries/ directory.
+- **No broken wikilinks.** 9 unique `[[links]]` in the new summary pages (entities + concepts) all resolve to existing `.md` files. Initial grep false-positives from greedy `.*` regex — re-tested with non-greedy `[^]]*` and all clean.
+- **All 10 entity pages updated.** `updated: 2026-04-26` confirmed across all ADO and Git team entities. All have a 2026-04-26 audit history entry.
+- **All concept pages referenced exist.** `concepts/risk-bands`, `concepts/scoring-ado-rubric`, `concepts/scoring-git-ups`, `concepts/compliance-deadlines` all resolve.
+
+### Corrected during lint
+
+- **Index audit counts corrected.** HR over-counted (40→39 actual files), Shared over-counted (8→7 actual files) — both had pre-existing +1 index bias going into this session. Total 332→330. Span dates remain 2026-04-26 for both.
+- **Index header count corrected.** Actual file count in `summaries/`: 364 files. Index said 363 active + 1 tombstone (363+1=364). Pre-existing under-count resolved: index was tracking ~14 fewer pages than actually exist, likely from summaries created in early sessions before the wiki count was established. Updated from 351→363 active.
+
+### Stale / flag (not auto-fixed)
+
+- **`synthesis/team-rankings.md`** — Day-5 (2026-04-25) snapshot table contains stale values: OTP 68.7 (now 74.8), Shared 56.1 🟠 High (now 64.2 🟡 Moderate — band change), AA UPS 65.7 (now 68.3), CC UPS 70.9 (now 68.19). Band distribution "1L · 8M · 1H · 0C" is stale (should be "1L · 9M · 0H · 0C"). **Recommend adding Day-7/8 snapshot to this synthesis before next portfolio review.**
+- **`index.md` per-team detail line** — "300 audit summaries + 24 portfolio snapshots + 2 meeting agendas + 1 raw transcript = 325 total summary pages." Stale pre-existing inconsistency; authoritative counts are the header (363 active) and per-team table (330 audit summaries + 34 non-audit). Fixing this line requires a recount of each type; deferred as low-priority.

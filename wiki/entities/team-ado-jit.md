@@ -12,14 +12,18 @@ sources:
   - "../../ado_jit/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-25
+updated: 2026-04-26
 ---
 
 # JIT Operation Team (ADO)
 
 Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors ([[entities/person-armelita|Armelita Pulido]] as PM/PO, Teofilo Limpag, [[entities/person-grace|Grace Garcia]]) plus Samantha with documentation capacity.
 
-## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+## Latest (Iteration 7.2 Day 7 EOD — 2026-04-26 22:05 PHT)
+
+**Overall 73.9 🟡 Moderate — Δ −2.3 (was 76.2).** #203154 closed (3 SP, Teofilo). Three training items (#203157–#203159) re-pathed to 7.3 (-9 SP, committed scope 50→42). WIB 100.0→70.0 (training US% now >60%). **CRITICAL:** #203155 + #203156 added New → Active without Desc/AC. IP 57.1→50.0. DP +9.8 to 23.8% (10/42 SP). DoR +12.4 to 82.4% (3 DoR-fail items exited). 4 contributors. See [[summaries/audit-ado-jit-20260426-2205]].
+
+## Previous (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
 
 **Overall 76.2 🟡 Moderate — Δ +2.2 (from Day 5's 74.0)** · Portfolio's biggest Day-6 mover. First real deliveries of PI7.2: 7 SP closed across 3 items (#203153 Teofilo, #198615 armelita, #203047 grace) → DP 0.0 → 14.0. Early-sprint annotation removed. Teofilo Training items (#203155–203159) still bare — 5th consecutive audit flag. #203241 Tech Talk Spike still unassigned + unestimated (3rd flag). See [[summaries/audit-ado-jit-20260425-1533]].
 
@@ -88,6 +92,7 @@ Iteration 7.1 closed at 68.8 (Moderate) — Delivery Predictability collapsed fr
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-26 22:05** — [[summaries/audit-ado-jit-20260426-2205]] · [raw](../../ado_jit/audit/AUDIT_20260426_2205.md) (A42 — Day 7 EOD)
 - **2026-04-25 15:33** — [[summaries/audit-ado-jit-20260425-1533]] · [raw](../../ado_jit/audit/AUDIT_20260425_1533.md) (Audit #40 — Day 6)
 - **2026-04-24 08:34** — [[summaries/audit-ado-jit-20260424-0834]] · [raw](../../ado_jit/audit/AUDIT_20260424_0834.md) (Day 5)
 - **2026-04-23 09:16** — [[summaries/audit-ado-jit-20260423-0916]] · [raw](../../ado_jit/audit/AUDIT_20260423_0916.md) (live)

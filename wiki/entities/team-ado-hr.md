@@ -12,14 +12,18 @@ sources:
   - "../../ado_hr/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-25
+updated: 2026-04-26
 ---
 
 # HR Recruitment Team (ADO)
 
 Single-operator HR function inside ADO project `Jairosoft FINOPS` handling end-to-end recruitment (Sr. Tech Lead, Bubble Dev, DevOps, Sales & Mktg) and annual performance evaluation (APE) workflows. Almera Kleer Tayao is the sole active contributor; Grace holds a zero-capacity allocation. 33-audit history across PI6 and PI7.
 
-## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+## Latest (Iteration 7.2 Day 7 EOD — 2026-04-26 22:05 PHT)
+
+**Overall 83.7 🟢 Low — Δ 0.0 · Low streak continues (A41).** 79+ hour zero-closure window. 5 Active items stalled 4–5 days. 32 SP remaining vs 6 days left. **#203057 and #203063 body-content defects at 9th consecutive audit** — wrong candidate names in item bodies; approaching Active state (operational hazard). #202887 at 5th consecutive. Almera sole contributor. See [[summaries/audit-ado-hr-20260426-2205]].
+
+## Previous (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
 
 **Overall 83.7 🟢 Low — Δ 0.0 · 6-audit Low streak (#34–#39)** · Only Low Risk team in ADO portfolio. 6/38 SP closed; no closures for 38+ hours. Required burn rate: 4.6 SP/day vs empirical 1.57 SP/day — de-scope critical. **#203057 (Fajardo/Ramos body error) and #203063 (Gelbolingo/Abina body error) now at 7th consecutive audit — ESCALATED.** #202887 body defect (Barua/Rosales) at 3rd audit. #200671 approaching BR penalty threshold (7 calendar days untouched). Karl's 38→22 SP de-scope unactioned (6th flag). Bus factor = 1 (Almera Kleer Tayao, 39 consecutive audits). See [[summaries/audit-ado-hr-20260425-1533]].
 
@@ -86,6 +90,7 @@ Iteration 7.1 closed at **87.0 (Low, series high)** — 22/22 SP delivered acros
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-26 22:05** — [[summaries/audit-ado-hr-20260426-2205]] · [raw](../../ado_hr/audit/AUDIT_20260426_2205.md) (A41 — Day 7 EOD)
 - **2026-04-25 15:33** — [[summaries/audit-ado-hr-20260425-1533]] · [raw](../../ado_hr/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 09:14** — [[summaries/audit-ado-hr-20260423-0914]] · [raw](../../ado_hr/audit/AUDIT_20260423_0914.md)
 - **2026-04-22 09:00** — [[summaries/audit-ado-hr-20260422-0900]] · [raw](../../ado_hr/audit/AUDIT_20260422_0900.md)

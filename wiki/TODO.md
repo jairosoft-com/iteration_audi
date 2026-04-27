@@ -18,10 +18,10 @@ Persistent cross-session to-do list for items surfaced in conversations — thin
 - [ ] ⏳ **2026-04-23 · karl-action** · Share hiring-risk register with Grace + capture mitigation meeting minutes. Source: transcript.
 - [ ] ⏳ **2026-04-23 · karl-action** · Execute Admin 12 SP de-scope in ADO (Ramon authorized in meeting — move 3–4 items to 7.3 backlog, e.g., #202937 Solar quotation, #202945 Grass cutting, #202939 Professional fee). Source: transcript + [[summaries/audit-ado-admin-20260423-0113]]
 - [ ] ⏳ **2026-04-23 · program-action** · Claude partner workflow → epic migration (structural ADO change, owner TBD). Source: transcript.
-- [ ] ⏳ **2026-04-23 · grace-action** · DoR remediation on #202911, #202913 — ~~#175360~~ remediated 2026-04-24 03:08 PHT (AC added) ✅. #202911 + #202913 remain zero-content (no Desc, no AC). Source: [[summaries/audit-ado-otp-20260424-0835]]
 - [ ] ⏳ **2026-04-23 · mark-action** · DoR remediation on #202898 + #202909 — deadline missed Day 3. Source: [[summaries/audit-ado-admin-20260423-0113]]
 - [ ] ⏳ **2026-04-23 · pcoronia-action** · BE#55 HIPAA rework — 10 CHANGES_REQUESTED findings (5 Critical HIPAA). Day 6. If not resubmitted by Day 5 (Apr 24), 8 SP threatens sprint close. Source: [[summaries/audit-git-cc-dev-20260423-0856]]
 - [ ] ⏳ **2026-04-23 · ike-action** · Dispose #187240 (248 days stale, 12 audits). Source: [[summaries/audit-ado-ls-dev-20260423-0900]]
+- [ ] ⏳ **2026-04-26 · ike-action** · Activate #195727 ASAP — **BR trap race condition**: if Samantha closes #203239 first, untouched ratio crosses 33.3% → BR collapses 24.3→4.3 → LS Dev overall ~57 (High Risk). Source: [[summaries/audit-ado-ls-dev-20260426-2205]].
 - [ ] ⏳ **2026-04-23 · cliff-earl-action** · Configure branch protection on develop/dev/main both AA repos — single action from HCI Moderate (+3 to +4). Source: [[summaries/audit-git-aa-dev-20260423-0855]]
 - [ ] ⏳ **2026-04-23 · almera-action** · De-scope HR 7.2 to ≤22 SP (currently 38 SP, 73% overbook). P0 unactioned 4 audits. Source: [[summaries/audit-ado-hr-20260423-0914]]
 - [ ] ⏳ **2026-04-23 · luke-action** · Add ≥1 User Story to Flawless 7.2 sprint (structural WIB 30 ceiling — 4 audits). Source: [[summaries/audit-ado-fl-dev-20260423-0910]]
@@ -77,6 +77,7 @@ Persistent cross-session to-do list for items surfaced in conversations — thin
 
 *(Move items here with `[x]` + `closed: YYYY-MM-DD` + one-line outcome. Keep chronological, newest first.)*
 
+- [x] **2026-04-23 · grace-action** · DoR remediation on #202911, #202913. `closed: 2026-04-26` — Grace remediated #202911 (DoR complete) and #202913 (DoR+SP fixed) at ~23:15–23:29 PHT Apr 26; OTP A39 score 74.8 (+6.1, largest 7.2 single-session gain). Source: [[summaries/audit-ado-otp-20260426-2210]].
 - [x] **2026-04-23 · ramon-action** · Fix `raseniero` GitHub token access-scope. `closed: 2026-04-24` — confirmed restored on Day 5 audit; all 3 Colina repos + both AA repos return live GitHub data; HCI dims 1–6 now scored on live evidence for first time in 4 days (Colina HCI 78 → 82 on evidence-quality alone). Source: [[summaries/audit-git-aa-dev-20260424-0902]], [[summaries/audit-git-cc-dev-20260424-0902]].
 - [x] **2026-04-23 · team-action** · LS-Dev configure capacity for 7.2. `closed: 2026-04-24` — Samantha (1h/day Dev), Luzmibel (1h/day Test), Ike (1h/day Dev) all configured overnight; TC 0.0 → 100.0; Overall +14.3 → contributed to the +21.4 single-session gain. Source: [[summaries/audit-ado-ls-dev-20260424-0834]].
 - [x] **2026-04-23 · carol-ramon-action** · Configure Shared Services capacity for 7.2. `closed: 2026-04-24` — Teofilo (6h/day Dev), Jaszmeine (3h/day Design), Vicsante (6h/day Dev) configured overnight; ends 5-audit zero-streak; TC 0.0 → 100.0; Overall +14.3 → contributed to +15.0 single-session gain. Source: [[summaries/audit-ado-shared-20260424-0835]].

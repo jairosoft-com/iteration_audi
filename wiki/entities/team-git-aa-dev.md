@@ -3,6 +3,7 @@ title: "Team — Auto Allies (Git)"
 type: entity
 tags: [team, git, auto-allies, safe]
 sources:
+  - "../../git_aa_dev/audit/AUDIT_20260426_2215.md"
   - "../../git_aa_dev/audit/AUDIT_20260425_1533.md"
   - "../../git_aa_dev/audit/AUDIT_20260424_0902.md"
   - "../../git_aa_dev/audit/AUDIT_20260423_1515.md"
@@ -12,14 +13,18 @@ sources:
   - "../../git_aa_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-25
+updated: 2026-04-26
 ---
 
 # Auto Allies Development Team (Git)
 
 Product development team for **AutoAllies.com**, working across two GitHub repos (`jairosoft-com/autoallies-version2` frontend, `jairosoft-com/autoallies-api-core` backend) with story tracking in ADO project `Auto Allies` under team `AA Development Team`. Audits are iteration-bounded and combine GitHub developer productivity, SAFe compliance, and ADO-to-GitHub traceability.
 
-## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT) — GitHub token 404 ongoing
+## Latest (Iteration 7.2 Day 7 Evening — 2026-04-26 22:15 PHT) — GitHub token 404 ongoing
+
+**UPS 68.3 🟡 Moderate · Δ +0.3 · ICS 100.0 (first perfect this sprint) · HCI 61/100 (+1, Dim 7 restored, carry-forward) · SGPI 0.0% (0/27 SP closed).** No ADO state changes since Day 6. Branch protection still 0. Data mode: `partial` — GitHub token 404 ongoing; HCI carry-forward. See [[summaries/audit-git-aa-dev-20260426-2215]].
+
+## Previous (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT) — GitHub token 404 ongoing
 
 **UPS 65.7 🟡 Moderate · unchanged · ICS 96.0 · HCI 59/100 (Critical, carry-forward) · SGPI 0.0%** · No ADO state transitions since Day 5 (09:02 Apr 24). Three New-state items (#203281, #203287, #203289 — Joseph Gerona) remain unclassified. **Critical finding: Earl Carino direct commit to `dev` (Apr 24, 14:33 UTC)** — `CreateLawyerCommand` enhancements, no AB# reference, no PR, no reviewer; second consecutive sprint with sensitive backend changes committed without review gate. #203118 (Earl, QA Testing, 2 SP) is the only near-term closure candidate. 8 working days remain (after May 1 Labor Day); team needs ~21 SP to reach 75% SGPI target with no items in QA-ready/mergeable state. Data mode: `partial` — GitHub token 404 since Apr 21; HCI carry-forward from Day 2. See [[summaries/audit-git-aa-dev-20260425-1533]].
 
@@ -88,6 +93,7 @@ Iteration 7.1 closed with UPS 68.6 **masking** Critical SGPI 21.2% + High/Critic
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-26 22:15** — [[summaries/audit-git-aa-dev-20260426-2215]] · [raw](../../git_aa_dev/audit/AUDIT_20260426_2215.md) (partial — GitHub 404)
 - **2026-04-25 15:33** — [[summaries/audit-git-aa-dev-20260425-1533]] · [raw](../../git_aa_dev/audit/AUDIT_20260425_1533.md) (partial — GitHub 404)
 - **2026-04-23 08:55** — [[summaries/audit-git-aa-dev-20260423-0855]] · [raw](../../git_aa_dev/audit/AUDIT_20260423_0855.md) (partial — GitHub 404)
 - **2026-04-22 09:00** — [[summaries/audit-git-aa-dev-20260422-0900]] · [raw](../../git_aa_dev/audit/AUDIT_20260422_0900.md) (partial — GitHub 404)

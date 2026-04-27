@@ -12,14 +12,18 @@ sources:
   - "../../ado_admin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-25
+updated: 2026-04-26
 ---
 
 # Administration Team (ADO)
 
 Single-contributor administrative operations function inside ADO project `Jairosoft FINOPS`. Scope covers facilities, utilities payables, government compliance (BFP, PhilGeps, DOLE, EGOV), and procurement. Mark Colina owns every work item — delivery is reliable but carries persistent bus-factor risk.
 
-## Latest (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
+## Latest (Iteration 7.2 Day 8 — 2026-04-26 22:00 PHT)
+
+**Overall 71.0 🟡 Moderate — Δ 0.0 · Unchanged for 6 consecutive audits.** #202897 + #202898 moved Ready → Active at 00:10–00:11 UTC Apr 27 (early-morning) but 0 SP closed. **CRITICAL:** #202898 advanced to Active with zero Description, zero AC — Active item without verifiable done-criteria. 9 PI7-root items still unscoped. DP 0.0 at Day 8 of 14. See [[summaries/audit-ado-admin-20260426-2200]].
+
+## Previous (Iteration 7.2 Day 6 — 2026-04-25 15:33 PHT)
 
 **Overall 71.0 🟡 Moderate — Δ 0.0** · Unchanged for 5 consecutive audits. DP 0.0 is now a **real penalty** — the early-sprint annotation was removed Day 6. Burst-delivery anti-pattern (PI7.1: 18 SP closed in one day) at immediate risk of repeating; 0 SP closed through Day 6 of 11 items / 39 SP committed. Empirical ceiling ~27 SP (44% over-commit). Quickest closure path: #202939 (Professional Fee IC, 2 SP, Ready, full DoR). 9 PI7-root legacy items unscoped — 6th consecutive flag. See [[summaries/audit-ado-admin-20260425-1533]].
 
@@ -87,6 +91,7 @@ Iteration 7.1 closed at **87.0 (Low)** with **27/27 SP delivered** across 11 ite
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-26 22:00** — [[summaries/audit-ado-admin-20260426-2200]] · [raw](../../ado_admin/audit/AUDIT_20260426_2200.md) (A40 — Day 8)
 - **2026-04-25 15:33** — [[summaries/audit-ado-admin-20260425-1533]] · [raw](../../ado_admin/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 01:13** — [[summaries/audit-ado-admin-20260423-0113]] · [raw](../../ado_admin/audit/AUDIT_20260423_0113.md)
 - **2026-04-22 06:46** — [[summaries/audit-ado-admin-20260422-0646]] · [raw](../../ado_admin/audit/AUDIT_20260422_0646.md)
