@@ -19,12 +19,16 @@ Persistent cross-session to-do list for items surfaced in conversations — thin
 - [ ] ⏳ **2026-04-23 · karl-action** · Execute Admin 12 SP de-scope in ADO (Ramon authorized in meeting — move 3–4 items to 7.3 backlog, e.g., #202937 Solar quotation, #202945 Grass cutting, #202939 Professional fee). Source: transcript + [[summaries/audit-ado-admin-20260423-0113]]
 - [ ] ⏳ **2026-04-23 · program-action** · Claude partner workflow → epic migration (structural ADO change, owner TBD). Source: transcript.
 - [ ] ⏳ **2026-04-23 · mark-action** · DoR remediation on #202898 + #202909 — deadline missed Day 3. Source: [[summaries/audit-ado-admin-20260423-0113]]
-- [ ] ⏳ **2026-04-23 · pcoronia-action** · BE#55 HIPAA rework — 10 CHANGES_REQUESTED findings (5 Critical HIPAA). Day 6. If not resubmitted by Day 5 (Apr 24), 8 SP threatens sprint close. Source: [[summaries/audit-git-cc-dev-20260423-0856]]
+- [ ] ⏳ **2026-04-23 · pcoronia-action** · BE#55 HIPAA rework — 10 CHANGES_REQUESTED findings (5 Critical HIPAA). **Day 11+ still CHANGES_REQUESTED** — 8 SP blocked with 5 days left in sprint. Source: [[summaries/audit-git-cc-dev-20260423-0856]], [[summaries/audit-git-cc-dev-20260427-0902]]
 - [ ] ⏳ **2026-04-23 · ike-action** · Dispose #187240 (248 days stale, 12 audits). Source: [[summaries/audit-ado-ls-dev-20260423-0900]]
 - [ ] ⏳ **2026-04-26 · ike-action** · Activate #195727 ASAP — **BR trap race condition**: if Samantha closes #203239 first, untouched ratio crosses 33.3% → BR collapses 24.3→4.3 → LS Dev overall ~57 (High Risk). Source: [[summaries/audit-ado-ls-dev-20260426-2205]].
+- [ ] ⏳ **2026-04-27 · ike-samantha-action** · LS Dev WIB collapse — **Day 2 High Risk (47.9, −2.8 continued decline, reactive-only sprint)**. No User Stories in sprint, 0 SP closed. Recovery path: add ≥1 User Story (restores −40 WIB penalty), estimate #203247 Spike SP, close #203239 Defect → lifts to ~63+ Moderate. Ike must activate #195727 FIRST to avoid BR trap (see prior item). Source: [[summaries/audit-ado-ls-dev-20260427-1110]], Day 9 audit 2026-04-28
+- [ ] ⏳ **2026-04-27 · pcoronia-action** · BE#55 HIPAA rework Day 11+ still CHANGES_REQUESTED — 8 SP blocked with 5 days left in sprint. Source: [[summaries/audit-git-cc-dev-20260427-0902]]
 - [ ] ⏳ **2026-04-23 · cliff-earl-action** · Configure branch protection on develop/dev/main both AA repos — single action from HCI Moderate (+3 to +4). Source: [[summaries/audit-git-aa-dev-20260423-0855]]
 - [ ] ⏳ **2026-04-23 · almera-action** · De-scope HR 7.2 to ≤22 SP (currently 38 SP, 73% overbook). P0 unactioned 4 audits. Source: [[summaries/audit-ado-hr-20260423-0914]]
 - [ ] ⏳ **2026-04-23 · luke-action** · Add ≥1 User Story to Flawless 7.2 sprint (structural WIB 30 ceiling — 4 audits). Source: [[summaries/audit-ado-fl-dev-20260423-0910]]
+- [ ] **2026-04-28 · milestone** · Shared Services reached Low Risk (84.6) — Day 9 milestone, first ever. Monitor for sustainability. Source: Day 9 audit 2026-04-28, [[synthesis/team-rankings]]
+- [ ] **2026-04-28 · jit-watch** · JIT DP reset to 0.0 (Audit #44) — formula change exposed structural gap; 9 closed items exited visible board. Watch Day 10 for recovery or continued decline. Source: Day 9 audit 2026-04-28, [[entities/team-ado-jit]]
 
 ## Open — wiki bookkeeping (agent-executable)
 

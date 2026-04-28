@@ -3,6 +3,7 @@ title: "Team — JIT Operation (ADO)"
 type: entity
 tags: [team, ado, jit, training, safe]
 sources:
+  - "../../ado_jit/audit/AUDIT_20260428_0203.md"
   - "../../ado_jit/audit/AUDIT_20260425_1533.md"
   - "../../ado_jit/audit/AUDIT_20260424_0834.md"
   - "../../ado_jit/audit/AUDIT_20260423_1505.md"
@@ -12,14 +13,24 @@ sources:
   - "../../ado_jit/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # JIT Operation Team (ADO)
 
 Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors ([[entities/person-armelita|Armelita Pulido]] as PM/PO, Teofilo Limpag, [[entities/person-grace|Grace Garcia]]) plus Samantha with documentation capacity.
 
-## Latest (Iteration 7.2 Day 7 EOD — 2026-04-26 22:05 PHT)
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC)
+
+**Overall 70.4 🟡 Moderate — Δ −5.6 (was 76.0).** DP structural reset: all 9 closed items exited visible backlog → DP 34.0 → 0.0; actual sprint output = 17 SP / 9 items (strong pace). New items added: #203399 (jit.edu.ph, armelita) + #203410 (Summer Camp Batch 2, Samantha, UAT). **#202981 DoR resolved** — AC now 4 criteria lines, 8-audit flag cleared. #203241 Spike + #203410 unestimated → Est 85.7. #199092 silent 12 days. armelita holds 9/14 sprint items. See [[summaries/audit-ado-jit-20260428-0203]].
+
+> ⚠️ DP RESET — Visible DP = 0.0 is a rubric artifact (closed items exit backlog). Actual delivery = 17 SP across 9 items.
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST)
+
+**Overall 76.0 🟡 Moderate — Δ +2.1 (was 73.9).** 8 items now Closed, 16 SP / 47 SP committed — highest DP (34.0%) recorded this sprint. New closures: #203154 (3 SP, Teofilo, Apr 27 00:06 UTC) + #203268 (1 SP, Samantha, Apr 27 05:39 UTC). IP dropped 50.0→38.2 (denominator effect, not regression). **#202981 AC DoR FAIL at 8th consecutive audit.** #203241 Spike still unassigned (4th flag). #199092 silent 11 days. See [[summaries/audit-ado-jit-20260427-1110]].
+
+## Previous (Iteration 7.2 Day 7 EOD — 2026-04-26 22:05 PHT)
 
 **Overall 73.9 🟡 Moderate — Δ −2.3 (was 76.2).** #203154 closed (3 SP, Teofilo). Three training items (#203157–#203159) re-pathed to 7.3 (-9 SP, committed scope 50→42). WIB 100.0→70.0 (training US% now >60%). **CRITICAL:** #203155 + #203156 added New → Active without Desc/AC. IP 57.1→50.0. DP +9.8 to 23.8% (10/42 SP). DoR +12.4 to 82.4% (3 DoR-fail items exited). 4 contributors. See [[summaries/audit-ado-jit-20260426-2205]].
 
@@ -92,6 +103,8 @@ Iteration 7.1 closed at 68.8 (Moderate) — Delivery Predictability collapsed fr
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 02:03** — [[summaries/audit-ado-jit-20260428-0203]] · [raw](../../ado_jit/audit/AUDIT_20260428_0203.md) (A44 — Day 9)
+- **2026-04-27 11:10** — [[summaries/audit-ado-jit-20260427-1110]] · [raw](../../ado_jit/audit/AUDIT_20260427_1110.md) (A43 — Day 8)
 - **2026-04-26 22:05** — [[summaries/audit-ado-jit-20260426-2205]] · [raw](../../ado_jit/audit/AUDIT_20260426_2205.md) (A42 — Day 7 EOD)
 - **2026-04-25 15:33** — [[summaries/audit-ado-jit-20260425-1533]] · [raw](../../ado_jit/audit/AUDIT_20260425_1533.md) (Audit #40 — Day 6)
 - **2026-04-24 08:34** — [[summaries/audit-ado-jit-20260424-0834]] · [raw](../../ado_jit/audit/AUDIT_20260424_0834.md) (Day 5)

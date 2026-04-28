@@ -3,6 +3,7 @@ title: "Team — Life Style Help App (ADO)"
 type: entity
 tags: [team, ado, ls-dev, life-style-help-app, safe]
 sources:
+  - "../../ado_ls_dev/audit/AUDIT_20260428_0203.md"
   - "../../ado_ls_dev/audit/AUDIT_20260426_2205.md"
   - "../../ado_ls_dev/audit/AUDIT_20260425_1533.md"
   - "../../ado_ls_dev/audit/AUDIT_20260424_0834.md"
@@ -13,14 +14,26 @@ sources:
   - "../../ado_ls_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # Life Style Help App Team (ADO)
 
 Product team delivering **LifeStyleHelpApp.com** (mobile/web membership, workout, blog, and admin tooling) inside ADO project `Life Style Help App`. Small squad — Samantha Babael (Dev), Ike Yana (Dev), Luzmibel Paculanang (Test) — with mixed User Story and Defect work and a recurring ownership-concentration risk on Samantha.
 
-## Latest (Iteration 7.2 Day 7 EOD — 2026-04-26 22:05 PHT / A33)
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC / A35) ⚠️ HIGH RISK SUSTAINED
+
+> ⚠️ BAND SUSTAINED — Day 2 consecutive High Risk. Score declined 50.7 → 47.9 (Δ −2.8). No recovery path without User Story addition and item closures.
+
+**Overall 47.9 🟠 High Risk — Δ −2.8 (was 50.7).** New item #203390 (Defect, subscription auto-cancel, Samantha) added Apr 28 — sprint now 2 Defects + 1 Spike, 0 User Stories. WIB drops 40.0→30.0 (dual penalty: no US −40 + Defect 66.7% dominant −30). Est 50.0→33.3 (2 of 3 sprint items unestimated). 0 SP closed Day 9. Ike Yana idle 9 consecutive days. 4 stale_90 items persist (194082, 194084, 194386, 195229). Dual billing defect pattern emerging (#203239 + #203390). See [[summaries/audit-ado-ls-dev-20260428-0203]].
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST / A34) ⚠️ BAND DROP
+
+> ⚠️ BAND DROP: 🟠 High Risk (50.7) — first High Risk reading of PI7.2. Was Moderate 61.1 on Day 7 EOD.
+
+**Overall 50.7 🟠 High Risk — Δ −10.4 (was 61.1).** Work Item Balance collapsed 100.0→40.0: sprint scope reduced to 1 Defect + 1 Spike; no User Story present → −40 penalty + Spike 50% > 40% → −20 penalty. 0 SP closed through Day 8. IP dropped 28.6→15.4 (backlog shrank 14→13 items). Estimation 75.0→50.0 (#203247 Spike SP still null, 4th audit). BR improved 24.3→49.2 (stale_180 item departed backlog). Ike Yana idle — no sprint items. See [[summaries/audit-ado-ls-dev-20260427-1110]].
+
+## Previous (Iteration 7.2 Day 7 EOD — 2026-04-26 22:05 PHT / A33)
 
 **Overall 61.1 🟡 Moderate — Δ 0.0 · 4th consecutive flat.** 69+ hour ADO silence. **BR trap risk**: if #203239 (Samantha) closes before Ike activates #195727, untouched ratio hits 33.3% → BR collapses 24.3→4.3 → overall ~57 (High Risk). #187240 Enabler now **253 days stale** (17th consecutive audit flag — Ike to dispose). #203247 SP still null → Est 75.0. See [[summaries/audit-ado-ls-dev-20260426-2205]].
 
@@ -94,6 +107,8 @@ Team roster beyond Ramon is captured from ADO assignees / capacity; emails TBD a
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 02:03** — [[summaries/audit-ado-ls-dev-20260428-0203]] · [raw](../../ado_ls_dev/audit/AUDIT_20260428_0203.md) (A35 — Day 9 ⚠️ High Risk sustained)
+- **2026-04-27 11:10** — [[summaries/audit-ado-ls-dev-20260427-1110]] · [raw](../../ado_ls_dev/audit/AUDIT_20260427_1110.md) (A34 — Day 8 ⚠️ High Risk)
 - **2026-04-26 22:05** — [[summaries/audit-ado-ls-dev-20260426-2205]] · [raw](../../ado_ls_dev/audit/AUDIT_20260426_2205.md) (A33 — Day 7 EOD)
 - **2026-04-25 15:33** — [[summaries/audit-ado-ls-dev-20260425-1533]] · [raw](../../ado_ls_dev/audit/AUDIT_20260425_1533.md) (A31 — Day 6)
 - **2026-04-24 08:34** — [[summaries/audit-ado-ls-dev-20260424-0834]] · [raw](../../ado_ls_dev/audit/AUDIT_20260424_0834.md) (A30 — Day 5)

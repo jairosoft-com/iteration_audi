@@ -12,14 +12,22 @@ sources:
   - "../../ado_fl_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # Flawless Wedding App Team (ADO)
 
 Product development team delivering the Flawless Wedding App (FlawlessWeddingApp.com) inside its own ADO project `Flawless Wedding App`. Primary contributors: Luke Colina (Dev), Ressa Paracuelles (Test). Mixed work composition — defects dominate, with User Stories and Spikes in the mix. Sprint 7.1 delivered a large, substantive backlog refresh that moved the team out of Moderate-Risk bottom tier.
 
-## Latest (Iteration 7.2 Day 8 — 2026-04-26 22:00 PHT)
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 09:02 UTC) ↑
+
+**Overall 74.0 🟡 Moderate — Δ +3.8 · Strongest single-day gain of the sprint; Low Risk within reach.** #200791 Closed at 07:30 UTC + #202723 Closed at 01:33 UTC — 4 SP added, total 12/15 SP closed (DP 80.0). #191079 in Ready for QA (1 SP); #194538 in QA Testing (2 SP, second QA cycle). If both clear: DP 100.0, overall ~81.2 Low Risk. WIB 30.0 structural ceiling unchanged (0 User Stories). See [[summaries/audit-ado-fl-dev-20260428-0902]].
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST)
+
+**Overall 70.2 🟡 Moderate — Δ 0.0 · Active team; QA pipeline building.** #200791 advanced to Ready for QA (02:29 UTC); #202723 entered QA Testing (09:19 UTC); #194538 returned Back to Dev after QA rejection (08:11 UTC). 8/15 SP closed (DP 53.3%) — unchanged. **WIB 30.0 for 9th consecutive audit** — 0 User Stories; structural ceiling caps overall at ~77 even with 100% SP closure. Contract calculation cluster (#200791, #202723, #194538) all in the same payment/billing domain — root cause analysis recommended. See [[summaries/audit-ado-fl-dev-20260427-1110]].
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-26 22:00 PHT)
 
 **Overall 70.2 🟡 Moderate — Δ +0.1.** #194538 Advanced to QA Testing; #191079 moved Ready for Dev → Active (Luke early-morning PHT). 8 SP closed of 15 SP committed (DP 53.3%) — only ADO team with non-zero delivery at Day 8 snapshot. **WIB 30.0 for 8th consecutive audit** — 0 User Stories; Critical structural ceiling. Backlog reduced 150 → 148 via CleanUp Spike. See [[summaries/audit-ado-fl-dev-20260426-2200]].
 
@@ -94,6 +102,8 @@ Iteration 7.1 closed at **79.3 (Moderate, 0.7 from Low)** with 13/13 SP delivere
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 09:02** — [[summaries/audit-ado-fl-dev-20260428-0902]] · [raw](../../ado_fl_dev/audit/AUDIT_20260428_0902.md) (A41 — Day 9)
+- **2026-04-27 11:10** — [[summaries/audit-ado-fl-dev-20260427-1110]] · [raw](../../ado_fl_dev/audit/AUDIT_20260427_1110.md) (A40 — Day 8)
 - **2026-04-26 22:00** — [[summaries/audit-ado-fl-dev-20260426-2200]] · [raw](../../ado_fl_dev/audit/AUDIT_20260426_2200.md) (A39 — Day 8)
 - **2026-04-25 15:33** — [[summaries/audit-ado-fl-dev-20260425-1533]] · [raw](../../ado_fl_dev/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 09:10** — [[summaries/audit-ado-fl-dev-20260423-0910]] · [raw](../../ado_fl_dev/audit/AUDIT_20260423_0910.md)

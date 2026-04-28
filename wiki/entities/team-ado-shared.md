@@ -13,14 +13,24 @@ sources:
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
   - "../../ado_shared/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # Shared Services Team (ADO)
 
 Cross-cutting services function covering **UIUX, IT, and DevOps** inside ADO project `Jairosoft Portfolio`. Work routinely flows through other product teams' boards, so this team's own backlog under-reports real delivery.
 
-## Latest (Iteration 7.2 Day 7 Evening — 2026-04-26 22:10 PHT / A9) — BAND CHANGE High→Moderate
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:04 PHT / A11) — BAND UPGRADE Moderate→Low
+
+**Overall 84.6 🟢 Low — Δ +17.0 · FIRST Low Risk audit in team history.** Three simultaneous structural improvements: D1 23.5→70.3 (sprint scope 8→26 items); D5 60.0→100.0 (6 User Stories added, eliminating −40 WIB penalty); D6 90.0→100.0 (#202551 touched Apr 28). 20/33 SP closed (12 items, primarily Teofilo DevOps/IT). Remaining risks: D3 69.2 (8 unestimated Vicsante AI items); #202687 in New state (3 SP, spill risk). See [[summaries/audit-ado-shared-20260428-0204]].
+
+> ✅ **Milestone — First Low Risk:** Team climbed from Critical (32.2) at first audit (2026-04-19) to Low Risk (84.6) in 11 audits over 9 days. The +17.0 gain on Apr 28 is the largest single-session gain in team history and was driven by scope tripling (D1), User Story inclusion eliminating the WIB penalty (D5), and full backlog refinement completion (D6).
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 PHT / A10)
+
+**Overall 67.6 🟡 Moderate — Δ +3.4.** Two positive developments: (1) #202687 DoR failure resolved after 11 days title-only (D4 71.4→87.5); (2) #203309 gained SP=1 (D3 42.9→50.0). New item #203315 added to sprint (scope 7→8 items). DP holds at 62.5 — no new closures. IP critically low at 23.5 (8/34). See [[summaries/audit-ado-shared-20260427-1110]].
+
+## Previous (Iteration 7.2 Day 7 Evening — 2026-04-26 22:10 PHT / A9) — BAND CHANGE High→Moderate
 
 **Overall 64.2 🟡 Moderate — Δ +8.1 · First time Moderate in sprint series.** First sprint delivery: 5 SP closed (#202464, #203231, #203266). DP 0.0→62.5%. Est regressed 66.7→42.9 (3 unestimated new items added). #202687 now **10 days title-only** — all-time per-item stale record. 4 active contributors (Teofilo, Jaszmeine, Vicsante + 1). See [[summaries/audit-ado-shared-20260426-2210]].
 
@@ -89,6 +99,8 @@ Team roster TBD — capture from ADO capacity/assignees at next audit.
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 02:04** — [[summaries/audit-ado-shared-20260428-0204]] · [raw](../../ado_shared/audit/AUDIT_20260428_0204.md) (A11 — Day 9)
+- **2026-04-27 11:10** — [[summaries/audit-ado-shared-20260427-1110]] · [raw](../../ado_shared/audit/AUDIT_20260427_1110.md) (A10 — Day 8)
 - **2026-04-26 22:10** — [[summaries/audit-ado-shared-20260426-2210]] · [raw](../../ado_shared/audit/AUDIT_20260426_2210.md) (A9 — Day 7 Evening)
 - **2026-04-25 08:33** — [[summaries/audit-ado-shared-20260425-0833]] · [raw](../../ado_shared/audit/AUDIT_20260425_0833.md) (A7 — Day 6)
 - **2026-04-24 08:35** — [[summaries/audit-ado-shared-20260424-0835]] · [raw](../../ado_shared/audit/AUDIT_20260424_0835.md) (A6 — Day 5)

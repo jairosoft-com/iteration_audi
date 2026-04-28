@@ -12,14 +12,22 @@ sources:
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_cc_dev/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # Colina Health Product Team (Git)
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
 
-## Latest (Iteration 7.2 Day 7 Evening — 2026-04-26 22:15 PHT) — GitHub token 404 ongoing
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:41 PHT)
+
+**UPS 69.39 🟡 Moderate · Δ +0.90 · ICS 90.5 (fragile) · HCI 76/100 · SGPI 6.7% headline / 86.7% extended proxy.** BE#55 (202696, HIPAA Pino logging, 8 SP) merged 06:19 PHT — CHANGES_REQUESTED resolved after Day 3+ block. FE#145 (202594, 1 SP) and FE#171 (202028, 10 SP) also merged Day 9. No open PRs requiring review. **28 SP queued at Passed QA Testing / Ready for UAT — ADO state lag is the sole remaining velocity blocker.** 3 DoD failures still unresolved (200093/200828 null Desc; 202028 null AC). 202844 (5 SP, Role-based route guard) Active with no PR — 5 days remaining. See [[summaries/audit-git-cc-dev-20260428-0241]].
+
+## Previous (Iteration 7.2 Day 8 Late — 2026-04-27, re-run with full token)
+
+**UPS 68.49 🟡 Moderate · Δ +0.30 · ICS 90.5 (fragile) · HCI 73/100 (fully evidence-based) · SGPI 6.7% headline / 50.0% extended proxy.** FE#146 (202595, 3 SP) merged by raseniero 01:50 PHT Apr 28 — last non-HIPAA development blocker cleared. **BE#55 HIPAA CHANGES_REQUESTED Day 11+ — dominant sprint risk with 5 days remaining.** 2 open PRs in raseniero queue (FE#145 Day 16, BE#55 Day 11+). 19 SP administratively incomplete in ADO. 3 DoD failures unchanged (200093/200828 null Desc; 202028 null AC). BE CI gate weakened (lint + unit tests removed from `ci-pr.yml`). Data mode: `full` — GitHub token restored. See [[summaries/audit-git-cc-dev-20260427-0902]].
+
+## Previous (Iteration 7.2 Day 7 Evening — 2026-04-26 22:15 PHT) — GitHub token 404 ongoing
 
 **UPS 68.19 🟡 Moderate · Δ +1.64 · ICS 90.5 · HCI 82/100 (carry-forward) · SGPI 6.7% headline / 43.3% proxy.** **First sprint closure: #202810 closed (2 SP)**. BE#55 HIPAA CHANGES_REQUESTED Day 10+. 5 PRs await `raseniero` review (18 SP = 60% of sprint blocked). Data mode: `partial` — raseniero token 404 ongoing. See [[summaries/audit-git-cc-dev-20260426-2215]].
 
@@ -90,6 +98,8 @@ Iteration 7.1 closed at UPS **90.6 Green** — all 11 committed defects (21 SP) 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 02:41** — [[summaries/audit-git-cc-dev-20260428-0241]] · [raw](../../git_cc_dev/audit/AUDIT_20260428_0241.md) (partial label; full evidence used — BE#55 merged, 28 SP at QA/UAT, ADO state lag)
+- **2026-04-27 09:02** — [[summaries/audit-git-cc-dev-20260427-0902]] · [raw](../../git_cc_dev/audit/AUDIT_20260427_0902.md) (full — GitHub token restored)
 - **2026-04-26 22:15** — [[summaries/audit-git-cc-dev-20260426-2215]] · [raw](../../git_cc_dev/audit/AUDIT_20260426_2215.md) (partial — GitHub 404)
 - **2026-04-25 15:33** — [[summaries/audit-git-cc-dev-20260425-1533]] · [raw](../../git_cc_dev/audit/AUDIT_20260425_1533.md) (partial — GitHub 404)
 - **2026-04-23 08:56** — [[summaries/audit-git-cc-dev-20260423-0856]] · [raw](../../git_cc_dev/audit/AUDIT_20260423_0856.md) (partial — GitHub 404)
@@ -120,9 +130,11 @@ Every audit in this workspace is ingested as a wiki summary. Click any entry for
 
 ## Open questions
 
+- **ADO state lag (Day 9+):** 28 SP sit at Passed QA Testing / Ready for UAT but ADO Closed count is 2 SP. Will Karl/QA advance and close 202594, 202595, 202690, 202696, 202028 in Days 9–11 to unlock headline SGPI?
+- **202844 (5 SP, Role-based route guard):** Active with no PR and 5 days remaining — will a branch + PR appear Day 10, or will this be formally scope-reduced?
 - Can server-side CI enforcement on `main` (FE and BE) be confirmed, or are CI gates still effectively advisory?
 - Do the 11 project/PI-level defects belong to Iteration 7.2, or should they land in a later PI?
-- What is the review SLA commitment for HIPAA-critical PRs like BE#55 — is 2+ days acceptable?
+- What is the review SLA commitment for HIPAA-critical PRs like BE#55 — is 2+ days acceptable? (BE#55 now resolved; applies to future HIPAA items.)
 - Should Kyaa-A's final-week inactivity trigger a capacity/ownership review before 7.2 planning?
 
 ## Notes on project exceptions (added 2026-04-23)

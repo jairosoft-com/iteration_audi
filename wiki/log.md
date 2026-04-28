@@ -1243,3 +1243,50 @@ Full batch ingest of Iteration 7.2 Day 7 EOD / Day 8 cron output. Continued in a
 
 - **`synthesis/team-rankings.md`** — Day-5 (2026-04-25) snapshot table contains stale values: OTP 68.7 (now 74.8), Shared 56.1 🟠 High (now 64.2 🟡 Moderate — band change), AA UPS 65.7 (now 68.3), CC UPS 70.9 (now 68.19). Band distribution "1L · 8M · 1H · 0C" is stale (should be "1L · 9M · 0H · 0C"). **Recommend adding Day-7/8 snapshot to this synthesis before next portfolio review.**
 - **`index.md` per-team detail line** — "300 audit summaries + 24 portfolio snapshots + 2 meeting agendas + 1 raw transcript = 325 total summary pages." Stale pre-existing inconsistency; authoritative counts are the header (363 active) and per-team table (330 audit summaries + 34 non-audit). Fixing this line requires a recount of each type; deferred as low-priority.
+
+## [2026-04-27 13:00] ingest | Day-8 batch — 11 audits + portfolio + meeting agenda
+
+PI7.2 Day 8 complete. LS Dev entered High Risk for the first time this PI (50.7, −10.4); all other 9 teams Moderate or better. Shared Services continued recovery (+3.4); JIT posted first meaningful delivery day (34% DP).
+
+### Sources ingested (13)
+
+- 8 ADO audits: `ado_{admin,fin,fl_dev,hr,jit,ls_dev,otp,shared}/audit/AUDIT_20260427_1110.md`
+- 2 Git audits: `git_aa_dev/audit/AUDIT_20260427_0902.md` (partial/superseded) + `git_aa_dev/audit/AUDIT_20260428_0247.md` (canonical Day 9)
+- 1 Git audit: `git_cc_dev/audit/AUDIT_20260427_0902.md`
+- 1 portfolio: `portfolio_report/PORTFOLIO_20260427_1110.html`
+- 1 meeting agenda: `portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_20260427.html`
+
+### Headline
+
+**Portfolio mean 70.8 (+0.8) · Median 71.2 (+1.7) · Distribution: 1 Low · 8 Moderate · 1 High · 0 Critical**
+
+First High Risk team of PI7.2: LS Dev 50.7 (−10.4). Shared Services simultaneous upgrade (56.1→67.6, +11.5) offset headcount — at-risk count stays at 1.
+
+### Writes
+
+- **13 new summaries:** 8 ADO Day-8 audits + 2 AA Dev (partial + canonical) + 1 CC Dev + 1 portfolio + 1 meeting agenda
+- **10 entity updates** (`updated: 2026-04-27`): all 8 ADO entities + both git entities
+- **2 synthesis updates:** [[synthesis/portfolio-trend]] (Apr 27 data point appended) · [[synthesis/team-rankings]] (all 10 teams refreshed, Day 8 section added)
+- **[[wiki/TODO]]:** 2 new escalation items added; pcoronia BE#55 item updated to Day 11+; ike #195727 item confirmed still open
+- **[[index]]:** portfolio row prepended; team table replaced with Day 8 scores; page counts bumped +13; meeting agenda row added
+
+### Escalations surfaced
+
+- 🔴 **LS Dev 50.7 High Risk** — WIB collapse (no User Stories, only 1 Defect + 1 Spike); 0 SP closed; Spike unestimated (4th audit). Recovery: add ≥1 US + estimate Spike + close #203239. Prereq: #195727 activation (BR trap still live). Owners: Ike, Samantha.
+- 🔴 **Git AA Dev SGPI 0.0 Critical** — 27 SP committed, 0 closed across sprint. Code review gap: 10/11 PRs without reviewer. Earl direct push to `dev` flagged.
+- 🔴 **Colina BE#55 Day 11+** — HIPAA rework still CHANGES_REQUESTED, 8 SP blocked. 5 sprint days remain. Owner: pcoronia.
+- 🟡 **Finance 9-day plateau (77.9)** — #203038 in Review state; clear path to Low Risk if scoped + closed.
+- 🟡 **OTP DP 0.0** — #175360 + #201811 at Resolved (one transition from closure); could resolve by Day 9.
+
+### Not ingested this cycle
+
+- No new synthesis pages created (existing pages updated; no novel cross-cutting patterns identified beyond LS Dev drop already tracked in TODO)
+- `AUDIT_20260427_0902` for AA Dev ingested as partial/superseded record; canonical read is `AUDIT_20260428_0247`
+
+## [2026-04-28 09:30] ingest | Day-9 batch — 10 audits + portfolio + meeting agenda
+
+- Sources: 8 ADO team audits (0203/0204/0902 runs) + 2 Git team audits (AA Dev ×2, Colina ×1) + PORTFOLIO_20260428_0930.html + PORTFOLIO_MEETING_AGENDA_20260428.html
+- Created: [[summaries/audit-ado-admin-20260428-0902]], [[summaries/audit-ado-fin-20260428-0902]], [[summaries/audit-ado-fl-dev-20260428-0902]], [[summaries/audit-ado-hr-20260428-0203]], [[summaries/audit-ado-jit-20260428-0203]], [[summaries/audit-ado-ls-dev-20260428-0203]], [[summaries/audit-ado-otp-20260428-0204]], [[summaries/audit-ado-shared-20260428-0204]], [[summaries/audit-git-aa-dev-20260428-0247]] (crossover/superseded), [[summaries/audit-git-aa-dev-20260428-0902]] (canonical), [[summaries/audit-git-cc-dev-20260428-0241]], [[summaries/portfolio-20260428-0930]], [[summaries/meeting-agenda-20260428]]
+- Updated: 10 entity pages (all teams), [[synthesis/portfolio-trend]], [[synthesis/team-rankings]], [[wiki/TODO]]
+- Key signals: ADO Shared first Low Risk (84.6, +17.0) · LS Dev Day 2 High Risk (47.9, −2.8) · JIT DP structural reset (0.0, −5.6) · Portfolio mean 72.5 new 7-day high
+- Escalations: LS Dev reactive-only sprint sustained · JIT DP watch Day 10 · Colina ADO state lag (28 SP) · OTP mid-sprint scope violation

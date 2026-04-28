@@ -3,6 +3,9 @@ title: "Team — Auto Allies (Git)"
 type: entity
 tags: [team, git, auto-allies, safe]
 sources:
+  - "../../git_aa_dev/audit/AUDIT_20260428_0902.md"
+  - "../../git_aa_dev/audit/AUDIT_20260428_0247.md"
+  - "../../git_aa_dev/audit/AUDIT_20260427_0902.md"
   - "../../git_aa_dev/audit/AUDIT_20260426_2215.md"
   - "../../git_aa_dev/audit/AUDIT_20260425_1533.md"
   - "../../git_aa_dev/audit/AUDIT_20260424_0902.md"
@@ -13,14 +16,28 @@ sources:
   - "../../git_aa_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # Auto Allies Development Team (Git)
 
 Product development team for **AutoAllies.com**, working across two GitHub repos (`jairosoft-com/autoallies-version2` frontend, `jairosoft-com/autoallies-api-core` backend) with story tracking in ADO project `Auto Allies` under team `AA Development Team`. Audits are iteration-bounded and combine GitHub developer productivity, SAFe compliance, and ADO-to-GitHub traceability.
 
-## Latest (Iteration 7.2 Day 7 Evening — 2026-04-26 22:15 PHT) — GitHub token 404 ongoing
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 09:02 PHT) — Canonical
+
+**UPS 71.0 🟡 Moderate · Δ +0.3 vs 0247 crossover · ICS 100.0 · HCI 70/100 (+1) · SGPI 0.0% (0/27 SP closed, 5 days remain).** Full-evidence audit: ADO and GitHub both re-queried live at 09:02 PHT Apr 28. FE PR#131 + BE PR#89 merged this morning for AB#199818 ("additional changes based on PR review") — first multi-round review-response cycle in Iter 7.2; item advanced to Ready for QA. Retro Spike #202169 (PR Review Compliance) Closed. HCI trajectory: 49 (7.1 close) → 70 (Day 9) — 21-point improvement. Critical: zero SP closed; #203118 in QA Testing Day 7+; Joseph 3 Active items (#203281/#203287/#203289) have no GitHub branches. Data mode: `full`. See [[summaries/audit-git-aa-dev-20260428-0902]].
+
+> **Canonical Day 9.** Supersedes [[summaries/audit-git-aa-dev-20260428-0247]] (overnight crossover at 02:47 PHT, carried ADO from Apr 27).
+
+## Previous (Iteration 7.2 Day 9 Early — 2026-04-28 02:47 PHT) — CROSSOVER, SUPERSEDED
+
+**UPS 70.7 🟡 Moderate · Δ +2.4 · ICS 100.0 · HCI 69/100 (+8 from live GitHub, dims 1–6 re-scored) · SGPI 0.0%.** Overnight crossover run after GitHub `raseniero` MCP token restored ~11:10 PHT Apr 27. ADO snapshot carried from Apr 27 09:02 PHT. 11 PRs merged (median ~2h). Code review participation: only PR #130 has reviewer (10/11 PRs without review). Superseded by 09:02 canonical audit. Data mode: `crossover`. See [[summaries/audit-git-aa-dev-20260428-0247]].
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-27 09:02 PHT) — SUPERSEDED, partial
+
+**UPS 68.3 🟡 Moderate · ICS 100.0 · HCI 61 (carry-forward) · SGPI 0.0%.** Partial run due to GitHub token issue. Scores unchanged from Day 7 evening. One new event: PR #130 opened by Cliff (09:09 PHT). Superseded by Day 9 canonical audit above. Data mode: `partial`. See [[summaries/audit-git-aa-dev-20260427-0902]].
+
+## Previous (Iteration 7.2 Day 7 Evening — 2026-04-26 22:15 PHT) — GitHub token 404 ongoing
 
 **UPS 68.3 🟡 Moderate · Δ +0.3 · ICS 100.0 (first perfect this sprint) · HCI 61/100 (+1, Dim 7 restored, carry-forward) · SGPI 0.0% (0/27 SP closed).** No ADO state changes since Day 6. Branch protection still 0. Data mode: `partial` — GitHub token 404 ongoing; HCI carry-forward. See [[summaries/audit-git-aa-dev-20260426-2215]].
 
@@ -93,6 +110,9 @@ Iteration 7.1 closed with UPS 68.6 **masking** Critical SGPI 21.2% + High/Critic
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 09:02** — [[summaries/audit-git-aa-dev-20260428-0902]] · [raw](../../git_aa_dev/audit/AUDIT_20260428_0902.md) (full — canonical Day 9; live ADO + GitHub)
+- **2026-04-28 02:47** — [[summaries/audit-git-aa-dev-20260428-0247]] · [raw](../../git_aa_dev/audit/AUDIT_20260428_0247.md) (crossover — token restored; ADO carried from Apr 27; superseded by 0902)
+- **2026-04-27 09:02** — [[summaries/audit-git-aa-dev-20260427-0902]] · [raw](../../git_aa_dev/audit/AUDIT_20260427_0902.md) (partial — GitHub token issue; superseded by 0247)
 - **2026-04-26 22:15** — [[summaries/audit-git-aa-dev-20260426-2215]] · [raw](../../git_aa_dev/audit/AUDIT_20260426_2215.md) (partial — GitHub 404)
 - **2026-04-25 15:33** — [[summaries/audit-git-aa-dev-20260425-1533]] · [raw](../../git_aa_dev/audit/AUDIT_20260425_1533.md) (partial — GitHub 404)
 - **2026-04-23 08:55** — [[summaries/audit-git-aa-dev-20260423-0855]] · [raw](../../git_aa_dev/audit/AUDIT_20260423_0855.md) (partial — GitHub 404)

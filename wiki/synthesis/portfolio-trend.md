@@ -1,5 +1,5 @@
 ---
-title: "Portfolio Trend — 2026-03-25 → 2026-04-25"
+title: "Portfolio Trend — 2026-03-25 → 2026-04-28"
 type: synthesis
 tags: [portfolio, trend, safe, pi6, pi7]
 sources:
@@ -23,11 +23,12 @@ sources:
   - "../summaries/portfolio-20260419-1345.md"
   - "../summaries/portfolio-20260419-1953.md"
   - "../summaries/portfolio-20260425-1533.md"
+  - "../summaries/portfolio-20260427-1110.md"
 created: 2026-04-19
 
-updated: 2026-04-25
+updated: 2026-04-28
 
-# Portfolio Trend — 2026-03-25 → 2026-04-25
+# Portfolio Trend — 2026-03-25 → 2026-04-28
 
 Cross-cutting synthesis of portfolio snapshots spanning **PI6 close → PI7.2 Day 5**. Goal: separate the signal (real team trajectories) from noise (rubric artifacts, scoring transitions, PI/holiday boundaries, recomposition).
 
@@ -70,6 +71,8 @@ Cross-cutting synthesis of portfolio snapshots spanning **PI6 close → PI7.2 Da
 | 2026-04-23 PM (D4) | 64.6 | 68.0 | 1 | 6 | 2 | 1 | First upward tick; LS→Critical (band inversion with Shared) |
 | **2026-04-24 (D5)** | **69.9** | — | 1 | 8 | 1 | **0** | 🎯 **Critical band cleared**; +5.3 in one snapshot (largest 7.2 jump); 2 upward band crossings (fl_dev High→Mod, ls_dev Critical→Mod) |
 | 2026-04-25 15:33 (D6) | 69.7 | 69.4 | 1 | 8 | 1 | 0 | DP inflection — early-sprint annotation lifted; micro-regression −0.2 driven by Colina HCI rubric correction (82→72), not delivery; JIT +2.2 (3 closures), Flawless +0.6; 7 teams flat |
+| **2026-04-27 11:10 (D8)** | **70.8** | **71.2** | 1 | 8 | 1 | 0 | 🔴 **First High Risk of PI7.2** — LS Dev dropped to 50.7 (WIB collapse, 0 SP closed, −10.4). Shared Services simultaneous upgrade (56.1→67.6, +11.5) offset overall; net mean +0.8. See [[summaries/portfolio-20260427-1110]] |
+| **2026-04-28 (D9)** | **72.5** | **73.7** | 2 | 7 | 1 | 0 | 🎯 **Shared Services first Low Risk (84.6) — milestone**; LS Dev Day 2 High Risk (47.9, −2.8 continued decline, reactive-only sprint); JIT DP reset to 0.0 (formula change exposed structural gap). Portfolio mean +1.7. |
 
 ## Visual trend (Mermaid)
 

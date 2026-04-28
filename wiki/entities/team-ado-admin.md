@@ -12,14 +12,22 @@ sources:
   - "../../ado_admin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # Administration Team (ADO)
 
 Single-contributor administrative operations function inside ADO project `Jairosoft FINOPS`. Scope covers facilities, utilities payables, government compliance (BFP, PhilGeps, DOLE, EGOV), and procurement. Mark Colina owns every work item — delivery is reliable but carries persistent bus-factor risk.
 
-## Latest (Iteration 7.2 Day 8 — 2026-04-26 22:00 PHT)
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 09:02 UTC) ↑
+
+**Overall 73.4 🟡 Moderate — Δ +1.3 · Second consecutive gain; DoR improvement drives score.** #202909 "Davao Admin Adhoc Support" (4 SP) received full Description + AC by 07:28 UTC — DoR Compliance rises 81.8 → 90.9. No new closures; DP holds at 7.7 (3 SP / 39 committed). 36 SP remain with 5 days left; pace (0.33 SP/day) projects ~4–5 total SP by May 3. Low Risk ceiling ~75–76. See [[summaries/audit-ado-admin-20260428-0902]].
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST)
+
+**Overall 72.1 🟡 Moderate — Δ +1.1 · First score increase since Day 4.** #202898 "Condo dues (Cebu) payables" (3 SP) Closed at 05:58 UTC — Mark's first closure of Iteration 7.2; DP moves 0.0 → 7.7. #202898 was closed without Description or Acceptance Criteria — audit trail gap. 36 SP remain open over 6 days; current pace (0.375 SP/day) projects ~5 total SP by sprint close. See [[summaries/audit-ado-admin-20260427-1110]].
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-26 22:00 PHT)
 
 **Overall 71.0 🟡 Moderate — Δ 0.0 · Unchanged for 6 consecutive audits.** #202897 + #202898 moved Ready → Active at 00:10–00:11 UTC Apr 27 (early-morning) but 0 SP closed. **CRITICAL:** #202898 advanced to Active with zero Description, zero AC — Active item without verifiable done-criteria. 9 PI7-root items still unscoped. DP 0.0 at Day 8 of 14. See [[summaries/audit-ado-admin-20260426-2200]].
 
@@ -91,6 +99,8 @@ Iteration 7.1 closed at **87.0 (Low)** with **27/27 SP delivered** across 11 ite
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 09:02** — [[summaries/audit-ado-admin-20260428-0902]] · [raw](../../ado_admin/audit/AUDIT_20260428_0902.md) (A42 — Day 9)
+- **2026-04-27 11:10** — [[summaries/audit-ado-admin-20260427-1110]] · [raw](../../ado_admin/audit/AUDIT_20260427_1110.md) (A41 — Day 8)
 - **2026-04-26 22:00** — [[summaries/audit-ado-admin-20260426-2200]] · [raw](../../ado_admin/audit/AUDIT_20260426_2200.md) (A40 — Day 8)
 - **2026-04-25 15:33** — [[summaries/audit-ado-admin-20260425-1533]] · [raw](../../ado_admin/audit/AUDIT_20260425_1533.md)
 - **2026-04-23 01:13** — [[summaries/audit-ado-admin-20260423-0113]] · [raw](../../ado_admin/audit/AUDIT_20260423_0113.md)

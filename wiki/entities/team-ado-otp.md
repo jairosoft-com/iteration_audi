@@ -13,14 +13,22 @@ sources:
   - "../../ado_otp/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-28
 ---
 
 # Office of the President Team (ADO)
 
 Administrative/operations function inside ADO project `OTP`, covering executive correspondence, compliance filings (PhilGeps, H1B, visa paperwork), facility work (fire extinguisher canvassing, JIT signage, solar installation chain), and board-level documentation. Work is 100% User-Story-shaped and, by accepted team exception, executed under a **single-assignee model** with **Grace** as sole owner of every board item.
 
-## Latest (Iteration 7.2 Day 7 Evening — 2026-04-26 22:10 PHT / A39)
+## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:04 PHT / A41)
+
+**Overall 74.8 🟡 Moderate — ±0.0 · Flat, 4th consecutive audit at 74.8.** Score structurally frozen: D4/D3/D6 all 100.0; D7 remains 0.0 (0/16 SP closed). Mid-sprint scope churn since A40: items #202209–#202212 replaced by 5 new items (#202913, #202911, #203026, #203029, #203249), raising committed SP from 14 → 16. #175360 and #201811 remain Resolved (QA gate) — closing them today adds 4 SP and lifts DP → 25.0. Full closure (16 SP) by May 3 → 88.3 (Low Risk). See [[summaries/audit-ado-otp-20260428-0204]].
+
+## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 PHT / A40)
+
+**Overall 74.8 🟡 Moderate — ±0.0 · Flat, 3rd consecutive audit at 74.8.** Score is unchanged across all seven dimensions. #175360 (QBR Updates, 3 SP) and #201811 (Sprint Goal Refinement, 2 SP) advanced to **Resolved** at 13:21 PHT — both are at QA/UAT gate, one state transition from DP credit. DP remains 0.0 until Closed state is reached. Full closure of all 7 items (14 SP) by May 3 would push overall to ~80.7 (Low Risk). See [[summaries/audit-ado-otp-20260427-1110]].
+
+## Previous (Iteration 7.2 Day 7 Evening — 2026-04-26 22:10 PHT / A39)
 
 **Overall 74.8 🟡 Moderate — Δ +6.1 · LARGEST single-session gain in 7.2 sprint series.** Grace completed all P0s ~23:15–23:29 PHT: #202911 DoR remediated, #202913 DoR+SP fixed, #175360 + #201811 activated. DoR 71.4→100.0, Est 85.7→100.0. DP still 0.0 (no SP closed). Closes wiki TODO `grace-action` item (#202911 + #202913 DoR remediation). See [[summaries/audit-ado-otp-20260426-2210]].
 
@@ -91,6 +99,8 @@ Iteration 7.1 final state remained frozen at **71.2** (Moderate); see [[summarie
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-04-28 02:04** — [[summaries/audit-ado-otp-20260428-0204]] · [raw](../../ado_otp/audit/AUDIT_20260428_0204.md) (A41 — Day 9)
+- **2026-04-27 11:10** — [[summaries/audit-ado-otp-20260427-1110]] · [raw](../../ado_otp/audit/AUDIT_20260427_1110.md) (A40 — Day 8)
 - **2026-04-26 22:10** — [[summaries/audit-ado-otp-20260426-2210]] · [raw](../../ado_otp/audit/AUDIT_20260426_2210.md) (A39 — Day 7 Evening)
 - **2026-04-25 08:33** — [[summaries/audit-ado-otp-20260425-0833]] · [raw](../../ado_otp/audit/AUDIT_20260425_0833.md) (A37 — Day 6)
 - **2026-04-24 08:35** — [[summaries/audit-ado-otp-20260424-0835]] · [raw](../../ado_otp/audit/AUDIT_20260424_0835.md) (A36 — Day 5)
