@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 19 · concepts 6 · summaries 389 active + 1 tombstone · synthesis 18
+**Page counts:** entities 19 · concepts 6 · summaries 389 active + 1 tombstone · synthesis 19
 
 ## Synthesis
 
@@ -13,7 +13,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[synthesis/portfolio-trend]] | 2026-03-25 → 2026-04-19 | 20 portfolio snapshots; 3-arc narrative (PI6 close → PI boundary → PI7.1 climb); flags 3 scoring artifacts; recomposition shock at 10-team |
 | [[synthesis/iteration-7.1-close]] | PI7.1 (2026-04-06 → 2026-04-19) | Cross-team retrospective; cleanest monotonic climb (62.0 → 81.0); themes + PI7.2 forward asks |
 | [[synthesis/ups-masking-pattern]] | Auto Allies case study | UPS 68.6 hides HCI 49 + SGPI 21.2%; proposes Options A+C (component columns + min-component band pill) |
-| [[synthesis/scoring-artifacts]] | 3 rubric false-negatives | Perfect-sprint hold · rubric-version baseline · Day-14 T-1 fallback — carve-outs |
+| [[synthesis/scoring-artifacts]] | 4 rubric false-negatives | Perfect-sprint hold · rubric-version baseline · Day-14 T-1 fallback · JIT DP visible-board reset — carve-outs; updated 2026-04-28 |
 | [[synthesis/service-model-scoring]] | Shared Services tier-aware rubric | Add team_type attribute; drop User-Story penalty for services; add Cross-Team Delivery dim |
 | [[synthesis/capacity-planning]] | Portfolio's weakest spot | 3 failure modes (not-configured · overbooked · wrong-mix); proposes capacity-discipline gate for PI7.2 |
 | [[synthesis/dor-leakage]] | DoR-incomplete items at commitment | 3/10 teams leaked; proposes `provisional` tag + `closed-with-debt` tracking at planning gate |
@@ -23,7 +23,8 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[synthesis/stale-work-items]] | Chronic backlog debt | LS Dev #187240 at 244 days stalest; proposes PI-close quarterly amnesty sweep |
 | [[synthesis/top-compliance-issues]] | Portfolio-wide issue ranking | 16 issues ranked by frequency; DoR + WIB + stale + bus-factor + capacity account for ~60% |
 | [[synthesis/team-rankings]] | Team-by-team current score + momentum + outlook | Reproducible ranking from 270 audits; OTP only genuine decline; Auto Allies masked decline; Flawless highest momentum |
-| [[synthesis/score-streaks]] | Longest runs of ≥80 Low Risk | JIT 13-streak (record) · Colina 7-streak (active) · Finance 48% cumulative; 4 of top 5 streaks broken by rubric-transition artifact |
+| [[synthesis/shared-services-turnaround]] | Shared Services Critical→Low journey | 32.2→84.6 in 9 sprint days; 3 structural drivers documented; fastest Low-Risk promotion in 7.2 |
+| [[synthesis/score-streaks]] | Longest runs of ≥80 Low Risk | JIT 13-streak (record) · Colina 7-streak broken · HR longest active streak; Day-9 refresh 2026-04-28 |
 | [[synthesis/github-compliance-issues]] | GitHub compliance for Git-audited teams | 14 issues ranked across 48 Git audits; two distinct failure modes — AA engineering-health degradation · CC review-discipline + HIPAA exposure |
 | [[synthesis/ci-health]] | Engineering-health baseline for Git teams | Pre-P0 HCI: AA 49, CC 74; top 3 post-P0 metrics: required-reviewer rate · PR review latency · HIPAA 2-reviewer compliance |
 | [[synthesis/bus-factor]] | Portfolio SPOF catalog | 9 signals across 7 teams; 5 delivery-side (Mark/Admin, Armelita/JIT, etc.), 2 near-1, 2 review-side; proposes ≥40% SP-concentration flag |

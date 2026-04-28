@@ -7,17 +7,17 @@ allowed-tools: Read, Glob, Grep, Bash, Edit, Write, Agent
 
 # ADO SAFe Audit Skill
 
-Use for standardized Azure DevOps SAFe audits of `ado_*` workspaces.
+Use this skill for standardized Azure DevOps SAFe audits for `ado_*` workspaces in this repository.
 
-Not for:
+Do not use this skill for:
 
 - `git_*` workspaces
 - mixed GitHub + ADO EngProd audits
-- PDF generation or report packaging
+- PDF generation or report packaging workflows
 
 ## Authority and precedence
 
-Authoritative source for:
+This skill is the authoritative source for:
 
 - audit workflow
 - scoring rubric
@@ -26,102 +26,108 @@ Authoritative source for:
 - output policy
 - batch behavior
 
-Project `CLAUDE.md` = local truth for:
+Each project `CLAUDE.md` remains the local source of truth for:
 
-- project, team, board metadata
+- project, team, and board metadata
 - people and glossary
 - audit history
 - explicit project exceptions
 
-Conflict between project `CLAUDE.md` and this skill on workflow/scoring/evidence/output: this skill wins unless difference documented under `Project Exceptions`.
+If a project `CLAUDE.md` conflicts with this skill on workflow, scoring, evidence, or output policy, this skill wins unless the difference is explicitly documented under `Project Exceptions`.
 
 ## Accepted inputs
 
-Two invocation styles only:
+This skill accepts exactly two invocation styles:
 
 - `ado-safe-audit [project-folder]`
 - `ado-safe-audit all-projects`
 
 ### Single-project mode
 
-- folder must be top-level `ado_*` workspace
-- folder must contain `CLAUDE.md`
+When given a single project folder:
+
+- the folder must be a top-level `ado_*` workspace
+- the folder must contain `CLAUDE.md`
 - write exactly one report to that folder's `audit/` directory
 
 ### Batch mode
 
-- enumerate top-level `ado_*` folders only
-- keep folders with `CLAUDE.md`
-- process alphabetically
-- one report per project in that project's `audit/` directory
-- never include `git_*` folders
+When given `all-projects`:
+
+- enumerate only top-level folders matching `ado_*`
+- keep only folders that contain `CLAUDE.md`
+- process folders in alphabetical order
+- generate one report per project in that project's `audit/` directory
+- never include `git_*` folders in the batch
 
 ## Required workflow
 
 For each target project:
 
-1. Load project `CLAUDE.md`.
+1. Load the project's `CLAUDE.md`.
 2. Read project-local context from that file only:
    - project/team/board identifiers
    - people and glossary
    - audit history
    - explicit `Project Exceptions`
-3. Resolve current active iteration from scoped ADO team context.
-4. Review most recent prior audit in project's `audit/` folder.
-   - Prior audit = delta context only.
-   - Never substitute for current evidence.
-5. Inspect current iteration backlog and required ADO evidence.
-6. Compute seven-dimension SAFe audit score.
-7. Write one Markdown report to `./audit/AUDIT_<date>_<time>.md`.
+3. Resolve the current active iteration from the scoped ADO team context.
+4. Review the most recent prior audit report in that project's `audit/` folder.
+   - Use the prior audit for delta context only.
+   - Never use the prior audit as a substitute for current evidence.
+5. Inspect the current iteration backlog and required ADO evidence.
+6. Compute the same seven-dimension SAFe audit score described below.
+7. Write exactly one Markdown report to `./audit/AUDIT_<date>_<time>.md`.
 
 ## Evidence precedence
 
-Order:
+Use this order of precedence:
 
-1. Current iteration/team settings from scoped ADO team
-2. Current backlog and work item fields from scoped Stories and Deliverables backlog
-3. Work item revisions, change history, iteration history
-4. Team capacity data for resolved current iteration
-5. Prior audit report for delta only
+1. Current iteration/team settings from the scoped ADO team
+2. Current backlog and work item fields from the scoped Stories and Deliverables backlog
+3. Work item revisions, change history, and iteration history
+4. Team capacity data for the resolved current iteration
+5. Prior audit report for delta comparison only
 
 Never broaden scope beyond:
 
-- project named in local `CLAUDE.md`
-- team named in local `CLAUDE.md`
-- Stories and Deliverables backlog for that team
+- the project named in the local `CLAUDE.md`
+- the team named in the local `CLAUDE.md`
+- the Stories and Deliverables backlog for that team
 
 ## Standard scoring rubric
 
-One deterministic ADO SAFe v1 rubric for all `ado_*` audits.
+Use one deterministic ADO SAFe v1 rubric for all `ado_*` audits.
 
 ### Core definitions
 
+Use these definitions consistently:
+
 - `visible_root_backlog_items`
-  - Root-level items from scoped Stories and Deliverables backlog in current project, regardless of iteration
+  - Root-level items returned from the scoped Stories and Deliverables backlog in the current project, regardless of iteration
   - Exclude child tasks and Task-category children
 
 - `current_iteration_root_items`
-  - Subset of `visible_root_backlog_items` whose `IterationPath` equals active iteration
+  - Subset of `visible_root_backlog_items` whose `IterationPath` equals the active iteration
 
 - `contributors_with_current_work`
   - Distinct non-empty assignees on `current_iteration_root_items`
 
 - `contributors_with_capacity`
-  - Contributors from `contributors_with_current_work` with positive capacity or at least one configured activity in active iteration
+  - Contributors from `contributors_with_current_work` who have positive capacity or at least one configured activity in the active iteration
 
 - `point_eligible_current_items`
-  - `current_iteration_root_items` whose type exposes Story Points field
+  - `current_iteration_root_items` whose type exposes a Story Points field
 
 - `estimated_current_items`
   - `point_eligible_current_items` with `Story Points > 0`
 
 - `dor_compliant_current_items`
-  - `current_iteration_root_items` with Description and Acceptance Criteria both present after trimming markup
+  - `current_iteration_root_items` whose Description and Acceptance Criteria are both present after trimming markup
   - Description minimum: `>= 30` non-whitespace characters
   - Acceptance Criteria minimum: `>= 20` non-whitespace characters
 
 - `fresh_visible_root_items`
-  - `visible_root_backlog_items` with `ChangedDate` within last `45` days
+  - `visible_root_backlog_items` with `ChangedDate` within the last `45` days
 
 - `stale_90_visible_root_items`
   - `visible_root_backlog_items` with `ChangedDate` older than `90` days
@@ -130,10 +136,10 @@ One deterministic ADO SAFe v1 rubric for all `ado_*` audits.
   - `visible_root_backlog_items` with `ChangedDate` older than `180` days
 
 - `untouched_current_items`
-  - `current_iteration_root_items` whose `ChangedDate` is earlier than active iteration start date
+  - `current_iteration_root_items` whose `ChangedDate` is earlier than the active iteration start date
 
 - `dominant_type_share`
-  - Largest single work-item-type share among `current_iteration_root_items`
+  - The largest single work-item-type share among `current_iteration_root_items`
 
 - `spike_share`
   - Share of `Spike` items among `current_iteration_root_items`
@@ -146,7 +152,7 @@ One deterministic ADO SAFe v1 rubric for all `ado_*` audits.
 
 ### Exact formulas
 
-Score each dimension `0-100`.
+Score each dimension on `0-100`.
 
 #### 1. Iteration Planning
 
@@ -175,7 +181,7 @@ Score each dimension `0-100`.
 #### 5. Work Item Balance
 
 - If `current_iteration_root_items = 0`, score `0`
-- Otherwise start from `100`, subtract penalties:
+- Otherwise start from `100` and subtract penalties:
   - no `User Story` items in `current_iteration_root_items`: `-40`
   - `dominant_type_share > 60%`: `-30`
   - `spike_share > 40%`: `-20`
@@ -184,9 +190,9 @@ Score each dimension `0-100`.
 #### 6. Backlog Refinement
 
 - If `visible_root_backlog_items = 0`, score `0`
-- Otherwise:
+- Otherwise start from:
   - `base = round(fresh_visible_root_items / visible_root_backlog_items * 100, 1)`
-- Subtract penalties:
+- Then subtract penalties:
   - if `stale_90_visible_root_items / visible_root_backlog_items > 25%`: `-20`
   - else if `stale_90_visible_root_items / visible_root_backlog_items > 10%`: `-10`
   - if `stale_180_visible_root_items >= 1`: `-20`
@@ -199,13 +205,13 @@ Score each dimension `0-100`.
 - If `committed_story_points = 0`, score `0`
 - Otherwise:
   - `Delivery Predictability = round(closed_story_points / committed_story_points * 100, 1)`
-- Early-sprint note: When iteration is in first 5 days (Day 1–5 of 14-day sprint), annotate dimension findings with "early-sprint — low delivery expected". No formula adjustment.
+- Early-sprint note: When the iteration is in its first 5 days (Day 1–5 of a 14-day sprint), annotate the dimension findings with "early-sprint — low delivery expected". No formula adjustment.
 
 ### Overall score and risk band
 
 - `Overall Score = round((Iteration Planning + Team Capacity + Estimation + DoR Compliance + Work Item Balance + Backlog Refinement + Delivery Predictability) / 7, 1)`
 
-Fixed risk bands:
+Use these fixed risk bands:
 
 - `Low Risk` = `>= 80`
 - `Moderate Risk` = `60 - 79.9`
@@ -214,16 +220,16 @@ Fixed risk bands:
 
 ### Evidence gaps
 
-If required field unavailable:
+If a required field is unavailable:
 
-- note gap explicitly in report
+- note the gap explicitly in the report
 - do not invent missing values
-- keep score deterministic using only visible evidence
-- denominator becomes `0` due to missing evidence or no eligible items → keep dimension at `0`
+- keep the score deterministic using only visible evidence
+- when a dimension denominator becomes `0` because the evidence is missing or no eligible items exist, keep that dimension at `0`
 
 ## Required report structure
 
-Markdown only. Sections in order:
+Every report must be Markdown only and include these sections in this order:
 
 1. `Audit Metadata`
 2. `Executive Summary`
@@ -238,7 +244,7 @@ Markdown only. Sections in order:
 
 ### Required report content
 
-Near top, include:
+Near the top of the report, include:
 
 - project name
 - team name
@@ -249,73 +255,73 @@ Near top, include:
 - previous audit reference
 - overall score and risk band
 
-`SAFe Compliance Scorecard` must include table:
+The `SAFe Compliance Scorecard` must include a table with:
 
 - Dimension
 - Score
 - Evidence
 - Notes
 
-Recommendations: prioritized and actionable.
+The recommendations section must be prioritized and actionable.
 
 ## Visualization policy
 
 Use Mermaid when visualization adds value.
 
-Include at minimum one Mermaid visualization when enough evidence exists:
+At minimum, include one Mermaid visualization when enough evidence exists, using one of:
 
 - score breakdown
 - state distribution
 - backlog age / refinement trend
 - audit-to-audit delta summary
 
-No chart image files.
+Do not create chart image files.
 
 ## Output policy
 
-- Markdown only
-- Save under target project's `audit/` directory
+- Write source reports as Markdown only
+- Save reports under the target project's `audit/` directory
 - Use `AUDIT_<date>_<time>.md`
-- No PDFs
-- No chart image artifacts
-- No writes to `report/` or `temp/`
+- Do not generate PDFs
+- Do not generate chart image artifacts
+- Do not write source reports to `report/` or `temp/`
 
 ## Failure behavior
 
 ### Single-project mode
 
-If required ADO context unresolvable:
+If the required ADO context cannot be resolved:
 
 - stop
-- report failure explicitly
+- report the failure explicitly
 - do not improvise missing scope
 
 ### Batch mode
 
 If one project fails:
 
-- continue remaining valid `ado_*` projects
-- record failed/skipped projects in final batch summary
-- one failed project never blocks rest of batch
+- continue processing remaining valid `ado_*` projects
+- record failed or skipped projects in the final batch summary
+- do not let one failed project block the rest of the batch
 
 ### Missing evidence
 
-When some evidence missing but audit can proceed:
+When some evidence is missing but the audit can still proceed:
 
 - continue in degraded mode
-- record missing evidence in `Evidence Gaps and Limitations`
-- no fabricated conclusions
+- record the missing evidence in `Evidence Gaps and Limitations`
+- avoid fabricated conclusions
 
 ## Completion checklist
 
-Verify before finishing:
+Before finishing, verify all of the following:
 
-- target is `ado_*` workspace or `all-projects`
-- local `CLAUDE.md` was read
-- current active iteration was resolved
-- latest prior audit was reviewed
-- seven-dimension rubric applied exactly once
-- report used required section order
-- output is Markdown only
-- no PDF or chart-image artifacts generated
+- the target is an `ado_*` workspace or `all-projects`
+- the local `CLAUDE.md` was read
+- the current active iteration was resolved
+- the latest prior audit was reviewed
+- the seven-dimension rubric was applied exactly once
+- the report used the required section order
+- the output is Markdown only
+- no PDF or chart-image artifacts were generated
 - batch mode never touched `git_*` workspaces

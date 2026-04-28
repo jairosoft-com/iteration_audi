@@ -90,10 +90,6 @@ This repo relies on these MCP integrations:
 - **mail** — send via Graph API (`ramon@jairosoft.com`), read via IMAP
 - **claude-in-chrome** — browser automation for Outlook, dashboard viewing
 
-## Output Style
-
-The user prefers YAML-structured responses (configured in `settings.local.json`). Structure responses with `task`, `status`, `details`, `files`, `notes` keys.
-
 ## LLM Wiki (second brain)
 
 `wiki/` is an **LLM-maintained knowledge wiki** that sits on top of this repo's raw sources. It is the user's second brain — a persistent, interlinked markdown knowledge base that the agent writes and maintains.

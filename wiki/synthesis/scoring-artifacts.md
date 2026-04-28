@@ -13,9 +13,10 @@ sources:
   - "../summaries/audit-ado-ls-dev-20260416-0900.md"
   - "../summaries/audit-ado-ls-dev-20260417-0900.md"
   - "../summaries/audit-ado-ls-dev-20260419-1345.md"
+  - "../summaries/audit-ado-jit-20260428-0203.md"
 created: 2026-04-20
 
-## updated: 2026-04-20
+## updated: 2026-04-28
 
 # Scoring Artifacts — Rubric Transitions, Formula Edge Cases, PI Boundaries
 
@@ -72,6 +73,27 @@ Three distinct events inside the 2026-02-25 → 2026-04-19 window look like port
 **Not a scoring artifact, but non-performance.** [[entities/team-ado-admin]] evacuated its entire sprint (9 items; 6 moved to PI7 Iter 7.1, 3 removed) on 04-02 for Holy Week + Innovation Planning. Score 72.3 → **26.7**, Δ −45.6. Source: [[summaries/portfolio-20260402-0900]] frames it as "intentional Holy Week + IP boundary action, not a delivery failure."
 
 The portfolio mean regression across 04-01 → 04-05 (~15 points) is a mix of (a) this structural evacuation, (b) Artifact 1 (rubric transition), and (c) Artifact 2 (HR perfect-sprint). None is team performance.
+
+## Artifact 4 — DP visible-board reset (JIT 2026-04-28)
+
+**Cause.** When all previously-closed sprint items exit the visible backlog (board cleanup), the Delivery Predictability formula computes `0 SP closed / N SP visible = 0.0%` even though real delivery occurred. The DP denominator is scoped to currently-visible board items only — items that closed and exited are invisible to the rubric.
+
+**Signature in data.**
+
+- [[entities/team-ado-jit]]: DP 34.0 → **0.0** (Δ −34.0); Overall 76.0 → **70.4** (Δ −5.6, Moderate band maintained).
+- Actual sprint output: **17 SP / 9 items closed** before the audit ran (~1.9 SP/day delivery pace). All 9 closed items exited the visible board prior to the audit window; rubric sees 0/31 SP = 0.0.
+- Same class as Artifact 2 (HR perfect-sprint empty-commitment collapse): zero-denominator driven by board state, not delivery failure.
+- Source: [[summaries/audit-ado-jit-20260428-0203]] top-line: "Structural reset — 0 SP closed in visible backlog (all 9 closed items exited). Actual sprint output = 17 SP across 9 items."
+
+**Distinguishes from real regression.** Artifact 2 collapses four dimensions simultaneously (zero active items → zero-denominator in IP, Capacity, Estimation, DoR). This artifact collapses DP only — remaining six dimensions score normally. If DP alone drops to 0.0 while all other dimensions are ≥ 70, suspect closed-item board exit, not delivery failure.
+
+**Teams affected.**
+
+| Team | Audit | DP Δ | Overall Δ | Note |
+|------|-------|-----:|----------:|------|
+| [[entities/team-ado-jit]] | #44 Day 9 2026-04-28 | −34.0 | −5.6 | 9 items exited visible board; real delivery continued |
+
+**Proposed carve-out.** DP denominator should include items **closed-and-exited within the current sprint window**, not only currently-visible board items. Specifically: DP = (SP closed in sprint, including exited items) / (SP committed at sprint start). This preserves the metric's intent (did the team deliver against commitment?) while eliminating the exit-artifact. Add as Proposed Carve-out 6 in [[concepts/scoring-ado-rubric]].
 
 ## Detection rules (programmable)
 

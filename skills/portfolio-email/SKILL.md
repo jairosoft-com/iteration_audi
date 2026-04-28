@@ -9,27 +9,27 @@ allowed-tools: Read, Glob, Grep, Bash, ToolSearch, mcp__mail__list_all_accounts,
 
 # Portfolio Email Skill
 
-Send the latest portfolio health dashboard as an email-safe inline HTML email to one or more recipients. The email body contains a fully styled, table-based HTML rendition of the dashboard that renders correctly in all major email clients (Outlook, Gmail, Apple Mail).
+Send latest portfolio health dashboard as email-safe inline HTML to one or more recipients. Body = fully styled table-based HTML. Renders in Outlook, Gmail, Apple Mail.
 
-Do not use this skill for:
+Do not use for:
 
-- Generating or re-computing portfolio dashboards (use `portfolio-health`)
+- Generating/recomputing portfolio dashboards (use `portfolio-health`)
 - Running individual project audits (use `ado-safe-audit` or `git_iteration_audit`)
 - Sending emails unrelated to portfolio dashboards
 
 ## Authority and precedence
 
-This skill is the authoritative source for:
+This skill owns:
 
-- Email-safe HTML conversion of the portfolio dashboard
-- Email composition, recipient handling, and send workflow
+- Email-safe HTML conversion of portfolio dashboard
+- Email composition, recipient handling, send workflow
 - Inline style conventions for email compatibility
 
-This skill defers to:
+Defers to:
 
 - `portfolio-health` SKILL.md for dashboard generation and scoring methodology
-- Memory files for recipient contact information (check `memory/user_*.md` files)
-- `mcp__mail__list_all_accounts` for determining the correct send method
+- Memory files for recipient contact info (check `memory/user_*.md`)
+- `mcp__mail__list_all_accounts` for determining correct send method
 
 ## Accepted inputs
 
@@ -49,16 +49,16 @@ This skill defers to:
 
 ### Recipient resolution
 
-1. If input is an email address, use it directly
-2. If input is a name, search memory files (`memory/user_*.md`) for a matching contact and extract their email
-3. If no match found, ask the user for the email address before proceeding
+1. Input is email → use directly
+2. Input is name → search `memory/user_*.md` for match, extract email
+3. No match → ask user for email before proceeding
 4. **Never guess or fabricate email addresses**
 
 ## Required workflow
 
 ### Step 1 — Identify recipients
 
-Parse the argument to extract recipient email(s). Resolve names to emails via memory files. Confirm recipients with the user if ambiguous.
+Parse argument, extract email(s). Resolve names via memory files. Confirm if ambiguous.
 
 ### Step 2 — Find the latest portfolio dashboard
 
@@ -66,15 +66,15 @@ Parse the argument to extract recipient email(s). Resolve names to emails via me
 Glob pattern: portfolio_report/PORTFOLIO_*.html
 ```
 
-Select the most recent file by filename timestamp (files are named `PORTFOLIO_YYYYMMDD_HHMM.html`). Exclude `_SUMMARY.html` and `_TREND` files — use the main dashboard only.
+Select most recent by filename timestamp (`PORTFOLIO_YYYYMMDD_HHMM.html`). Exclude `_SUMMARY.html` and `_TREND` files — main dashboard only.
 
 ### Step 3 — Read the dashboard HTML
 
-Read the full HTML file to extract all data needed for the email body:
+Read full HTML file. Extract:
 
 - Header metrics (Portfolio Mean, Median, Teams at Risk)
-- Scorecard table (all teams with scores, types, risk bands, trends, audit dates)
-- Notes/annotations (e.g., sprint evacuated, scoring artifacts)
+- Scorecard table (all teams: scores, types, risk bands, trends, audit dates)
+- Notes/annotations (sprint evacuated, scoring artifacts, etc.)
 - Tier analysis summaries
 - Cross-cutting themes
 - Trend analysis table (prior vs current UPS, deltas, band transitions)
@@ -83,11 +83,11 @@ Read the full HTML file to extract all data needed for the email body:
 
 ### Step 4 — Determine send method
 
-Call `mcp__mail__list_all_accounts` to determine the available send method (Graph API, SMTP, or EWS). Use the appropriate send tool.
+Call `mcp__mail__list_all_accounts`. Use appropriate send tool (Graph API, SMTP, or EWS).
 
 ### Step 5 — Build email-safe HTML body
 
-Convert the dashboard into email-compatible HTML following these rules:
+Convert dashboard to email-compatible HTML per these rules:
 
 #### Email HTML rules
 
@@ -101,12 +101,12 @@ Convert the dashboard into email-compatible HTML following these rules:
 
 #### Email structure (in order)
 
-1. **Greeting** — `Hi [Name],` with brief intro paragraph
-2. **Header banner** — Dark background with title, iteration info, and 3 metric cards (Mean, Median, Teams at Risk)
-3. **Scorecard table** — Full 9-team table with columns: #, Team, Type (ADO/Git pill), UPS Score (color-coded), Risk Band (pill), Trend (arrow + delta), Latest Audit date
-4. **Notes** — Amber background box for any scoring annotations
-5. **Tier analysis** — 4 blocks with colored left borders (green/yellow/orange/red) summarizing each tier
-6. **Cross-cutting themes** — Numbered circles (1-5) with theme title and brief description
+1. **Greeting** — `Hi [Name],` + brief intro
+2. **Header banner** — Dark bg, title, iteration info, 3 metric cards (Mean, Median, Teams at Risk)
+3. **Scorecard table** — Full 9-team table: #, Team, Type (ADO/Git pill), UPS Score (color-coded), Risk Band (pill), Trend (arrow + delta), Latest Audit date
+4. **Notes** — Amber bg box for scoring annotations
+5. **Tier analysis** — 4 blocks with colored left borders (green/yellow/orange/red) per tier
+6. **Cross-cutting themes** — Numbered circles (1-5) with theme title + brief description
 7. **Footer** — Methodology, generation timestamp, risk band legend with colored dots
 
 #### Color reference
@@ -129,27 +129,27 @@ Convert the dashboard into email-compatible HTML following these rules:
 
 ### Step 6 — Attach the original HTML file
 
-Attach the original portfolio HTML file so recipients can open the full interactive dashboard in a browser. Use the `attachments` parameter with `file_path`.
+Attach original portfolio HTML file so recipients can open full interactive dashboard in browser. Use `attachments` parameter with `file_path`.
 
 ### Step 6.5 — Headless mode (scheduled invocation)
 
-If the environment satisfies ALL of the following, skip Step 7's confirmation prompt and proceed directly to Step 8:
+Skip Step 7 confirmation and proceed to Step 8 if ALL true:
 
-1. `PORTFOLIO_EMAIL_AUTO_SEND` is set to `true`.
-2. `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` is set to a non-empty comma-separated allowlist of email addresses.
-3. **Every** recipient resolved in Step 1 (after name → email lookup) appears in the allowlist (case-insensitive, trimmed of whitespace).
+1. `PORTFOLIO_EMAIL_AUTO_SEND` = `true`
+2. `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` = non-empty comma-separated allowlist
+3. **Every** resolved recipient appears in allowlist (case-insensitive, whitespace-trimmed)
 
-When proceeding in headless mode, still **print the full preview to stdout** (the To / Subject / Body summary / Attachment block from Step 7) so the launchd log captures exactly what was sent, who it went to, and which dashboard file was attached.
+In headless mode: still **print full preview to stdout** (To / Subject / Body summary / Attachment block from Step 7) so launchd log captures what was sent, who received it, which file attached.
 
-If `PORTFOLIO_EMAIL_AUTO_SEND` is `true` but `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` is unset/empty, OR any resolved recipient is not on the allowlist, **fail closed**: print which recipient failed the check and exit without sending. Do NOT fall back silently to interactive mode and do NOT send to the subset that does match.
+If `PORTFOLIO_EMAIL_AUTO_SEND=true` but `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` unset/empty, OR any resolved recipient not on allowlist — **fail closed**: print offending recipient, exit without sending. No silent fallback to interactive mode. No partial sends.
 
-`PORTFOLIO_EMAIL_DRY_RUN=true` overrides headless send — print the full preview as above but **do not invoke** `mcp__mail__graph_send_message`. Use this for verification.
+`PORTFOLIO_EMAIL_DRY_RUN=true` overrides headless send — print full preview but **do not invoke** `mcp__mail__graph_send_message`. Use for verification.
 
-When all three env vars are unset (the default), behavior is unchanged from the existing interactive flow described in Step 7.
+When all three env vars unset (default): existing interactive flow from Step 7 unchanged.
 
 ### Step 7 — Preview and confirm
 
-Before sending, show the user a preview:
+Show user preview before sending:
 
 ```text
 To: [recipients]
@@ -158,20 +158,20 @@ Body: Email-safe HTML dashboard (scorecard, tiers, themes)
 Attachment: PORTFOLIO_YYYYMMDD_HHMM.html
 ```
 
-**Wait for explicit user confirmation before sending.** This is non-negotiable in interactive mode. The only exception is the headless mode in Step 6.5, where the env-var-gated allowlist check substitutes for live human confirmation.
+**Wait for explicit user confirmation before sending.** Non-negotiable in interactive mode. Only exception: headless mode in Step 6.5 with env-var-gated allowlist check.
 
 ### Step 8 — Send
 
-Use the appropriate send tool (e.g., `mcp__mail__graph_send_message`). Set:
+Use appropriate send tool (e.g., `mcp__mail__graph_send_message`). Set:
 
 - `subject`: `Portfolio Health Dashboard — [Month Day, Year]`
-- `body_html`: The email-safe HTML from Step 5
-- `attachments`: The original dashboard HTML file
+- `body_html`: Email-safe HTML from Step 5
+- `attachments`: Original dashboard HTML file
 - `save_to_sent`: `true`
 
 ### Step 9 — Confirm delivery
 
-Report the send result to the user with recipient(s) and status.
+Report send result with recipient(s) and status.
 
 ## Subject line format
 
@@ -183,25 +183,25 @@ Example: `Portfolio Health Dashboard — April 2, 2026`
 
 ## Output policy
 
-- This skill does **not** write any files to disk
-- This skill does **not** create drafts via IMAP (they lack a Send button in Outlook)
-- This skill sends directly via Graph API (or SMTP/EWS as available)
-- The original HTML dashboard is attached for full interactive viewing
+- Skill writes no files to disk
+- Skill creates no IMAP drafts (no Send button in Outlook)
+- Sends directly via Graph API (or SMTP/EWS as available)
+- Original HTML dashboard attached for full interactive viewing
 
 ## Failure behavior
 
-- If no portfolio dashboard exists: Tell the user to run `/portfolio-health` first
-- If recipient email cannot be resolved: Ask the user for the email address
-- If mail account is not configured: Show error and suggest running `mcp__mail__list_all_accounts`
-- If send fails: Report the error and suggest the user check their mail configuration
-- If `PORTFOLIO_EMAIL_AUTO_SEND=true` but a resolved recipient is not in `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS`: fail closed, print the offending recipient, do not send
+- No portfolio dashboard exists → tell user to run `/portfolio-health` first
+- Recipient email unresolvable → ask user for address
+- Mail account not configured → show error, suggest `mcp__mail__list_all_accounts`
+- Send fails → report error, suggest user check mail config
+- `PORTFOLIO_EMAIL_AUTO_SEND=true` but resolved recipient not in `PORTFOLIO_EMAIL_AUTHORIZED_RECIPIENTS` → fail closed, print offending recipient, do not send
 
 ## Completion checklist
 
-1. Recipients resolved to valid email addresses
-2. Latest portfolio dashboard identified and read
+1. Recipients resolved to valid emails
+2. Latest dashboard identified and read
 3. Email-safe HTML built with inline styles only (no external deps)
 4. Original HTML attached
-5. User confirmed the send (interactive mode) OR headless allowlist check passed (Step 6.5)
-6. Email sent successfully
-7. Delivery status reported to user
+5. User confirmed send (interactive) OR headless allowlist check passed (Step 6.5)
+6. Email sent
+7. Delivery status reported

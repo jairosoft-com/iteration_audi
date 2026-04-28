@@ -9,7 +9,7 @@ allowed-tools: Read, Glob, Grep, Bash, Write, Agent
 
 # Portfolio Meeting Prep Skill
 
-Generate self-contained interactive HTML meeting agenda. Compiles data from latest portfolio dashboard and all team audit reports. Output: structured, time-boxed doc for portfolio review meetings.
+Generate a self-contained, interactive HTML meeting agenda that compiles data from the latest portfolio dashboard and all team audit reports into a structured, time-boxed document for portfolio review meetings.
 
 Do not use this skill for:
 
@@ -19,9 +19,9 @@ Do not use this skill for:
 
 ## Authority and precedence
 
-This skill is authoritative for:
+This skill is the authoritative source for:
 
-- Meeting agenda structure, topic ordering, time allocation
+- Meeting agenda structure, topic ordering, and time allocation
 - HTML meeting prep template (layout, CSS, SVG charts, interactive elements)
 - Discussion point generation from audit data
 - Action item compilation and prioritization
@@ -49,7 +49,7 @@ This skill defers to:
 /portfolio-meeting-prep 60m
 ```
 
-Time budget distributed proportionally across all agenda topics. Default: 30 minutes.
+The time budget is distributed proportionally across all agenda topics. Default is 30 minutes.
 
 ## Required workflow
 
@@ -57,7 +57,7 @@ Time budget distributed proportionally across all agenda topics. Default: 30 min
 
 - Parse optional duration argument (default: 30 minutes)
 - Read memory files to identify attendees (Ramon Aseniero — CEO, Karl Caumban — PDM)
-- Determine current date and iteration context from latest portfolio dashboard
+- Determine current date and iteration context from the latest portfolio dashboard
 
 ### Step 2 — Find the latest portfolio dashboard
 
@@ -65,11 +65,11 @@ Time budget distributed proportionally across all agenda topics. Default: 30 min
 Glob pattern: portfolio_report/PORTFOLIO_*.html
 ```
 
-Select most recent file by filename timestamp. Exclude `_SUMMARY.html`, `_TREND`, and `_MEETING_PREP` files.
+Select the most recent file by filename timestamp. Exclude `_SUMMARY.html`, `_TREND`, and `_MEETING_PREP` files.
 
 ### Step 3 — Find prior portfolio dashboards for trend data
 
-Collect up to 7 most recent portfolio dashboard files for mean/median score trend. Extract from each:
+Collect up to 7 most recent portfolio dashboard files to build the mean/median score trend. Extract from each:
 
 - Portfolio Mean
 - Portfolio Median
@@ -84,7 +84,7 @@ Glob patterns:
   git_*/audit/AUDIT_*.md
 ```
 
-Per workspace, select most recent audit file. Extract:
+For each workspace, select the most recent audit file. Extract:
 
 - Overall / UPS score
 - Risk band
@@ -100,7 +100,7 @@ Per workspace, select most recent audit file. Extract:
 Glob pattern: ado_*/todo/*.md, git_*/todo/*.md
 ```
 
-Reference any existing todo files in action items section.
+Reference any existing todo files in the action items section.
 
 ### Step 6 — Analyze and categorize
 
@@ -122,7 +122,7 @@ Identify:
 
 ### Step 7 — Calculate time allocation
 
-Distribute meeting timebox across 7 topics. Default 30-minute allocation:
+Distribute the meeting timebox across 7 topics. Default 30-minute allocation:
 
 | # | Topic | Default | Purpose |
 |---|-------|---------|---------|
@@ -134,17 +134,17 @@ Distribute meeting timebox across 7 topics. Default 30-minute allocation:
 | 6 | Action Items & Owners | 3 min | Assign P0/P1 actions |
 | 7 | Wrap-up & Next Steps | 2 min | PI readiness, follow-up |
 
-Scale for custom durations:
+For custom durations, scale proportionally:
 
 - 45 min: multiply each by 1.5
 - 60 min: multiply each by 2.0
 - Round to nearest minute; ensure total matches requested duration
 
-Facilitator tip: "Topics 2-3 carry the most value. If time runs short, skip Topic 4 and capture structural risks as async follow-ups."
+Include a facilitator tip: "Topics 2-3 carry the most value. If time runs short, skip Topic 4 and capture structural risks as async follow-ups."
 
 ### Step 8 — Generate HTML
 
-Create self-contained HTML using design reference at `portfolio_report/PORTFOLIO_MEETING_PREP_20260402.html`. HTML must include:
+Create a self-contained HTML file using the design reference at `portfolio_report/PORTFOLIO_MEETING_PREP_20260402.html`. The HTML must include:
 
 #### Required visual elements
 
@@ -167,11 +167,11 @@ Create self-contained HTML using design reference at `portfolio_report/PORTFOLIO
 #### HTML rules
 
 - Self-contained: no external CDN, no `<script src>`, no `<link>` to external CSS
-- Inline `<style>` block in `<head>` acceptable (browser viewing, not email)
+- Inline `<style>` block in `<head>` is acceptable (this is for browser viewing, not email)
 - SVG for charts (no canvas, no chart libraries)
 - Interactive checkboxes use inline `onclick` handlers only
 - Print-friendly: include `@media print` styles
-- Responsive: works on desktop and tablet
+- Responsive: works on both desktop and tablet screens
 
 #### Color reference
 
@@ -208,7 +208,7 @@ Create self-contained HTML using design reference at `portfolio_report/PORTFOLIO
 
 ### Step 9 — Write output
 
-Save HTML file to:
+Save the HTML file to:
 
 ```text
 portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_YYYYMMDD.html
@@ -216,7 +216,7 @@ portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_YYYYMMDD.html
 
 Where `YYYYMMDD` is today's date (e.g., `PORTFOLIO_MEETING_AGENDA_20260402.html`).
 
-Same-date file exists → append time suffix:
+If a file with the same date already exists, append a time suffix:
 
 ```text
 portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_YYYYMMDD_HHMM.html
@@ -224,36 +224,36 @@ portfolio_meeting_agenda/PORTFOLIO_MEETING_AGENDA_YYYYMMDD_HHMM.html
 
 ### Step 10 — Report completion
 
-Tell user:
+Tell the user:
 
-- File path of generated HTML
+- File path of the generated HTML
 - Number of teams covered
 - Meeting duration
-- Action items identified
+- How many action items were identified
 - Any data gaps or missing audits
 
 ## Content generation guidelines
 
 ### Discussion points
 
-- Frame for CEO-to-PDM conversation (strategic, not tactical)
-- Lead with highest-impact items
-- Flag items unactioned across multiple audits (escalation candidates)
-- Distinguish systemic issues from seasonal/one-time events
-- Always include "act vs no action" impact framing
+- Frame for a CEO-to-PDM conversation (strategic, not tactical)
+- Lead with the highest-impact items
+- Flag items that have been unactioned across multiple audits (escalation candidates)
+- Distinguish between systemic issues and seasonal/one-time events
+- Always include the "act vs no action" impact framing
 
 ### Action items
 
 - Every action must have: description, owner, estimated time
 - Group as P0 (today), P1 (before sprint close), P2 (next PI planning)
-- Quick wins (< 30 min, high impact) called out separately
+- Quick wins (< 30 min, high impact) should be called out separately
 - Reference todo files when they exist
 
 ### Scoring artifacts
 
 - Flag scores that are artifacts of rubric limitations (e.g., zero-denominator after 100% closure)
-- Distinguish genuine delivery failures from scoring anomalies
-- Note seasonal impacts (holidays, IP sprints) that temporarily suppress scores
+- Distinguish between genuine delivery failures and scoring anomalies
+- Note seasonal impacts (holidays, IP sprints) that suppress scores temporarily
 
 ## Output policy
 
@@ -266,10 +266,10 @@ Tell user:
 
 ## Failure behavior
 
-- No portfolio dashboard: Tell user to run `/portfolio-health` first
-- Individual team audit missing: Include team with "No recent audit" note, do not block generation
-- Fewer than 3 portfolio reports: Skip trend chart, note insufficient data
-- All audits older than 7 days: Warn data may be stale
+- If no portfolio dashboard exists: Tell the user to run `/portfolio-health` first
+- If an individual team audit is missing: Include the team with "No recent audit" note, do not block generation
+- If fewer than 3 portfolio reports exist: Skip trend chart, note insufficient data
+- If all audits are older than 7 days: Warn that data may be stale
 
 ## Completion checklist
 
@@ -278,7 +278,7 @@ Tell user:
 3. Latest audit for each team read and extracted
 4. Todo files checked for pending action items
 5. Teams grouped into risk tiers
-6. Quick wins, escalations, structural risks identified
+6. Quick wins, escalations, and structural risks identified
 7. Time allocation calculated for requested duration
 8. HTML generated with all required visual elements
 9. SVG trend chart renders correctly

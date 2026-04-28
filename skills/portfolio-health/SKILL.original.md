@@ -7,27 +7,27 @@ allowed-tools: Read, Glob, Grep, Bash, Write
 
 # Portfolio Health Dashboard Skill
 
-Generate interactive, self-contained HTML dashboard. Aggregates latest audit scores from every `ado_*` and `git_*` workspace into unified portfolio view.
+Generate an interactive, self-contained HTML dashboard that aggregates the latest audit scores from every `ado_*` and `git_*` workspace into a unified portfolio view.
 
-Not for:
+Do not use this skill for:
 
-- Individual project audits (use `ado-safe-audit` or `git_iteration_audit`)
+- Running individual project audits (use `ado-safe-audit` or `git_iteration_audit`)
 - Re-computing individual audit scores
 - PDF generation
 
 ## Authority and precedence
 
-Authoritative for:
+This skill is the authoritative source for:
 
 - portfolio scoring methodology (UPS formula, normalization)
 - portfolio report structure and output policy
 - cross-project analysis methodology
 - risk band definitions for portfolio-level comparison
 
-Defers to:
+This skill defers to:
 
-- `ado-safe-audit` SKILL.md for ADO score computation
-- `git_iteration_audit` SKILL.md for Git scores (ICS, SGPI, HCI)
+- `ado-safe-audit` SKILL.md for how ADO scores are computed
+- `git_iteration_audit` SKILL.md for how Git scores (ICS, SGPI, HCI) are computed
 - individual workspace `CLAUDE.md` files for team metadata
 
 **Critical rule:** Never re-compute individual audit scores. Read scores from existing audit reports only.
@@ -39,24 +39,24 @@ Defers to:
 
 ## Required workflow
 
-1. **Discover teams:** Scan all top-level directories matching `ado_*` and `git_*` with `CLAUDE.md`. Process alphabetically.
+1. **Discover teams:** Scan all top-level directories matching `ado_*` and `git_*` that contain `CLAUDE.md`. Process in alphabetical order.
 2. **Read team metadata:** From each workspace's `CLAUDE.md`, extract:
    - Team name
    - ADO project and team identifiers
    - Workspace type (`ado` or `git`)
-3. **Find latest audit:** In each workspace's `audit/` directory, find most recent `AUDIT_*.md` by filename sort (descending).
-4. **Extract scores:** Parse latest audit report using extraction patterns below.
-5. **Compute UPS:** Normalize scores into Unified Portfolio Scores using formula below.
-6. **Read prior portfolio report:** Find most recent `PORTFOLIO_*.html` in `portfolio_report/` for trend delta. If none, this is baseline run.
-7. **Analyze cross-cutting themes:** Identify systemic patterns across teams from audit reports.
-8. **Generate HTML:** Produce self-contained HTML dashboard per template spec below.
+3. **Find latest audit:** In each workspace's `audit/` directory, find the most recent `AUDIT_*.md` file by filename sort (descending).
+4. **Extract scores:** Parse the latest audit report using the extraction patterns below.
+5. **Compute UPS:** Normalize scores into Unified Portfolio Scores using the formula below.
+6. **Read prior portfolio report:** Find the most recent `PORTFOLIO_*.html` in `portfolio_report/` for trend delta. If none exists, this is the baseline run.
+7. **Analyze cross-cutting themes:** Identify systemic patterns across teams from the audit reports.
+8. **Generate HTML:** Produce a self-contained HTML dashboard following the template specification below.
 9. **Write output:** Save to `portfolio_report/PORTFOLIO_<date>_<time>.html`.
 
 ## Score extraction patterns
 
 ### ADO audit reports (`ado_*`)
 
-Look for Overall Score in Audit Metadata table:
+Look for the Overall Score in the Audit Metadata table:
 
 ```
 | **Overall Score** | **90.8 / 100 (Low Risk)** |
@@ -64,11 +64,11 @@ Look for Overall Score in Audit Metadata table:
 
 Pattern: `Overall\s+Score.*?(\d+\.?\d*)\s*/\s*100`
 
-Also extract risk band text from same match: `(Low Risk|Moderate Risk|High Risk|Critical)`
+Also extract the risk band text from the same match: `(Low Risk|Moderate Risk|High Risk|Critical)`
 
 ### Git audit reports (`git_*`)
 
-Look for three scores in Scores at a Glance table or KPI table:
+Look for the three scores in the Scores at a Glance table or KPI table:
 
 ```
 | Iteration Compliance Score | **54.7% (Red)** |
@@ -82,7 +82,7 @@ Patterns:
 - SGPI: `SGPI.*?(\d+\.?\d*)%`
 - HCI: `HCI.*?(\d+\.?\d*)\s*/\s*100`
 
-If any score can't be extracted, mark team as "Extraction failed" and continue.
+If any score cannot be extracted, mark that team as "Extraction failed" in the dashboard and continue.
 
 ## Unified Portfolio Score (UPS)
 
@@ -100,13 +100,13 @@ UPS = (ICS × 0.50) + (HCI × 0.30) + (SGPI × 0.20)
 
 | Component | Weight | Rationale |
 |-----------|--------|-----------|
-| **ICS** (Iteration Compliance) | 50% | Most comparable to ADO 7-dimension score |
+| **ICS** (Iteration Compliance) | 50% | Most comparable to the ADO 7-dimension score |
 | **HCI** (Engineering Health) | 30% | Engineering quality signals unique to Git teams |
 | **SGPI** (Sprint Goal Predictability) | 20% | Delivery outcome; lower weight prevents early-sprint distortion |
 
 Round UPS to 1 decimal place.
 
-**Early-sprint guard:** When SGPI = 0% and audit report indicates early sprint (Day 1–5 of 14), note in dashboard that SGPI is "expected early-sprint" and show UPS both with and without SGPI for context.
+**Early-sprint guard:** When SGPI = 0% and the audit report indicates early sprint (Day 1–5 of 14), note in the dashboard that SGPI is "expected early-sprint" and show UPS both with and without SGPI for context.
 
 ### Risk bands (universal)
 
@@ -127,9 +127,9 @@ Round UPS to 1 decimal place.
 
 ### Tier 2 — Cross-cutting indicators
 
-Extract from individual audit reports:
+Identify from individual audit reports:
 
-- **Bus Factor Index** — teams where single person carries all work
+- **Bus Factor Index** — count of teams where a single person carries all work
 - **Stagnation Count** — teams with no iteration activity or empty iterations
 - **Recommendation Adoption** — qualitative patterns of unfixed issues repeated across audits
 
@@ -137,13 +137,13 @@ Extract from individual audit reports:
 
 - **Score Movement** — per-team UPS delta from prior portfolio report
 - **Risk Band Transitions** — teams that moved up or down a band
-- **Portfolio Mean Trend** — direction of overall average
+- **Portfolio Mean Trend** — direction of the overall average
 
 ## HTML output specification
 
 ### Design reference
 
-Use Stitch mockup `6ca7618e` as visual reference. Saved at `portfolio_report/stitch_reference_6ca7618e.html`.
+Use Stitch mockup `6ca7618e` as the visual reference. The design is saved at `portfolio_report/stitch_reference_6ca7618e.html`.
 
 ### Architecture
 
@@ -152,7 +152,7 @@ Use Stitch mockup `6ca7618e` as visual reference. Saved at `portfolio_report/sti
 - **Google Fonts** — Manrope for headings, Inter for body text
 - **Material Symbols Outlined** for icons
 - **No other external dependencies**
-- **Responsive** — desktop and tablet
+- **Responsive** — works on desktop and tablet
 - **Print stylesheet** — `@media print` for clean browser-to-PDF export
 
 ### Required HTML sections (in order)
@@ -161,7 +161,7 @@ Use Stitch mockup `6ca7618e` as visual reference. Saved at `portfolio_report/sti
 
 - Full-width, no sidebar
 - Left: Title "Portfolio Health Dashboard" (large, bold, Manrope), subtitle with iteration name and date
-- Right: Three metric cards in row:
+- Right: Three metric cards in a row:
   - "Portfolio Mean" with value and colored left-border accent
   - "Portfolio Median" with value and colored left-border accent
   - "Teams at Risk" with count, dark/red background
@@ -169,21 +169,21 @@ Use Stitch mockup `6ca7618e` as visual reference. Saved at `portfolio_report/sti
 #### 2. Portfolio Scorecard Table
 
 - Section title "Portfolio Scorecard" with "Export PDF" button (print trigger)
-- Full-width styled table, columns:
+- Full-width styled table with columns:
   - Rank (zero-padded, e.g., 01)
   - Team name (bold)
   - Type — pill badge: "ADO" (blue `bg-sky-100 text-sky-700`) or "Git" (purple `bg-purple-100 text-purple-700`)
   - UPS Score — number + horizontal progress bar colored by risk band
   - Risk Band — colored pill badge (green/yellow/orange/red)
   - Trend — Material icon arrow (arrow_upward green, arrow_downward red/orange, trending_flat gray, add for new baseline)
-  - Latest Audit — date of audit file used
+  - Latest Audit — date of the audit file used
 - Sorted by UPS descending
 - Hover highlight on rows
 
 #### 3. Charts Row (two-column grid)
 
-- **Left — Risk Distribution:** SVG donut chart, team counts per band. Center text: total team count. Legend beside chart with colored dots and labels.
-- **Right — Score Comparison:** Horizontal bar chart, one bar per team, sorted descending. Bar color matches risk band. Score value at end of each bar.
+- **Left — Risk Distribution:** SVG donut chart showing team counts per band. Center text: total team count. Legend beside the chart with colored dots and labels.
+- **Right — Score Comparison:** Horizontal bar chart with one bar per team, sorted descending. Bar color matches risk band. Score value at end of each bar.
 
 #### 4. Tier Analysis and Cross-Cutting Themes (two-column grid, 2/3 + 1/3)
 
@@ -192,7 +192,7 @@ Use Stitch mockup `6ca7618e` as visual reference. Saved at `portfolio_report/sti
   - "Moderate" (yellow border, collapsed)
   - "Needs Attention" (orange border, collapsed)
   - "Critical" (red border, collapsed)
-  - Each card: brief narrative about teams in that tier
+  - Each card contains a brief narrative about the teams in that tier
 - **Right — Cross-Cutting Themes:** Numbered items with colored circle badges and brief descriptions
 
 #### 5. Trend Analysis (if prior portfolio report exists)
@@ -212,7 +212,7 @@ Use Stitch mockup `6ca7618e` as visual reference. Saved at `portfolio_report/sti
 
 ### Color scheme
 
-Consistent throughout:
+Use these colors consistently throughout:
 
 - Low Risk / Green: `#22c55e`
 - Moderate / Yellow: `#eab308`
@@ -225,41 +225,41 @@ Consistent throughout:
 
 ### Interactive features
 
-- **Export PDF button:** Triggers `window.print()`
-- **Collapsible tier sections:** `<details><summary>` elements
-- **Hover effects:** Row highlights on scorecard table
+- **Export PDF button:** Triggers `window.print()` for browser print/PDF export
+- **Collapsible tier sections:** Use `<details><summary>` HTML elements
+- **Hover effects:** Row highlights on the scorecard table
 
 ## Output policy
 
-- **Location:** `portfolio_report/` at repo root
+- **Location:** `portfolio_report/` at the repo root
 - **Naming:** `PORTFOLIO_<date>_<time>.html` (dashboard) or `PORTFOLIO_<date>_<time>_SUMMARY.html` (summary)
-- **Timestamps:** Every report gets unique timestamp — never overwritten
+- **Timestamps:** Every report gets a unique timestamp — files are never overwritten
 - **Format:** Self-contained HTML
 - **Not written to:** `report/`, `temp/`, or any workspace's `audit/`
 
 ## Trend persistence
 
-No separate data store. Most recent `portfolio_report/PORTFOLIO_*.html` is trend baseline. Extract scores from its scorecard table for delta computation. First run shows "Baseline" in trend columns.
+No separate data store. The most recent `portfolio_report/PORTFOLIO_*.html` file is the trend baseline. Extract scores from its scorecard table for delta computation. First run shows "Baseline" in trend columns.
 
 ## Failure behavior
 
 - **Empty audit directory:** Show team row with "No audit data" badge. Continue.
 - **Score extraction fails:** Show "Extraction failed" badge with filename. Continue.
 - **No prior portfolio report (first run):** Trend columns show "Baseline."
-- **ALL workspaces fail:** Don't produce report. Report failure explicitly.
+- **ALL workspaces fail:** Do not produce report. Report failure explicitly.
 
 ## Completion checklist
 
 Before finishing, verify:
 
 - All `ado_*` and `git_*` directories with `CLAUDE.md` were scanned
-- Scores extracted from existing audit reports only (no re-computation)
+- Scores were extracted from existing audit reports only (no re-computation)
 - UPS formula applied correctly for Git teams (ICS×0.50 + HCI×0.30 + SGPI×0.20)
 - ADO scores passed through unchanged
-- Risk bands assigned using universal scale
+- Risk bands assigned using the universal scale
 - Portfolio mean and median computed correctly
-- HTML self-contained and opens correctly in browser
-- Donut chart and bar chart data match scorecard table
+- HTML is self-contained and opens correctly in a browser
+- Donut chart and bar chart data match the scorecard table
 - Collapsible tier sections function
 - Prior portfolio report read for trend (or "Baseline" on first run)
 - Output saved to `portfolio_report/PORTFOLIO_<date>_<time>.html`

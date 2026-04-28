@@ -1290,3 +1290,57 @@ First High Risk team of PI7.2: LS Dev 50.7 (−10.4). Shared Services simultaneo
 - Updated: 10 entity pages (all teams), [[synthesis/portfolio-trend]], [[synthesis/team-rankings]], [[wiki/TODO]]
 - Key signals: ADO Shared first Low Risk (84.6, +17.0) · LS Dev Day 2 High Risk (47.9, −2.8) · JIT DP structural reset (0.0, −5.6) · Portfolio mean 72.5 new 7-day high
 - Escalations: LS Dev reactive-only sprint sustained · JIT DP watch Day 10 · Colina ADO state lag (28 SP) · OTP mid-sprint scope violation
+
+## [2026-04-28 10:45] synthesis | Day-9 cross-session synthesis
+
+- Created [[synthesis/shared-services-turnaround]] — Shared Services Critical→Low in 9 days (32.2→84.6); 3 structural drivers documented
+- Updated [[synthesis/score-streaks]] — Day 9 refresh: Shared first ≥80, Colina 7-run broken, Finance 77.9 plateau (10 audits), HR longest active streak
+- Updated [[synthesis/scoring-artifacts]] — Artifact 4 added: JIT DP visible-board reset (2026-04-28); proposed carve-out documented
+
+## [2026-04-28 11:30] lint | PI7.2 Day-9 wiki health check
+
+**Overall verdict:** ⚠️ structurally sound but 5 categories of fixable debt surfaced.
+
+### Staleness
+- **Entity pages** — all 10 team entities updated 2026-04-28 ✓. 8 person entities last updated 2026-04-20; `system-macpilot` last updated 2026-04-24. No new person-level data ingested today so no action required.
+- **Synthesis pages** — 4 updated today (`portfolio-trend`, `score-streaks`, `shared-services-turnaround`, `team-rankings`); `capacity-planning` last updated 2026-04-24. **11 synthesis pages carry `## updated:` (markdown header) instead of `updated:` (YAML field)** — these are invisible to frontmatter parsers and grepped as "no updated field." Affects: `scoring-artifacts`, `dor-leakage`, `ci-health`, `pi7-plan`, `service-model-scoring`, `audit-automation`, `github-compliance-issues`, `iteration-7.1-close`, `pi6-close`, `bus-factor`, `compliance-misalignment`. The `## updated:` lines appear in the body just after the closing `---`, not inside the YAML block. Schema violation but not a stale-content problem.
+
+### Orphans
+- **Synthesis:** 0 orphans — all 19 synthesis pages have inbound links.
+- **Concepts:** 0 orphans — all 6 concept pages linked.
+- **Summaries:** 0 orphans — all 389 summary files have at least one inbound link (the entity audit-history chains are self-referencing and the index links the latest per-team summaries).
+
+### Missing / broken links
+Three real broken links confirmed (target slug exists with a different timestamp):
+1. `[[summaries/audit-ado-admin-20260423-0900]]` — actual file is `audit-ado-admin-20260423-0113`. Linked from `audit-ado-admin-20260424-0833`.
+2. `[[summaries/audit-git-aa-dev-20260423-1515]]` — actual file is `audit-git-aa-dev-20260423-0855`. Linked from `audit-git-aa-dev-20260424-0902`.
+3. `[[summaries/audit-git-cc-dev-20260423-1515]]` — actual file is `audit-git-cc-dev-20260423-0856`. Linked from `audit-git-cc-dev-20260424-0902`.
+
+Also confirmed: 10 person entities referenced but never created (`person-ike`, `person-teofilo`, `person-jaszmeine`, `person-vicsante`, `person-almera`, `person-cliff`, `person-luke`, `person-samantha-babael`, `person-kyaa-a`, `person-pcoronia`). These are team members appearing in audit-summary pages. They are "referenced but no page" items, not broken inbound links in the classic sense — entity pages refer to them by name, not wikilink, so there is no link rot. Worth creating stubs for bus-factor and context completeness.
+
+Additionally, early LS Dev summary files (March cohort) use bare-slug chain links (`[[audit-ado-ls-dev-20260311-195254]]`) instead of `[[summaries/audit-ado-ls-dev-20260311-195254]]`. The files DO exist; the links just resolve incorrectly in Obsidian. Low priority — pre-rubric summaries only; 25 occurrences across 8 files.
+
+1 bare-slug meeting-agenda link: `[[meeting-agenda-20260426-2130]]` in `meeting-agenda-20260427` (missing `summaries/` prefix).
+
+### Contradictions
+Spot-checked 4 teams — all entity pages match latest summaries:
+- `team-ado-shared` entity: 84.6 Low ✓ matches `audit-ado-shared-20260428-0204` (84.6 Low, +17.0)
+- `team-ado-ls-dev` entity: 47.9 High ✓ matches `audit-ado-ls-dev-20260428-0203` (47.9 High, −2.8)
+- `team-git-aa-dev` entity: UPS 71.0 Moderate ✓ matches `audit-git-aa-dev-20260428-0902` (ICS 100, HCI 70, SGPI 0.0)
+- `team-ado-otp` entity: 74.8 Moderate ✓ matches `audit-ado-otp-20260428-0204` (74.8, flat, D7 0.0)
+
+No contradictions found.
+
+### Hub pages (top 3 by inbound link count)
+1. `[[concepts/risk-bands]]` — **404 inbound** — every entity + every summary; not bloated, just universally cited
+2. `[[concepts/scoring-ado-rubric]]` — **341 inbound** — all ADO team entities and summaries; same profile
+3. `[[concepts/scoring-git-ups]]` — **127 inbound** — all Git summaries + entities + several syntheses
+
+No refactor needed; hub density reflects correct cross-linking, not structural bloat.
+
+### Suggested actions (prioritized)
+1. **P1 — Fix 3 broken cross-links** (wrong-timestamp delta links in admin/aa/cc Apr 24 summaries): replace `20260423-0900` → `20260423-0113`, `20260423-1515` → `20260423-0855` (AA), `20260423-1515` → `20260423-0856` (CC).
+2. **P1 — Fix `## updated:` YAML bug** in 11 synthesis pages: move `## updated: YYYY-MM-DD` lines inside the frontmatter block (remove the `## ` prefix). Affects: `scoring-artifacts`, `dor-leakage`, `ci-health`, `pi7-plan`, `service-model-scoring`, `audit-automation`, `github-compliance-issues`, `iteration-7.1-close`, `pi6-close`, `bus-factor`, `compliance-misalignment`.
+3. **P2 — Fix bare-slug links**: 25 early LS Dev chain links + 1 meeting-agenda link need `summaries/` prefix added.
+4. **P3 — Create stub person entities** for 10 team-member names (`person-ike`, `person-teofilo`, `person-vicsante`, `person-jaszmeine`, `person-almera`, `person-cliff`, `person-luke`, `person-samantha-babael`, `person-kyaa-a`, `person-pcoronia`). Short stubs with role, team link, and a line on bus-factor signal where applicable.
+5. **P3 — Add 6 meeting agendas to index**: Apr 21, Apr 23-1600, Apr 24, Apr 25, Apr 26 (both variants) are on disk but the index's Meeting Agendas table only shows Apr 27 and Apr 28.

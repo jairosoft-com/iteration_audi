@@ -7,18 +7,18 @@ allowed-tools: Read, Glob, Grep, Bash, Edit, Write, Agent
 
 # Git Iteration Audit Skill
 
-Skill for standardized GitHub + ADO iteration audits on `git_*` workspaces.
+Use this skill for standardized GitHub + ADO iteration audits for `git_*` workspaces in this repository.
 
-Do not use for:
+Do not use this skill for:
 
 - `ado_*` workspaces
 - ADO-only SAFe audits
-- PDF generation or report packaging
+- PDF generation or report packaging workflows
 - separate `SCORECARD_*.md` outputs
 
 ## Authority and precedence
 
-Authoritative source for:
+This skill is the authoritative source for:
 
 - audit workflow
 - evidence precedence
@@ -27,7 +27,7 @@ Authoritative source for:
 - output policy
 - batch behavior
 
-Each project `CLAUDE.md` is local source of truth for:
+Each project `CLAUDE.md` remains the local source of truth for:
 
 - project scope
 - ADO team and backlog context
@@ -36,46 +36,50 @@ Each project `CLAUDE.md` is local source of truth for:
 - audit history
 - explicit `Project Exceptions`
 
-If project `CLAUDE.md` conflicts with this skill on workflow, scoring, evidence, or output policy — this skill wins unless conflict is explicitly under `Project Exceptions`.
+If a project `CLAUDE.md` conflicts with this skill on workflow, scoring, evidence, or output policy, this skill wins unless the conflicting item is explicitly documented under `Project Exceptions`.
 
 ## Accepted inputs
 
-Two invocation styles only:
+This skill accepts exactly two invocation styles:
 
 - `git_iteration_audit [project-folder]`
 - `git_iteration_audit all-git-projects`
 
 ### Single-project mode
 
-- folder must be top-level `git_*` workspace
-- folder must contain `CLAUDE.md`
+When given a single project folder:
+
+- the folder must be a top-level `git_*` workspace
+- the folder must contain `CLAUDE.md`
 - write exactly one report to that folder's `audit/` directory
 
 ### Batch mode
 
+When given `all-git-projects`:
+
 - enumerate only top-level folders matching `git_*`
-- keep only folders containing `CLAUDE.md`
-- process alphabetically
-- one integrated report per project in that project's `audit/`
-- never include `ado_*` folders
+- keep only folders that contain `CLAUDE.md`
+- process folders in alphabetical order
+- generate one integrated report per project in that project's `audit/` directory
+- never include `ado_*` folders in the batch
 
 ## Required workflow
 
 For each target project:
 
-1. Load project's `CLAUDE.md`.
+1. Load the project's `CLAUDE.md`.
 2. Read project-local context from that file only:
    - ADO organization, project, team, and backlog scope
    - GitHub repository scope
    - people and glossary
    - audit history
    - explicit `Project Exceptions`
-3. Resolve current active iteration from scoped ADO team context.
-4. Review most recent prior audit in that project's `audit/` folder.
-   - Prior audit for delta context only.
-   - Never substitute for current evidence.
-5. Collect scoped ADO evidence from current iteration and scoped GitHub evidence from repository set.
-6. Compute three standard scores:
+3. Resolve the current active iteration from the scoped ADO team context.
+4. Review the most recent prior audit report in that project's `audit/` folder.
+   - Use the prior audit for delta context only.
+   - Never use the prior audit as a substitute for current evidence.
+5. Collect scoped ADO evidence from the current iteration and scoped GitHub evidence from the repository set.
+6. Compute the three standard scores described below:
    - `Iteration Compliance Score`
    - `SGPI`
    - `HCI`
@@ -83,24 +87,24 @@ For each target project:
 
 ## Evidence precedence
 
-Order of precedence:
+Use this order of precedence:
 
-1. Current ADO iteration and team settings from scoped team
-2. Current ADO parent backlog items in scoped `Stories and Deliverables` backlog
+1. Current ADO iteration and team settings from the scoped team
+2. Current ADO parent backlog items in the scoped `Stories and Deliverables` backlog
 3. ADO revisions, relations, capacity, and change history
-4. Scoped GitHub PR, branch, commit, review, and merge evidence within iteration window
+4. Scoped GitHub PR, branch, commit, review, and merge evidence within the iteration window
 5. Latest prior audit for delta comparison only
 
 Never broaden scope beyond:
 
-- ADO project named in local `CLAUDE.md`
-- ADO team named in local `CLAUDE.md`
-- scoped `Stories and Deliverables` backlog
-- GitHub repositories named in local `CLAUDE.md`
+- the ADO project named in the local `CLAUDE.md`
+- the ADO team named in the local `CLAUDE.md`
+- the scoped `Stories and Deliverables` backlog
+- the GitHub repositories named in the local `CLAUDE.md`
 
 ## Standard scoring rubric
 
-Every report must contain three explicit named scores:
+Every Git audit report must contain these three explicit named scores:
 
 - `Iteration Compliance Score`
 - `SGPI`
@@ -108,7 +112,7 @@ Every report must contain three explicit named scores:
 
 ### 1. Iteration Compliance Score
 
-Use deterministic SAFe compliance model from canonical `git_aa_dev` standard.
+Use the deterministic SAFe compliance model from the canonical `git_aa_dev` standard.
 
 #### Dimensions and weights
 
@@ -119,14 +123,14 @@ Use deterministic SAFe compliance model from canonical `git_aa_dev` standard.
 
 #### Scope boundary
 
-- Score only current-iteration parent backlog items in scoped `Stories and Deliverables` backlog
+- Score only current-iteration parent backlog items in the scoped `Stories and Deliverables` backlog
 - Exclude child tasks and task-category items
 
 #### Calculation
 
 - `dimension_score = compliant_eligible_items / eligible_items * 100`
 - `overall_score = sum(dimension_score * weight) / 100`
-- Round final percentage to 1 decimal place
+- round the final percentage to 1 decimal place
 
 #### Risk bands
 
@@ -134,7 +138,7 @@ Use deterministic SAFe compliance model from canonical `git_aa_dev` standard.
 - `Yellow` = `75 - 89.9`
 - `Red` = `< 75`
 
-#### Preserve from canonical Git SAFe model
+#### Preserve from the canonical Git SAFe model
 
 - alignment parent-link logic
 - schema-gap handling
@@ -153,7 +157,7 @@ Use deterministic SAFe compliance model from canonical `git_aa_dev` standard.
 
 ### 2. SGPI
 
-Sprint goal predictability score.
+Use `SGPI` as the sprint goal predictability score.
 
 #### Official headline score
 
@@ -166,12 +170,12 @@ Sprint goal predictability score.
 
 #### Reporting rule
 
-- Label `SGPI` always means `Committed Scope SGPI`
-- Other two formulas appear only as supporting context
+- The label `SGPI` always means `Committed Scope SGPI`
+- The other two formulas appear only as supporting context
 
 ### 3. HCI
 
-Engineering health score.
+Use `HCI` as the engineering health score.
 
 #### Dimensions
 
@@ -188,10 +192,10 @@ Engineering health score.
 
 #### Calculation
 
-- Each dimension scored `0` to `10`
-- `HCI = sum(10 dimension scores)` reported as `/100`
+- each dimension is scored from `0` to `10`
+- `HCI = sum(10 dimension scores)` and is reported as a `/100` score
 
-#### Preserve from current Git engineering health scorecard
+#### Preserve from the current Git engineering health scorecard
 
 - dimension tables
 - category summaries
@@ -199,7 +203,7 @@ Engineering health score.
 
 ## Required report structure
 
-Markdown only. Sections in this order:
+Every report must be Markdown only and include these sections in this order:
 
 1. `Audit Metadata`
 2. `Executive Summary`
@@ -219,7 +223,7 @@ Markdown only. Sections in this order:
 
 ### Required report content
 
-Near top of report, include:
+Near the top of the report, include:
 
 - current iteration name
 - current iteration start and finish dates
@@ -227,13 +231,14 @@ Near top of report, include:
 - scoped GitHub repositories
 - all three named scores
 
-Integrated report absorbs scorecard content directly. Do not emit separate `SCORECARD_*.md`.
+The integrated report must absorb scorecard content directly into the main audit.
+Do not emit a separate `SCORECARD_*.md`.
 
 ## Visualization policy
 
 Use Mermaid when visualization adds value.
 
-Include at minimum one Mermaid visualization when enough evidence exists, using one of:
+At minimum, include one Mermaid visualization when enough evidence exists, using one of:
 
 - score summary
 - state distribution
@@ -246,12 +251,12 @@ Do not use `xychart-beta`.
 ## Output policy
 
 - Write source reports as Markdown only
-- Save under target project's `audit/` directory
+- Save reports under the target project's `audit/` directory
 - Use `AUDIT_<date>_<time>.md`
-- No PDFs
-- No `SCORECARD_*.md`
-- No writes to `report/` or `temp/`
-- Historical scorecards may remain as legacy artifacts; new audits must not create them
+- Do not generate PDFs
+- Do not generate `SCORECARD_*.md`
+- Do not write final source reports to `report/` or `temp/`
+- Historical scorecards may remain in the repo as legacy artifacts, but new audits must not create them
 
 ## Failure behavior
 
@@ -260,36 +265,36 @@ Do not use `xychart-beta`.
 If required ADO or GitHub context cannot be resolved:
 
 - stop
-- report failure explicitly
+- report the failure explicitly
 - do not improvise missing scope
 
 ### Batch mode
 
 If one project fails:
 
-- continue remaining valid `git_*` projects
-- record failed/skipped projects in final batch summary
-- one failed project must not block rest of batch
+- continue processing remaining valid `git_*` projects
+- record failed or skipped projects in the final batch summary
+- do not let one failed project block the rest of the batch
 
 ### Missing evidence
 
-When some evidence missing but audit can proceed:
+When some evidence is missing but the audit can still proceed:
 
 - continue in degraded mode
-- record missing evidence in `Evidence Gaps and Limitations`
-- no fabricated conclusions
+- record the missing evidence in `Evidence Gaps and Limitations`
+- avoid fabricated conclusions
 
 ## Completion checklist
 
-Before finishing, verify:
+Before finishing, verify all of the following:
 
-- target is `git_*` workspace or `all-git-projects`
-- local `CLAUDE.md` was read
-- current active iteration was resolved
-- latest prior audit was reviewed
-- all three named scores computed exactly once
-- `SGPI` headline is committed-scope SGPI
-- report used required section order
-- output is Markdown only
-- no PDF or `SCORECARD_*.md` artifacts generated
+- the target is a `git_*` workspace or `all-git-projects`
+- the local `CLAUDE.md` was read
+- the current active iteration was resolved
+- the latest prior audit was reviewed
+- all three named scores were computed exactly once
+- `SGPI` headline value is committed-scope SGPI
+- the report used the required section order
+- the output is Markdown only
+- no PDF or `SCORECARD_*.md` artifacts were generated
 - batch mode never touched `ado_*` workspaces
