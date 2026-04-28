@@ -26,8 +26,8 @@
   </array>
   <key>StartCalendarInterval</key>
   <dict>
-    <key>Hour</key><integer>9</integer>
-    <key>Minute</key><integer>50</integer>
+    <key>Hour</key><integer>3</integer>
+    <key>Minute</key><integer>30</integer>
   </dict>
   <key>StandardOutPath</key>
   <string>__MACPILOT_DIR__/logs/portfolio-meeting-prep.out</string>

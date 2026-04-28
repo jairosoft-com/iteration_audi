@@ -26,8 +26,8 @@
   </array>
   <key>StartCalendarInterval</key>
   <dict>
-    <key>Hour</key><integer>8</integer>
-    <key>Minute</key><integer>30</integer>
+    <key>Hour</key><integer>2</integer>
+    <key>Minute</key><integer>00</integer>
   </dict>
   <key>StandardOutPath</key>
   <string>__MACPILOT_DIR__/logs/ado-audit-all.out</string>

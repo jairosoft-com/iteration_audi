@@ -26,8 +26,8 @@
   </array>
   <key>StartCalendarInterval</key>
   <dict>
-    <key>Hour</key><integer>9</integer>
-    <key>Minute</key><integer>0</integer>
+    <key>Hour</key><integer>2</integer>
+    <key>Minute</key><integer>40</integer>
   </dict>
   <key>StandardOutPath</key>
   <string>__MACPILOT_DIR__/logs/git-audit-all.out</string>
