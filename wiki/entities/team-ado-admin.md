@@ -12,16 +12,20 @@ sources:
   - "../../ado_admin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-28
+updated: 2026-04-29
 ---
 
 # Administration Team (ADO)
 
 Single-contributor administrative operations function inside ADO project `Jairosoft FINOPS`. Scope covers facilities, utilities payables, government compliance (BFP, PhilGeps, DOLE, EGOV), and procurement. Mark Colina owns every work item — delivery is reliable but carries persistent bus-factor risk.
 
-## Latest (Iteration 7.2 Day 9 — 2026-04-28 09:02 UTC) ↑
+## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC) ↑↑
 
-**Overall 73.4 🟡 Moderate — Δ +1.3 · Second consecutive gain; DoR improvement drives score.** #202909 "Davao Admin Adhoc Support" (4 SP) received full Description + AC by 07:28 UTC — DoR Compliance rises 81.8 → 90.9. No new closures; DP holds at 7.7 (3 SP / 39 committed). 36 SP remain with 5 days left; pace (0.33 SP/day) projects ~4–5 total SP by May 3. Low Risk ceiling ~75–76. See [[summaries/audit-ado-admin-20260428-0902]].
+**Overall 78.3 🟡 Moderate — Δ +4.9 · Largest single-day gain this sprint; 1.7 pts from Low Risk.** Three closures early Apr 29: #202353 (JIT BFP, 3 SP), #202898 (Condo dues, 3 SP), #202945 (Grass cutting, 3 SP). Total 9/39 SP closed. D1 55→64.7 (backlog 20→17). D4 90.9→100.0 (#202898 Desc+AC added before closure — first DoR 100 this sprint). D7 7.7→23.1. Path to Low Risk: close 2 more items OR resolve D6 untouched penalty (#202357/#202366). See [[summaries/audit-ado-admin-20260429-0204]].
+
+## Previous (Iteration 7.2 Day 9 — 2026-04-28 09:02 UTC)
+
+**Overall 73.4 🟡 Moderate — Δ +1.3 · DoR improvement drives second consecutive gain.** #202909 Desc + AC populated. DoR 81.8→90.9. DP 7.7 unchanged. See [[summaries/audit-ado-admin-20260428-0902]].
 
 ## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST)
 

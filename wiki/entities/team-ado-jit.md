@@ -20,11 +20,15 @@ updated: 2026-04-28
 
 Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors ([[entities/person-armelita|Armelita Pulido]] as PM/PO, Teofilo Limpag, [[entities/person-grace|Grace Garcia]]) plus Samantha with documentation capacity.
 
-## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC)
+## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC) ↑
 
-**Overall 70.4 🟡 Moderate — Δ −5.6 (was 76.0).** DP structural reset: all 9 closed items exited visible backlog → DP 34.0 → 0.0; actual sprint output = 17 SP / 9 items (strong pace). New items added: #203399 (jit.edu.ph, armelita) + #203410 (Summer Camp Batch 2, Samantha, UAT). **#202981 DoR resolved** — AC now 4 criteria lines, 8-audit flag cleared. #203241 Spike + #203410 unestimated → Est 85.7. #199092 silent 12 days. armelita holds 9/14 sprint items. See [[summaries/audit-ado-jit-20260428-0203]].
+**Overall 72.9 🟡 Moderate — Δ +2.5 (was 70.4).** D3 85.7→100.0 (#203241 AI Tools Spike now 1 SP). D6 97.1→100.0 (#193054 SAFe RTE MC updated Apr 29 08:08; 0 stale). Backlog 35→25 (10 items closed/exited — actual sprint output 20+ SP). D7 still 0.0 structural. D1=40.0 (10/25). armelita holds 8/10 sprint items. #193054 Blocked since Oct 2025. See [[summaries/audit-ado-jit-20260429-0204]].
 
-> ⚠️ DP RESET — Visible DP = 0.0 is a rubric artifact (closed items exit backlog). Actual delivery = 17 SP across 9 items.
+> ⚠️ DP RESET — Visible DP = 0.0 is a rubric artifact. Actual delivery = 20+ SP across 12+ items.
+
+## Previous (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC)
+
+**Overall 70.4 🟡 Moderate — Δ −5.6. DP structural reset; actual output = 17 SP / 9 items.** See [[summaries/audit-ado-jit-20260428-0203]].
 
 ## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST)
 

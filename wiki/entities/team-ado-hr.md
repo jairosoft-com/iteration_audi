@@ -20,9 +20,13 @@ updated: 2026-04-28
 
 Single-operator HR function inside ADO project `Jairosoft FINOPS` handling end-to-end recruitment (Sr. Tech Lead, Bubble Dev, DevOps, Sales & Mktg) and annual performance evaluation (APE) workflows. Almera Kleer Tayao is the sole active contributor; Grace holds a zero-capacity allocation. 33-audit history across PI6 and PI7.
 
-## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC)
+## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC) →
 
-**Overall 81.4 🟢 Low — Δ 0.0 (unchanged from Audit #42).** No ADO activity detected since prior audit. 5 Active items (202885, 202886, 202109, 202114, 203067) stalled since Apr 22 — **5 consecutive sprint days without closure or state change.** 32 SP uncommitted vs. ~20 pts remaining capacity (Days 10–13; May 1 off) — maximum achievable DP = 62.5%. **#203057 and #203063 body-content defects at 11th consecutive audit** — operational hazard. #202887 at 7th consecutive. Almera sole contributor (Bus Factor = 1). See [[summaries/audit-ado-hr-20260428-0203]].
+**Overall 81.4 🟢 Low — Δ 0.0 (unchanged).** Scorecard flat across all 7 dimensions. Quality wins: #203053 + #203057 body-text copy-paste defects FIXED on Apr 28 (defect count 3→1; #202887 remains). Active count surged 5→9 (resumed momentum). 0 visible closures at Day 10; 32 SP in visible backlog. #203063 body-text defect also persists. Bus factor 1 (Almera). See [[summaries/audit-ado-hr-20260429-0204]].
+
+## Previous (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC)
+
+**Overall 81.4 🟢 Low — Δ 0.0. 5 Active items stalled. #203057/#203063 body-content defects at 11th audit.** See [[summaries/audit-ado-hr-20260428-0203]].
 
 ## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST)
 

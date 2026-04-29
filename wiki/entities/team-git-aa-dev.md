@@ -23,11 +23,13 @@ updated: 2026-04-28
 
 Product development team for **AutoAllies.com**, working across two GitHub repos (`jairosoft-com/autoallies-version2` frontend, `jairosoft-com/autoallies-api-core` backend) with story tracking in ADO project `Auto Allies` under team `AA Development Team`. Audits are iteration-bounded and combine GitHub developer productivity, SAFe compliance, and ADO-to-GitHub traceability.
 
-## Latest (Iteration 7.2 Day 9 — 2026-04-28 09:02 PHT) — Canonical
+## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:42 UTC) ↓
 
-**UPS 71.0 🟡 Moderate · Δ +0.3 vs 0247 crossover · ICS 100.0 · HCI 70/100 (+1) · SGPI 0.0% (0/27 SP closed, 5 days remain).** Full-evidence audit: ADO and GitHub both re-queried live at 09:02 PHT Apr 28. FE PR#131 + BE PR#89 merged this morning for AB#199818 ("additional changes based on PR review") — first multi-round review-response cycle in Iter 7.2; item advanced to Ready for QA. Retro Spike #202169 (PR Review Compliance) Closed. HCI trajectory: 49 (7.1 close) → 70 (Day 9) — 21-point improvement. Critical: zero SP closed; #203118 in QA Testing Day 7+; Joseph 3 Active items (#203281/#203287/#203289) have no GitHub branches. Data mode: `full`. See [[summaries/audit-git-aa-dev-20260428-0902]].
+**UPS 66.5 🟡 Yellow (Moderate) · ICS 98.7 · HCI 57/100 · SGPI 0.0%.** Data mode: `partial` (GitHub token 404 on raseniero). KEY POSITIVE: Retro spike #202169 Closed — Cliff Carcueva submitted substantive CHANGES_REQUESTED reviews on FE PR#131 + BE PR#89. HCI Dim 1 rises 2→6. Material behavioral shift from zero-review state. NEGATIVE: SGPI 0.0 (0 non-spike items Closed at Day 10); 15 SP in QA Testing — late close possible. Branch protection still unenforced (3 devs pushed directly to dev/develop). #201173 (RevenueCat) blocked 3+ iterations. Single reviewer (Cliff) = SPOF. See [[summaries/audit-git-aa-dev-20260429-0242]].
 
-> **Canonical Day 9.** Supersedes [[summaries/audit-git-aa-dev-20260428-0247]] (overnight crossover at 02:47 PHT, carried ADO from Apr 27).
+## Previous (Iteration 7.2 Day 9 — 2026-04-28 09:02 PHT) — Canonical
+
+**UPS 71.0 🟡 Moderate · ICS 100.0 · HCI 70 · SGPI 0.0.** Full-evidence. PR review culture shift confirmed. See [[summaries/audit-git-aa-dev-20260428-0902]].
 
 ## Previous (Iteration 7.2 Day 9 Early — 2026-04-28 02:47 PHT) — CROSSOVER, SUPERSEDED
 

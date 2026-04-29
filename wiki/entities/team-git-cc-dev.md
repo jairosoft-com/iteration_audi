@@ -19,9 +19,13 @@ updated: 2026-04-28
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
 
-## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:41 PHT)
+## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:41 UTC)
 
-**UPS 69.39 🟡 Moderate · Δ +0.90 · ICS 90.5 (fragile) · HCI 76/100 · SGPI 6.7% headline / 86.7% extended proxy.** BE#55 (202696, HIPAA Pino logging, 8 SP) merged 06:19 PHT — CHANGES_REQUESTED resolved after Day 3+ block. FE#145 (202594, 1 SP) and FE#171 (202028, 10 SP) also merged Day 9. No open PRs requiring review. **28 SP queued at Passed QA Testing / Ready for UAT — ADO state lag is the sole remaining velocity blocker.** 3 DoD failures still unresolved (200093/200828 null Desc; 202028 null AC). 202844 (5 SP, Role-based route guard) Active with no PR — 5 days remaining. See [[summaries/audit-git-cc-dev-20260428-0241]].
+**UPS 75.3 🟡 Yellow (Moderate) · ICS 90.5 · HCI 69/100 · SGPI 46.7%.** GitHub 404 exception RESOLVED — live data used, no partial mode. All 5 defects Closed (12 SP, 100% defect velocity). 6 enablers in "Passed QA Testing" (16 SP) — ADO state hygiene gap suppresses SGPI headline. FE PR#172 (AB#203322) merged — iteration drift (item not in 7.2). 5 PRs queued for raseniero review (reviewer bottleneck, 4 days left). CI/CD improvement: ci-pr.yml added to FE + BE repos (#202690). 3 DoR fails persist (200093, 200828, 202028). See [[summaries/audit-git-cc-dev-20260429-0241]].
+
+## Previous (Iteration 7.2 Day 9 — 2026-04-28 02:41 PHT)
+
+**UPS 69.39 🟡 Moderate · ICS 90.5 · HCI 76 · SGPI 6.7%.** BE#55 merged. 28 SP at Passed QA Testing. See [[summaries/audit-git-cc-dev-20260428-0241]].
 
 ## Previous (Iteration 7.2 Day 8 Late — 2026-04-27, re-run with full token)
 

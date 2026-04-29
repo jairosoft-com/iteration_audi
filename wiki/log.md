@@ -1362,3 +1362,27 @@ No refactor needed; hub density reflects correct cross-linking, not structural b
 - **Created 10 person entity stubs** (P3 backlog item): [[entities/person-almera]], [[entities/person-teofilo]], [[entities/person-jaszmeine]], [[entities/person-vicsante]], [[entities/person-ike]], [[entities/person-luke]], [[entities/person-cliff]], [[entities/person-samantha-babael]], [[entities/person-kyaa-a]], [[entities/person-pcoronia]]
 - **Added 6 missing meeting agendas to index** (P3): Apr 21, Apr 23-1600, Apr 24, Apr 25, Apr 26, Apr 26-2130
 - **Reorganized index**: added "Raw Transcripts" section; updated page counts → entities 30, summaries 396
+
+## [2026-04-29 10:00] ingest | Day-10 batch — 10 audits + portfolio + meeting agenda
+
+Full Day-10 batch ingest (12 new summaries, 10 entity updates). Distribution: **4 Low · 6 Moderate · 0 High · 0 Critical** — first 0-High/0-Critical in PI7.2. Mean ~77.1 (+4.6 vs Day 9).
+
+**ADO summaries (8):**
+- [[summaries/audit-ado-admin-20260429-0204]] — 78.3 Mod (+4.9); 3 closures; DoR→100; 1.7 from Low
+- [[summaries/audit-ado-fin-20260429-0204]] — **89.6 Low (+11.7)**; 10-audit plateau broken
+- [[summaries/audit-ado-hr-20260429-0204]] — 81.4 Low (flat); 2 body-text defects fixed
+- [[summaries/audit-ado-jit-20260429-0204]] — 72.9 Mod (+2.5); D3+D6→100; backlog 35→25
+- [[summaries/audit-ado-fl-dev-20260429-0204]] — 72.5 Mod (−1.5); new defect #203442
+- [[summaries/audit-ado-ls-dev-20260429-0204]] — **64.7 Mod (+16.8)**; exits High Risk
+- [[summaries/audit-ado-otp-20260429-0206]] — **82.5 Low (+7.7)**; first Low in 7.2
+- [[summaries/audit-ado-shared-20260429-0207]] — 87.4 Low (+2.8); D3→100; D7 regressed (21 SP Jodex injection)
+
+**Git summaries (2):**
+- [[summaries/audit-git-aa-dev-20260429-0242]] — UPS 66.5 Mod; partial; retro spike Closed (PR review shift); SGPI 0.0
+- [[summaries/audit-git-cc-dev-20260429-0241]] — UPS 75.3 Mod (+5.9); 404 resolved; 5/5 defects closed
+
+**Portfolio + agenda:**
+- [[summaries/portfolio-20260429-0300]] — 4L·6M·0H·0C; 3 band promotions
+- [[summaries/meeting-agenda-20260429]] — Day 10 portfolio review
+
+**Updated:** all 10 team entities (Latest→Previous rotation), index (links, counts → 351 audits, 408 summaries)

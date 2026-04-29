@@ -20,11 +20,15 @@ updated: 2026-04-29
 
 Cross-cutting services function covering **UIUX, IT, and DevOps** inside ADO project `Jairosoft Portfolio`. Work routinely flows through other product teams' boards, so this team's own backlog under-reports real delivery.
 
-## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:04 PHT / A11) — BAND UPGRADE Moderate→Low
+## Latest (Iteration 7.2 Day 10 — 2026-04-29 / A12) — Low Risk sustained
 
-**Overall 84.6 🟢 Low — Δ +17.0 · FIRST Low Risk audit in team history.** Three simultaneous structural improvements: D1 23.5→70.3 (sprint scope 8→26 items); D5 60.0→100.0 (6 User Stories added, eliminating −40 WIB penalty); D6 90.0→100.0 (#202551 touched Apr 28). 20/33 SP closed (12 items, primarily Teofilo DevOps/IT). Remaining risks: D3 69.2 (8 unestimated Vicsante AI items); #202687 in New state (3 SP, spill risk). See [[summaries/audit-ado-shared-20260428-0204]].
+**Overall 87.4 🟢 Low — Δ +2.8 · Second consecutive Low Risk.** D3 69.2→100.0 (all 29 items estimated — first D3=100 in workspace history). D7 60.6→42.4 **REGRESSION**: 6 Jodex QA stories (#203436–#203441, 21 SP) added mid-sprint Day 10 in Ready for Dev — SAFe "Protect the Sprint" violation. D1 70.3→76.3 (29/38). D4 92.3→93.1. 25 SP closed, 34 SP open. 3 AI CLI stories closed (#200807-#200809). Vicsante has 21 SP at Ready for Dev vs ~24h capacity — will spill to 7.3. See [[summaries/audit-ado-shared-20260429-0207]].
 
-> ✅ **Milestone — First Low Risk:** Team climbed from Critical (32.2) at first audit (2026-04-19) to Low Risk (84.6) in 11 audits over 9 days. The +17.0 gain on Apr 28 is the largest single-session gain in team history and was driven by scope tripling (D1), User Story inclusion eliminating the WIB penalty (D5), and full backlog refinement completion (D6).
+> ⚠️ **Sprint scope injection:** 6 Jodex items (21 SP) entered sprint at Day 10. D7 regression is a direct consequence. Flag for retrospective.
+
+## Previous (Iteration 7.2 Day 9 — 2026-04-28 02:04 PHT / A11) — BAND UPGRADE
+
+**Overall 84.6 🟢 Low — Δ +17.0 · FIRST Low Risk in team history. Critical→Low in 9 days.** See [[summaries/audit-ado-shared-20260428-0204]].
 
 ## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 PHT / A10)
 

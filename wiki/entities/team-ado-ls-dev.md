@@ -21,11 +21,15 @@ updated: 2026-04-28
 
 Product team delivering **LifeStyleHelpApp.com** (mobile/web membership, workout, blog, and admin tooling) inside ADO project `Life Style Help App`. Small squad — Samantha Babael (Dev), Ike Yana (Dev), Luzmibel Paculanang (Test) — with mixed User Story and Defect work and a recurring ownership-concentration risk on Samantha.
 
-## Latest (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC / A35) ⚠️ HIGH RISK SUSTAINED
+## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC / A36) ↑↑ BAND UPGRADE
 
-> ⚠️ BAND SUSTAINED — Day 2 consecutive High Risk. Score declined 50.7 → 47.9 (Δ −2.8). No recovery path without User Story addition and item closures.
+> ✅ **BAND UPGRADE — High → Moderate.** +16.8 points, largest single-audit gain in series. Structural recovery (estimation + backlog hygiene), not delivery.
 
-**Overall 47.9 🟠 High Risk — Δ −2.8 (was 50.7).** New item #203390 (Defect, subscription auto-cancel, Samantha) added Apr 28 — sprint now 2 Defects + 1 Spike, 0 User Stories. WIB drops 40.0→30.0 (dual penalty: no US −40 + Defect 66.7% dominant −30). Est 50.0→33.3 (2 of 3 sprint items unestimated). 0 SP closed Day 9. Ike Yana idle 9 consecutive days. 4 stale_90 items persist (194082, 194084, 194386, 195229). Dual billing defect pattern emerging (#203239 + #203390). See [[summaries/audit-ado-ls-dev-20260428-0203]].
+**Overall 64.7 🟡 Moderate Risk — Δ +16.8 (was 47.9).** D3 33.3→100.0 (all 3 items estimated: #203247 1SP, #203390 2SP, #203239 1SP). D6 49.2→100.0 (mass backlog update Apr 28 23:30 cleared all stale_90; 13/13 fresh). D7=0.0 (Day 10, 0 closures, 4 SP committed). D1=23.1 (3/13). D5=30.0 (0 US). Billing pattern: #203239 + #203390 + #194386 — potential systemic subscription defect. Both #203247 and #203390 updated Apr 29 07:32 — active investigation. See [[summaries/audit-ado-ls-dev-20260429-0204]].
+
+## Previous (Iteration 7.2 Day 9 — 2026-04-28 02:03 UTC / A35) ⚠️
+
+**Overall 47.9 🟠 High Risk — Δ −2.8. Day 2 High Risk. 2 of 3 items unestimated; 4 stale_90 items.** See [[summaries/audit-ado-ls-dev-20260428-0203]].
 
 ## Previous (Iteration 7.2 Day 8 — 2026-04-27 11:10 CST / A34) ⚠️ BAND DROP
 
