@@ -13,7 +13,7 @@ sources:
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
   - "../../ado_shared/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-28
+updated: 2026-04-29
 ---
 
 # Shared Services Team (ADO)
@@ -72,6 +72,14 @@ First audit in `ado_shared/` scored **32.2 (Critical)**; see [[summaries/audit-a
 - First appearance in portfolio dashboard: [[summaries/portfolio-20260419-1953]] (2026-04-19).
 - 10-team portfolio mean 76.1 (Moderate); Shared Services is the sole Critical.
 - All other ADO teams are Low/Moderate; see [[summaries/portfolio-20260419-1953]] § Risk Distribution.
+
+## Active Features
+
+| ID | Title | Owner | SP | Tasks | State |
+|----|-------|-------|----|-------|-------|
+| **203435** | [[entities/system-jodex|Jodex QA Automation Skill]] | Vicsante | 21 | 33 | New |
+
+> Added 2026-04-29 to Iteration 7.2. 5 User Stories + 1 Enabler with 39 Gherkin acceptance scenarios. Email guardrails added after Codex adversarial review. Creation log: `working/qa_automation_creation_log.md`. **Note:** Vic's 7.2 load now ~30+ SP with 4 days remaining — monitor for spill.
 
 ## ADO references
 

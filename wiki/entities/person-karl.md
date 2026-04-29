@@ -7,7 +7,7 @@ sources:
   - "../../ado_admin/CLAUDE.md"
   - "../../ado_shared/CLAUDE.md"
 created: 2026-04-20
-updated: 2026-04-20
+updated: 2026-04-29
 ---
 
 # Karl Caumban
@@ -48,11 +48,22 @@ He doesn't appear to run audits directly (that's Ramon), but he **consumes the o
 | Project Manager | [[entities/person-carol]] | Team-PM he'd interface with for Shared Services / Flawless |
 | Admin Team | [[entities/person-mark-colina]] | Bus-factor-1 conversation he'd escalate |
 
+## Action items from 2026-04-23 JIT review
+
+Source: [[summaries/transcript-jit-review-2026-04-23]]
+
+1. **Per-project P&L report** — use AI/ChatGPT to extract trend data; coordinate with [[entities/person-grace]] on costs. No deadline set.
+2. **Task management convention** — team tasks → ADO, personal → MS Planner. Communicate to Grace + ensure org-wide adoption.
+3. **LPM board consolidation** — move LPM tasks from Excel/Monday.com to ADO.
+4. **LS Dev contract status** — follow up with Grace on whether contract has shifted.
+5. **OneDrive portfolio data** — access granted during meeting; expected to consume meeting agendas and wiki data going forward.
+
 ## Open questions
 
 - Does Karl also sign off on rubric changes (e.g., the proposals in [[synthesis/scoring-artifacts]] and [[synthesis/service-model-scoring]]), or is that Ramon-only?
 - Is there a standing Karl-owned cadence beyond the Ramon joint meeting? (e.g., daily standups with teams)
 - Are his action items from portfolio meetings tracked anywhere? Candidate feature: a Karl-owned action log in `portfolio_report/actions/`.
+- When will Karl deliver the first P&L report draft? (asked 2026-04-23, no deadline set)
 
 ## Related
 

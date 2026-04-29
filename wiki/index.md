@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 19 · concepts 6 · summaries 389 active + 1 tombstone · synthesis 19
+**Page counts:** entities 30 · concepts 6 · summaries 396 active + 1 tombstone · synthesis 20
 
 ## Synthesis
 
@@ -28,6 +28,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[synthesis/github-compliance-issues]] | GitHub compliance for Git-audited teams | 14 issues ranked across 48 Git audits; two distinct failure modes — AA engineering-health degradation · CC review-discipline + HIPAA exposure |
 | [[synthesis/ci-health]] | Engineering-health baseline for Git teams | Pre-P0 HCI: AA 49, CC 74; top 3 post-P0 metrics: required-reviewer rate · PR review latency · HIPAA 2-reviewer compliance |
 | [[synthesis/bus-factor]] | Portfolio SPOF catalog | 9 signals across 7 teams; 5 delivery-side (Mark/Admin, Armelita/JIT, etc.), 2 near-1, 2 review-side; proposes ≥40% SP-concentration flag |
+| [[synthesis/ado-mcp-api-patterns]] | ADO MCP API work item creation | System.Parent silent failure, Task required fields, batch linking, Gherkin in `<pre>`, preflight search; derived from Feature #203435 creation |
 | [[synthesis/audit-automation]] | Consolidated roadmap | 29 auto-check rules across 4 layers (planning gates · per-audit flags · repo enforcement · dashboard widgets); priority 1: UPS component surfacing |
 
 ## Summaries — Portfolio snapshots (chronological, newest first)
@@ -69,10 +70,23 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 |------|------|-----------|----------|
 | [[summaries/meeting-agenda-20260428]] | Apr 28 | PI7.2 Day 9 | Day 9 portfolio review meeting agenda |
 | [[summaries/meeting-agenda-20260427]] | Apr 27 | PI7.2 Day 8 | 30-min · Ramon + Karl · LS Dev High Risk + BE#55 + credential rotation |
+| [[summaries/meeting-agenda-20260426-2130]] | Apr 26 21:30 | PI7.2 Day 7 | Evening refresh · JIT Low Risk path + Teofilo DoR batch |
+| [[summaries/meeting-agenda-20260426]] | Apr 26 14:00 | PI7.2 Day 7 | Afternoon snapshot · scorecard + trend |
+| [[summaries/meeting-agenda-20260425]] | Apr 25 | PI7.2 Day 6 | Day 6 DP inflection review |
+| [[summaries/meeting-agenda-20260424]] | Apr 24 | PI7.2 Day 5 | Day 5 decisions + action items |
+| [[summaries/meeting-agenda-20260423-1600]] | Apr 23 16:00 | PI7.2 Day 4 | Day 4 decisions + action items |
+| [[summaries/meeting-agenda-20260421]] | Apr 21 | PI7.2 Day 2 | Sprint-open review |
+
+## Summaries — Raw Transcripts
+
+| Page | Date | Source | Headline |
+|------|------|--------|----------|
+| [[summaries/transcript-jit-review-2026-04-23]] | Apr 23 | JIT Program Alignment & LPM Review | 46 min · Ramon + Karl · P&L report action, GitHub PAT fix, task management convention, story sizing |
+| [[summaries/transcript-lpm-review-2026-04-23]] | Apr 23 | Lean Portfolio Leadership Review | LPM review transcript |
 
 ## Summaries — Per-team audits
 
-**300 audit summaries + 24 portfolio snapshots + 2 meeting agendas + 1 raw transcript = 325 total summary pages.** Full per-team lists live in each team entity page's "Audit history" section (click through).
+**300 audit summaries + 24 portfolio snapshots + 8 meeting agendas + 2 raw transcripts = 334 total summary pages.** Full per-team lists live in each team entity page's "Audit history" section (click through).
 
 ### Latest audit per team (Iteration 7.2 Day 9 — 2026-04-28)
 
@@ -106,7 +120,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | Auto Allies (Git) | 34 | 2026-03-09 → 2026-04-28 | [[entities/team-git-aa-dev]] |
 | Colina Health (Git) | 29 | 2026-03-11 → 2026-04-28 | [[entities/team-git-cc-dev]] |
 | **Total** | **341** | **2026-02-24 → 2026-04-28** | — |
-| (Plus 8 portfolio snapshots + 6 meeting agendas + 1 transcript ingested 4/23–4/28) | | | |
+| (Plus 8 portfolio snapshots + 8 meeting agendas + 2 transcripts ingested 4/21–4/29) | | | |
 
 ## Entities (teams · people · systems)
 
@@ -142,12 +156,23 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[entities/person-karl]] | Portfolio Delivery Manager | All 10 workspaces (portfolio-wide) |
 | [[entities/person-bomar]] | Engineering Manager | Portfolio-wide; primarily Git + ADO dev teams |
 | [[entities/person-armelita]] | PM + PO + IC for JIT (triple-hat) | [[entities/team-ado-jit]] — routinely 70–80%+ SP concentration |
+| [[entities/person-almera]] | Sole HR operator (bus-factor-1) | [[entities/team-ado-hr]] |
+| [[entities/person-teofilo]] | Instructor (JIT) + DevOps/IT (Shared Services) | [[entities/team-ado-jit]], [[entities/team-ado-shared]] |
+| [[entities/person-jaszmeine]] | Design (Colina Health + Shared Services) — non-dev exception | [[entities/team-git-cc-dev]], [[entities/team-ado-shared]] |
+| [[entities/person-vicsante]] | Developer (Shared Services) — Jodex owner | [[entities/team-ado-shared]] |
+| [[entities/person-ike]] | Developer (LS Dev, Flawless) — 253-day stale item | [[entities/team-ado-ls-dev]], [[entities/team-ado-fl-dev]] |
+| [[entities/person-luke]] | Primary developer (Flawless) | [[entities/team-ado-fl-dev]] |
+| [[entities/person-cliff]] | Developer (Auto Allies) | [[entities/team-git-aa-dev]] |
+| [[entities/person-samantha-babael]] | Developer/Documentation (LS Dev, JIT) — cross-team | [[entities/team-ado-ls-dev]], [[entities/team-ado-jit]] |
+| [[entities/person-kyaa-a]] | Developer — Asnari Pacalna (Colina Health) | [[entities/team-git-cc-dev]] |
+| [[entities/person-pcoronia]] | Lead Developer — Paul Coronia (Colina Health) | [[entities/team-git-cc-dev]] |
 
 ### Systems
 
 | Page | Scope | Status |
 |------|-------|--------|
 | [[entities/system-macpilot]] | `scripts/agents/` — launchd-scheduled Claude CLI harness (MacPilot, MIT, © Raul Riera) | 5 production wrappers shipped 2026-04-23 (08:30/09:00/09:30/09:45/09:50 daily portfolio chain); vendored as git subtree (3 commits) |
+| [[entities/system-jodex]] | Rust CLI + plugin marketplace (Claude Code, Codex, Gemini) — QA automation, product management skills | 3 Features in ADO (#200094 Closed, #203319 Active, #203435 New); owned by Vicsante; 21 SP queued in 7.2 |
 
 ## Concepts
 

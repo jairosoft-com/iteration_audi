@@ -1344,3 +1344,21 @@ No refactor needed; hub density reflects correct cross-linking, not structural b
 3. **P2 — Fix bare-slug links**: 25 early LS Dev chain links + 1 meeting-agenda link need `summaries/` prefix added.
 4. **P3 — Create stub person entities** for 10 team-member names (`person-ike`, `person-teofilo`, `person-vicsante`, `person-jaszmeine`, `person-almera`, `person-cliff`, `person-luke`, `person-samantha-babael`, `person-kyaa-a`, `person-pcoronia`). Short stubs with role, team link, and a line on bus-factor signal where applicable.
 5. **P3 — Add 6 meeting agendas to index**: Apr 21, Apr 23-1600, Apr 24, Apr 25, Apr 26 (both variants) are on disk but the index's Meeting Agendas table only shows Apr 27 and Apr 28.
+
+## [2026-04-29 05:45] synthesis | ADO MCP API Patterns + Jodex entity + Shared Services update
+
+- **Source:** session work — batch creation of Feature #203435 (Jodex QA Automation Skill), 6 stories, 33 tasks on Shared Services board
+- **Created** [[synthesis/ado-mcp-api-patterns]] — 6 patterns for ADO work item creation via MCP tools (System.Parent silent failure, Task required fields, batch linking, Gherkin ACs, preflight search, field reference)
+- **Created** [[entities/system-jodex]] — Jodex system entity (Rust CLI + plugin marketplace, 3 ADO Features, owned by Vicsante)
+- **Updated** [[entities/team-ado-shared]] — added Active Features section with Feature #203435 (21 SP, 33 tasks, 39 Gherkin scenarios); noted Vic workload spill risk
+- **Updated** [[index]] — added system-jodex entity + ado-mcp-api-patterns synthesis; page counts → entities 20, synthesis 20
+- Codex adversarial review drove 3 plan patches before execution: email guardrails (recipient allowlist, dry-run, sanitization, audit log), missing /qa-ai:report + /qa-ai:email in lifecycle checks, idempotency safeguard
+
+## [2026-04-29 08:30] ingest | JIT Program Alignment & LPM Review transcript (Apr 23)
+
+- **Source:** `raw/meeting_transcripts/jit/Apr_23rd_26.docx` — 46 min Ramon + Karl meeting
+- **Created** [[summaries/transcript-jit-review-2026-04-23]] — 7 action items extracted (P&L report, task management convention, LPM board consolidation, GitHub PAT fix, story sizing, non-dev GitHub exclusion, LS Dev contract follow-up)
+- **Updated** [[entities/person-karl]] — added 5 action items from transcript + open question on P&L deadline
+- **Created 10 person entity stubs** (P3 backlog item): [[entities/person-almera]], [[entities/person-teofilo]], [[entities/person-jaszmeine]], [[entities/person-vicsante]], [[entities/person-ike]], [[entities/person-luke]], [[entities/person-cliff]], [[entities/person-samantha-babael]], [[entities/person-kyaa-a]], [[entities/person-pcoronia]]
+- **Added 6 missing meeting agendas to index** (P3): Apr 21, Apr 23-1600, Apr 24, Apr 25, Apr 26, Apr 26-2130
+- **Reorganized index**: added "Raw Transcripts" section; updated page counts → entities 30, summaries 396
