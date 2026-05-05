@@ -186,6 +186,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[concepts/compliance-deadlines]] | Regulatory (BIR / eAFS) | [[entities/team-ado-fin]], [[entities/person-grace]], [[synthesis/iteration-7.1-close]], [[synthesis/compliance-misalignment]] |
 | [[concepts/stakeholder-roles]] | Governance (PDM/PM/EM/PO/SM) | All person entities; [[synthesis/pi7-plan]] |
 | [[concepts/headless-skill-mode]] | Skill design (scheduled / unattended invocation) | [[entities/system-macpilot]], `.claude/skills/portfolio-email/SKILL.md` §Step 6.5 |
+| [[concepts/ado-mcp-call-patterns]] | ADO MCP tooling rules (always use IDs) | [[entities/team-ado-otp]], all ADO audit skills |
 
 ## Next content candidates
 

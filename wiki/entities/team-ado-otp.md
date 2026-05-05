@@ -85,7 +85,11 @@ Iteration 7.1 final state remained frozen at **71.2** (Moderate); see [[summarie
 - Project: `OTP` (`e7739905-28a3-4ae1-9173-7f6cd13b3494`)
 - Team: `OTP Team` (`64de61f0-1203-4b01-aee2-6b4415aec52b`)
 - Iteration 7.1 ID: `ce4205d6-4038-4752-a0b8-dda248031686`
+- Iteration 7.2 ID: `611496a8-1907-483b-94b9-4e3ee575faf5`
+- Iteration 7.3 ID: `86aab8f1-cd46-4fe6-a810-00fba59b46a3` (current — May 4–17, 2026)
 - Workspace: [../../ado_otp/](../../ado_otp/)
+
+> ⚠️ **API quirk (confirmed 2026-05-05):** `work_list_team_iterations` returns `"No iterations found"` when called with project name `"Jairosoft FINOPS"`. Must pass project ID `e7739905-28a3-4ae1-9173-7f6cd13b3494`. Audit skills and agents must use the ID, not the name, for all OTP calls.
 
 ## Stakeholders
 

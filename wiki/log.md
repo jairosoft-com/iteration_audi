@@ -1386,3 +1386,19 @@ Full Day-10 batch ingest (12 new summaries, 10 entity updates). Distribution: **
 - [[summaries/meeting-agenda-20260429]] — Day 10 portfolio review
 
 **Updated:** all 10 team entities (Latest→Previous rotation), index (links, counts → 351 audits, 408 summaries)
+
+## [2026-05-05 12:00] rule | ADO MCP call patterns — always use IDs
+
+- User confirmed: all ADO MCP calls must use project/team/iteration GUIDs, not display names.
+- Generalized from OTP-specific quirk (confirmed earlier same session).
+- Created [[concepts/ado-mcp-call-patterns]] — known IDs table, discovery pattern, confirmed failure example.
+- Added to wiki index. Saved to memory: `feedback_ado_use_ids.md`.
+
+## [2026-05-05 00:00] note | ADO OTP API quirk — work_list_team_iterations
+
+- Triple-checked endpoint for OTP Team (verified 2026-05-05).
+- `project: "Jairosoft FINOPS"` → silent empty (`"No iterations found"`).
+- `project: "e7739905-28a3-4ae1-9173-7f6cd13b3494"` → 19 iterations returned.
+- `timeframe: current` confirms active iteration = **Iteration 7.3** (May 4–17, 2026; ID `86aab8f1-cd46-4fe6-a810-00fba59b46a3`).
+- Updated [[entities/team-ado-otp]] — added Iter 7.2+7.3 IDs, API quirk warning.
+- Saved to memory: `reference_ado_otp_api.md`.
