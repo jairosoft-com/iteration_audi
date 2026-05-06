@@ -1420,3 +1420,26 @@ Live ADO data pull (all calls via project/team GUIDs). First full backlog analys
 - Custom state "Marketing" confirmed: not standard SAFe state; treat as Active for scoring
 
 **Index:** JIT entity score updated 72.9 → 75.2.
+
+## [2026-05-05 22:00] ingest | Admin Iter 7.3 Day 2 full backlog analysis
+
+Live ADO data pull using project/team/iteration GUIDs. First full-depth backlog analysis for Administration Team using ado_fin format. ~83 work items queried across 5 backlog levels.
+
+**New summary:** [[summaries/backlog-analysis-ado-admin-20260505]] — 2 PI Objectives (both New), 16 Features, 12 sprint stories, 42 sprint tasks (13 closed Day 1–2), 10 ghost tasks.
+
+**Entity update — [[entities/team-ado-admin]]:**
+- Latest rotated: Iter 7.2 Day 10 (78.3) → Iter 7.3 Day 2 (backlog analysis, full structural read)
+- Zero Active PI Objectives confirmed — structural gap; both #200570 (PI6 stale) and #200577 (root, no PI) in New state
+- 10 ghost tasks identified: 8 from xPI1 (Jan–Feb 2025) assigned to Roche Casipong and Almera Tayao; 1 from PI4 (Oct 2025); 1 from PI6 (Mar 2026)
+- Early-execution signal: 13 tasks + 1 story Closed by Day 2 (contrast with Iter 7.2 zero-close through Day 8)
+- Defect #203693 type mismatch: new construction classified as defect; overlaps Feature #203654
+
+**Synthesis update — [[synthesis/stale-work-items]]:**
+- Added 4 new Admin ghost task entries (#175921–175927, #175958–175964, #193234, #199736)
+- Admin ghost task depth confirmed as deepest in portfolio: xPI1 items from Jan–Feb 2025 (~15 months old) still in Active state
+- Roche Casipong and Almera Tayao flagged as potentially inactive assignees on ghost tasks
+
+**Cross-team pattern identified:**
+- Task #203709 (Admin) "Complete Claude CPN 4 Courses" (10 hrs, orphaned) + Task #203599 (Finance) "Complete Claude CPN 4 Courses" (10 hrs, orphaned) — same training, same sprint, both teams, both without parent story. Portfolio-level training initiative tracked at task level only. Candidate for a portfolio Learning Spike pattern in `synthesis/` if Finance backlog analysis also gets ingested.
+
+**Finance backlog analysis note:** `ado_fin/BACKLOG_ANALYSIS_20260505.md` exists in raw source but not yet ingested into wiki. Candidate for next session.

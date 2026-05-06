@@ -12,14 +12,28 @@ sources:
   - "../../ado_admin/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-29
+updated: 2026-05-05
 ---
 
 # Administration Team (ADO)
 
 Single-contributor administrative operations function inside ADO project `Jairosoft FINOPS`. Scope covers facilities, utilities payables, government compliance (BFP, PhilGeps, DOLE, EGOV), and procurement. Mark Colina owns every work item — delivery is reliable but carries persistent bus-factor risk.
 
-## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC) ↑↑
+## Latest (Iteration 7.3 Day 2 — 2026-05-05 PHT) ↑
+
+**Full backlog analysis completed.** 31 SP committed, 12 sprint items, 6 Active features, 10 ghost tasks, **zero Active PI Objectives** (critical gap). First story (#203651, rooftop post fixation) Closed Day 2. 13 tasks Closed Day 1–2 — early-execution signal vs Iter 7.2 back-load pattern.
+
+Key structural findings (see [[summaries/backlog-analysis-ado-admin-20260505]]):
+- Both PI Objectives (#200570, #200577) in **New** state; #200570 scoped to PI6 (stale)
+- 10 ghost tasks across xPI1/PI4/PI6 — 8 assigned to Roche Casipong/Almera Tayao (possibly inactive)
+- 6 Active features simultaneously, all Mark — high Feature WIP
+- 8 features with no PI assignment floating in backlog
+- #203709 Claude CPN 4 training (10 hrs) orphaned — no parent story (cross-team: same pattern as Finance #203599)
+- Defect #203693 used for new construction (CR sink cabinet) — type mismatch
+
+Iter 7.3 sprint: 31 SP committed, 39 hrs remaining task work vs ~36–48 hrs capacity. Tight but feasible.
+
+## Previous (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC) ↑↑
 
 **Overall 78.3 🟡 Moderate — Δ +4.9 · Largest single-day gain this sprint; 1.7 pts from Low Risk.** Three closures early Apr 29: #202353 (JIT BFP, 3 SP), #202898 (Condo dues, 3 SP), #202945 (Grass cutting, 3 SP). Total 9/39 SP closed. D1 55→64.7 (backlog 20→17). D4 90.9→100.0 (#202898 Desc+AC added before closure — first DoR 100 this sprint). D7 7.7→23.1. Path to Low Risk: close 2 more items OR resolve D6 untouched penalty (#202357/#202366). See [[summaries/audit-ado-admin-20260429-0204]].
 

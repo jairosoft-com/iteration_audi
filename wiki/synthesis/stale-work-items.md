@@ -7,6 +7,7 @@ sources:
   - "../entities/team-ado-jit.md"
   - "../entities/team-ado-fl-dev.md"
   - "../entities/team-ado-admin.md"
+  - "../summaries/backlog-analysis-ado-admin-20260505.md"
   - "../entities/person-grace.md"
   - "../summaries/audit-ado-ls-dev-20260419-1345.md"
   - "../summaries/audit-ado-ls-dev-20260417-0900.md"
@@ -25,7 +26,7 @@ sources:
   - "../synthesis/dor-leakage.md"
   - "../synthesis/capacity-planning.md"
 created: 2026-04-20
-updated: 2026-04-20
+updated: 2026-05-05
 ---
 
 # Stale Work Items — Chronic Backlog Debt
@@ -51,6 +52,10 @@ Cross-cutting synthesis of the work items that age in the backlog across audits,
 | #202219 armelita marketing | JIT | 11 (last touched Apr 8) | User Story | — | armelita | [[summaries/audit-ado-jit-20260419-1345]] |
 | #202237 armelita marketing | JIT | 11 (last touched Apr 8) | User Story | — | armelita | [[summaries/audit-ado-jit-20260419-1345]] |
 | **#202894** Goverment payables for | Admin | born-stale (created Apr 19 with no DoR) | User Story | New | — | [[summaries/audit-ado-admin-20260419-1345]] |
+| **#175921–175927** FamDay Field Day (4 tasks) | Admin | ~15 mos (xPI1\Iter 1.4, Feb 2025) | Task | Active | **Roche Casipong** | [[summaries/backlog-analysis-ado-admin-20260505]] |
+| **#175958–175964** PHILHEALTH/tax certs (4 tasks) | Admin | ~15 mos (xPI1\Iter 1.3, Jan 2025) | Task | Active/New | **Almera K. Tayao** | [[summaries/backlog-analysis-ado-admin-20260505]] |
+| **#193234** Grass cutting Day 2 | Admin | ~7 mos (PI4\Iter 4.3, Oct 2025) | Task | New | Mark Colina | [[summaries/backlog-analysis-ado-admin-20260505]] |
+| **#199736** CADAC training Day 1 | Admin | ~2 mos (PI6\Iter 6.5, Mar 2026) | Task | New | Mark Colina | [[summaries/backlog-analysis-ado-admin-20260505]] |
 | #202229 Akira letter | OTP | 9 (last ChangedDate Apr 10) | User Story | Active | Grace | [[summaries/audit-ado-otp-20260419-1345]] |
 | #192303 | JIT | 159 (reported 2026-03-25) | — | broader backlog | — | [[summaries/audit-ado-jit-20260325-0849]] |
 
