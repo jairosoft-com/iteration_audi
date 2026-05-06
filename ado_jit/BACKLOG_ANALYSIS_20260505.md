@@ -5,13 +5,13 @@
 
 ## Inventory Summary
 
-| Category               | Backlog Level     | Count  | Total SP / Effort    |
-| ---------------------- | ----------------- | ------ | -------------------- |
-| PI Objectives          | Epic              | —      | —                    |
-| Features               | Feature           | —      | —                    |
-| Stories / Deliverables | Requirement       | 39     | 56 SP open + 5 closed |
-| Tasks / Steps          | Task (children)   | ~61    | Not fetched           |
-| **TOTAL**              |                   | **39** | **61 SP committed**  |
+| Category               | Backlog Level   | Count  | Total SP / Effort     |
+| ---------------------- | --------------- | ------ | --------------------- |
+| PI Objectives          | Epic            | —      | —                     |
+| Features               | Feature         | —      | —                     |
+| Stories / Deliverables | Requirement     | 39     | 56 SP open + 5 closed |
+| Tasks / Steps          | Task (children) | ~61    | Not fetched           |
+| **TOTAL**              |                 | **39** | **61 SP committed**   |
 
 > JIT backlog has no PI Objective or Feature hierarchy. All work items are at the Requirement level (User Story, Training, Spike, Courseware).
 
