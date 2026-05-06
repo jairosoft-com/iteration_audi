@@ -1402,3 +1402,21 @@ Full Day-10 batch ingest (12 new summaries, 10 entity updates). Distribution: **
 - `timeframe: current` confirms active iteration = **Iteration 7.3** (May 4–17, 2026; ID `86aab8f1-cd46-4fe6-a810-00fba59b46a3`).
 - Updated [[entities/team-ado-otp]] — added Iter 7.2+7.3 IDs, API quirk warning.
 - Saved to memory: `reference_ado_otp_api.md`.
+
+## [2026-05-05 20:00] ingest | JIT Iter 7.3 Day 2 audit + full backlog analysis
+
+Live ADO data pull (all calls via project/team GUIDs). First full backlog analysis for JIT using ado_fin format.
+
+**New summaries (2):**
+- [[summaries/audit-ado-jit-20260505-0900]] — Audit #51, Iter 7.3 Day 2, **75.2 Moderate** (+3.1); D7 3.3 at audit → 8.2 post-audit (DHCP closed); 4 of 5 urgent audit recommendations addressed same PHT day
+- [[summaries/backlog-analysis-ado-jit-20260505]] — 39 open items, 5 workstreams mapped, ~61 task children; key structural finding: JIT has **no Feature hierarchy** (flat backlog); Teofilo CSS NC II Training sequence documented; same-day responsiveness pattern noted
+
+**Entity update — [[entities/team-ado-jit]]:**
+- Latest rotated: 7.2 Day 10 (72.9) → 7.3 Day 2 (75.2)
+- Samantha last name confirmed: **Babael** (email `sbabaeil@jairosoft.com` via live ADO) — open question resolved
+- Iter 7.3 IDs added: project `666bb99a`, team `b25e3129`, iter `bbaecdec`
+- 6 audit history entries added (A46–A51, Apr 30–May 5)
+- Structural notes added: no Feature layer, "Marketing" custom state, Teofilo training sequence, Armelita SP concentration
+- Custom state "Marketing" confirmed: not standard SAFe state; treat as Active for scoring
+
+**Index:** JIT entity score updated 72.9 → 75.2.

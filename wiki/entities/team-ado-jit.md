@@ -3,6 +3,8 @@ title: "Team — JIT Operation (ADO)"
 type: entity
 tags: [team, ado, jit, training, safe]
 sources:
+  - "../../ado_jit/audit/AUDIT_20260505_0900.md"
+  - "../../ado_jit/BACKLOG_ANALYSIS_20260505.md"
   - "../../ado_jit/audit/AUDIT_20260428_0203.md"
   - "../../ado_jit/audit/AUDIT_20260425_1533.md"
   - "../../ado_jit/audit/AUDIT_20260424_0834.md"
@@ -13,14 +15,20 @@ sources:
   - "../../ado_jit/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-28
+updated: 2026-05-05
 ---
 
 # JIT Operation Team (ADO)
 
 Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairosoft Portfolio`. Work mix includes CSS NC II / Bubble MCC marketing, TESDA Assessment Center accreditation (AC Compliance), COC assessments, and community outreach. Three active contributors ([[entities/person-armelita|Armelita Pulido]] as PM/PO, Teofilo Limpag, [[entities/person-grace|Grace Garcia]]) plus Samantha with documentation capacity.
 
-## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC) ↑
+## Latest (Iteration 7.3 Day 2 — 2026-05-05 09:00 UTC) ↑
+
+**Overall 75.2 🟡 Moderate — Δ +3.1 (was 72.1 Day 1).** New iteration; 29 items / 61 SP committed. 2 SP Closed at audit time (#203616 + #203756). D2=100, D3=D4=96.6 (1 DoR gap: #203158 no Desc/AC). D6 improved 10.4 pts (untouched 32%→24.1%). D7=3.3 at audit; post-audit DHCP closed → D7 now 8.2 (5/61 SP). 4 items Closed same-day per audit recommendations. See [[summaries/audit-ado-jit-20260505-0900]].
+
+> 📋 Full backlog analysis done 2026-05-05 — 39 open items, no Feature hierarchy, 5 workstreams mapped. See [[summaries/backlog-analysis-ado-jit-20260505]].
+
+## Previous (Iteration 7.2 Day 10 — 2026-04-29 02:04 UTC)
 
 **Overall 72.9 🟡 Moderate — Δ +2.5 (was 70.4).** D3 85.7→100.0 (#203241 AI Tools Spike now 1 SP). D6 97.1→100.0 (#193054 SAFe RTE MC updated Apr 29 08:08; 0 stale). Backlog 35→25 (10 items closed/exited — actual sprint output 20+ SP). D7 still 0.0 structural. D1=40.0 (10/25). armelita holds 8/10 sprint items. #193054 Blocked since Oct 2025. See [[summaries/audit-ado-jit-20260429-0204]].
 
@@ -46,20 +54,22 @@ Training delivery and compliance team (Jairosoft IT) inside ADO project `Jairoso
 
 **Overall 74.0 🟡 Moderate — Δ +0.8** · #203154 "Create AD User Accounts" DoR-compliant overnight (DoR 65.0 → 71.4). New item #203268 "Prepare Presentation for Bubble.io" (1 SP, full DoR) added by Samantha. 5 Teofilo Training items (#203155–203159) still bare (4th audit flag). #203241 Tech Talk Spike still unassigned + unestimated. See [[summaries/audit-ado-jit-20260424-0834]].
 
-## Current state (Iteration 7.2 Day 3 — 2026-04-22 09:00 PHT / A35, degraded)
+## Current state (Iteration 7.3 Day 2 — 2026-05-05 09:00 UTC)
 
 | Dimension | Score | Band |
 |-----------|------:|------|
-| **Overall** | **72.9** | 🟡 Moderate |
-| Iteration Planning | 50.0 | 🟠 High (11/22 scoped) |
+| **Overall** | **75.2** | 🟡 Moderate |
+| Iteration Planning | 72.5 | 🟡 Moderate (29/40 visible) |
 | Team Capacity | 100.0 | 🟢 Low |
-| Estimation | 100.0 | 🟢 Low (11/11 at 26 SP) |
-| DoR Compliance | 100.0 | 🟢 Low |
-| Work Item Balance | 70.0 | 🟡 Moderate (90.9% US dominance) |
-| Backlog Refinement | 90.0 | 🟢 Low (−10 for #199092, #198615 untouched) |
-| Delivery Predictability | 0.0 | 🔴 Critical (Day 3; 0/26 SP) |
+| Estimation | 96.6 | 🟢 Low (28/29; Spike 0 SP) |
+| DoR Compliance | 96.6 | 🟢 Low (28/29; #203158 fails) |
+| Work Item Balance | 70.0 | 🟡 Moderate (US 72.4% dominant) |
+| Backlog Refinement | 87.5 | 🟢 Low (untouched 24.1% → −10) |
+| Delivery Predictability | 8.2\* | 🔴 Critical (5/61 SP; post-audit) |
 
-Source: [[summaries/audit-ado-jit-20260423-0916]] (live). **Sprint expanded 11 → 20 items / 26 → 50 SP.** Teofilo activated with 7 AD Training items (21 SP); Samantha active on Facebook post; Grace picked up SAFe MCCs (+ Summer Camp Apr 25). Concentration risk eased — armelita 92% → 46% of SP. Δ +2.6 to 75.5. **New DoR gap:** 6 of 7 Teofilo Training items (#203154–#203159) added bare-title (no Desc/AC) — DoR 100 → 70. Fix = +4.3 to Overall 79.8.
+\*D7 was 3.3 at audit (09:00 UTC); DHCP closed same day → 5/61 SP = 8.2.
+
+Source: [[summaries/audit-ado-jit-20260505-0900]]. **29 sprint items / 61 SP committed.** Teofilo executing CSS NC II Training sequence (DHCP closed → DNS in progress). Armelita 14 items / 30 SP open — 4 items Active. **DoR gap: #203158 Remote Desktop Training — no Desc/AC since Apr 27.** No Iteration Goal defined.
 
 ## Historical (Iter 7.1 close — 2026-04-19, 68.8 Moderate)
 
@@ -83,10 +93,14 @@ Iteration 7.1 closed at 68.8 (Moderate) — Delivery Predictability collapsed fr
 
 ## ADO references
 
-- Project: `Jairosoft Portfolio`
+- Project: `Jairosoft Portfolio` — ID: `666bb99a-6acd-4999-bb34-efd0e4ea90dc`
+- Team ID: `b25e3129-6272-4e54-a3ff-f1ef3c8eeb2c`
+- Iteration 7.3 ID: `bbaecdec-eeb0-4c8d-999f-6a438eaab331` (May 4–17, 2026)
 - Iteration 7.1 ID: `6079f2b6-2f7c-4b10-adfd-93071eb965f7`
 - Board: [Stories and Deliverables](https://dev.azure.com/jairo/Jairosoft%20Portfolio/_boards/board/t/JIT%20Operation%20Team/Stories%20and%20Deliverables)
 - Workspace: [../../ado_jit/](../../ado_jit/)
+
+> See [[concepts/ado-mcp-call-patterns]] — always use GUIDs; display names fail silently.
 
 ## Stakeholders
 
@@ -94,19 +108,33 @@ Iteration 7.1 closed at 68.8 (Moderate) — Delivery Predictability collapsed fr
 |-----|------|-------|
 | Armelita Pulido | Project Manager & Product Owner, JIT Operation Team · [[entities/person-armelita]] | — |
 | Teofilo Limpag | Instructor (6h/day) — delivers CSS NC II / TESDA training | — |
-| Samantha (Babael?) | Team member (Documentation, no open 7.1 items) — ⚠️ last name uncertain; earliest audit logs "Samantha Babael" but later summaries consistently use "Samantha Manosa". Pending confirmation. | — |
+| Samantha Babael | Team member (Documentation, Social Media) — email `sbabaeil@jairosoft.com` confirmed via live ADO data May 5, 2026. ✅ Last name = Babael (not Manosa). | <sbabaeil@jairosoft.com> |
 | Grace Garcia | Documentation, 1h/day; owner of the two untouched items · [[entities/person-grace]] | <grace@jairosoft.com> |
 | Ramon Aseniero | Project owner / SAFe PM consultant | <ramon@jairosoft.com> |
+
+## Structural notes
+
+- **No Feature hierarchy** — JIT backlog is flat: all 39 open items are at the Requirement level (US, Training, Spike, Courseware). No ADO Features or Epics. PI-level progress tracking requires manual workstream grouping. Contrast with [[entities/team-ado-fin]] which has 7 Features. Recommend creating Features for CSS NC II Training, EBET Scholarship, and Marketing workstreams.
+- **Custom state "Marketing"** — ADO board uses a non-standard "Marketing" state (distinct from Active/New). Seen on Training items in progress. Treats as equivalent to Active for audit purposes.
+- **Teofilo Training sequence** is linear and sequential: 3.2-1 DHCP → 3.2-2 DNS → 3.2-3 Remote Desktop → 3.2-4 Folder Redirection → 3.2-5 Printer Deployment → 3.3-1 Pre-Deploy → 3.3-2 Security. Pacing = ~1 module per 2 days at 4.8 pts/day.
+- **Armelita SP concentration** is chronic: 14/29 items (48%) and 30/56 open SP in Iter 7.3. See [[synthesis/bus-factor]].
 
 ## Linked concepts
 
 - [[concepts/scoring-ado-rubric]] — 7-dimension rubric used above
 - [[concepts/risk-bands]] — Moderate 60–79.9
+- [[concepts/ado-mcp-call-patterns]] — always use GUIDs for ADO MCP calls
 
 ## Audit history
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-05-05 09:00** — [[summaries/audit-ado-jit-20260505-0900]] · [raw](../../ado_jit/audit/AUDIT_20260505_0900.md) (A51 — Iter 7.3 Day 2, 75.2)
+- **2026-05-04 09:00** — [raw](../../ado_jit/audit/AUDIT_20260504_0900.md) (A50 — Iter 7.3 Day 1, 72.1)
+- **2026-05-03 09:02** — [raw](../../ado_jit/audit/AUDIT_20260503_0902.md) (A49 — Iter 7.2 Day 13)
+- **2026-05-02 09:03** — [raw](../../ado_jit/audit/AUDIT_20260502_0903.md) (A48 — Iter 7.2 Day 12)
+- **2026-05-01 09:03** — [raw](../../ado_jit/audit/AUDIT_20260501_0903.md) (A47 — Iter 7.2 Day 11)
+- **2026-04-30 09:04** — [raw](../../ado_jit/audit/AUDIT_20260430_0904.md) (A46 — Iter 7.2 Day 10)
 - **2026-04-28 02:03** — [[summaries/audit-ado-jit-20260428-0203]] · [raw](../../ado_jit/audit/AUDIT_20260428_0203.md) (A44 — Day 9)
 - **2026-04-27 11:10** — [[summaries/audit-ado-jit-20260427-1110]] · [raw](../../ado_jit/audit/AUDIT_20260427_1110.md) (A43 — Day 8)
 - **2026-04-26 22:05** — [[summaries/audit-ado-jit-20260426-2205]] · [raw](../../ado_jit/audit/AUDIT_20260426_2205.md) (A42 — Day 7 EOD)

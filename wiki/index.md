@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 30 · concepts 6 · summaries 408 active + 1 tombstone · synthesis 20
+**Page counts:** entities 30 · concepts 6 · summaries 410 active + 1 tombstone · synthesis 20
 
 ## Synthesis
 
@@ -88,7 +88,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 ## Summaries — Per-team audits
 
-**312 audit summaries + 25 portfolio snapshots + 9 meeting agendas + 2 raw transcripts = 348 total summary pages.** Full per-team lists live in each team entity page's "Audit history" section (click through).
+**313 audit summaries + 25 portfolio snapshots + 9 meeting agendas + 2 raw transcripts + 1 backlog analysis = 350 total summary pages.** Full per-team lists live in each team entity page's "Audit history" section (click through). JIT full backlog analysis: [[summaries/backlog-analysis-ado-jit-20260505]].
 
 ### Latest audit per team (Iteration 7.2 Day 10 — 2026-04-29)
 
@@ -102,7 +102,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[summaries/audit-ado-hr-20260429-0204]] | ADO HR | 81.4 | 🟢 Low | 0.0 |
 | [[summaries/audit-ado-admin-20260429-0204]] | ADO Admin | 78.3 | 🟡 Moderate | +4.9 |
 | [[summaries/audit-git-cc-dev-20260429-0241]] | Git Colina | 75.3 | 🟡 Moderate | +5.9 |
-| [[summaries/audit-ado-jit-20260429-0204]] | ADO JIT | 72.9 | 🟡 Moderate | +2.5 |
+| [[summaries/audit-ado-jit-20260505-0900]] | ADO JIT | **75.2** | 🟡 Moderate | +3.1 (Iter 7.3 Day 2) |
 | [[summaries/audit-ado-fl-dev-20260429-0204]] | ADO Flawless | 72.5 | 🟡 Moderate | −1.5 |
 | [[summaries/audit-git-aa-dev-20260429-0242]] | Git AA Dev | 66.5 | 🟡 Moderate | −4.5 (partial data) |
 | [[summaries/audit-ado-ls-dev-20260429-0204]] | ADO LS Dev | **64.7** | **🟡 Moderate** | **+16.8 (exits High Risk)** |
