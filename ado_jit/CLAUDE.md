@@ -79,7 +79,7 @@ Ramon, Project Owner at Jairosoft. Oversees SAFe audits of JIT Operation Team vi
 
 | Name | What |
 |------|------|
-| **JIT Operation Team** | Training delivery & compliance team, Iteration 6.4 (Feb 23 - Mar 8) |
+| **JIT Operation Team** | Training delivery & compliance team, Iteration 7.3 (May 4 – May 17, 2026) |
 | **AC Compliance** | TESDA Assessment Center accreditation package |
 
 > Details: memory/projects/
