@@ -127,6 +127,8 @@ This is an iteration-bounded audit. It is not a general repository audit, an org
 | 2026-05-05 | `audit/AUDIT_20260505_0244.md` | Complete |
 | 2026-05-07 | `audit/AUDIT_20260507_0900.md` | Complete |
 | 2026-05-10 | `audit/AUDIT_20260510_0243.md` | Complete |
+| 2026-05-12 | `audit/AUDIT_20260512_0244.md` | Complete |
+| 2026-05-13 | `audit/AUDIT_20260513_1200.md` | Complete |
 
 ## Preferences
 
