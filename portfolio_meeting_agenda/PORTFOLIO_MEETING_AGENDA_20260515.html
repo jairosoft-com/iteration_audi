@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Meeting Agenda — Iteration 7.3 Day 12 — May 15, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;background:#faf8ff;color:#113069;line-height:1.5;min-height:100vh;}
+h1,h2,h3,h4{font-family:'Manrope','Inter',sans-serif;}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+.header{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 100%);color:#fff;padding:32px 0;}
+.header-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;}
+.header h1{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px;}
+.header .subtitle{font-size:13px;opacity:0.85;margin-bottom:3px;}
+.header .meta{font-size:12px;opacity:0.7;}
+.header-stats{display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:rgba(255,255,255,0.12);border-radius:10px;padding:12px 18px;min-width:130px;border-left:4px solid;}
+.stat-card.green{border-color:#22c55e;}
+.stat-card.yellow{border-color:#eab308;}
+.stat-card.red{border-color:#ef4444;}
+.stat-card .label{font-size:11px;opacity:0.8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;}
+.stat-card .value{font-family:'Manrope',sans-serif;font-weight:800;font-size:26px;line-height:1.1;margin-top:4px;}
+.stat-card .delta{font-size:11px;opacity:0.75;margin-top:2px;}
+.section{background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(17,48,105,0.07);padding:22px 24px;margin:18px 0;}
+.section-title{font-weight:800;font-size:17px;color:#113069;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.section-title .topic-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;color:#fff;font-size:13px;font-weight:700;}
+.section-title .time-budget{margin-left:auto;font-size:12px;font-weight:600;color:#6b7280;background:#f1f5f9;padding:4px 10px;border-radius:6px;}
+.timeline{display:flex;height:38px;border-radius:8px;overflow:hidden;margin:10px 0 20px;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.timeline-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:600;padding:0 6px;text-align:center;line-height:1.1;}
+.attendees{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
+.attendee{display:flex;align-items:center;gap:8px;background:#f8fafc;padding:8px 14px;border-radius:8px;font-size:12px;}
+.attendee-dot{width:9px;height:9px;border-radius:50%;background:#1e40af;}
+.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:14px;}
+.metric-card{background:#fff;border-radius:8px;padding:12px 14px;border-left:4px solid #1e40af;box-shadow:0 1px 2px rgba(0,0,0,0.04);}
+.metric-card .m-label{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;}
+.metric-card .m-value{font-family:'Manrope',sans-serif;font-weight:800;font-size:24px;margin-top:2px;}
+.metric-card .m-delta{font-size:11px;font-weight:600;margin-top:2px;}
+.delta-up{color:#16a34a;}
+.delta-down{color:#dc2626;}
+.delta-flat{color:#9ca3af;}
+.chart-box{background:#fafbfc;border-radius:8px;padding:16px;border:1px solid #f1f5f9;}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:12px;}
+.bar-name{width:130px;text-align:right;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{flex:1;height:18px;background:#f1f5f9;border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;}
+.bar-val{width:50px;font-weight:700;font-size:12px;}
+.pill{display:inline-block;border-radius:9999px;padding:2px 9px;font-size:10px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;}
+.pill-low{background:#dcfce7;color:#15803d;}
+.pill-mod{background:#fef9c3;color:#854d0e;}
+.pill-high{background:#ffedd5;color:#9a3412;}
+.pill-crit{background:#fee2e2;color:#991b1b;}
+.pill-ado{background:#e0f2fe;color:#0369a1;}
+.pill-git{background:#f3e8ff;color:#7e22ce;}
+.pill-urgent{background:#fee2e2;color:#991b1b;}
+.pill-soon{background:#fef3c7;color:#92400e;}
+.pill-info{background:#dbeafe;color:#1e40af;}
+.risk-block{border-left:5px solid;border-radius:8px;padding:14px 16px;margin-bottom:12px;background:#fff;}
+.risk-mod{border-color:#eab308;background:#fefce8;}
+.risk-low{border-color:#22c55e;background:#f0fdf4;}
+.risk-block .rb-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+.risk-block .rb-team{font-weight:800;font-size:15px;}
+.risk-block .rb-score{font-weight:800;font-size:18px;color:#854d0e;}
+.risk-block .rb-finding{font-size:13px;color:#334155;margin-top:6px;}
+.risk-block .rb-action{font-size:12px;color:#1e40af;margin-top:8px;font-weight:600;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.card{background:#fff;border-radius:8px;border:1px solid #e2e8f0;padding:12px 14px;}
+.card-title{font-weight:700;font-size:13px;margin-bottom:6px;color:#113069;display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.card-body{font-size:12px;color:#334155;line-height:1.5;}
+.card-meta{margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:#6b7280;}
+.card-meta b{color:#113069;}
+.decision-row{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;background:#fff;cursor:pointer;}
+.decision-row input[type=checkbox]{margin-top:2px;width:16px;height:16px;cursor:pointer;flex-shrink:0;}
+.decision-row .d-body{flex:1;}
+.decision-row .d-title{font-weight:700;font-size:13px;color:#113069;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.decision-row .d-desc{font-size:12px;color:#475569;margin-top:4px;}
+table.actions{width:100%;border-collapse:collapse;margin-top:6px;}
+table.actions th{background:#f1f5f9;color:#475569;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;padding:8px 10px;text-align:left;border-bottom:2px solid #e2e8f0;}
+table.actions td{padding:9px 10px;border-bottom:1px solid #f1f5f9;font-size:12px;vertical-align:top;}
+table.actions tr:hover td{background:#f8fafc;}
+.priority-group{margin-bottom:14px;}
+.priority-group h4{font-size:13px;font-weight:700;color:#113069;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.note{background:#fffbeb;border-left:4px solid #f59e0b;border-radius:6px;padding:10px 14px;font-size:12px;color:#92400e;margin-top:10px;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.compare-card{padding:14px 16px;border-radius:10px;}
+.compare-good{background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:1px solid #86efac;}
+.compare-bad{background:linear-gradient(135deg,#fee2e2,#fecaca);border:1px solid #fca5a5;}
+.compare-title{font-weight:800;font-size:14px;margin-bottom:8px;}
+.compare-good .compare-title{color:#15803d;}
+.compare-bad .compare-title{color:#991b1b;}
+.compare-list{font-size:12px;line-height:1.6;color:#334155;}
+.compare-list ul{margin-left:18px;}
+.footer{background:#f1f5f9;border-top:1px solid #e2e8f0;padding:18px 0;margin-top:18px;font-size:11px;color:#6b7280;text-align:center;}
+.footer .legend{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:10px;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;}
+.legend-dot{width:10px;height:10px;border-radius:50%;}
+@media print{
+  body{background:#fff;}
+  .no-print{display:none !important;}
+  .section{box-shadow:none;border:1px solid #e2e8f0;page-break-inside:avoid;}
+  .header{background:#1e1b4b !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+@media (max-width:900px){
+  .grid-3,.grid-2,.compare-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="header">
+  <div class="container">
+    <div class="header-grid">
+      <div>
+        <h1>Portfolio Meeting Agenda</h1>
+        <div class="subtitle">Iteration 7.3 &nbsp;·&nbsp; Day 12 of 14 &nbsp;·&nbsp; May 4 – May 17, 2026</div>
+        <div class="subtitle">Audit Date: May 15, 2026 &nbsp;·&nbsp; Duration: 30 minutes</div>
+        <div class="meta">10 teams &nbsp;·&nbsp; 8 ADO &nbsp;·&nbsp; 2 Git &nbsp;·&nbsp; SAFe PI 7</div>
+        <div class="attendees">
+          <div class="attendee"><div class="attendee-dot"></div><b>Ramon Aseniero</b>&nbsp;— CEO</div>
+          <div class="attendee"><div class="attendee-dot" style="background:#7c3aed;"></div><b>Karl Caumban</b>&nbsp;— PDM</div>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat-card green">
+          <div class="label">Portfolio Mean</div>
+          <div class="value">78.5</div>
+          <div class="delta">↑ +0.7 vs May 13</div>
+        </div>
+        <div class="stat-card yellow">
+          <div class="label">Portfolio Median</div>
+          <div class="value">77.2</div>
+          <div class="delta">Moderate band center</div>
+        </div>
+        <div class="stat-card red">
+          <div class="label">Teams at Risk</div>
+          <div class="value">6</div>
+          <div class="delta">6 Moderate · 0 High · 0 Critical</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ═══════════════ AGENDA TIMELINE ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span style="color:#1e40af;font-size:20px;">📋</span> Meeting Flow — 30-min Timebox
+    </div>
+    <div class="timeline">
+      <div class="timeline-seg" style="background:#6366f1;flex:3;">1. Snapshot<br>3 min</div>
+      <div class="timeline-seg" style="background:#ef4444;flex:8;">2. At-Risk Teams<br>8 min</div>
+      <div class="timeline-seg" style="background:#22c55e;flex:5;">3. Quick Wins<br>5 min</div>
+      <div class="timeline-seg" style="background:#f97316;flex:5;">4. Structural Risks<br>5 min</div>
+      <div class="timeline-seg" style="background:#8b5cf6;flex:4;">5. Decisions<br>4 min</div>
+      <div class="timeline-seg" style="background:#0ea5e9;flex:3;">6. Actions<br>3 min</div>
+      <div class="timeline-seg" style="background:#64748b;flex:2;">7. Wrap<br>2 min</div>
+    </div>
+    <div class="note">
+      <b>Facilitator tip:</b> Topics 2 and 3 carry the most value. If time runs short, defer Topic 4 to async follow-up. With no Critical or High Risk teams this cycle, Topic 2 focuses on the two Moderate teams furthest below threshold (Flawless Wedding 67.2, Administration 68.4) and the structurally stagnant (Life Style Help).
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOPIC 1 — SNAPSHOT ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="topic-num" style="background:#6366f1;">1</span>
+      Portfolio Snapshot &amp; Scorecard
+      <span class="time-budget">3 min</span>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric-card" style="border-color:#22c55e;">
+        <div class="m-label">Mean (10-team)</div>
+        <div class="m-value">78.5</div>
+        <div class="m-delta delta-up">↑ +0.7 vs May 13</div>
+      </div>
+      <div class="metric-card" style="border-color:#eab308;">
+        <div class="m-label">Median</div>
+        <div class="m-value">77.2</div>
+        <div class="m-delta delta-up">↑ +0.3 vs May 13</div>
+      </div>
+      <div class="metric-card" style="border-color:#22c55e;">
+        <div class="m-label">Low Risk</div>
+        <div class="m-value">4</div>
+        <div class="m-delta delta-up">+1 (Shared Services ↑)</div>
+      </div>
+      <div class="metric-card" style="border-color:#eab308;">
+        <div class="m-label">Moderate</div>
+        <div class="m-value">6</div>
+        <div class="m-delta delta-flat">flat</div>
+      </div>
+      <div class="metric-card" style="border-color:#ef4444;">
+        <div class="m-label">High + Critical</div>
+        <div class="m-value">0</div>
+        <div class="m-delta delta-up">2nd week clean</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Trend Chart -->
+      <div class="chart-box">
+        <div style="font-weight:700;font-size:13px;margin-bottom:8px;color:#113069;">Portfolio Mean — Last 8 Audits</div>
+        <svg viewBox="0 0 500 200" width="100%" height="200" preserveAspectRatio="none" style="display:block;">
+          <!-- grid -->
+          <line x1="40" y1="20" x2="490" y2="20" stroke="#e5e7eb" stroke-width="1"/>
+          <line x1="40" y1="60" x2="490" y2="60" stroke="#e5e7eb" stroke-width="1"/>
+          <line x1="40" y1="100" x2="490" y2="100" stroke="#e5e7eb" stroke-width="1"/>
+          <line x1="40" y1="140" x2="490" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+          <line x1="40" y1="180" x2="490" y2="180" stroke="#94a3b8" stroke-width="1"/>
+          <!-- y labels (50-80 scale) -->
+          <text x="36" y="24" font-size="9" fill="#6b7280" text-anchor="end">80</text>
+          <text x="36" y="64" font-size="9" fill="#6b7280" text-anchor="end">77.5</text>
+          <text x="36" y="104" font-size="9" fill="#6b7280" text-anchor="end">75</text>
+          <text x="36" y="144" font-size="9" fill="#6b7280" text-anchor="end">72.5</text>
+          <text x="36" y="184" font-size="9" fill="#6b7280" text-anchor="end">70</text>
+          <!-- Low-risk threshold line (80) -->
+          <line x1="40" y1="20" x2="490" y2="20" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="488" y="16" font-size="9" fill="#15803d" text-anchor="end" font-weight="700">Low Risk ≥ 80</text>
+          <!-- data line: 8 points x=70,130,...490; y from values
+               values: 78.0, 76.7, 76.1, 76.6, 77.3, 78.4, 77.8, 78.5
+               y = 180 - (v - 70) * 16  (since 70 -> 180, 80 -> 20)  span 10 = 160 px -> 16 per unit
+               78.0 -> 180-128=52 ; 76.7 -> 180-107.2=72.8 ; 76.1 -> 180-97.6=82.4 ;
+               76.6 -> 180-105.6=74.4 ; 77.3 -> 180-116.8=63.2 ; 78.4 -> 180-134.4=45.6 ;
+               77.8 -> 180-124.8=55.2 ; 78.5 -> 180-136=44 -->
+          <polyline fill="none" stroke="#1e40af" stroke-width="2.5"
+            points="70,52 130,72.8 190,82.4 250,74.4 310,63.2 370,45.6 430,55.2 490,44"/>
+          <!-- area fill -->
+          <polyline fill="rgba(30,64,175,0.08)" stroke="none"
+            points="70,52 130,72.8 190,82.4 250,74.4 310,63.2 370,45.6 430,55.2 490,44 490,180 70,180"/>
+          <!-- points -->
+          <circle cx="70" cy="52" r="4" fill="#64748b"/>
+          <circle cx="130" cy="72.8" r="4" fill="#64748b"/>
+          <circle cx="190" cy="82.4" r="4" fill="#dc2626"/>
+          <circle cx="250" cy="74.4" r="4" fill="#64748b"/>
+          <circle cx="310" cy="63.2" r="4" fill="#64748b"/>
+          <circle cx="370" cy="45.6" r="4" fill="#16a34a"/>
+          <circle cx="430" cy="55.2" r="4" fill="#64748b"/>
+          <circle cx="490" cy="44" r="5" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+          <!-- value labels -->
+          <text x="70" y="42" font-size="9" fill="#475569" text-anchor="middle">78.0</text>
+          <text x="190" y="95" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="700">76.1</text>
+          <text x="370" y="36" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="700">78.4</text>
+          <text x="490" y="34" font-size="9" fill="#16a34a" text-anchor="end" font-weight="700">78.5 ●</text>
+          <!-- x labels -->
+          <text x="70" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 7</text>
+          <text x="130" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 8</text>
+          <text x="190" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 9</text>
+          <text x="250" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 10</text>
+          <text x="310" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 11</text>
+          <text x="370" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 12</text>
+          <text x="430" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 13</text>
+          <text x="490" y="196" font-size="9" fill="#6b7280" text-anchor="middle">May 15</text>
+        </svg>
+        <div style="font-size:11px;color:#6b7280;margin-top:6px;">8-audit window. Recovered from May 9 low (76.1) → peak today (78.5). Trajectory positive.</div>
+      </div>
+
+      <!-- Score Bar Chart -->
+      <div class="chart-box">
+        <div style="font-weight:700;font-size:13px;margin-bottom:8px;color:#113069;">UPS Scores by Team</div>
+        <div class="bar-row"><div class="bar-name">HR Recruitment</div><div class="bar-track"><div class="bar-fill" style="width:89.7%;background:#22c55e;"></div></div><div class="bar-val" style="color:#15803d;">89.7</div></div>
+        <div class="bar-row"><div class="bar-name">JIT Operation</div><div class="bar-track"><div class="bar-fill" style="width:85.9%;background:#22c55e;"></div></div><div class="bar-val" style="color:#15803d;">85.9</div></div>
+        <div class="bar-row"><div class="bar-name">Shared Services</div><div class="bar-track"><div class="bar-fill" style="width:84.6%;background:#22c55e;"></div></div><div class="bar-val" style="color:#15803d;">84.6</div></div>
+        <div class="bar-row"><div class="bar-name">Colina Health</div><div class="bar-track"><div class="bar-fill" style="width:82.6%;background:#22c55e;"></div></div><div class="bar-val" style="color:#15803d;">82.6</div></div>
+        <div class="bar-row"><div class="bar-name">Auto Allies</div><div class="bar-track"><div class="bar-fill" style="width:77.2%;background:#eab308;"></div></div><div class="bar-val" style="color:#854d0e;">77.2</div></div>
+        <div class="bar-row"><div class="bar-name">OTP</div><div class="bar-track"><div class="bar-fill" style="width:77.1%;background:#eab308;"></div></div><div class="bar-val" style="color:#854d0e;">77.1</div></div>
+        <div class="bar-row"><div class="bar-name">Finance</div><div class="bar-track"><div class="bar-fill" style="width:76.7%;background:#eab308;"></div></div><div class="bar-val" style="color:#854d0e;">76.7</div></div>
+        <div class="bar-row"><div class="bar-name">Life Style Help</div><div class="bar-track"><div class="bar-fill" style="width:75.7%;background:#eab308;"></div></div><div class="bar-val" style="color:#854d0e;">75.7</div></div>
+        <div class="bar-row"><div class="bar-name">Administration</div><div class="bar-track"><div class="bar-fill" style="width:68.4%;background:#eab308;"></div></div><div class="bar-val" style="color:#854d0e;">68.4</div></div>
+        <div class="bar-row"><div class="bar-name">Flawless Wedding</div><div class="bar-track"><div class="bar-fill" style="width:67.2%;background:#eab308;"></div></div><div class="bar-val" style="color:#854d0e;">67.2</div></div>
+        <div style="margin-top:8px;font-size:11px;color:#6b7280;">Range 67.2 – 89.7 &nbsp;·&nbsp; Mean 78.5 &nbsp;·&nbsp; Median 77.2</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Talking points (3 min):</b> Portfolio holds at the Moderate/Low threshold. Shared Services crossed into Low Risk (+5.8). Auto Allies posted biggest gain (+6.8) on final sprint day. Flawless Wedding's −7.3 drop is a <b>scoring paradox</b> from mass closure of 16 SP — actual delivery ≈ 88.9%.
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOPIC 2 — AT-RISK ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="topic-num" style="background:#ef4444;">2</span>
+      At-Risk Teams — Deep Dive
+      <span class="time-budget">8 min</span>
+    </div>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:12px;">No teams in High Risk or Critical bands. Focus is on the three Moderate teams with structural or scoring issues that could carry into Iteration 7.4.</div>
+
+    <div class="risk-block risk-mod">
+      <div class="rb-head">
+        <div><span class="rb-team">Flawless Wedding App</span> <span class="pill pill-ado">ADO</span> <span class="pill pill-mod">Moderate 67.2</span> <span class="delta-down" style="font-weight:700;font-size:12px;">−7.3 ⚠</span></div>
+        <div style="font-size:11px;color:#6b7280;">Luke · Ressa · Ike · Luzmibel</div>
+      </div>
+      <div class="rb-finding">
+        <b>Scoring paradox, not delivery failure.</b> Team closed 7 items (16 SP) in a single burst May 14–15 — Wedding User Registration, Bride Login/Logout, Update Profile, Bride Onboarding, Collaborations + E2E Spikes. Closed items exit the visible backlog and deflate D1 (Iteration Planning) to 0.7 and D7 (Delivery Predictability) to 0.0 mechanically. Actual delivery ≈ 88.9% (16 SP of ~18 committed).
+      </div>
+      <div class="rb-action">→ Item #202686 (Subscription Renewal Notification, 2 SP) is in Ready for QA — closeable today brings sprint to full closure. PDM should record narrative annotation alongside the 67.2 score.</div>
+    </div>
+
+    <div class="risk-block risk-mod">
+      <div class="rb-head">
+        <div><span class="rb-team">Administration</span> <span class="pill pill-ado">ADO</span> <span class="pill pill-mod">Moderate 68.4</span> <span class="delta-down" style="font-weight:700;font-size:12px;">−1.6</span></div>
+        <div style="font-size:11px;color:#6b7280;">Mark Colina (sole assignee — Bus Factor = 1)</div>
+      </div>
+      <div class="rb-finding">
+        Item #203557 (Utilities Payables) moved out to Iteration 7.4, collapsing D1 from 20% → 9.1%. Six items (12 SP) already closed during this sprint but are invisible to the rubric. Item #203556 (Internet payables, 4 SP) is the only open sprint item — Active, DoR-compliant. New item #204198 (Philgeps payment) added today with no Description/Acceptance Criteria — must be groomed before 7.4 opens.
+      </div>
+      <div class="rb-action">→ Critical action: close #203556 today → score recovers to 81.4 (Low Risk). Groom #204198 before sprint close. Bus factor coverage plan still missing.</div>
+    </div>
+
+    <div class="risk-block risk-mod">
+      <div class="rb-head">
+        <div><span class="rb-team">Life Style Help</span> <span class="pill pill-ado">ADO</span> <span class="pill pill-mod">Moderate 75.7</span> <span class="delta-flat" style="font-weight:700;font-size:12px;">flat ×3 days</span></div>
+        <div style="font-size:11px;color:#6b7280;">Samantha Babael · Luzmibel Paculanang</div>
+      </div>
+      <div class="rb-finding">
+        <b>Sprint in terminal static state.</b> Capacity zeroed (both members 0 pts/day) since May 13. Nine User Stories in Removed state. Zero ADO activity for 3 consecutive days. Score locked by D2 = 0 and D5 = 30. No recovery possible within 7.3.
+      </div>
+      <div class="rb-action">→ Decision needed: confirm intent with Samantha. If team is paused, document formally; if active, restore capacity and re-stage 8+ SP for 7.4 before May 17. Day 12 of 14 — clock is running.</div>
+    </div>
+
+    <div class="risk-block risk-mod">
+      <div class="rb-head">
+        <div><span class="rb-team">OTP</span> <span class="pill pill-ado">Moderate 77.1</span> <span class="delta-flat" style="font-weight:700;font-size:12px;">flat ×3</span></div>
+        <div style="font-size:11px;color:#6b7280;">Grace (sole assignee — also covers Finance)</div>
+      </div>
+      <div class="rb-finding">
+        Five-day no-closure streak (May 10–15). D1 hit sprint-series low of 20.0. Grace's #203588 (QA AI Roles, 4 SP) is the single path to Low Risk — closing today moves overall to 82.4. #203589 (Japan Embassy, external dependency) needs formal carryover to 7.4.
+      </div>
+      <div class="rb-action">→ Close #203588 today; defer #203589 to 7.4 with explicit external-blocker tag. Grace bus-factor risk spans OTP + Finance.</div>
+    </div>
+
+    <div class="risk-block risk-mod">
+      <div class="rb-head">
+        <div><span class="rb-team">Finance</span> <span class="pill pill-ado">Moderate 76.7</span> <span class="delta-flat" style="font-weight:700;font-size:12px;">flat ×2</span></div>
+        <div style="font-size:11px;color:#6b7280;">Grace (sole assignee — shared with OTP)</div>
+      </div>
+      <div class="rb-finding">
+        Both visible sprint items (#203043, #203677) Active on Day 12, 0 SP closed in visible backlog. Five items (8 SP) closed earlier but invisible to rubric. If both visible items close today, score recovers to 95.2 (Low Risk).
+      </div>
+      <div class="rb-action">→ Thin 7.4 pipeline (1 item, 2 SP) — structural concern for next sprint. Need 6+ SP groomed before May 17.</div>
+    </div>
+
+    <div class="risk-block risk-mod">
+      <div class="rb-head">
+        <div><span class="rb-team">Auto Allies</span> <span class="pill pill-git">Git</span> <span class="pill pill-mod">Moderate 77.2</span> <span class="delta-up" style="font-weight:700;font-size:12px;">+6.8</span></div>
+        <div style="font-size:11px;color:#6b7280;">Joseph Gerona · Earl Carino · Cliff Carcueva — Sprint closes TODAY (Day 10)</div>
+      </div>
+      <div class="rb-finding">
+        Iter 7.3 closes today: 18 SP delivered of 36 committed (50%). SGPI rose to 50% from 33% (+17 pts); #194757 and #202457 closed; Android cluster (#203302) unblocked to Passed QA. HCI 61 still held by stale GitHub token. UPS 77.2 driven by ICS 97.8% + SGPI 50% + HCI 61.
+      </div>
+      <div class="rb-action">→ For Iter 7.4: right-size scope to ~20 SP (matches actual velocity); restore raseniero GitHub token (blocks fresh HCI for ~24 days); add CODEOWNERS + branch protection.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOPIC 3 — QUICK WINS ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="topic-num" style="background:#22c55e;">3</span>
+      Quick Wins &amp; Sprint-Close Closures
+      <span class="time-budget">5 min</span>
+    </div>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:12px;">High-impact, low-effort items closeable in the remaining 2 days that materially improve sprint-close scores.</div>
+
+    <div class="grid-3">
+      <div class="card" style="border-left:4px solid #22c55e;">
+        <div class="card-title">#202686 — Subscription Renewal <span class="pill pill-low">Ready QA</span></div>
+        <div class="card-body">Team: <b>Flawless Wedding</b>. Last open sprint item (2 SP) in Ready for QA. Closure brings sprint to 100%.</div>
+        <div class="card-meta"><span><b>Impact:</b> Full sprint closure</span><span><b>Effort:</b> &lt;1 hr QA pass</span><span><b>Owner:</b> Luke / Luzmibel</span></div>
+      </div>
+      <div class="card" style="border-left:4px solid #22c55e;">
+        <div class="card-title">#203556 — Internet Payables <span class="pill pill-mod">Active</span></div>
+        <div class="card-body">Team: <b>Administration</b>. 4 SP, sole open item, DoR-compliant. Closure moves UPS 68.4 → 81.4 (Low Risk band).</div>
+        <div class="card-meta"><span><b>Impact:</b> +13 UPS pts → Low Risk</span><span><b>Effort:</b> 1 day</span><span><b>Owner:</b> Mark Colina</span></div>
+      </div>
+      <div class="card" style="border-left:4px solid #22c55e;">
+        <div class="card-title">#203588 — QA AI Roles <span class="pill pill-mod">Active</span></div>
+        <div class="card-body">Team: <b>OTP</b>. 4 SP. Closure moves UPS 77.1 → 82.4 (Low Risk).</div>
+        <div class="card-meta"><span><b>Impact:</b> +5.3 UPS → Low Risk</span><span><b>Effort:</b> 1 day</span><span><b>Owner:</b> Grace</span></div>
+      </div>
+      <div class="card" style="border-left:4px solid #22c55e;">
+        <div class="card-title">#203043 + #203677 <span class="pill pill-mod">Active</span></div>
+        <div class="card-body">Team: <b>Finance</b>. Both visible items closable. Closing both moves UPS 76.7 → 95.2 (Low Risk).</div>
+        <div class="card-meta"><span><b>Impact:</b> +18.5 UPS → Low Risk</span><span><b>Effort:</b> 1–2 days</span><span><b>Owner:</b> Grace</span></div>
+      </div>
+      <div class="card" style="border-left:4px solid #22c55e;">
+        <div class="card-title">#203436 Plugin Lifecycle Gate <span class="pill pill-mod">Active</span></div>
+        <div class="card-body">Team: <b>Shared Services</b>. 5 SP. Unlocks 12 SP via #203437/#203438 on Day 13. Projection: 89.7.</div>
+        <div class="card-meta"><span><b>Impact:</b> Unlocks 12 SP</span><span><b>Effort:</b> 1 day</span><span><b>Owner:</b> Ramon</span></div>
+      </div>
+      <div class="card" style="border-left:4px solid #22c55e;">
+        <div class="card-title">APE items + #202099 closeout <span class="pill pill-mod">Active</span></div>
+        <div class="card-body">Team: <b>HR Recruitment</b> (89.7). Almera's end-of-sprint burst could lift UPS to 92+ if APE items close. Already at Low Risk.</div>
+        <div class="card-meta"><span><b>Impact:</b> Sprint-series high</span><span><b>Effort:</b> 1 day</span><span><b>Owner:</b> Almera</span></div>
+      </div>
+    </div>
+
+    <div class="note" style="background:#fef3c7;border-color:#f59e0b;">
+      <b>Escalation candidates (unactioned across multiple audits):</b>
+      <ul style="margin:6px 0 0 18px;">
+        <li><b>raseniero GitHub token</b> — flagged since 2026-04-21 (24+ days). Blocks fresh HCI for both Git teams. Owner: Ramon.</li>
+        <li><b>ado_ls_dev capacity zero</b> — 3 consecutive static days. No verbal confirmation from Samantha. Owner: Karl to confirm intent.</li>
+        <li><b>Work Item Balance D5 = 70</b> — all 8 ADO teams penalized for User Story monoculture across full PI 7. No portfolio-level gate enforced.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOPIC 4 — STRUCTURAL RISKS ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="topic-num" style="background:#f97316;">4</span>
+      Structural Risks
+      <span class="time-budget">5 min</span>
+    </div>
+
+    <div class="grid-3">
+      <div class="card" style="border-top:3px solid #dc2626;">
+        <div class="card-title">Bus Factor Risk</div>
+        <div class="card-body">
+          <b>5 of 10 teams</b> run with a single assignee owning all or majority of sprint work.
+          <ul style="margin:6px 0 0 16px;">
+            <li>ado_admin — Mark Colina</li>
+            <li>ado_fin — Grace</li>
+            <li>ado_otp — Grace (covers both)</li>
+            <li>ado_hr — Almera Tayao</li>
+            <li>git_aa_dev — Joseph (83% of closed SP)</li>
+          </ul>
+          No documented coverage plans for 4 of 5.
+        </div>
+      </div>
+
+      <div class="card" style="border-top:3px solid #f97316;">
+        <div class="card-title">Backlog Debt — 7.4 Pipeline</div>
+        <div class="card-body">
+          Multiple teams enter Iter 7.4 with thin or ungroomed backlogs:
+          <ul style="margin:6px 0 0 16px;">
+            <li><b>Finance:</b> only 1 item / 2 SP groomed</li>
+            <li><b>Administration:</b> #204198 added today, no DoR</li>
+            <li><b>OTP:</b> #203589 needs explicit carryover</li>
+            <li><b>Life Style Help:</b> no Iter 7.4 stories staged</li>
+          </ul>
+          Sprint opens May 18 — grooming window: 2 days.
+        </div>
+      </div>
+
+      <div class="card" style="border-top:3px solid #eab308;">
+        <div class="card-title">Engineering Gaps (Git Teams)</div>
+        <div class="card-body">
+          <b>raseniero GitHub token invalid</b> since 2026-04-21 (24+ days). HCI dimensions 1–6 carry forward from April 29. Both git_aa_dev and git_cc_dev in <code>data_mode: partial</code>. Auto Allies missing CODEOWNERS + branch protection. Colina Health has a <b>96-day stale ADO PR</b> newly surfaced.
+        </div>
+      </div>
+
+      <div class="card" style="border-top:3px solid #0369a1;">
+        <div class="card-title">Work-Item-Type Monoculture</div>
+        <div class="card-body">
+          All 8 ADO teams score <b>D5 = 70.0</b> due to User Story dominance &gt; 60%. The −30 structural penalty has persisted across all PI 7 audits. No portfolio sprint-planning gate enforces type diversity (Spikes, Enablers, Defects).
+        </div>
+      </div>
+
+      <div class="card" style="border-top:3px solid #8b5cf6;">
+        <div class="card-title">Visible-Backlog Scoring Paradox</div>
+        <div class="card-body">
+          <b>3 ADO teams</b> (ado_admin, ado_fin, ado_fl_dev) score D7 = 0% despite delivering 8–16 SP. Closed items exit the visible backlog and become invisible to the rubric. Portfolio scores systematically understate end-of-sprint delivery health.
+        </div>
+      </div>
+
+      <div class="card" style="border-top:3px solid #64748b;">
+        <div class="card-title">D1 Denominator Inflation</div>
+        <div class="card-body">
+          4 teams (ado_otp 20.0, ado_fl_dev 0.7, ado_admin 9.1, ado_shared 28.1) post critically low Iteration Planning — driven by 7.4 backlog items added during 7.3 close, expanding the denominator without numerator growth.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOPIC 5 — DECISIONS ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="topic-num" style="background:#8b5cf6;">5</span>
+      Decisions Required from PDM
+      <span class="time-budget">4 min</span>
+    </div>
+
+    <div class="decision-row" onclick="var c=this.querySelector('input');c.checked=!c.checked;">
+      <input type="checkbox" onclick="event.stopPropagation();">
+      <div class="d-body">
+        <div class="d-title">Life Style Help — formal pause or restart? <span class="pill pill-urgent">Urgent</span></div>
+        <div class="d-desc">Capacity zeroed 3 days, 9 stories Removed. Need explicit decision from Samantha/Karl before May 17. If paused, document; if active, restore capacity and stage Iter 7.4 backlog (8+ SP).</div>
+      </div>
+    </div>
+
+    <div class="decision-row" onclick="var c=this.querySelector('input');c.checked=!c.checked;">
+      <input type="checkbox" onclick="event.stopPropagation();">
+      <div class="d-body">
+        <div class="d-title">Auto Allies Iter 7.4 commitment — right-size to velocity? <span class="pill pill-soon">Before May 18</span></div>
+        <div class="d-desc">7.3 closed 50% (18/36 SP). Recommend committing ~20 SP in 7.4 to align with actual velocity. PDM approval needed to enforce against over-commitment pattern.</div>
+      </div>
+    </div>
+
+    <div class="decision-row" onclick="var c=this.querySelector('input');c.checked=!c.checked;">
+      <input type="checkbox" onclick="event.stopPropagation();">
+      <div class="d-body">
+        <div class="d-title">raseniero GitHub token — escalate fix path <span class="pill pill-urgent">Blocking 24+ days</span></div>
+        <div class="d-desc">HCI partial-data mode for both Git teams since 2026-04-21. Ramon owns the fix. Decision: escalate to IT support or rotate to alternate service account before Iter 7.4.</div>
+      </div>
+    </div>
+
+    <div class="decision-row" onclick="var c=this.querySelector('input');c.checked=!c.checked;">
+      <input type="checkbox" onclick="event.stopPropagation();">
+      <div class="d-body">
+        <div class="d-title">Bus-factor remediation policy — name secondary owners <span class="pill pill-soon">Before 7.4</span></div>
+        <div class="d-desc">Five teams run with bus factor = 1. PDM to require named secondary owner for every active 7.4 sprint item in ado_admin, ado_fin, ado_otp, ado_hr, git_aa_dev.</div>
+      </div>
+    </div>
+
+    <div class="decision-row" onclick="var c=this.querySelector('input');c.checked=!c.checked;">
+      <input type="checkbox" onclick="event.stopPropagation();">
+      <div class="d-body">
+        <div class="d-title">Work-item-type diversity gate <span class="pill pill-info">Policy</span></div>
+        <div class="d-desc">All 8 ADO teams locked at D5 = 70 across PI 7 due to User Story monoculture. Decision: add sprint-planning gate requiring Spikes/Enablers/Defects share ≥ 25% for PI 8 onward.</div>
+      </div>
+    </div>
+
+    <div class="decision-row" onclick="var c=this.querySelector('input');c.checked=!c.checked;">
+      <input type="checkbox" onclick="event.stopPropagation();">
+      <div class="d-body">
+        <div class="d-title">Flawless Wedding score narrative annotation <span class="pill pill-info">Documentation</span></div>
+        <div class="d-desc">67.2 score is a scoring paradox, not a delivery failure. Decision: PDM signs narrative annotation acknowledging actual 88.9% delivery in stakeholder communication.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOPIC 6 — ACTION ITEMS ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="topic-num" style="background:#0ea5e9;">6</span>
+      Action Items &amp; Owners
+      <span class="time-budget">3 min</span>
+    </div>
+
+    <div class="priority-group">
+      <h4><span class="pill pill-crit">P0 · Do Today (May 15)</span></h4>
+      <table class="actions">
+        <thead><tr><th style="width:46%;">Action</th><th style="width:18%;">Owner</th><th style="width:18%;">Team</th><th style="width:18%;">Est. Time</th></tr></thead>
+        <tbody>
+          <tr><td>Close #202686 (Subscription Renewal) — Ready for QA</td><td>Luke / Luzmibel</td><td>Flawless Wedding</td><td>&lt; 1 hr</td></tr>
+          <tr><td>Close #203556 (Internet Payables) — moves UPS 68.4 → 81.4</td><td>Mark Colina</td><td>Administration</td><td>4–6 hrs</td></tr>
+          <tr><td>Close #203588 (QA AI Roles) — moves UPS 77.1 → 82.4</td><td>Grace</td><td>OTP</td><td>4 hrs</td></tr>
+          <tr><td>Close Plugin Lifecycle gate #203436 — unlocks 12 SP</td><td>Ramon</td><td>Shared Services</td><td>4–6 hrs</td></tr>
+          <tr><td>Verbal confirmation with Samantha on ls_dev capacity intent</td><td>Karl</td><td>Life Style Help</td><td>15 min call</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="priority-group">
+      <h4><span class="pill pill-high">P1 · Before Sprint Close (by May 17)</span></h4>
+      <table class="actions">
+        <thead><tr><th style="width:46%;">Action</th><th style="width:18%;">Owner</th><th style="width:18%;">Team</th><th style="width:18%;">Est. Time</th></tr></thead>
+        <tbody>
+          <tr><td>Close #203043 + #203677 — moves UPS 76.7 → 95.2</td><td>Grace</td><td>Finance</td><td>1–2 days</td></tr>
+          <tr><td>Groom #204198 (Philgeps payment) — add Description + AC</td><td>Mark / Ramon</td><td>Administration</td><td>30 min</td></tr>
+          <tr><td>Formal carryover of #203589 (Japan Embassy) to Iter 7.4</td><td>Grace</td><td>OTP</td><td>15 min</td></tr>
+          <tr><td>Restore raseniero GitHub token (or rotate to service account)</td><td>Ramon</td><td>git_aa_dev + git_cc_dev</td><td>1–2 hrs</td></tr>
+          <tr><td>Resolve Colina Health 96-day stale ADO PR</td><td>Paul / Asnari</td><td>Colina Health</td><td>1 hr</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="priority-group">
+      <h4><span class="pill pill-mod">P2 · Iteration 7.4 Planning (May 18 opening)</span></h4>
+      <table class="actions">
+        <thead><tr><th style="width:46%;">Action</th><th style="width:18%;">Owner</th><th style="width:18%;">Team</th><th style="width:18%;">Est. Time</th></tr></thead>
+        <tbody>
+          <tr><td>Right-size Auto Allies 7.4 commitment to ~20 SP</td><td>Joseph / Karl</td><td>Auto Allies</td><td>Planning session</td></tr>
+          <tr><td>Stage min 8 SP of User Stories for Life Style Help 7.4</td><td>Samantha / Karl</td><td>Life Style Help</td><td>2 hrs</td></tr>
+          <tr><td>Build Finance 7.4 pipeline (target 6+ SP groomed)</td><td>Grace / Karl</td><td>Finance</td><td>2 hrs</td></tr>
+          <tr><td>Name secondary owner for each active 7.4 item (bus factor)</td><td>Karl</td><td>5 teams (BF=1)</td><td>Sprint planning</td></tr>
+          <tr><td>Add CODEOWNERS + branch protection to Auto Allies repos</td><td>Joseph / Cliff</td><td>Auto Allies</td><td>2 hrs</td></tr>
+          <tr><td>Draft work-item-type diversity gate (≥ 25% non-Story) for PI 8</td><td>Ramon</td><td>Portfolio-wide</td><td>1 hr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOPIC 7 — WRAP-UP ═══════════════ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="topic-num" style="background:#64748b;">7</span>
+      Wrap-up &amp; Next Steps
+      <span class="time-budget">2 min</span>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card compare-good">
+        <div class="compare-title">✅ If P0 Actions Close Today</div>
+        <div class="compare-list">
+          <ul>
+            <li>Sprint mean projected to <b>~83</b> (Low Risk band)</li>
+            <li>4 teams cross into Low Risk: Administration, OTP, Finance (with #203677), Flawless Wedding (closure narrative)</li>
+            <li>Iter 7.3 close-out at ≥ 85% delivery for 7 of 10 teams</li>
+            <li>Clean PI 7 close-out — no Critical/High Risk teams, second consecutive week</li>
+            <li>Iter 7.4 opens with bus-factor and DoR remediation already in flight</li>
+          </ul>
+        </div>
+      </div>
+      <div class="compare-card compare-bad">
+        <div class="compare-title">⚠ If No Action Taken</div>
+        <div class="compare-list">
+          <ul>
+            <li>Mean stays ~78.5; 6 teams remain in Moderate band</li>
+            <li>Life Style Help carries zero-capacity deficiency into Iter 7.4</li>
+            <li>Bus-factor risk re-opens (5 teams) without coverage plans</li>
+            <li>GitHub token (25+ days stale) continues to suppress HCI for Git teams</li>
+            <li>Iter 7.4 opens with thin/ungroomed backlogs in Finance, OTP, Admin, Life Style Help</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:14px;">
+      <b>Next portfolio audit:</b> May 17 (Iter 7.3 sprint close) &nbsp;·&nbsp; <b>Iter 7.4 opens:</b> May 18 &nbsp;·&nbsp; <b>Follow-up checkpoint:</b> May 16 morning standup on P0 closures.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="footer">
+  <div class="container">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div>Low Risk ≥ 80</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#eab308;"></div>Moderate 60–79.9</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f97316;"></div>High Risk 40–59.9</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div>Critical &lt; 40</div>
+    </div>
+    <div>Sources: PORTFOLIO_20260515_0310.html &nbsp;·&nbsp; 10 workspace audits dated 2026-05-15 &nbsp;·&nbsp; Iteration 7.3 Day 12 of 14</div>
+    <div style="margin-top:4px;color:#9ca3af;">Generated by portfolio-meeting-prep skill &nbsp;·&nbsp; May 15, 2026 &nbsp;·&nbsp; 30-minute timebox</div>
+  </div>
+</div>
+
+</body>
+</html>
