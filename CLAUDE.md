@@ -34,6 +34,14 @@ iteration_audit/
 | `git_aa_dev` | Auto Allies | Git | GitHub repos |
 | `git_cc_dev` | Colina Health | Git | GitHub repos |
 
+### Excluded Workspaces (Portfolio Analysis)
+
+Workspaces listed here are **skipped by `portfolio-health` and `portfolio-meeting-prep`**. Individual audits (`ado-safe-audit`, `git_iteration_audit`) and `all-projects` batch runs still include them.
+
+| Folder | Team | Reason |
+| -------- | ------ | ------ |
+| `ado_ls_dev` | Life Style Help App | Removed from portfolio analysis per owner request (2026-05-21) |
+
 Each workspace contains:
 
 - `CLAUDE.md` — local context, team members, audit history, project exceptions
