@@ -84,6 +84,8 @@ Glob patterns:
   git_*/audit/AUDIT_*.md
 ```
 
+Before processing results, read the `Excluded Workspaces (Portfolio Analysis)` table from the root `CLAUDE.md`. Skip any workspace folder listed there — do not include excluded workspaces in the agenda, scorecard, or discussion points.
+
 Per workspace, select most recent audit file. Extract:
 
 - Overall / UPS score

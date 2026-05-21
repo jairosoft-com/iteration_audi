@@ -40,17 +40,18 @@ Defers to:
 ## Required workflow
 
 1. **Discover teams:** Scan all top-level directories matching `ado_*` and `git_*` with `CLAUDE.md`. Process alphabetically.
-2. **Read team metadata:** From each workspace's `CLAUDE.md`, extract:
+2. **Apply exclusion list:** Read the `Excluded Workspaces (Portfolio Analysis)` table from the root `CLAUDE.md`. Skip any workspace folder listed there — do not include excluded workspaces in scoring, charts, or narratives.
+3. **Read team metadata:** From each workspace's `CLAUDE.md`, extract:
    - Team name
    - ADO project and team identifiers
    - Workspace type (`ado` or `git`)
-3. **Find latest audit:** In each workspace's `audit/` directory, find most recent `AUDIT_*.md` by filename sort (descending).
-4. **Extract scores:** Parse latest audit report using extraction patterns below.
-5. **Compute UPS:** Normalize scores into Unified Portfolio Scores using formula below.
-6. **Read prior portfolio report:** Find most recent `PORTFOLIO_*.html` in `portfolio_report/` for trend delta. If none, this is baseline run.
-7. **Analyze cross-cutting themes:** Identify systemic patterns across teams from audit reports.
-8. **Generate HTML:** Produce self-contained HTML dashboard per template spec below.
-9. **Write output:** Save to `portfolio_report/PORTFOLIO_<date>_<time>.html`.
+4. **Find latest audit:** In each workspace's `audit/` directory, find most recent `AUDIT_*.md` by filename sort (descending).
+5. **Extract scores:** Parse latest audit report using extraction patterns below.
+6. **Compute UPS:** Normalize scores into Unified Portfolio Scores using formula below.
+7. **Read prior portfolio report:** Find most recent `PORTFOLIO_*.html` in `portfolio_report/` for trend delta. If none, this is baseline run.
+8. **Analyze cross-cutting themes:** Identify systemic patterns across teams from audit reports.
+9. **Generate HTML:** Produce self-contained HTML dashboard per template spec below.
+10. **Write output:** Save to `portfolio_report/PORTFOLIO_<date>_<time>.html`.
 
 ## Score extraction patterns
 
