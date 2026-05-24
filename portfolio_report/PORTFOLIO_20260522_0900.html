@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Health Dashboard — 2026-05-22</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #faf8ff; color: #113069; margin: 0; }
+    h1, h2, h3, h4, .heading { font-family: 'Manrope', sans-serif; }
+    .band-low   { color: #22c55e; }
+    .band-mod   { color: #eab308; }
+    .band-high  { color: #f97316; }
+    .band-crit  { color: #ef4444; }
+    .bar-low    { background: #22c55e; }
+    .bar-mod    { background: #eab308; }
+    .bar-high   { background: #f97316; }
+    .bar-crit   { background: #ef4444; }
+    .pill-low   { background: #dcfce7; color: #166534; }
+    .pill-mod   { background: #fef9c3; color: #854d0e; }
+    .pill-high  { background: #ffedd5; color: #9a3412; }
+    .pill-crit  { background: #fee2e2; color: #991b1b; }
+    .pill-ado   { background: #e0f2fe; color: #0369a1; }
+    .pill-git   { background: #f3e8ff; color: #7e22ce; }
+    .trend-up   { color: #22c55e; }
+    .trend-dn   { color: #ef4444; }
+    .trend-fl   { color: #9ca3af; }
+    tr:hover td { background: #f0edff !important; }
+    details > summary { cursor: pointer; list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.2s; }
+    .metric-card { border-left: 4px solid; border-radius: 0.5rem; }
+    @media print {
+      body { background: white; }
+      .no-print { display: none !important; }
+      .page-break { page-break-before: always; }
+      a { color: inherit; text-decoration: none; }
+      .shadow-sm, .shadow { box-shadow: none !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-16">
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- HEADER                                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<header style="background: linear-gradient(135deg, #113069 0%, #1e40af 60%, #312e81 100%);" class="w-full px-8 py-6 text-white shadow-lg">
+  <div class="max-w-screen-xl mx-auto flex flex-wrap items-start justify-between gap-6">
+    <!-- Title block -->
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <span class="material-symbols-outlined text-3xl text-blue-200">dashboard</span>
+        <h1 class="text-2xl font-extrabold tracking-tight" style="font-family:'Manrope',sans-serif;">Portfolio Health Dashboard</h1>
+      </div>
+      <p class="text-blue-200 text-sm font-medium">Jairosoft LLC · Iteration 7.4 (Day 5 of 14) · 2026-05-22 · 9 Active Teams</p>
+    </div>
+    <!-- Metric cards -->
+    <div class="flex flex-wrap gap-4">
+      <!-- Portfolio Mean -->
+      <div class="metric-card bg-white bg-opacity-10 px-5 py-3 min-w-32" style="border-left-color:#22c55e;">
+        <p class="text-xs uppercase tracking-widest text-blue-200 font-semibold" style="font-family:'Manrope',sans-serif;">Portfolio Mean</p>
+        <p class="text-3xl font-extrabold text-white mt-1" style="font-family:'Manrope',sans-serif;">74.3</p>
+        <p class="text-xs text-blue-300 mt-0.5">↑ +0.6 vs Day 4</p>
+      </div>
+      <!-- Portfolio Median -->
+      <div class="metric-card bg-white bg-opacity-10 px-5 py-3 min-w-32" style="border-left-color:#eab308;">
+        <p class="text-xs uppercase tracking-widest text-blue-200 font-semibold" style="font-family:'Manrope',sans-serif;">Portfolio Median</p>
+        <p class="text-3xl font-extrabold text-white mt-1" style="font-family:'Manrope',sans-serif;">75.1</p>
+        <p class="text-xs text-blue-300 mt-0.5">JIT Operation — anchor</p>
+      </div>
+      <!-- Teams at Risk -->
+      <div class="metric-card px-5 py-3 min-w-32" style="border-left-color:#eab308; background:rgba(234,179,8,0.18);">
+        <p class="text-xs uppercase tracking-widest text-yellow-200 font-semibold" style="font-family:'Manrope',sans-serif;">Not Low Risk</p>
+        <p class="text-3xl font-extrabold text-yellow-300 mt-1" style="font-family:'Manrope',sans-serif;">8</p>
+        <p class="text-xs text-yellow-200 mt-0.5">8 Moderate · 0 High/Critical</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PORTFOLIO SCORECARD                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="max-w-screen-xl mx-auto px-6 mt-8">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-xl font-bold" style="font-family:'Manrope',sans-serif;">Portfolio Scorecard</h2>
+    <button onclick="window.print()" class="no-print flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border border-blue-200 text-blue-700 hover:bg-blue-50 transition">
+      <span class="material-symbols-outlined text-base">print</span> Export PDF
+    </button>
+  </div>
+  <div class="overflow-x-auto rounded-xl shadow-sm border border-gray-100 bg-white">
+    <table class="w-full text-sm">
+      <thead>
+        <tr style="background:#f1eeff;">
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500 w-12">Rank</th>
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Team</th>
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500 w-16">Type</th>
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500">UPS Score</th>
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500 w-32">Risk Band</th>
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500 w-20">Trend</th>
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500 w-32">Latest Audit</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-50">
+
+        <!-- 01 Administration 80.7 Low -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">01</td>
+          <td class="px-4 py-3 font-semibold">Administration</td>
+          <td class="px-4 py-3"><span class="pill-ado text-xs font-semibold px-2 py-0.5 rounded-full">ADO</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-low text-base">80.7</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-low" style="width:80.7%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-low text-xs font-semibold px-2 py-0.5 rounded-full">Low Risk</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-fl" title="No change">trending_flat</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 02 HR Recruitment 78.6 Moderate -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">02</td>
+          <td class="px-4 py-3 font-semibold">HR Recruitment</td>
+          <td class="px-4 py-3"><span class="pill-ado text-xs font-semibold px-2 py-0.5 rounded-full">ADO</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">78.6</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:78.6%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-fl" title="No change">trending_flat</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 03 Shared Services 77.1 Moderate -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">03</td>
+          <td class="px-4 py-3 font-semibold">Shared Services</td>
+          <td class="px-4 py-3"><span class="pill-ado text-xs font-semibold px-2 py-0.5 rounded-full">ADO</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">77.1</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:77.1%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-up" title="+0.8">arrow_upward</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 04 OTP 76.1 Moderate -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">04</td>
+          <td class="px-4 py-3 font-semibold">OTP (Office of the President)</td>
+          <td class="px-4 py-3"><span class="pill-ado text-xs font-semibold px-2 py-0.5 rounded-full">ADO</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">76.1</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:76.1%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-dn" title="-0.6">arrow_downward</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 05 JIT Operation 75.1 Moderate -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">05</td>
+          <td class="px-4 py-3 font-semibold">JIT Operation</td>
+          <td class="px-4 py-3"><span class="pill-ado text-xs font-semibold px-2 py-0.5 rounded-full">ADO</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">75.1</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:75.1%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-dn" title="-0.4">arrow_downward</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 06 Finance 73.6 Moderate -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">06</td>
+          <td class="px-4 py-3 font-semibold">Finance</td>
+          <td class="px-4 py-3"><span class="pill-ado text-xs font-semibold px-2 py-0.5 rounded-full">ADO</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">73.6</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:73.6%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-up" title="+1.3">arrow_upward</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 07 Auto Allies 72.6 Moderate Git -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">07</td>
+          <td class="px-4 py-3 font-semibold">Auto Allies</td>
+          <td class="px-4 py-3"><span class="pill-git text-xs font-semibold px-2 py-0.5 rounded-full">Git</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">72.6</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:72.6%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-up" title="+0.6">arrow_upward</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 08 Flawless Wedding App 68.4 Moderate -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">08</td>
+          <td class="px-4 py-3 font-semibold">Flawless Wedding App</td>
+          <td class="px-4 py-3"><span class="pill-ado text-xs font-semibold px-2 py-0.5 rounded-full">ADO</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">68.4</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:68.4%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-dn" title="-0.1">arrow_downward</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+        <!-- 09 Colina Health 66.5 Moderate Git -->
+        <tr>
+          <td class="px-4 py-3 text-xs font-mono text-gray-400">09</td>
+          <td class="px-4 py-3 font-semibold">Colina Health</td>
+          <td class="px-4 py-3"><span class="pill-git text-xs font-semibold px-2 py-0.5 rounded-full">Git</span></td>
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              <span class="font-bold band-mod text-base">66.5</span>
+              <div class="flex-1 h-2 rounded-full bg-gray-100 min-w-16"><div class="h-2 rounded-full bar-mod" style="width:66.5%"></div></div>
+            </div>
+          </td>
+          <td class="px-4 py-3"><span class="pill-mod text-xs font-semibold px-2 py-0.5 rounded-full">Moderate</span></td>
+          <td class="px-4 py-3 text-center"><span class="material-symbols-outlined text-lg trend-up" title="+3.9">arrow_upward</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">2026-05-22</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- CHARTS ROW                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="max-w-screen-xl mx-auto px-6 mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+  <!-- Donut Chart -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+    <h3 class="text-base font-bold mb-4" style="font-family:'Manrope',sans-serif;">Risk Distribution</h3>
+    <div class="flex items-center justify-center gap-8">
+      <!-- SVG Donut: 9 teams total, 1 Low, 8 Moderate, 0 High, 0 Critical -->
+      <!-- r=65, C=408.41, startOffset=102.1 (top) -->
+      <!-- Low:   45.38 dash, offset=102.1        -->
+      <!-- Mod:  363.03 dash, offset=102.1-45.38=56.72 -->
+      <svg viewBox="0 0 200 200" width="160" height="160">
+        <circle cx="100" cy="100" r="65" fill="none" stroke="#f3f4f6" stroke-width="32"/>
+        <!-- Moderate (yellow) segment — drawn first so green overlaps if needed -->
+        <circle cx="100" cy="100" r="65" fill="none" stroke="#eab308" stroke-width="32"
+          stroke-dasharray="363.03 45.38"
+          stroke-dashoffset="56.72"
+          style="transform:rotate(-90deg);transform-origin:100px 100px;"/>
+        <!-- Low Risk (green) segment -->
+        <circle cx="100" cy="100" r="65" fill="none" stroke="#22c55e" stroke-width="32"
+          stroke-dasharray="45.38 363.03"
+          stroke-dashoffset="102.1"
+          style="transform:rotate(-90deg);transform-origin:100px 100px;"/>
+        <text x="100" y="96" text-anchor="middle" font-family="Manrope,sans-serif" font-size="28" font-weight="800" fill="#113069">9</text>
+        <text x="100" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6b7280">Teams</text>
+      </svg>
+      <!-- Legend -->
+      <div class="space-y-2.5 text-sm">
+        <div class="flex items-center gap-2.5">
+          <span class="w-3.5 h-3.5 rounded-full inline-block flex-shrink-0" style="background:#22c55e;"></span>
+          <span class="text-gray-700 font-medium">Low Risk</span>
+          <span class="ml-auto font-bold text-gray-800 pl-4">1</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="w-3.5 h-3.5 rounded-full inline-block flex-shrink-0" style="background:#eab308;"></span>
+          <span class="text-gray-700 font-medium">Moderate</span>
+          <span class="ml-auto font-bold text-gray-800 pl-4">8</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="w-3.5 h-3.5 rounded-full inline-block flex-shrink-0" style="background:#f97316;"></span>
+          <span class="text-gray-400">High Risk</span>
+          <span class="ml-auto font-bold text-gray-400 pl-4">0</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="w-3.5 h-3.5 rounded-full inline-block flex-shrink-0" style="background:#ef4444;"></span>
+          <span class="text-gray-400">Critical</span>
+          <span class="ml-auto font-bold text-gray-400 pl-4">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bar Chart: Score Comparison -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+    <h3 class="text-base font-bold mb-4" style="font-family:'Manrope',sans-serif;">Score Comparison</h3>
+    <div class="space-y-2.5">
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">Administration</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-low absolute left-0 top-0" style="width:80.7%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">80.7</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">HR Recruitment</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:78.6%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">78.6</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">Shared Services</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:77.1%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">77.1</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">OTP</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:76.1%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">76.1</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">JIT Operation</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:75.1%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">75.1</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">Finance</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:73.6%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">73.6</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">Auto Allies</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:72.6%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">72.6</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">Flawless Wedding</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:68.4%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">68.4</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="w-28 text-right text-gray-600 text-xs truncate flex-shrink-0">Colina Health</span>
+        <div class="flex-1 h-5 rounded bg-gray-100 relative">
+          <div class="h-5 rounded bar-mod absolute left-0 top-0" style="width:66.5%"></div>
+          <span class="absolute right-1 top-0.5 text-xs font-semibold text-gray-700">66.5</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TIER ANALYSIS + CROSS-CUTTING THEMES                               -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="max-w-screen-xl mx-auto px-6 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+  <!-- Tier Analysis (2/3 width) -->
+  <div class="lg:col-span-2 space-y-3">
+    <h3 class="text-base font-bold" style="font-family:'Manrope',sans-serif;">Tier Analysis</h3>
+
+    <!-- Top Performers (Low Risk ≥80) — expanded -->
+    <details open class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <summary class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-gray-50" style="border-left:4px solid #22c55e;">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#22c55e;"></span>
+          <span class="font-semibold text-sm">Top Performers <span class="text-gray-400 font-normal">(Low Risk ≥80)</span></span>
+          <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">1 team</span>
+        </div>
+        <span class="material-symbols-outlined text-gray-400 chevron">expand_more</span>
+      </summary>
+      <div class="px-5 py-4 text-sm text-gray-600 border-t border-gray-50">
+        <p><strong class="text-gray-800">Administration (80.7)</strong> — The portfolio's sole Low Risk team on Day 5 of Iteration 7.4. Mark Colina's sprint holds perfectly on structural dimensions: 100% Estimation, 100% DoR, 100% Team Capacity, 100% Backlog Refinement. Three items flipped Active today (total 7 of 20 active) — sustained execution momentum. Primary risks are overcommitment (20 items / 48 SP vs. realistic ~10–14 SP throughput) and a title/description mismatch on item 204391 that creates audit compliance risk. First closures needed by Day 7 to prevent D7 from pulling the score below 80.</p>
+      </div>
+    </details>
+
+    <!-- Moderate Band (60-79.9) — collapsed -->
+    <details class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <summary class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-gray-50" style="border-left:4px solid #eab308;">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#eab308;"></span>
+          <span class="font-semibold text-sm">Moderate <span class="text-gray-400 font-normal">(60 – 79.9)</span></span>
+          <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-semibold">8 teams</span>
+        </div>
+        <span class="material-symbols-outlined text-gray-400 chevron">expand_more</span>
+      </summary>
+      <div class="px-5 py-4 text-sm text-gray-600 border-t border-gray-50 space-y-2.5">
+        <p><strong class="text-gray-800">HR Recruitment (78.6)</strong> — Structurally stable at 78.6 for a second consecutive day. Almera's 6-item sprint (13 SP) is right-sized at 22% of 58 SP capacity — low delivery risk. Day 5 is the last early-sprint annotation day; D7 (Delivery Predictability) will be fully penalized from Day 6. Items 204252 and 203629 are Active. First closures are critical by Day 6–7. Persistent gaps: no iteration goal (audit #67), no PI objectives, bus factor = 1.</p>
+        <p><strong class="text-gray-800">Shared Services (77.1, +0.8)</strong> — Improving. DoR fully restored to 100% as three new items (#204838, #204840, #204841 — all Enablers for Teofilo) replaced three items that exited the backlog. All new items are Active as of this morning. Primary drag: D1 stuck at 50.0 (16/32 items in current sprint). Two 7.3 carry-overs (#202553, #202724) remain in active Design Review but still on 7.3 path.</p>
+        <p><strong class="text-gray-800">OTP (76.1, −0.6)</strong> — Minor regression driven solely by backlog growth: new item #204821 ("FTC Akira") added to PI7 root, expanding visible denominator from 15 to 16 and pulling D1 from 66.7 to 62.5. Good news: #204354 confirmed as an Enabler (not US), improving D5 ratio to 80%. Grace has 10-item sprint (20 SP), 7 of 10 items Active — strong engagement. D7 at 0 with early-sprint annotation expiring today.</p>
+        <p><strong class="text-gray-800">JIT Operation (75.1, −0.4)</strong> — Marginal decline. Backlog API returned 35 items vs. 38 yesterday — 3 items removed from Stories view. D1 fell from 68.4 to 65.7. Strong fundamentals: 100% estimation, 100% DoR, robust capacity (17.8 pts/day). Item #203986 updated at 04:43 AM by Armelita — active engagement at sprint open. D7 early-sprint annotation expires today; first closures urgently needed.</p>
+        <p><strong class="text-gray-800">Finance (73.6, +1.3)</strong> — Recovering. Item 204459 (Resolve Historical Bank Fee Anomalies) restored to Iteration 7.4, reversing yesterday's scope reduction. Sprint now holds 5 items / 10 SP — right-sized for Grace's 2 hrs/day. Both 203719 and 204459 Active simultaneously — positive parallel execution. Delivery Predictability at 0 with annotation expiring; one closure lifts score to ~76.5.</p>
+        <p><strong class="text-gray-800">Auto Allies (72.6, +0.6 — Git)</strong> — ICS at 98.2 (Green), HCI at 74 (Yellow, +1 pt). At 50% of iteration elapsed (Day 5 of 10), SGPI remains critically low at 6.5% (1 item closed, 29 SP undelivered). User Story 203830 regressed from Ready for QA to Back to Dev — the sprint's most concerning velocity signal. Enabler 204674 still missing story points. PR validation workflow added to both repos on Day 3 — good CI hygiene investment. Full GitHub data now available (token restored 2026-05-20).</p>
+        <p><strong class="text-gray-800">Flawless Wedding App (68.4, −0.1)</strong> — CRITICAL BLOCKER EVENT: 7 of 13 sprint items (10 SP, 45% of committed scope) now in Blocked state as of this morning, up from 1 blocked item yesterday. Items 201790, 201791, 201794, 201796, 201797, 201799, 201800 are all blocked — all Luke's vendor-discovery User Story cluster. Root cause: likely shared backend dependency (vendor API or database schema). Immediate escalation required. Score stable numerically but qualitative health has deteriorated sharply.</p>
+        <p><strong class="text-gray-800">Colina Health (66.5, +3.9 — Git partial data)</strong> — Significant ICS recovery: 93.3% Green (▲+7.2) as grooming failures from Day 4 were resolved (204700 and 204791 now have parent links and SP). Sprint scope correction confirmed: AB#202588 (13 SP RSC migration) formally deferred to 7.5 — committed SP drops to 41. SGPI = 0.0% (Day 5, no closures yet, early-sprint annotation applies). HCI at 66 (partial data, raseniero token still 401 — 12 audits deep on carry-forward). Defect track producing throughput (3 items at Passed QA = 6 SP).</p>
+      </div>
+    </details>
+
+    <!-- Needs Attention (40-59.9) — collapsed -->
+    <details class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <summary class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-gray-50" style="border-left:4px solid #f97316;">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#f97316;"></span>
+          <span class="font-semibold text-sm">Needs Attention <span class="text-gray-400 font-normal">(40 – 59.9)</span></span>
+          <span class="text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-semibold">0 teams</span>
+        </div>
+        <span class="material-symbols-outlined text-gray-400 chevron">expand_more</span>
+      </summary>
+      <div class="px-5 py-4 text-sm text-gray-400 border-t border-gray-50">
+        <p>No teams currently in the High Risk band. Flawless Wedding App (68.4) is closest — the mass blocker event could drive scores below 60 if delivery predictability collapses in the second week.</p>
+      </div>
+    </details>
+
+    <!-- Critical (<40) — collapsed -->
+    <details class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <summary class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-gray-50" style="border-left:4px solid #ef4444;">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#ef4444;"></span>
+          <span class="font-semibold text-sm">Critical <span class="text-gray-400 font-normal">(&lt;40)</span></span>
+          <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-semibold">0 teams</span>
+        </div>
+        <span class="material-symbols-outlined text-gray-400 chevron">expand_more</span>
+      </summary>
+      <div class="px-5 py-4 text-sm text-gray-400 border-t border-gray-50">
+        <p>No teams in Critical band. Life Style Help App (previously Critical at 0.0) has been formally removed from portfolio analysis per owner request (2026-05-21).</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Cross-Cutting Themes (1/3 width) -->
+  <div class="space-y-3">
+    <h3 class="text-base font-bold" style="font-family:'Manrope',sans-serif;">Cross-Cutting Themes</h3>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 space-y-4">
+
+      <div class="flex gap-3">
+        <span class="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+        <div>
+          <p class="font-semibold text-sm text-gray-800">Day 5 Delivery Cliff</p>
+          <p class="text-xs text-gray-500 mt-0.5">All 9 teams report 0 SP closed through Day 5. Today is the final early-sprint annotation day for D7. From Day 6, Delivery Predictability will be fully penalized across all ADO teams. First closures by Day 6–7 are critical to prevent score declines across the portfolio.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <span class="w-6 h-6 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+        <div>
+          <p class="font-semibold text-sm text-gray-800">Mass Blocker Crisis (Flawless)</p>
+          <p class="text-xs text-gray-500 mt-0.5">7 items / 10 SP blocked overnight — vendor-discovery feature cluster entirely halted. Escalation required today. If backend dependency is not resolved by Day 7, the sprint faces a high-probability delivery failure.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <span class="w-6 h-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+        <div>
+          <p class="font-semibold text-sm text-gray-800">Bus Factor Crisis — 5 Teams</p>
+          <p class="text-xs text-gray-500 mt-0.5">Administration (Mark), HR (Almera), Finance (Grace), OTP (Grace), and JIT (Armelita dominant) all operate with single-assignee concentration. Organizational throughput is fragile under any absence or capacity change.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <span class="w-6 h-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+        <div>
+          <p class="font-semibold text-sm text-gray-800">Work Item Balance Penalty</p>
+          <p class="text-xs text-gray-500 mt-0.5">5 of 7 ADO teams trigger the −30 User Story dominance penalty (Admin, Finance, HR, JIT, OTP all &gt;60% US type). Adding 1–2 Enablers per sprint would recover ~4 points each.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <span class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
+        <div>
+          <p class="font-semibold text-sm text-gray-800">GitHub Token (Colina Health)</p>
+          <p class="text-xs text-gray-500 mt-0.5">raseniero token remains 401 — Colina Health HCI D1–D6 is now 12 audits deep on carry-forward from May 10 baseline. Auto Allies token was restored 2026-05-20 and is holding. Colina token fix is the highest-priority DevOps action this sprint.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold flex-shrink-0">6</span>
+        <div>
+          <p class="font-semibold text-sm text-gray-800">Iteration Planning Gaps</p>
+          <p class="text-xs text-gray-500 mt-0.5">Flawless Wedding D1 at 8.8% (13/148 items in sprint), Shared Services at 50.0% (16/32), Finance at 45.5% (5/11). Backlog pruning — not sprint scope expansion — is the required lever.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TREND ANALYSIS                                                      -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="max-w-screen-xl mx-auto px-6 mt-8">
+  <h3 class="text-base font-bold mb-4" style="font-family:'Manrope',sans-serif;">Trend Analysis <span class="text-gray-400 font-normal text-sm">vs. PORTFOLIO_20260521_0900 (Day 4)</span></h3>
+  <div class="overflow-x-auto rounded-xl shadow-sm border border-gray-100 bg-white">
+    <table class="w-full text-sm">
+      <thead>
+        <tr style="background:#f1eeff;">
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Team</th>
+          <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wider text-gray-500">Prior UPS</th>
+          <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wider text-gray-500">Current UPS</th>
+          <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wider text-gray-500">Delta</th>
+          <th class="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Notes</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-50">
+        <tr>
+          <td class="px-4 py-3 font-semibold">Administration</td>
+          <td class="px-4 py-3 text-center text-gray-500">80.7</td>
+          <td class="px-4 py-3 text-center font-bold band-low">80.7</td>
+          <td class="px-4 py-3 text-center trend-fl font-semibold">0.0</td>
+          <td class="px-4 py-3 text-xs text-gray-400">Structurally stable; active count increased to 7</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">HR Recruitment</td>
+          <td class="px-4 py-3 text-center text-gray-500">78.6</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">78.6</td>
+          <td class="px-4 py-3 text-center trend-fl font-semibold">0.0</td>
+          <td class="px-4 py-3 text-xs text-gray-400">Unchanged; Almera back from leave, 1 item Active</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">Shared Services</td>
+          <td class="px-4 py-3 text-center text-gray-500">76.3</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">77.1</td>
+          <td class="px-4 py-3 text-center trend-up font-semibold">+0.8</td>
+          <td class="px-4 py-3 text-xs text-gray-400">DoR fully restored; 3 new Enablers added and Active</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">OTP</td>
+          <td class="px-4 py-3 text-center text-gray-500">76.7</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">76.1</td>
+          <td class="px-4 py-3 text-center trend-dn font-semibold">−0.6</td>
+          <td class="px-4 py-3 text-xs text-gray-400">Backlog grew by 1 (#204821); D1 62.5 vs 66.7</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">JIT Operation</td>
+          <td class="px-4 py-3 text-center text-gray-500">75.5</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">75.1</td>
+          <td class="px-4 py-3 text-center trend-dn font-semibold">−0.4</td>
+          <td class="px-4 py-3 text-xs text-gray-400">3 items removed from sprint view; D1 65.7 vs 68.4</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">Finance</td>
+          <td class="px-4 py-3 text-center text-gray-500">72.3</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">73.6</td>
+          <td class="px-4 py-3 text-center trend-up font-semibold">+1.3</td>
+          <td class="px-4 py-3 text-xs text-gray-400">204459 restored to 7.4; D1 recovered to 45.5</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">Auto Allies</td>
+          <td class="px-4 py-3 text-center text-gray-500">72.0</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">72.6</td>
+          <td class="px-4 py-3 text-center trend-up font-semibold">+0.6</td>
+          <td class="px-4 py-3 text-xs text-gray-400">HCI +1 pt; full data; SGPI still stalled at 6.5%</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">Flawless Wedding App</td>
+          <td class="px-4 py-3 text-center text-gray-500">68.5</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">68.4</td>
+          <td class="px-4 py-3 text-center trend-dn font-semibold">−0.1</td>
+          <td class="px-4 py-3 text-xs text-gray-400">Mass blocker event (7 items) — qualitative deterioration</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-semibold">Colina Health</td>
+          <td class="px-4 py-3 text-center text-gray-500">62.6</td>
+          <td class="px-4 py-3 text-center font-bold band-mod">66.5</td>
+          <td class="px-4 py-3 text-center trend-up font-semibold" style="color:#22c55e;">+3.9</td>
+          <td class="px-4 py-3 text-xs text-gray-400">ICS +7.2 pts; 202588 deferred; grooming fixed</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr style="background:#f8f7ff;">
+          <td class="px-4 py-3 font-bold text-xs uppercase text-gray-500">Portfolio Mean</td>
+          <td class="px-4 py-3 text-center font-semibold text-gray-500">73.7</td>
+          <td class="px-4 py-3 text-center font-bold" style="color:#113069;">74.3</td>
+          <td class="px-4 py-3 text-center font-bold" style="color:#22c55e;">+0.6</td>
+          <td class="px-4 py-3 text-xs text-gray-400">Computed over same 9 teams (ado_ls_dev excluded)</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <p class="text-xs text-gray-400 mt-2">No risk band transitions this cycle. All teams remained in their prior bands (Administration: Low, all others: Moderate).</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- EVIDENCE GAPS                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="max-w-screen-xl mx-auto px-6 mt-8">
+  <h3 class="text-base font-bold mb-4" style="font-family:'Manrope',sans-serif;">Evidence Gaps &amp; Caveats</h3>
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 space-y-3 text-sm">
+
+    <div class="flex gap-3 items-start">
+      <span class="material-symbols-outlined text-yellow-500 text-base flex-shrink-0 mt-0.5">warning</span>
+      <div>
+        <p class="font-semibold text-gray-700">Colina Health — partial data (HCI D1–D6 carry-forward, 12 audits deep)</p>
+        <p class="text-xs text-gray-500 mt-0.5">GitHub API returns HTTP 401 Bad Credentials (raseniero token issue, documented since 2026-04-21). HCI D1–D6 carried forward from 7.3 Day 7 baseline (2026-05-10). UPS = 66.5 uses live ADO for ICS, SGPI, and HCI D7–D10. Carry-forward chain is 12 audits (12 calendar days) stale. Per Project Exceptions, no team penalty applied. Resolution requires Ramon to update raseniero GitHub token scope.</p>
+      </div>
+    </div>
+
+    <div class="flex gap-3 items-start">
+      <span class="material-symbols-outlined text-green-500 text-base flex-shrink-0 mt-0.5">check_circle</span>
+      <div>
+        <p class="font-semibold text-gray-700">Auto Allies — full data restored (live GitHub evidence)</p>
+        <p class="text-xs text-gray-500 mt-0.5">GitHub token raseniero restored 2026-05-20. All 9 HCI dimensions scored from live evidence. data_mode: full. UPS = 72.6 verified from frontmatter: 98.2×0.50 + 74×0.30 + 6.5×0.20 = 72.6.</p>
+      </div>
+    </div>
+
+    <div class="flex gap-3 items-start">
+      <span class="material-symbols-outlined text-green-500 text-base flex-shrink-0 mt-0.5">check_circle</span>
+      <div>
+        <p class="font-semibold text-gray-700">All 7 ADO workspaces — full data</p>
+        <p class="text-xs text-gray-500 mt-0.5">All ado_* workspaces (admin, fin, fl_dev, hr, jit, otp, shared) returned complete audit data for Day 5 of Iteration 7.4. Scores extracted directly from Audit Metadata tables. ado_ls_dev excluded from portfolio analysis per owner request (2026-05-21).</p>
+      </div>
+    </div>
+
+    <div class="flex gap-3 items-start">
+      <span class="material-symbols-outlined text-blue-500 text-base flex-shrink-0 mt-0.5">info</span>
+      <div>
+        <p class="font-semibold text-gray-700">Early-Sprint Context — D7/SGPI = 0.0 across all teams</p>
+        <p class="text-xs text-gray-500 mt-0.5">Day 5 is the final annotated early-sprint day. Zero closures are structurally expected this early in all 9 sprints. Delivery Predictability (D7 for ADO) and SGPI (Git) will carry full weight from Day 6. Auto Allies (10-day sprint) is already at 50% elapsed — SGPI at 6.5% represents a genuine mid-sprint risk, not just an early-sprint artifact.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- FOOTER                                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<footer class="max-w-screen-xl mx-auto px-6 mt-12 pb-8">
+  <div class="border-t border-gray-200 pt-6 flex flex-wrap items-start justify-between gap-6 text-xs text-gray-400">
+    <div class="space-y-1 max-w-xl">
+      <p class="font-semibold text-gray-500">Methodology</p>
+      <p>ADO teams: UPS = Overall Score (7-dimension SAFe rubric, 0–100).</p>
+      <p>Git teams: UPS = ICS × 0.50 + HCI × 0.30 + SGPI × 0.20.</p>
+      <p>Excluded: ado_ls_dev (Life Style Help App) — per owner request 2026-05-21.</p>
+      <p>Prior snapshot: PORTFOLIO_20260521_0900.html (Day 4, 9 comparable teams).</p>
+    </div>
+    <!-- Risk band legend -->
+    <div class="space-y-1">
+      <p class="font-semibold text-gray-500">Risk Bands</p>
+      <div class="flex flex-wrap gap-x-4 gap-y-1">
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full" style="background:#22c55e;"></span>Low Risk ≥ 80</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full" style="background:#eab308;"></span>Moderate 60–79.9</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full" style="background:#f97316;"></span>High Risk 40–59.9</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full" style="background:#ef4444;"></span>Critical &lt; 40</span>
+      </div>
+    </div>
+    <!-- Timestamp -->
+    <div class="text-right">
+      <p class="font-semibold text-gray-500">Generated</p>
+      <p>2026-05-22 09:00 PHT</p>
+      <p>Claude Code · claude-sonnet-4-6</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
