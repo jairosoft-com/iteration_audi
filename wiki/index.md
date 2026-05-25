@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 30 · concepts 7 · summaries 410 active + 1 tombstone · synthesis 20
+**Page counts:** entities 30 · concepts 7 · summaries 411 active + 1 tombstone · synthesis 20
 
 ## Synthesis
 
@@ -101,7 +101,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[summaries/audit-ado-otp-20260429-0206]] | ADO OTP | **82.5** | 🟢 Low | **+7.7 (Moderate→Low)** |
 | [[summaries/audit-ado-hr-20260429-0204]] | ADO HR | 81.4 | 🟢 Low | 0.0 |
 | [[summaries/audit-ado-admin-20260429-0204]] | ADO Admin | 78.3 | 🟡 Moderate | +4.9 |
-| [[summaries/audit-git-cc-dev-20260429-0241]] | Git Colina | 75.3 | 🟡 Moderate | +5.9 |
+| [[summaries/audit-git-cc-dev-20260521-1500]] | Git Colina | 62.9 | 🟡 Moderate | Iter 7.4 Day 4 PM (partial) |
 | [[summaries/audit-ado-jit-20260505-0900]] | ADO JIT | **75.2** | 🟡 Moderate | +3.1 (Iter 7.3 Day 2) |
 | [[summaries/audit-ado-fl-dev-20260429-0204]] | ADO Flawless | 72.5 | 🟡 Moderate | −1.5 |
 | [[summaries/audit-git-aa-dev-20260429-0242]] | Git AA Dev | 66.5 | 🟡 Moderate | −4.5 (partial data) |
@@ -144,7 +144,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | Page | Latest UPS | Band | Latest summary |
 |------|-----------:|------|----------------|
 | [[entities/team-git-aa-dev]] | UPS 66.5 | 🟡 Moderate | [[summaries/audit-git-aa-dev-20260429-0242]] |
-| [[entities/team-git-cc-dev]] | UPS 75.3 | 🟡 Moderate | [[summaries/audit-git-cc-dev-20260429-0241]] |
+| [[entities/team-git-cc-dev]] | UPS 62.9 | 🟡 Moderate | [[summaries/audit-git-cc-dev-20260521-1500]] |
 
 ### People
 

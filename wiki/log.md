@@ -1452,3 +1452,11 @@ Live ADO data pull using project/team/iteration GUIDs. First full-depth backlog 
 - Created [[concepts/portfolio-scope]] — documents the inclusion/exclusion mechanism and current excluded list.
 - Updated [[entities/team-ado-ls-dev]] — added ⚠️ exclusion banner at page top.
 - Updated [[index.md]] — LS Dev row annotated; concept count 6→7.
+
+## [2026-05-25 11:00] ingest | Colina Health Iter 7.4 Day 4 PM audit (2026-05-21 15:00)
+
+- Source: `../git_cc_dev/audit/AUDIT_20260521_1500.md`
+- Created [[summaries/audit-git-cc-dev-20260521-1500]] — second audit of Day 4 (vs 09:00 run); UPS 62.9 Yellow, ICS 86.1, HCI 66, SGPI 0.0%
+- Updated [[entities/team-git-cc-dev]] — "Latest" bumped to Iter 7.4 Day 4; gap note added (19 uningest audits Apr 29–May 21); audit history entry prepended
+- Updated [[index.md]] — Colina summary count 410→411; CC team row UPS 75.3→62.9; latest-per-team pointer updated
+- **Key signals:** AB#202585 Active→Peer Testing (only intra-day move); 5 ICS hygiene failures uncorrected 4 days; AB#202588 RSC migration (13 SP) still New — critical; Paul bus factor (31 SP sole-owner); GitHub 401 12th carry-forward
