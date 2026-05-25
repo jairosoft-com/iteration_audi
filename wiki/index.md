@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 30 · concepts 6 · summaries 410 active + 1 tombstone · synthesis 20
+**Page counts:** entities 30 · concepts 7 · summaries 410 active + 1 tombstone · synthesis 20
 
 ## Synthesis
 
@@ -135,7 +135,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[entities/team-ado-fl-dev]] | 72.5 | 🟡 Moderate | [[summaries/audit-ado-fl-dev-20260429-0204]] |
 | [[entities/team-ado-hr]] | **81.4** | 🟢 Low | [[summaries/audit-ado-hr-20260429-0204]] |
 | [[entities/team-ado-jit]] | 72.9 | 🟡 Moderate | [[summaries/audit-ado-jit-20260429-0204]] |
-| [[entities/team-ado-ls-dev]] | 64.7 | 🟡 Moderate | [[summaries/audit-ado-ls-dev-20260429-0204]] |
+| [[entities/team-ado-ls-dev]] | 64.7 ⚠️ excluded | 🟡 Moderate | [[summaries/audit-ado-ls-dev-20260429-0204]] — **excluded from portfolio analysis as of 2026-05-21** |
 | [[entities/team-ado-otp]] | **82.5** | 🟢 Low | [[summaries/audit-ado-otp-20260429-0206]] |
 | [[entities/team-ado-shared]] | **87.4** | 🟢 Low | [[summaries/audit-ado-shared-20260429-0207]] |
 
@@ -187,6 +187,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[concepts/stakeholder-roles]] | Governance (PDM/PM/EM/PO/SM) | All person entities; [[synthesis/pi7-plan]] |
 | [[concepts/headless-skill-mode]] | Skill design (scheduled / unattended invocation) | [[entities/system-macpilot]], `.claude/skills/portfolio-email/SKILL.md` §Step 6.5 |
 | [[concepts/ado-mcp-call-patterns]] | ADO MCP tooling rules (always use IDs) | [[entities/team-ado-otp]], all ADO audit skills |
+| [[concepts/portfolio-scope]] | Portfolio workspace inclusion / exclusion list | [[entities/team-ado-ls-dev]]; root CLAUDE.md; portfolio-health + portfolio-meeting-prep skills |
 
 ## Next content candidates
 

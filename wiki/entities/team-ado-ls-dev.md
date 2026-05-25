@@ -14,10 +14,12 @@ sources:
   - "../../ado_ls_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-28
+updated: 2026-05-25
 ---
 
 # Life Style Help App Team (ADO)
+
+> ⚠️ **Excluded from portfolio analysis as of 2026-05-21.** This team does not appear in `portfolio-health` dashboards or `portfolio-meeting-prep` agendas. Individual audits (`/ado-safe-audit ado_ls_dev`) and `all-projects` batch runs continue normally. See [[concepts/portfolio-scope]] for the exclusion mechanism.
 
 Product team delivering **LifeStyleHelpApp.com** (mobile/web membership, workout, blog, and admin tooling) inside ADO project `Life Style Help App`. Small squad — Samantha Babael (Dev), Ike Yana (Dev), Luzmibel Paculanang (Test) — with mixed User Story and Defect work and a recurring ownership-concentration risk on Samantha.
 
