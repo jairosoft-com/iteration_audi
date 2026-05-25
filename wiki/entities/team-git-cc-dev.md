@@ -3,6 +3,7 @@ title: "Team — Colina Health (Git)"
 type: entity
 tags: [team, git, colina-health, safe, healthcare]
 sources:
+  - "../../git_cc_dev/audit/AUDIT_20260521_1500.md"
   - "../../git_cc_dev/audit/AUDIT_20260426_2215.md"
   - "../../git_cc_dev/audit/AUDIT_20260425_1533.md"
   - "../../git_cc_dev/audit/AUDIT_20260424_0902.md"
@@ -12,14 +13,20 @@ sources:
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_cc_dev/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-04-28
+updated: 2026-05-25
 ---
 
 # Colina Health Product Team (Git)
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
 
-## Latest (Iteration 7.2 Day 10 — 2026-04-29 02:41 UTC)
+## Latest (Iteration 7.4 Day 4 PM — 2026-05-21 15:00)
+
+**UPS 62.9 🟡 Yellow (Moderate) · ICS 86.1% · HCI 66/100 · SGPI 0.0%.** `data_mode: partial` — GitHub 401, 12th carry-forward from 2026-05-10. Sole intra-day movement: AB#202585 Active→Peer Testing at 12:59 UTC (Paul, 5 SP co-located folders); Proxy SGPI 22%→32%; HCI D7 +1. Five ICS hygiene failures uncorrected for 4 days (AB#204700+204791 missing parent/SP; AB#199041+200027+200194 missing description) — full remediation restores ICS 100% and UPS ~73. **Critical: AB#202588 RSC migration (13 SP) still New Day 4 — activate by Day 5 or 21 SP gated.** Luzmibel QA gate: 3 items (12 SP) in Peer Testing + days off May 25–26. Paul bus factor: sole owner 31 SP. See [[summaries/audit-git-cc-dev-20260521-1500]].
+
+> ⚠️ **Wiki gap:** Audits 2026-04-29 through 2026-05-21 (19 runs in `git_cc_dev/CLAUDE.md`) are not yet ingested in this wiki. The entity page jumped from Iter 7.2 Day 10 directly to Iter 7.4 Day 4.
+
+## Previous (Iteration 7.2 Day 10 — 2026-04-29 02:41 UTC)
 
 **UPS 75.3 🟡 Yellow (Moderate) · ICS 90.5 · HCI 69/100 · SGPI 46.7%.** GitHub 404 exception RESOLVED — live data used, no partial mode. All 5 defects Closed (12 SP, 100% defect velocity). 6 enablers in "Passed QA Testing" (16 SP) — ADO state hygiene gap suppresses SGPI headline. FE PR#172 (AB#203322) merged — iteration drift (item not in 7.2). 5 PRs queued for raseniero review (reviewer bottleneck, 4 days left). CI/CD improvement: ci-pr.yml added to FE + BE repos (#202690). 3 DoR fails persist (200093, 200828, 202028). See [[summaries/audit-git-cc-dev-20260429-0241]].
 
@@ -102,6 +109,8 @@ Iteration 7.1 closed at UPS **90.6 Green** — all 11 committed defects (21 SP) 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-05-21 15:00** — [[summaries/audit-git-cc-dev-20260521-1500]] · [raw](../../git_cc_dev/audit/AUDIT_20260521_1500.md) (partial — GitHub 401, Iter 7.4 Day 4 PM)
+- *2026-04-29 → 2026-05-21: 19 audits in source workspace not yet ingested in wiki*
 - **2026-04-28 02:41** — [[summaries/audit-git-cc-dev-20260428-0241]] · [raw](../../git_cc_dev/audit/AUDIT_20260428_0241.md) (partial label; full evidence used — BE#55 merged, 28 SP at QA/UAT, ADO state lag)
 - **2026-04-27 09:02** — [[summaries/audit-git-cc-dev-20260427-0902]] · [raw](../../git_cc_dev/audit/AUDIT_20260427_0902.md) (full — GitHub token restored)
 - **2026-04-26 22:15** — [[summaries/audit-git-cc-dev-20260426-2215]] · [raw](../../git_cc_dev/audit/AUDIT_20260426_2215.md) (partial — GitHub 404)
