@@ -1443,3 +1443,12 @@ Live ADO data pull using project/team/iteration GUIDs. First full-depth backlog 
 - Task #203709 (Admin) "Complete Claude CPN 4 Courses" (10 hrs, orphaned) + Task #203599 (Finance) "Complete Claude CPN 4 Courses" (10 hrs, orphaned) — same training, same sprint, both teams, both without parent story. Portfolio-level training initiative tracked at task level only. Candidate for a portfolio Learning Spike pattern in `synthesis/` if Finance backlog analysis also gets ingested.
 
 **Finance backlog analysis note:** `ado_fin/BACKLOG_ANALYSIS_20260505.md` exists in raw source but not yet ingested into wiki. Candidate for next session.
+
+## [2026-05-25 00:00] ingest | CLAUDE.md — ado_ls_dev excluded from portfolio analysis
+
+- Source: root `CLAUDE.md` (new `Excluded Workspaces (Portfolio Analysis)` section, committed 2026-05-21)
+- **Decision:** Life Style Help App (`ado_ls_dev`) removed from `portfolio-health` dashboards and `portfolio-meeting-prep` agendas per owner request. Individual audits and `all-projects` batch runs unaffected.
+- **Mechanism:** Declarative exclusion table in root `CLAUDE.md`; both portfolio skills updated to read it (step 2 in `portfolio-health`, step 4 preamble in `portfolio-meeting-prep`).
+- Created [[concepts/portfolio-scope]] — documents the inclusion/exclusion mechanism and current excluded list.
+- Updated [[entities/team-ado-ls-dev]] — added ⚠️ exclusion banner at page top.
+- Updated [[index.md]] — LS Dev row annotated; concept count 6→7.
