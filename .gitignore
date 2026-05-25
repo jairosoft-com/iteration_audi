@@ -18,6 +18,7 @@
 # Workspace-local Claude settings and session data
 **/.claude/settings.local.json
 **/.claude/data/sessions/
+.claude/worktrees/
 
 # =========================
 # Python Artifacts
