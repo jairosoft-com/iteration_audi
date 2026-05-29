@@ -1460,3 +1460,11 @@ Live ADO data pull using project/team/iteration GUIDs. First full-depth backlog 
 - Updated [[entities/team-git-cc-dev]] — "Latest" bumped to Iter 7.4 Day 4; gap note added (19 uningest audits Apr 29–May 21); audit history entry prepended
 - Updated [[index.md]] — Colina summary count 410→411; CC team row UPS 75.3→62.9; latest-per-team pointer updated
 - **Key signals:** AB#202585 Active→Peer Testing (only intra-day move); 5 ICS hygiene failures uncorrected 4 days; AB#202588 RSC migration (13 SP) still New — critical; Paul bus factor (31 SP sole-owner); GitHub 401 12th carry-forward
+
+## [2026-05-25 11:30] insights | session insights — worktree cleanup + CC Dev ingest (2026-05-25)
+
+4 insights filed from session:
+1. ⏳ TODO added: raseniero GitHub token 401 re-broke (post Apr-24 fix); 12 audits on carry-forward as of 2026-05-21. Source: [[summaries/audit-git-cc-dev-20260521-1500]]
+2. Bookkeeping TODO added: 19 Colina Health audits (Apr 29–May 20) not yet ingested in wiki.
+3. [[synthesis/score-streaks]] updated: Colina 7.4 Day 4 = UPS 62.9 (partial) — 3-iteration decline arc documented; 27.7-pt drop from 7.1 close high.
+4. [[synthesis/bus-factor]] updated: Paul Coronia (CC Dev) delivery escalated from score 1 → 3; now sole owner 31 SP in Iter 7.4 (100% Enabler track). Table row and risk scoring table both updated.

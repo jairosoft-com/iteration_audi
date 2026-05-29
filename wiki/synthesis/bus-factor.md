@@ -45,7 +45,7 @@ created: 2026-04-20
 | [[entities/team-ado-otp]] | [[entities/person-grace]] | Sole assignee | **100%** | Single-assignee model accepted as project exception | [[entities/team-ado-otp]] |
 | [[entities/team-ado-ls-dev]] | Samantha Babael | Primary dev | **~90% · 9 of 10 SP, 6 of 7 items** | Small squad — Ike Yana / Luzmibel carry near-zero delivery share | [[entities/team-ado-ls-dev]] |
 | [[entities/team-ado-fl-dev]] | Carol Cuison | Spike owner | **100% of open 7.1 scope (#201569)** | Not in ADO capacity config → Team Capacity stuck 66.7 for 8+ audits | [[entities/team-ado-fl-dev]] |
-| [[entities/team-git-cc-dev]] | Paul Coronia | Lead dev | **18 of ~30 PRs (~60%)** | Delivery-side co-dominance; review-side below | [[entities/team-git-cc-dev]] |
+| [[entities/team-git-cc-dev]] | Paul Coronia (`pcoronia`) | Lead dev | **18 of ~30 PRs (~60%) PI7.1 → sole owner 31 SP Iter 7.4** | Delivery escalated: 7.4 Day 4 = 100% of Enabler track (7 items, 26 SP) + 1 defect + both auth blockers. Kyaa-A defects only. | [[entities/team-git-cc-dev]], [[summaries/audit-git-cc-dev-20260521-1500]] |
 | [[entities/team-git-cc-dev]] | `raseniero` (Ramon) | Sole approver | **Requested reviewer on all 3 active open PRs** including BE#55 HIPAA | Review bottleneck — 2-day unreviewed on 42-file HIPAA PR | [[summaries/audit-git-cc-dev-20260419-1345]] |
 | [[entities/team-git-aa-dev]] | Joseph / Cliff / Earl | Delivery trio | **3 of 5 produce 100% of GitHub output** | Inverse case — [[entities/person-jerlyn]] and Mary Secusana at zero-contribution does not halt delivery but invalidates capacity math | [[entities/team-git-aa-dev]] |
 
@@ -71,7 +71,7 @@ Proposed 0–3 per team, applied to PI7.1-close state:
 | [[entities/team-ado-otp]] | **3** | n/a | Accepted single-operator exception |
 | [[entities/team-ado-ls-dev]] | **2** | n/a | Samantha ~90% but two nominal backups on roster |
 | [[entities/team-ado-fl-dev]] | **2** | n/a | Sole open item to out-of-config assignee |
-| [[entities/team-git-cc-dev]] | 1 | **3** | Delivery shared pcoronia/Kyaa-A; reviews all flow to `raseniero` |
+| [[entities/team-git-cc-dev]] | **3** *(escalated — Iter 7.4)* | **3** | Iter 7.4: Paul sole owner 31 SP (all 7 Enablers + auth blockers); Kyaa-A defects only. Review still flows to `raseniero`. |
 | [[entities/team-git-aa-dev]] | 1 | 1 | Delivery trio absorbs; zero formal PR reviews (separate issue) |
 | [[entities/team-ado-shared]] | — | — | Roster not yet captured |
 
