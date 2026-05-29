@@ -16,10 +16,12 @@ sources:
   - "../../git_aa_dev/CLAUDE.md"
   - "../../portfolio_report/PORTFOLIO_20260419_1953.html"
 created: 2026-04-19
-updated: 2026-04-28
+updated: 2026-05-28
 ---
 
 # Auto Allies Development Team (Git)
+
+> **Tooling note (2026-05-28):** GitHub MCP access was restored after a `401` token expiry — a new `raseniero` fine-grained PAT now returns 200 on both AA repos. Future audits can run `data_mode: full` (no carry-forward) once verified against an actual run. See [[concepts/github-mcp-call-patterns]].
 
 Product development team for **AutoAllies.com**, working across two GitHub repos (`jairosoft-com/autoallies-version2` frontend, `jairosoft-com/autoallies-api-core` backend) with story tracking in ADO project `Auto Allies` under team `AA Development Team`. Audits are iteration-bounded and combine GitHub developer productivity, SAFe compliance, and ADO-to-GitHub traceability.
 
@@ -107,6 +109,7 @@ Iteration 7.1 closed with UPS 68.6 **masking** Critical SGPI 21.2% + High/Critic
 
 - [[concepts/scoring-git-ups]] — UPS = ICS·0.50 + HCI·0.30 + SGPI·0.20
 - [[concepts/risk-bands]] — Moderate 60–79.9 (current band), Critical <40 (SGPI component)
+- [[concepts/github-mcp-call-patterns]] — GitHub MCP server / PAT rotation ops (root cause of `partial` data-mode windows)
 
 ## Audit history
 

@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 30 · concepts 7 · summaries 411 active + 1 tombstone · synthesis 20
+**Page counts:** entities 30 · concepts 8 · summaries 411 active + 1 tombstone · synthesis 20
 
 ## Synthesis
 
@@ -187,6 +187,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[concepts/stakeholder-roles]] | Governance (PDM/PM/EM/PO/SM) | All person entities; [[synthesis/pi7-plan]] |
 | [[concepts/headless-skill-mode]] | Skill design (scheduled / unattended invocation) | [[entities/system-macpilot]], `.claude/skills/portfolio-email/SKILL.md` §Step 6.5 |
 | [[concepts/ado-mcp-call-patterns]] | ADO MCP tooling rules (always use IDs) | [[entities/team-ado-otp]], all ADO audit skills |
+| [[concepts/github-mcp-call-patterns]] | GitHub MCP tooling (PAT rotation, stale-server `/mcp` reconnect, 401-vs-404 diagnosis) | [[entities/team-git-aa-dev]], [[entities/team-git-cc-dev]], [[concepts/ado-mcp-call-patterns]] |
 | [[concepts/portfolio-scope]] | Portfolio workspace inclusion / exclusion list | [[entities/team-ado-ls-dev]]; root CLAUDE.md; portfolio-health + portfolio-meeting-prep skills |
 
 ## Next content candidates

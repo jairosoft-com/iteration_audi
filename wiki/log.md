@@ -1460,3 +1460,13 @@ Live ADO data pull using project/team/iteration GUIDs. First full-depth backlog 
 - Updated [[entities/team-git-cc-dev]] — "Latest" bumped to Iter 7.4 Day 4; gap note added (19 uningest audits Apr 29–May 21); audit history entry prepended
 - Updated [[index.md]] — Colina summary count 410→411; CC team row UPS 75.3→62.9; latest-per-team pointer updated
 - **Key signals:** AB#202585 Active→Peer Testing (only intra-day move); 5 ICS hygiene failures uncorrected 4 days; AB#202588 RSC migration (13 SP) still New — critical; Paul bus factor (31 SP sole-owner); GitHub 401 12th carry-forward
+
+## [2026-05-28 17:30] insights | GitHub MCP token rotation & call patterns
+
+- Session: "GitHub MCP token 401 → rotation → /mcp reconnect" (2026-05-28)
+- Created [[concepts/github-mcp-call-patterns]] — server topology (stdio binary in `~/.claude.json` global config, not project `.mcp.json`); Rule 1 token edits don't hot-reload a running server (must `/mcp` reconnect); Rule 2 401=auth/all-repos vs 404=per-repo scope; Rule 3 curl-the-config to verify a rotated PAT; scoped-repo table; token-expiry history (404 Apr 21–May 20, 401 recurrence May 28)
+- Updated [[entities/team-git-aa-dev]] + [[entities/team-git-cc-dev]] — 2026-05-28 tooling notes (access restored, `data_mode: full` available pending verification); concept cross-links added; CC 404 exception note appended with the 401 recurrence + rotation
+- Updated [[concepts/ado-mcp-call-patterns]] — Related link to the new GitHub sibling
+- Updated [[index.md]] — concept count 7→8; new concept row
+- Cross-references added: 4
+- **Verified live:** new `raseniero` PAT returns 200 on all 5 aa+cc repos after `/mcp` reconnect; latest commits dated 2026-05-28 on both teams. Source `git_cc_dev/CLAUDE.md` 404 note intentionally left stale per owner.

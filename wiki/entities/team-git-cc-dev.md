@@ -13,10 +13,12 @@ sources:
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_cc_dev/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-05-25
+updated: 2026-05-28
 ---
 
 # Colina Health Product Team (Git)
+
+> **Tooling note (2026-05-28):** GitHub MCP access was restored after a `401` token expiry — a new `raseniero` fine-grained PAT now returns 200 on all three Colina repos. Future audits can run `data_mode: full` (ending the long carry-forward window) once verified against an actual run. The source `git_cc_dev/CLAUDE.md` still carries the older 404 note — intentionally left as-is for now. See [[concepts/github-mcp-call-patterns]].
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
 
@@ -104,6 +106,7 @@ Iteration 7.1 closed at UPS **90.6 Green** — all 11 committed defects (21 SP) 
 
 - [[concepts/scoring-git-ups]] — UPS = ICS × 0.50 + HCI × 0.30 + SGPI × 0.20
 - [[concepts/risk-bands]] — Low ≥ 80 band
+- [[concepts/github-mcp-call-patterns]] — GitHub MCP server / PAT rotation ops (root cause of the `partial` carry-forward window)
 
 ## Audit history
 
@@ -153,4 +156,4 @@ Every audit in this workspace is ingested as a wiki summary. Click any entry for
 ## Notes on project exceptions (added 2026-04-23)
 
 - **Non-developer team members** (Luzmibel QA, Jaszmeine Design) are not penalized for GitHub absence per the same principle Ramon established for AA on 2026-04-23. Filed in `git_cc_dev/CLAUDE.md` Project Exceptions. See [[summaries/transcript-lpm-review-2026-04-23]].
-- **GitHub API 404 (Apr 21 onward)** — token access-scope issue affecting all 3 Colina repos. Audits through resolution carry `data_mode: partial` and conservative HCI carry-forwards. Not a team failure.
+- **GitHub API 404 (Apr 21 onward)** — token access-scope issue affecting all 3 Colina repos. Audits through resolution carry `data_mode: partial` and conservative HCI carry-forwards. Not a team failure. **Update 2026-05-28:** token recurred as a `401` expiry and was rotated to a new `raseniero` PAT; access restored to all 3 repos. See [[concepts/github-mcp-call-patterns]].
