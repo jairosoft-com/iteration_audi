@@ -29,9 +29,11 @@ Persistent cross-session to-do list for items surfaced in conversations — thin
 - [ ] ⏳ **2026-04-23 · luke-action** · Add ≥1 User Story to Flawless 7.2 sprint (structural WIB 30 ceiling — 4 audits). Source: [[summaries/audit-ado-fl-dev-20260423-0910]]
 - [ ] **2026-04-28 · milestone** · Shared Services reached Low Risk (84.6) — Day 9 milestone, first ever. Monitor for sustainability. Source: Day 9 audit 2026-04-28, [[synthesis/team-rankings]]
 - [ ] **2026-04-28 · jit-watch** · JIT DP reset to 0.0 (Audit #44) — formula change exposed structural gap; 9 closed items exited visible board. Watch Day 10 for recovery or continued decline. Source: Day 9 audit 2026-04-28, [[entities/team-ado-jit]]
+- [x] ⏳ **2026-05-25 · ramon-action** · raseniero GitHub token 401 re-broke (post Apr-24 fix); 12 audits on carry-forward as of 2026-05-21; HCI D1–D6 stale from 2026-05-10 baseline. Source: [[summaries/audit-git-cc-dev-20260521-1500]] `closed: 2026-05-28` — new raseniero PAT rotated; all 5 repos return 200 per [[wiki/log.md]] 2026-05-28 entry.
 
 ## Open — wiki bookkeeping (agent-executable)
 
+- [ ] **2026-05-25 · bookkeeping** · Ingest 19 missing Colina Health audits (2026-04-29 → 2026-05-20): covers full Iter 7.3 sprint + 7.4 Days 1–3. Entity page and streak synthesis both have a visible gap. Source: [[entities/team-git-cc-dev]], [[summaries/audit-git-cc-dev-20260521-1500]]
 - [ ] **2026-04-23 · synthesis** · Create `synthesis/dor-form-vs-content.md` — "DoR passes but content is wrong" pattern now surfaced in 3 workspaces (Shared #202687 empty, Flawless #202827 1-char-short, HR #203057+#203063 wrong-candidate copy-paste). Rubric measures character counts, not accuracy. Worth a dedicated synthesis page. Trigger: wait until a 4th instance or when pattern directly affects a scoring dispute.
 - [ ] **2026-04-23 · convention** · Formalize in `wiki/CLAUDE.md` schema: *"Wiki may propagate meeting-documented decisions to source CLAUDE.md Project Exceptions, additively, with source citation and log entry."* First precedent set this session (AA + Colina non-dev exceptions). Not in schema yet.
 - [ ] **2026-04-23 · bookkeeping** · Spot-check the ~25 4/22 same-day re-run audits for distinct signal (most expected flat holds or degraded-mode; skip if no change). Low priority.

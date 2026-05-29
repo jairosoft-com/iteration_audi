@@ -28,7 +28,7 @@ Each is a legitimate read; pick by the question being asked.
 | 1 | [[entities/team-ado-jit]] JIT Operation | **13** | 2026-03-18 → 2026-04-04 | 0 | 14 / 38 | 37% |
 | 2 | [[entities/team-ado-fin]] Finance | 11 | 2026-03-22 → 2026-04-04 | 0 *(77.9 plateau — 10 consecutive below 80)* | 16 / 33 | **48%** |
 | 3 | [[entities/team-ado-hr]] HR Recruitment | 8 | 2026-03-22 → 2026-03-31 | **2 (active)** | 10 / 34 | 29% |
-| 4 | [[entities/team-git-cc-dev]] Colina Health | 7 | 2026-04-08 → 2026-04-27 | 0 *(broken Apr 28 — 69.4)* | 8 / 12 | 67% |
+| 4 | [[entities/team-git-cc-dev]] Colina Health | 7 | 2026-04-08 → 2026-04-27 | 0 *(broken Apr 28 — 69.4; Iter 7.4 Day 4 = 62.9 partial)* | 8 / 12 | 67% |
 | 5 | [[entities/team-ado-admin]] Administration | 3 | 2026-04-16 → 2026-04-19 | 0 | 3 / 34 | 9% |
 | 6 | [[entities/team-ado-ls-dev]] Life Style Help App | 1 | 2026-04-19 | 0 *(dropped High Risk Day 8)* | 1 / 20 | 5% |
 | 7 | [[entities/team-ado-otp]] Office of the President | 1 | 2026-04-04 | 0 | 2 / 19 | 11% |
@@ -54,6 +54,8 @@ Both top streaks fell on the same day — not because teams slipped, but because
 Unlike the top three ADO teams whose streaks were killed by the ADO 7-dim rubric transition, [[entities/team-git-cc-dev]] uses the **Git UPS formula** (ICS·0.50 + HCI·0.30 + SGPI·0.20 per [[concepts/scoring-git-ups]]) — which wasn't affected by the 2026-04-05 change. Colina's streak survived every known artifact event in the window. It was the cleanest Low-Risk run in the dataset.
 
 **Update 2026-04-28 (Day 9):** Colina fell to 69.4 Moderate on Apr 28, breaking the 7-audit streak at 2026-04-08 → 2026-04-27. The streak is now historical.
+
+**Update 2026-05-21 (Iter 7.4 Day 4):** UPS 62.9 (partial — GitHub 401, HCI carry-forward). Continued post-streak decline: 75.3 (7.2 close) → 69.4 (Apr 28) → 62.9 (7.4 Day 4). Three-iteration downward arc; 27.7-pt drop from the 7.1-close high of 90.6. See [[summaries/audit-git-cc-dev-20260521-1500]].
 
 ## Who never made 80
 
