@@ -1477,3 +1477,12 @@ Live ADO data pull using project/team/iteration GUIDs. First full-depth backlog 
 - Updated [[index.md]] — concept count 7→8; new concept row
 - Cross-references added: 4
 - **Verified live:** new `raseniero` PAT returns 200 on all 5 aa+cc repos after `/mcp` reconnect; latest commits dated 2026-05-28 on both teams. Source `git_cc_dev/CLAUDE.md` 404 note intentionally left stale per owner.
+
+## [2026-05-29 14:55] insights | CC focus — AB#200219 lookup + Iter 7.5 enumeration
+
+- Session: "cc focus — AB#200219 lookup + iter 7.5 enumeration" (2026-05-29). Data-lookup session, not an audit; most ground already documented.
+- Updated [[entities/team-git-cc-dev]] — added a light **interim-lookup note (2026-05-29)**: AB#200219 ([MAR] Hawaii-date Order By/Sort By defect, 5 SP, Asnari Pacalna/`Kyaa-A`) regressed Peer Testing (Iter 7.4 Day 4) → Grooming (Iter 7.5); **BE PR #77** converted to draft and moved back to backlog *per a PR #77 comment by `Kyaa-A` citing Ramon's 2026-05-24 note* (decision secondhand — note not seen). FE already shipped (`colinahealth-fe` #199/#204/#209 by `pcoronia`; child task 204153 Closed). Frontmatter `updated` 2026-05-28→2026-05-29.
+- TODO added ([[TODO]] · wiki bookkeeping) — seed `concepts/iteration-cadence` later: Iter 7.5 exists in both Colina Health + Auto Allies ADO projects, identical dates, separate node GUIDs; too thin to file now.
+- **Skipped (already covered):** ADO↔GitHub `AB#<id>` traceability (standard Azure Boards mention syntax; appears across existing syntheses).
+- **Not done deliberately:** no Iter 7.5 status block on the entity and no index score change — full 7.5 sprint status belongs to a formal CC audit ingest, not this lookup. The 19-audit ingest gap (Apr 29→May 21) + un-ingested 7.5 remain open in [[TODO]].
+- Insights reviewed: 3 · Filed: 1 (entity note) + 1 TODO · Skipped: 1 · Cross-references added: 0 (note self-contained within entity).

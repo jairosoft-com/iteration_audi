@@ -13,7 +13,7 @@ sources:
   - "../../git_cc_dev/audit/AUDIT_20260419_1345.md"
   - "../../git_cc_dev/CLAUDE.md"
 created: 2026-04-19
-updated: 2026-05-28
+updated: 2026-05-29
 ---
 
 # Colina Health Product Team (Git)
@@ -27,6 +27,8 @@ Healthcare (EMR) product team delivering the Colina Health application via three
 **UPS 62.9 🟡 Yellow (Moderate) · ICS 86.1% · HCI 66/100 · SGPI 0.0%.** `data_mode: partial` — GitHub 401, 12th carry-forward from 2026-05-10. Sole intra-day movement: AB#202585 Active→Peer Testing at 12:59 UTC (Paul, 5 SP co-located folders); Proxy SGPI 22%→32%; HCI D7 +1. Five ICS hygiene failures uncorrected for 4 days (AB#204700+204791 missing parent/SP; AB#199041+200027+200194 missing description) — full remediation restores ICS 100% and UPS ~73. **Critical: AB#202588 RSC migration (13 SP) still New Day 4 — activate by Day 5 or 21 SP gated.** Luzmibel QA gate: 3 items (12 SP) in Peer Testing + days off May 25–26. Paul bus factor: sole owner 31 SP. See [[summaries/audit-git-cc-dev-20260521-1500]].
 
 > ⚠️ **Wiki gap:** Audits 2026-04-29 through 2026-05-21 (19 runs in `git_cc_dev/CLAUDE.md`) are not yet ingested in this wiki. The entity page jumped from Iter 7.2 Day 10 directly to Iter 7.4 Day 4.
+
+> **Interim lookup (2026-05-29 — ad-hoc, not a scored audit):** **AB#200219** ("[MAR] Changing Order By / Sort By limits table to current Hawaii date when no date range is selected"; Defect, 5 SP, assigned Asnari Pacalna / `Kyaa-A`) regressed from **Peer Testing** (Iter 7.4 Day 4, 2026-05-21 — see [[summaries/audit-git-cc-dev-20260521-1500]]) back to **Grooming** in Iter 7.5. **BE PR #77** (`colinahealth-be`) was converted to draft and moved back to the backlog — *per a PR #77 comment by `Kyaa-A` citing Ramon's 2026-05-24 note* that a dependent item must resolve first (decision is secondhand via the PR comment; the note itself was not seen). FE side already shipped: `colinahealth-fe` #199 (5/18), #204 (5/22), #209 (5/25) merged by `pcoronia`; child task 204153 ("Followup Fix") Closed. Block is BE-only and dependency-gated. Confirm at the next CC audit ingest.
 
 ## Previous (Iteration 7.2 Day 10 — 2026-04-29 02:41 UTC)
 
