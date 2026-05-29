@@ -62,3 +62,4 @@ If a GUID is unknown, do a one-time name-based discovery call, extract the ID, t
 ## Related
 
 - [[entities/team-ado-otp]] — OTP-specific ADO references
+- [[concepts/github-mcp-call-patterns]] — GitHub MCP equivalent (token rotation, stale-server reconnect)
