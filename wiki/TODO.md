@@ -33,11 +33,9 @@ Persistent cross-session to-do list for items surfaced in conversations — thin
 
 ## Open — wiki bookkeeping (agent-executable)
 
-- [ ] **2026-05-25 · bookkeeping** · Ingest 19 missing Colina Health audits (2026-04-29 → 2026-05-20): covers full Iter 7.3 sprint + 7.4 Days 1–3. Entity page and streak synthesis both have a visible gap. Source: [[entities/team-git-cc-dev]], [[summaries/audit-git-cc-dev-20260521-1500]]
 - [ ] **2026-05-29 · concept** · Seed `concepts/iteration-cadence` (still a "next candidate" in [[index]]) toward a canonical PI/iteration/IP-week definition. First data point: Iter 7.5 exists in BOTH Colina Health and Auto Allies ADO projects with identical sprint dates but separate iteration-node GUIDs. Too thin alone — gather more cadence evidence before filing the page. Source: ad-hoc session lookup 2026-05-29.
 - [ ] **2026-04-23 · synthesis** · Create `synthesis/dor-form-vs-content.md` — "DoR passes but content is wrong" pattern now surfaced in 3 workspaces (Shared #202687 empty, Flawless #202827 1-char-short, HR #203057+#203063 wrong-candidate copy-paste). Rubric measures character counts, not accuracy. Worth a dedicated synthesis page. Trigger: wait until a 4th instance or when pattern directly affects a scoring dispute.
 - [ ] **2026-04-23 · convention** · Formalize in `wiki/CLAUDE.md` schema: *"Wiki may propagate meeting-documented decisions to source CLAUDE.md Project Exceptions, additively, with source citation and log entry."* First precedent set this session (AA + Colina non-dev exceptions). Not in schema yet.
-- [ ] **2026-05-25 · bookkeeping** · Ingest 19 missing Colina Health audits (2026-04-29 → 2026-05-20): covers full Iter 7.3 sprint + 7.4 Days 1–3. Entity page and streak synthesis both have a visible gap. Source: [[entities/team-git-cc-dev]], [[summaries/audit-git-cc-dev-20260521-1500]]
 - [ ] **2026-04-23 · bookkeeping** · Spot-check the ~25 4/22 same-day re-run audits for distinct signal (most expected flat holds or degraded-mode; skip if no change). Low priority.
 - [ ] **2026-04-23 · bookkeeping** · Spot-check the ~7 4/23 afternoon re-run audits (_1100, _1254, _1505, _1510, _1515) for distinct signal. The 4/23 1535 portfolio dashboard indicates some of these moved (LS-Dev 41.0 → 39.7, Shared 35.3 → 41.1, OTP 63.3 → 65.2, JIT 75.5 → 73.2); ingesting these would surface the real Day-4 closing state.
 - [ ] **2026-04-23 · bookkeeping** · Verify whether `PORTFOLIO_MEETING_AGENDA_20260423.html` (non-timestamped) is distinct from the ingested `_1600` version. Skip if duplicate; ingest if distinct.
@@ -84,6 +82,8 @@ Persistent cross-session to-do list for items surfaced in conversations — thin
 ## Archive — closed items
 
 *(Move items here with `[x]` + `closed: YYYY-MM-DD` + one-line outcome. Keep chronological, newest first.)*
+
+- [x] **2026-05-25 · bookkeeping** · Ingest missing Colina Health audits (gap 2026-04-29 → 2026-05-29). `closed: 2026-05-29` — ingested as a **curated chain of 11 signal audits** (Iter 7.3 boundary + close, 7.4 boundary, band changes, ≥3-pt UPS swings, Day-10 zero-closure low, P0 AB#204200 fix, token-restored current run); 21 flat daily re-runs intentionally skipped. Entity head + audit history, [[index]], and [[synthesis/score-streaks]] updated (7.3 Green recovery corrected the prior "3-iteration decline" read). This item was listed twice in Open — both de-duplicated here.
 
 - [x] **2026-04-23 · grace-action** · DoR remediation on #202911, #202913. `closed: 2026-04-26` — Grace remediated #202911 (DoR complete) and #202913 (DoR+SP fixed) at ~23:15–23:29 PHT Apr 26; OTP A39 score 74.8 (+6.1, largest 7.2 single-session gain). Source: [[summaries/audit-ado-otp-20260426-2210]].
 - [x] **2026-04-23 · ramon-action** · Fix `raseniero` GitHub token access-scope. `closed: 2026-04-24` — confirmed restored on Day 5 audit; all 3 Colina repos + both AA repos return live GitHub data; HCI dims 1–6 now scored on live evidence for first time in 4 days (Colina HCI 78 → 82 on evidence-quality alone). Source: [[summaries/audit-git-aa-dev-20260424-0902]], [[summaries/audit-git-cc-dev-20260424-0902]].

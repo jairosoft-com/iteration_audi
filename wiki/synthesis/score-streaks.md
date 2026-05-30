@@ -8,7 +8,7 @@ sources:
   - "../synthesis/scoring-artifacts.md"
   - "../synthesis/iteration-7.1-close.md"
 created: 2026-04-20
-updated: 2026-04-28
+updated: 2026-05-29
 ---
 
 # Score Streaks — Longest ≥80 Runs per Team
@@ -56,6 +56,8 @@ Unlike the top three ADO teams whose streaks were killed by the ADO 7-dim rubric
 **Update 2026-04-28 (Day 9):** Colina fell to 69.4 Moderate on Apr 28, breaking the 7-audit streak at 2026-04-08 → 2026-04-27. The streak is now historical.
 
 **Update 2026-05-21 (Iter 7.4 Day 4):** UPS 62.9 (partial — GitHub 401, HCI carry-forward). Continued decline from the Apr 28 break: 75.3 (7.2 close) → 69.4 (Apr 28) → 62.9 (7.4 Day 4). Three-iteration downward arc. The 7-streak high of 90.6 (7.1 close) is now 27.7 UPS points above the current reading. See [[summaries/audit-git-cc-dev-20260521-1500]].
+
+**⚠️ Correction — Update 2026-05-29 (Iter 7.4 Day 12):** the "three-iteration downward arc" above was an artifact of the then-uningested Iter 7.3 gap. **Iteration 7.3 was a Green recovery, not a decline:** Colina held ≥80 for ~6 consecutive audits (2026-05-11 → 2026-05-16), peaking **85.2** (Day 7) and closing **81.7** (see [[summaries/audit-git-cc-dev-20260511-0243]], [[summaries/audit-git-cc-dev-20260516-0241]]) — a second ≥80 run after the 7-streak. 7.4 then reset to the low-60s (Day 3 trough 62.6) and is recovering: Day 12 = **68.0** ([[summaries/audit-git-cc-dev-20260529-0900]]). Revised arc: 7.1 close 90.6 → 7.2 dip → **7.3 Green 81.7** → 7.4 mid-60s = iteration-reset volatility, not a monotonic slide.
 
 ## Who never made 80
 

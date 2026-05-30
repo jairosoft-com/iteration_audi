@@ -4,7 +4,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 
 > **Also see:** [[TODO]] — persistent cross-session to-do list for things we've identified but deferred.
 
-**Page counts:** entities 30 · concepts 8 · summaries 411 active + 1 tombstone · synthesis 20
+**Page counts:** entities 30 · concepts 8 · summaries 422 active + 1 tombstone · synthesis 20
 
 ## Synthesis
 
@@ -101,7 +101,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | [[summaries/audit-ado-otp-20260429-0206]] | ADO OTP | **82.5** | 🟢 Low | **+7.7 (Moderate→Low)** |
 | [[summaries/audit-ado-hr-20260429-0204]] | ADO HR | 81.4 | 🟢 Low | 0.0 |
 | [[summaries/audit-ado-admin-20260429-0204]] | ADO Admin | 78.3 | 🟡 Moderate | +4.9 |
-| [[summaries/audit-git-cc-dev-20260521-1500]] | Git Colina | 62.9 | 🟡 Moderate | Iter 7.4 Day 4 PM (partial) |
+| [[summaries/audit-git-cc-dev-20260529-0900]] | Git Colina | 68.0 | 🟡 Moderate | Iter 7.4 Day 12 (full) — token restored; recovering from Day-10 low |
 | [[summaries/audit-ado-jit-20260505-0900]] | ADO JIT | **75.2** | 🟡 Moderate | +3.1 (Iter 7.3 Day 2) |
 | [[summaries/audit-ado-fl-dev-20260429-0204]] | ADO Flawless | 72.5 | 🟡 Moderate | −1.5 |
 | [[summaries/audit-git-aa-dev-20260429-0242]] | Git AA Dev | 66.5 | 🟡 Moderate | −4.5 (partial data) |
@@ -120,8 +120,8 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | Office of the President | 40 | 2026-02-24 → 2026-04-29 | [[entities/team-ado-otp]] |
 | Shared Services | 9 | 2026-04-19 → 2026-04-29 | [[entities/team-ado-shared]] |
 | Auto Allies (Git) | 35 | 2026-03-09 → 2026-04-29 | [[entities/team-git-aa-dev]] |
-| Colina Health (Git) | 30 | 2026-03-11 → 2026-04-29 | [[entities/team-git-cc-dev]] |
-| **Total** | **351** | **2026-02-24 → 2026-04-29** | — |
+| Colina Health (Git) | 41 | 2026-03-11 → 2026-05-29 | [[entities/team-git-cc-dev]] |
+| **Total** | **362** | **2026-02-24 → 2026-05-29** | — |
 | (Plus 9 portfolio snapshots + 9 meeting agendas + 2 transcripts ingested 4/21–4/29) | | | |
 
 ## Entities (teams · people · systems)
@@ -144,7 +144,7 @@ Catalog of every page in this wiki. Agent updates this file on every ingest.
 | Page | Latest UPS | Band | Latest summary |
 |------|-----------:|------|----------------|
 | [[entities/team-git-aa-dev]] | UPS 66.5 | 🟡 Moderate | [[summaries/audit-git-aa-dev-20260429-0242]] |
-| [[entities/team-git-cc-dev]] | UPS 62.9 | 🟡 Moderate | [[summaries/audit-git-cc-dev-20260521-1500]] |
+| [[entities/team-git-cc-dev]] | UPS 68.0 | 🟡 Moderate | [[summaries/audit-git-cc-dev-20260529-0900]] |
 
 ### People
 

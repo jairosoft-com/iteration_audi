@@ -3,6 +3,7 @@ title: "Team — Colina Health (Git)"
 type: entity
 tags: [team, git, colina-health, safe, healthcare]
 sources:
+  - "../../git_cc_dev/audit/AUDIT_20260529_0900.md"
   - "../../git_cc_dev/audit/AUDIT_20260521_1500.md"
   - "../../git_cc_dev/audit/AUDIT_20260426_2215.md"
   - "../../git_cc_dev/audit/AUDIT_20260425_1533.md"
@@ -22,13 +23,15 @@ updated: 2026-05-29
 
 Healthcare (EMR) product team delivering the Colina Health application via three GitHub repos under the `jairosoft-com` org: `colinahealth-fe` (frontend), `colinahealth-be` (backend), and `colina-health-ai-agent-code-fixing`. ADO planning lives in `Jairosoft Portfolio` under the `Colina Health Product Team` board (`Stories and Deliverables`). Sprint work is primarily defect-fix and architecture enablers, with HIPAA / PHI audit trail being the current high-stakes thread.
 
-## Latest (Iteration 7.4 Day 4 PM — 2026-05-21 15:00)
+## Latest (Iteration 7.4 Day 12 — 2026-05-29 09:00)
+
+**UPS 68.0 🟡 Yellow (Moderate) · ICS 92.5% (🟢) · HCI 71/100 · SGPI 2.1% headline / 78.7% proxy.** `data_mode: full` — GitHub token restored ~2026-05-20; the 5/29 run is the first full-evidence audit in ~11 days (HCI D1–D6 live again, ending the long carry-forward). Recovery from the Day-10 trough: UPS 5/27 63.4 → 5/28 66.3 → 5/29 68.0. **AB#202585** (co-located-folders enabler, 5 SP) **Passed UAT**. **AB#202588 RSC migration (13 SP) deferred to Iteration 7.5** (moved 2026-05-22) — out of 7.4 scope. **SGPI headline 2.1% vs 78.7% proxy** = ADO closure-state lag (work effectively done, items stacked at Passed QA/UAT, not transitioned to Closed). 3 items "Back to Dev" rework (AB#198098 PRN modal 5 SP; AB#199041 viewport regression 2 SP; AB#204942 missing parent 3 SP). Paul bus-factor persists. Sprint ends 2026-05-31. See [[summaries/audit-git-cc-dev-20260529-0900]].
+
+> **AB#200219 decision note (Ramon, 2026-05-24):** the MAR Hawaii-date defect (Defect, 5 SP, Asnari Pacalna / `Kyaa-A`) was pulled from the active sprint to the backlog. FE shipped (`colinahealth-fe` #199 5/18, #204 5/22, #209 5/25 by `pcoronia`; child task 204153 "Followup Fix" Closed), but **BE PR #77** (`colinahealth-be`) was converted to draft — *per a PR #77 comment by `Kyaa-A` citing Ramon's 2026-05-24 note* that a dependent item must resolve first (decision secondhand via the PR comment; the note itself was not seen). Live ADO confirms `System.IterationPath = "Jairosoft Portfolio"` (root/backlog), State Grooming, as of 2026-05-27 — **not** Iteration 7.5.
+
+## Previous (Iteration 7.4 Day 4 PM — 2026-05-21 15:00)
 
 **UPS 62.9 🟡 Yellow (Moderate) · ICS 86.1% · HCI 66/100 · SGPI 0.0%.** `data_mode: partial` — GitHub 401, 12th carry-forward from 2026-05-10. Sole intra-day movement: AB#202585 Active→Peer Testing at 12:59 UTC (Paul, 5 SP co-located folders); Proxy SGPI 22%→32%; HCI D7 +1. Five ICS hygiene failures uncorrected for 4 days (AB#204700+204791 missing parent/SP; AB#199041+200027+200194 missing description) — full remediation restores ICS 100% and UPS ~73. **Critical: AB#202588 RSC migration (13 SP) still New Day 4 — activate by Day 5 or 21 SP gated.** Luzmibel QA gate: 3 items (12 SP) in Peer Testing + days off May 25–26. Paul bus factor: sole owner 31 SP. See [[summaries/audit-git-cc-dev-20260521-1500]].
-
-> ⚠️ **Wiki gap:** Audits 2026-04-29 through 2026-05-21 (19 runs in `git_cc_dev/CLAUDE.md`) are not yet ingested in this wiki. The entity page jumped from Iter 7.2 Day 10 directly to Iter 7.4 Day 4.
-
-> **Interim lookup (2026-05-29 — ad-hoc, not a scored audit):** **AB#200219** ("[MAR] Changing Order By / Sort By limits table to current Hawaii date when no date range is selected"; Defect, 5 SP, assigned Asnari Pacalna / `Kyaa-A`) regressed from **Peer Testing** (Iter 7.4 Day 4, 2026-05-21 — see [[summaries/audit-git-cc-dev-20260521-1500]]) back to **Grooming** in Iter 7.5. **BE PR #77** (`colinahealth-be`) was converted to draft and moved back to the backlog — *per a PR #77 comment by `Kyaa-A` citing Ramon's 2026-05-24 note* that a dependent item must resolve first (decision is secondhand via the PR comment; the note itself was not seen). FE side already shipped: `colinahealth-fe` #199 (5/18), #204 (5/22), #209 (5/25) merged by `pcoronia`; child task 204153 ("Followup Fix") Closed. Block is BE-only and dependency-gated. Confirm at the next CC audit ingest.
 
 ## Previous (Iteration 7.2 Day 10 — 2026-04-29 02:41 UTC)
 
@@ -114,8 +117,19 @@ Iteration 7.1 closed at UPS **90.6 Green** — all 11 committed defects (21 SP) 
 
 Every audit in this workspace is ingested as a wiki summary. Click any entry for the compact per-audit report.
 
+- **2026-05-29 09:00** — [[summaries/audit-git-cc-dev-20260529-0900]] · [raw](../../git_cc_dev/audit/AUDIT_20260529_0900.md) (full — token restored, Iter 7.4 Day 12, current)
+- **2026-05-28 09:05** — [[summaries/audit-git-cc-dev-20260528-0905]] · [raw](../../git_cc_dev/audit/AUDIT_20260528_0905.md) (Iter 7.4 Day 11 — P0 AB#204200 path fix, ICS Green, +2.9)
+- **2026-05-27 02:43** — [[summaries/audit-git-cc-dev-20260527-0243]] · [raw](../../git_cc_dev/audit/AUDIT_20260527_0243.md) (Iter 7.4 Day 10 — sprint low 63.4, Day-10 zero-closure)
+- **2026-05-23 09:00** — [[summaries/audit-git-cc-dev-20260523-0900]] · [raw](../../git_cc_dev/audit/AUDIT_20260523_0900.md) (Iter 7.4 Day 6 — recovery wave +4.7)
+- **2026-05-22 09:00** — [[summaries/audit-git-cc-dev-20260522-0900]] · [raw](../../git_cc_dev/audit/AUDIT_20260522_0900.md) (Iter 7.4 Day 5 — AB#202588 RSC deferred to 7.5, +3.9)
 - **2026-05-21 15:00** — [[summaries/audit-git-cc-dev-20260521-1500]] · [raw](../../git_cc_dev/audit/AUDIT_20260521_1500.md) (partial — GitHub 401, Iter 7.4 Day 4 PM)
-- *2026-04-29 → 2026-05-21: 19 audits in source workspace not yet ingested in wiki*
+- **2026-05-20 02:04** — [[summaries/audit-git-cc-dev-20260520-0204]] · [raw](../../git_cc_dev/audit/AUDIT_20260520_0204.md) (Iter 7.4 Day 3 — sprint low 62.6, ungroomed adds)
+- **2026-05-19 02:41** — [[summaries/audit-git-cc-dev-20260519-0241]] · [raw](../../git_cc_dev/audit/AUDIT_20260519_0241.md) (Iter 7.4 Day 2 — −2.0, AB#202588 still New)
+- **2026-05-18 09:00** — [[summaries/audit-git-cc-dev-20260518-0900]] · [raw](../../git_cc_dev/audit/AUDIT_20260518_0900.md) (Iter 7.4 Day 1 — sprint open, 48 SP scope)
+- **2026-05-16 02:41** — [[summaries/audit-git-cc-dev-20260516-0241]] · [raw](../../git_cc_dev/audit/AUDIT_20260516_0241.md) (Iter 7.3 sprint-end — closed 🟢 81.7)
+- **2026-05-11 02:43** — [[summaries/audit-git-cc-dev-20260511-0243]] · [raw](../../git_cc_dev/audit/AUDIT_20260511_0243.md) (Iter 7.3 Day 7 — 🟢 Green 85.2, +13.6 delivery wave)
+- **2026-05-03 09:03** — [[summaries/audit-git-cc-dev-20260503-0903]] · [raw](../../git_cc_dev/audit/AUDIT_20260503_0903.md) (Iter 7.3 Day 1 — sprint open)
+- *Curated chain: 11 signal audits ingested above for 2026-05-03 → 2026-05-29. 21 flat daily re-runs in this window (Iter 7.3/7.4) were intentionally skipped (< ~2-pt variance, no new signal); raw files remain in `git_cc_dev/audit/`.*
 - **2026-04-28 02:41** — [[summaries/audit-git-cc-dev-20260428-0241]] · [raw](../../git_cc_dev/audit/AUDIT_20260428_0241.md) (partial label; full evidence used — BE#55 merged, 28 SP at QA/UAT, ADO state lag)
 - **2026-04-27 09:02** — [[summaries/audit-git-cc-dev-20260427-0902]] · [raw](../../git_cc_dev/audit/AUDIT_20260427_0902.md) (full — GitHub token restored)
 - **2026-04-26 22:15** — [[summaries/audit-git-cc-dev-20260426-2215]] · [raw](../../git_cc_dev/audit/AUDIT_20260426_2215.md) (partial — GitHub 404)
