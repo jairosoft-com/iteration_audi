@@ -37,7 +37,7 @@ Prior wiki page is 2026-05-19 (Iteration 7.4 Day 2, UPS 67.0 / ICS 91.3 / HCI 71
 
 ## Entities
 
-- [[entities/team-git-cc-dev]] · [[entities/person-pcoronia]] · [[entities/person-luzmibel]] · [[concepts/scoring-git-ups]] · [[concepts/risk-bands]]
+- [[entities/team-git-cc-dev]] · [[entities/person-pcoronia]] · Luzmibel (QA) · [[concepts/scoring-git-ups]] · [[concepts/risk-bands]]
 
 ## Open questions
 
