@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio Review — Meeting Agenda — 2026-06-06</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --orange:#f97316; --red:#ef4444;
+    --text:#113069; --bg:#faf8ff; --card:#ffffff; --muted:#6b7280;
+    --up:#16a34a; --down:#dc2626; --flat:#9ca3af;
+    --note-bg:#fffbeb; --note-text:#92400e;
+    --t-snap:#6366f1; --t-risk:#ef4444; --t-qw:#22c55e; --t-struct:#f97316;
+    --t-dec:#8b5cf6; --t-act:#0ea5e9; --t-wrap:#64748b;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;padding:0 0 48px;}
+  h1,h2,h3,h4{font-family:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;margin:0;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+  section{margin-top:28px;}
+  .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;
+    box-shadow:0 1px 3px rgba(17,48,105,.06);padding:20px 22px;}
+  .sec-title{font-size:1.05rem;font-weight:800;color:var(--text);display:flex;
+    align-items:center;gap:10px;margin-bottom:4px;}
+  .sec-time{font-size:.72rem;font-weight:700;color:#fff;border-radius:999px;padding:2px 10px;}
+  .sub{color:var(--muted);font-size:.82rem;margin:2px 0 14px;}
+  .pill{display:inline-block;font-size:.68rem;font-weight:700;border-radius:999px;
+    padding:2px 9px;white-space:nowrap;}
+  .pill-low{background:#dcfce7;color:#15803d;} .pill-mod{background:#fef9c3;color:#854d0e;}
+  .pill-high{background:#ffedd5;color:#9a3412;} .pill-crit{background:#fee2e2;color:#991b1b;}
+  .pill-ado{background:#e0f2fe;color:#0369a1;} .pill-git{background:#f3e8ff;color:#7e22ce;}
+  .band-low{color:var(--green);} .band-mod{color:var(--yellow);}
+  .band-high{color:var(--orange);} .band-crit{color:var(--red);}
+  .note{background:var(--note-bg);color:var(--note-text);border-left:4px solid var(--yellow);
+    border-radius:8px;padding:10px 14px;font-size:.82rem;margin-top:12px;}
+  .note.good{background:#f0fdf4;color:#166534;border-left-color:var(--green);}
+  .up{color:var(--up);font-weight:700;} .down{color:var(--down);font-weight:700;} .flat{color:var(--flat);font-weight:700;}
+  table{width:100%;border-collapse:collapse;font-size:.84rem;}
+  th{text-align:left;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--text);background:#f1f5f9;padding:9px 10px;}
+  td{padding:9px 10px;border-top:1px solid #eef0f4;vertical-align:top;}
+  .grid{display:grid;gap:16px;}
+  @media(max-width:760px){.grid{grid-template-columns:1fr !important;}}
+
+  /* ===== Header ===== */
+  header.banner{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 100%);color:#fff;
+    padding:30px 0 26px;}
+  header.banner h1{font-size:1.7rem;font-weight:800;letter-spacing:-.01em;}
+  header.banner .meta{margin-top:6px;color:#c7d2fe;font-size:.86rem;}
+  .hdr-row{display:flex;flex-wrap:wrap;gap:22px;margin-top:16px;}
+  .hdr-box{background:rgba(255,255,255,.10);border-radius:10px;padding:10px 16px;min-width:150px;}
+  .hdr-box .k{font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:#a5b4fc;font-weight:700;}
+  .hdr-box .v{font-size:.95rem;font-weight:700;margin-top:3px;}
+
+  /* ===== Agenda timeline ===== */
+  .timeline{display:flex;width:100%;border-radius:10px;overflow:hidden;
+    border:1px solid #e5e7eb;font-size:.66rem;font-weight:700;color:#fff;}
+  .timeline div{padding:9px 6px;text-align:center;line-height:1.25;}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:.74rem;color:var(--muted);}
+  .legend span{display:flex;align-items:center;gap:6px;}
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
+
+  /* ===== Metric cards ===== */
+  .metrics{display:flex;flex-wrap:wrap;gap:16px;}
+  .metric{flex:1;min-width:180px;background:var(--card);border:1px solid #e5e7eb;
+    border-left-width:5px;border-radius:12px;padding:14px 18px;}
+  .metric .k{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;}
+  .metric .v{font-size:2rem;font-weight:800;margin-top:2px;}
+  .metric .d{font-size:.74rem;margin-top:2px;}
+
+  /* ===== Score bars ===== */
+  .bar-row{display:flex;align-items:center;gap:12px;margin:9px 0;}
+  .bar-name{width:140px;text-align:right;font-size:.82rem;color:#374151;flex-shrink:0;}
+  .bar-track{flex:1;background:#f1f5f9;border-radius:999px;height:22px;position:relative;}
+  .bar-fill{height:22px;border-radius:999px;}
+  .bar-low{background:var(--green);} .bar-mod{background:var(--yellow);}
+  .bar-high{background:var(--orange);} .bar-crit{background:var(--red);}
+  .bar-val{width:165px;flex-shrink:0;font-size:.8rem;font-weight:700;}
+
+  /* ===== Risk blocks ===== */
+  .riskblock{border:1px solid #e5e7eb;border-left-width:5px;border-radius:12px;
+    padding:14px 16px;margin-top:14px;background:#fff;}
+  .riskblock h4{font-size:.95rem;font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .riskblock ul{margin:8px 0 0;padding-left:18px;font-size:.83rem;color:#374151;}
+  .riskblock li{margin:3px 0;}
+
+  /* ===== Quick win cards ===== */
+  .qw{border:1px solid #bbf7d0;border-radius:12px;padding:14px;background:linear-gradient(135deg,#f0fdf4,#ffffff);}
+  .qw h4{font-size:.9rem;font-weight:800;color:#166534;}
+  .qw p{font-size:.8rem;color:#374151;margin:7px 0;}
+  .qw .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .tag{font-size:.66rem;font-weight:700;border-radius:6px;padding:2px 8px;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;}
+
+  /* ===== Structural grid ===== */
+  .struct{border:1px solid #fed7aa;border-radius:12px;padding:14px 16px;background:linear-gradient(135deg,#fff7ed,#ffffff);}
+  .struct h4{font-size:.9rem;font-weight:800;color:#9a3412;display:flex;align-items:center;gap:7px;}
+  .struct ul{margin:8px 0 0;padding-left:18px;font-size:.8rem;color:#5b3a1f;}
+  .struct li{margin:4px 0;}
+
+  /* ===== Decisions ===== */
+  .decision{display:flex;gap:12px;align-items:flex-start;border:1px solid #e9d5ff;
+    border-radius:10px;padding:12px 14px;margin-top:10px;background:linear-gradient(135deg,#faf5ff,#fff);
+    cursor:pointer;user-select:none;transition:background .15s;}
+  .decision:hover{background:#f5edff;}
+  .chk{width:20px;height:20px;border:2px solid #8b5cf6;border-radius:5px;flex-shrink:0;
+    margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;font-weight:800;}
+  .decision.done .chk{background:#8b5cf6;}
+  .decision.done .dtext{text-decoration:line-through;color:var(--muted);}
+  .dtext{font-size:.85rem;color:#374151;}
+  .dtext b{color:var(--text);}
+
+  /* ===== Action tables ===== */
+  .act-group{margin-top:14px;}
+  .act-head{font-size:.82rem;font-weight:800;color:#fff;border-radius:8px 8px 0 0;padding:8px 12px;}
+  .act-today{background:var(--red);} .act-close{background:var(--orange);} .act-pi{background:var(--t-dec);}
+  .act-group table{border:1px solid #eef0f4;border-top:none;border-radius:0 0 8px 8px;overflow:hidden;}
+
+  /* ===== Impact ===== */
+  .impact{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:760px){.impact{grid-template-columns:1fr;}}
+  .imp{border-radius:12px;padding:16px 18px;}
+  .imp.good{background:linear-gradient(135deg,#f0fdf4,#fff);border:1px solid #bbf7d0;}
+  .imp.bad{background:linear-gradient(135deg,#fef2f2,#fff);border:1px solid #fecaca;}
+  .imp h4{font-size:.92rem;font-weight:800;margin-bottom:8px;}
+  .imp.good h4{color:#166534;} .imp.bad h4{color:#991b1b;}
+  .imp ul{margin:0;padding-left:18px;font-size:.82rem;color:#374151;}
+  .imp li{margin:5px 0;}
+
+  /* ===== Footer ===== */
+  footer{margin-top:34px;border-top:1px solid #e5e7eb;padding-top:18px;font-size:.76rem;color:var(--muted);}
+  .facil{background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;padding:9px 14px;
+    font-size:.78rem;color:#3730a3;margin-top:12px;}
+
+  @media print{
+    body{background:#fff;}
+    .no-print{display:none !important;}
+    .card,.riskblock,.qw,.struct,.imp,.decision{box-shadow:none;}
+    section{break-inside:avoid;}
+    header.banner{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="banner">
+  <div class="wrap">
+    <h1>Portfolio Review — Meeting Agenda</h1>
+    <p class="meta">Iteration 7.5 &nbsp;·&nbsp; Sprint Day 6 of 14 &nbsp;·&nbsp; Saturday, 2026-06-06 &nbsp;·&nbsp; Sprint window Jun 1 – Jun 14</p>
+    <div class="hdr-row">
+      <div class="hdr-box"><div class="k">Duration</div><div class="v">30 minutes</div></div>
+      <div class="hdr-box"><div class="k">Attendees</div><div class="v">Ramon Aseniero (CEO) · Karl Caumban (PDM)</div></div>
+      <div class="hdr-box"><div class="k">Teams Covered</div><div class="v">9 (excl. Life Style — portfolio-excluded)</div></div>
+      <div class="hdr-box"><div class="k">Focus</div><div class="v">First day past the D7 grace window — six ADO teams still at zero delivery</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ═══════════════ AGENDA TIMELINE ═══════════════ -->
+  <section>
+    <div class="card">
+      <div class="sec-title">Agenda &amp; Time Allocation <span style="font-size:.74rem;font-weight:600;color:var(--muted);">— 30 min total</span></div>
+      <div class="sub">Color-coded time-box. Topics 2–3 carry the most value; if time runs short, capture Structural Risks (Topic 4) as async 7.5 follow-ups.</div>
+      <div class="timeline">
+        <div style="width:10%;background:var(--t-snap);">1 · Snapshot<br>3m</div>
+        <div style="width:26.67%;background:var(--t-risk);">2 · Lowest-Scoring Teams<br>8m</div>
+        <div style="width:16.67%;background:var(--t-qw);">3 · Quick Wins &amp; Escalations<br>5m</div>
+        <div style="width:16.67%;background:var(--t-struct);">4 · Structural Risks<br>5m</div>
+        <div style="width:13.33%;background:var(--t-dec);">5 · Decisions<br>4m</div>
+        <div style="width:10%;background:var(--t-act);">6 · Actions<br>3m</div>
+        <div style="width:6.67%;background:var(--t-wrap);">7 · Wrap<br>2m</div>
+      </div>
+      <div class="legend">
+        <span><span class="dot" style="background:var(--t-snap);"></span>Snapshot</span>
+        <span><span class="dot" style="background:var(--t-risk);"></span>Lowest-Scoring Teams</span>
+        <span><span class="dot" style="background:var(--t-qw);"></span>Quick Wins</span>
+        <span><span class="dot" style="background:var(--t-struct);"></span>Structural Risks</span>
+        <span><span class="dot" style="background:var(--t-dec);"></span>Decisions</span>
+        <span><span class="dot" style="background:var(--t-act);"></span>Actions</span>
+        <span><span class="dot" style="background:var(--t-wrap);"></span>Wrap-up</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TOPIC 1: SNAPSHOT ═══════════════ -->
+  <section>
+    <div class="sec-title"><span class="sec-time" style="background:var(--t-snap);">3 min</span> 1 · Portfolio Snapshot &amp; Scorecard</div>
+    <div class="sub">Data basis: latest published dashboard <b>PORTFOLIO_20260604_0930</b> (7.5 Day 4) plus the latest per-team audits — ADO teams dated <b>2026-06-06 09:00</b> (Day 6 of 14); Git teams dated <b>2026-06-05 09:00</b> (Auto Allies Day 5 of 10, Colina Day 5 of 14, no Jun-6 Git audit yet). The scorecard below uses these newest audit scores, which post-date the dashboard.</div>
+
+    <div class="metrics">
+      <div class="metric" style="border-left-color:var(--yellow);">
+        <div class="k">Portfolio Mean</div>
+        <div class="v band-mod">76.2</div>
+        <div class="d"><span class="up">▲ 1.0</span> vs 06-05 (75.2) · <span class="up">▲ 2.3</span> vs published 73.9 · Moderate</div>
+      </div>
+      <div class="metric" style="border-left-color:var(--yellow);">
+        <div class="k">Portfolio Median</div>
+        <div class="v band-mod">74.4</div>
+        <div class="d"><span class="flat">▬</span> Moderate band · 8 of 9 teams clustered 68–85</div>
+      </div>
+      <div class="metric" style="border-left-color:var(--green);">
+        <div class="k">Teams at Risk (High/Critical)</div>
+        <div class="v band-low">0</div>
+        <div class="d"><span class="flat">▬</span> 3 Low · 6 Moderate · 0 High · 0 Critical</div>
+      </div>
+    </div>
+
+    <div class="note good">
+      <b>The recovery holds and broadens: mean 76.2 (▲1.0), now three Low-Risk teams, 0 High/Critical.</b> <b>Finance is the headline — it broke into Low Risk at 85.2 (▲8.5)</b>, the largest single-day gain in 7.5, by closing three User Stories (6 SP) on Day 5 and lifting D7 from 0.0 → 60.0. That is exactly the move the rest of the ADO portfolio has not yet made. <b>The dominant theme today is the calendar:</b> Day 6 is the <b>first day past the early-sprint D7 annotation window</b>. For Finance, D7 now reads a real 60.0; for the other six ADO teams (HR, Admin, OTP, FW, JIT, Shared) D7 = 0.0 has stopped reading as "expected early sprint" and is now a <b>measured delivery stall</b>. HR (81.4) and Administration (80.7) hold Low on D1–D6 strength despite zero visible closures. The two genuine ADO declines are small and explainable: <b>OTP ▼1.9</b> (two items closed and exited CIRI, raising the weight of two persistently undefined items) and the structural D7 reset. Git teams are flat-to-down (Colina 76.3 holds on restored full data; Auto Allies 74.0 carries a genuine delivery-pace problem).
+    </div>
+
+    <!-- Trend chart -->
+    <div class="card" style="margin-top:16px;">
+      <div class="sec-title" style="font-size:.95rem;">Portfolio Mean — 7-Point Trend (Iteration 7.4 close → 7.5 Day 6)</div>
+      <div class="sub">Published dashboard means through 6/04; the 6/05 and 6/06 points are computed from the day's per-team audits (no dashboard published since 6/04). Green dashed line = Low Risk threshold (80). Y-axis 50–80. The 6/01 trough is the 7.4→7.5 transition (D7 resets to 0 portfolio-wide); 6/03–6/06 show steady recovery.</div>
+      <svg viewBox="0 0 720 300" width="100%" style="max-width:720px;display:block;font-family:inherit;">
+        <!-- gridlines -->
+        <line x1="60" y1="20"  x2="700" y2="20"  stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6 5"/>
+        <text x="704" y="24" font-size="11" fill="#16a34a" font-weight="700">80</text>
+        <line x1="60" y1="93.3"  x2="700" y2="93.3"  stroke="#eef0f4" stroke-width="1"/>
+        <text x="36" y="97" font-size="11" fill="#9ca3af">70</text>
+        <line x1="60" y1="166.7" x2="700" y2="166.7" stroke="#eef0f4" stroke-width="1"/>
+        <text x="36" y="170" font-size="11" fill="#9ca3af">60</text>
+        <line x1="60" y1="240" x2="700" y2="240" stroke="#d1d5db" stroke-width="1"/>
+        <text x="36" y="244" font-size="11" fill="#9ca3af">50</text>
+        <!-- line -->
+        <polyline fill="none" stroke="#6366f1" stroke-width="2.5"
+          points="60,23.7 166.7,61.0 273.3,126.3 380,70.6 486.7,64.7 593.3,55.2 700,47.9"/>
+        <!-- points -->
+        <circle cx="60"   cy="23.7"  r="5" fill="#22c55e"/>
+        <circle cx="166.7" cy="61.0" r="4" fill="#eab308"/>
+        <circle cx="273.3" cy="126.3" r="5" fill="#ef4444"/>
+        <circle cx="380"  cy="70.6" r="4" fill="#eab308"/>
+        <circle cx="486.7" cy="64.7" r="4" fill="#eab308"/>
+        <circle cx="593.3" cy="55.2" r="4" fill="#eab308"/>
+        <circle cx="700"  cy="47.9" r="5" fill="#16a34a"/>
+        <!-- value labels -->
+        <text x="60"   y="16"  font-size="11" fill="#16a34a" font-weight="700" text-anchor="middle">79.5 peak</text>
+        <text x="166.7" y="53" font-size="11" fill="#6b7280" text-anchor="middle">74.4</text>
+        <text x="273.3" y="143" font-size="11" fill="#dc2626" font-weight="700" text-anchor="middle">65.5 trough</text>
+        <text x="380"  y="63" font-size="11" fill="#6b7280" text-anchor="middle">73.1</text>
+        <text x="486.7" y="57" font-size="11" fill="#6b7280" text-anchor="middle">73.9</text>
+        <text x="593.3" y="48" font-size="11" fill="#6b7280" text-anchor="middle">75.2</text>
+        <text x="700"  y="40" font-size="11" fill="#16a34a" font-weight="700" text-anchor="end">76.2 ▲</text>
+        <!-- x labels -->
+        <text x="60"   y="262" font-size="10.5" fill="#16a34a" text-anchor="middle">5/28 · 7.4 D11</text>
+        <text x="166.7" y="262" font-size="10.5" fill="#6b7280" text-anchor="middle">5/29 · D12</text>
+        <text x="273.3" y="262" font-size="10.5" fill="#dc2626" text-anchor="middle">6/01 · 7.5 D1</text>
+        <text x="380"  y="262" font-size="10.5" fill="#6b7280" text-anchor="middle">6/03 · D3</text>
+        <text x="486.7" y="262" font-size="10.5" fill="#6b7280" text-anchor="middle">6/04 · D4</text>
+        <text x="593.3" y="262" font-size="10.5" fill="#6b7280" text-anchor="middle">6/05 · D5</text>
+        <text x="700"  y="262" font-size="10.5" fill="#16a34a" text-anchor="middle">6/06 · D6</text>
+        <!-- annotation -->
+        <text x="700" y="288" font-size="10" fill="#6b7280" text-anchor="end">▲ Recovery continues: +10.7 from 6/01 trough — Finance's break into Low Risk lifts the mean</text>
+      </svg>
+    </div>
+
+    <!-- Score bar chart -->
+    <div class="card" style="margin-top:16px;">
+      <div class="sec-title" style="font-size:.95rem;">Team Scorecard — Latest Audit (ADO 2026-06-06 Day 6 · Git 2026-06-05 Day 5)</div>
+      <div class="sub">ADO = 7-dimension Overall · Git = UPS (ICS×0.50 + HCI×0.30 + SGPI×0.20). Bars sorted by score; trend vs prior audit.</div>
+
+      <div class="bar-row">
+        <div class="bar-name">Finance</div>
+        <div class="bar-track"><div class="bar-fill bar-low" style="width:85.2%;"></div></div>
+        <div class="bar-val band-low">85.2 <span class="pill pill-ado">ADO</span> <span class="up">▲8.5 ✦</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">HR Recruitment</div>
+        <div class="bar-track"><div class="bar-fill bar-low" style="width:81.4%;"></div></div>
+        <div class="bar-val band-low">81.4 <span class="pill pill-ado">ADO</span> <span class="flat">▬0.0</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Administration</div>
+        <div class="bar-track"><div class="bar-fill bar-low" style="width:80.7%;"></div></div>
+        <div class="bar-val band-low">80.7 <span class="pill pill-ado">ADO</span> <span class="flat">▬0.0</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Colina Health</div>
+        <div class="bar-track"><div class="bar-fill bar-mod" style="width:76.3%;"></div></div>
+        <div class="bar-val band-mod">76.3 <span class="pill pill-git">Git</span> <span class="flat">▬ full-data</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">JIT Operation</div>
+        <div class="bar-track"><div class="bar-fill bar-mod" style="width:74.4%;"></div></div>
+        <div class="bar-val band-mod">74.4 <span class="pill pill-ado">ADO</span> <span class="flat">▬0.0</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Auto Allies</div>
+        <div class="bar-track"><div class="bar-fill bar-mod" style="width:74.04%;"></div></div>
+        <div class="bar-val band-mod">74.0 <span class="pill pill-git">Git</span> <span class="flat">▬ Day 5</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Flawless Wedding</div>
+        <div class="bar-track"><div class="bar-fill bar-mod" style="width:73.7%;"></div></div>
+        <div class="bar-val band-mod">73.7 <span class="pill pill-ado">ADO</span> <span class="flat">▬0.0</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Office of President</div>
+        <div class="bar-track"><div class="bar-fill bar-mod" style="width:71.4%;"></div></div>
+        <div class="bar-val band-mod">71.4 <span class="pill pill-ado">ADO</span> <span class="down">▼1.9</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Shared Services</div>
+        <div class="bar-track"><div class="bar-fill bar-mod" style="width:68.3%;"></div></div>
+        <div class="bar-val band-mod">68.3 <span class="pill pill-ado">ADO</span> <span class="up">▲2.0</span></div>
+      </div>
+
+      <div class="note">
+        <b>Read the movers correctly.</b> <b>Finance ✦</b> is a real delivery jump — Grace closed 204481 + 205646 + 205650 (6 SP) in one Day-5 session, the first ADO team to convert grooming into a live D7 (60.0). <b>Shared Services ▲2.0</b> is the inverse: it rose only because three undefined items <em>exited</em> CIRI (improving the DoR/estimation ratios) — Teofilo's ~18 SP of closures remain invisible to the live D7 (the recurring ADO API artifact). <b>OTP ▼1.9</b> is mostly an artifact too — two items closed and left CIRI, raising the weight of #205163/#205422 (no AC/SP for a 6th day). The seven ADO teams now split into one that delivered (Finance) and six sitting at a real D7=0.0 on Day 6.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TOPIC 2: LOWEST-SCORING TEAMS ═══════════════ -->
+  <section>
+    <div class="sec-title"><span class="sec-time" style="background:var(--t-risk);">8 min</span> 2 · Lowest-Scoring &amp; Watch Teams</div>
+    <div class="sub">No team is in High or Critical Risk today — all are Moderate or better. This deep-dive covers the lowest-scoring team plus the three with genuine delivery concerns behind the numbers.</div>
+
+    <div class="riskblock" style="border-left-color:var(--yellow);">
+      <h4><span class="dot" style="background:var(--yellow);"></span>Shared Services · 68.3 <span class="pill pill-mod">Moderate ▲2.0</span> <span class="pill pill-ado">ADO</span> — DoR debt is the real gap (lowest score)</h4>
+      <ul>
+        <li><b>The +2.0 is mechanical, not progress:</b> three undefined items exited CIRI (#205662 closed, #205815/#205816 closed same-day), shrinking the failure pool. Teofilo has now closed ~11 items / ~18 SP — but every closure exits the backlog API, so live D7 stays 0.0.</li>
+        <li><b>D4 DoR = 54.5 (High Risk) — 5 of 11 items fail.</b> Four (#204205, #205123, #205210, #205211) have failed for <b>7–8 consecutive days</b>; #205474 added Day 5 with no content. <b>Vicsante is executing #205123 Active with zero Description/AC for an 8th day</b> — closure can't be verified against any standard.</li>
+        <li><b>Delivery concentration:</b> Teofilo is 100% of sprint closures; Jaszmeine, Vicsante and Ramon have zero. <b>Immediate win:</b> Jaszmeine's #202726 (Booking &amp; Payment, 2 SP) has been Active and DoR-clean since Day 2 — closing it today registers the first live D7 (~70.5).</li>
+      </ul>
+    </div>
+
+    <div class="riskblock" style="border-left-color:var(--orange);">
+      <h4><span class="dot" style="background:var(--orange);"></span>Auto Allies · 74.0 <span class="pill pill-mod">Moderate</span> <span class="pill pill-git">Git</span> — delivery-pace crisis behind a clean process (Day 5 of 10)</h4>
+      <ul>
+        <li><b>Process is immaculate, pace is not:</b> ICS = 100.0 (all 27 items estimated, parented, with Desc/AC) and 18/18 PRs carry human approval. But <b>SGPI = 7.7% — only 3 of 39 SP closed at the midpoint</b>, the lowest delivery pace in the entire 7.x series. On current trend the team closes ~15% of commitment.</li>
+        <li><b>Root cause — late-cutover loading:</b> 12 of 27 items (48% by count) sit in "Ready for Dev," dominated by the <b>V1→V2 migration enabler cluster (10 items / 10 SP, 205469–205494)</b> — sequential work loaded as a block rather than distributed across the sprint.</li>
+        <li><b>Capacity saturation:</b> Earl Carino owns 14 of 27 items with no shadow owner; ~5 working days remain. Item 199106 remains "Active" despite both its PRs merging Jun 2 (a malformed AB# may have broken the ADO auto-link). <em>Note: latest Git audit is Jun 5 — no Jun-6 re-audit available.</em></li>
+      </ul>
+    </div>
+
+    <div class="riskblock" style="border-left-color:var(--yellow);">
+      <h4><span class="dot" style="background:var(--yellow);"></span>Office of the President · 71.4 <span class="pill pill-mod">Moderate ▼1.9</span> <span class="pill pill-ado">ADO</span> — score dip is mostly an artifact</h4>
+      <ul>
+        <li><b>The −1.9 is largely structural:</b> two items (#205241 US, #205443 Spike) closed and exited CIRI (CIRI 10→8). Because two estimated, DoR-compliant items left, D3 and D4 each <em>fell</em> to 75.0 — the two persistently-undefined items now carry more weight in a smaller denominator. ~4 SP actually delivered but invisible to D7.</li>
+        <li><b>Real gap — two items, 6 days, no AC/SP:</b> #205163 (Business Requirements &amp; Workflow Mapping) and #205422 (JDVP DepEd Partnership) have descriptions but no Acceptance Criteria or Story Points for a sixth straight day. Adding both restores D3 + D4 to 100.0 (≈ +8.6 overall → ~80).</li>
+        <li><b>D7 = 0.0, three Ready items idle 6 days.</b> #202912, #204193, #204194 have sat untouched since Jun 1. Grace should close #204193 (doc consolidation) today to break the zero now that the annotation has expired.</li>
+      </ul>
+    </div>
+
+    <div class="riskblock" style="border-left-color:var(--yellow);">
+      <h4><span class="dot" style="background:var(--yellow);"></span>Flawless Wedding · 73.7 <span class="pill pill-mod">Moderate ▬0.0</span> <span class="pill pill-ado">ADO</span> — sprint stasis with 3 blockers frozen at the midpoint</h4>
+      <ul>
+        <li><b>Complete stasis on Day 6:</b> zero state transitions since Jun 5. At the sprint midpoint the team has closed 0 of 14.5 SP and D7 = 0.0 is now a hard signal, not annotated.</li>
+        <li><b>3 items Blocked for a 2nd day (5 SP):</b> 201825 (Send Message to Vendor), 202747 (Mobile Subscription), 205105 (Staging — regressed from Ready-for-UAT). Blockers are undocumented in the work-item fields and must be escalated today.</li>
+        <li><b>Fastest win sitting idle:</b> 201828 (Real-time Chat, 1 SP) has been "Passed QA Testing" for 24+ hours. Closing it lifts D7 off zero <em>and</em> drops US share to 60.0%, clearing the D5 penalty (double-gain → ~75.8). Luke owns 10 of 11 items incl. all 3 blocked; Iteration Planning still High-band at 45.8.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TOPIC 3: QUICK WINS ═══════════════ -->
+  <section>
+    <div class="sec-title"><span class="sec-time" style="background:var(--t-qw);">5 min</span> 3 · Quick Wins &amp; Escalations</div>
+    <div class="sub">High-impact, low-effort Day-6 edits that register first deliveries and move teams toward Low Risk. <b>The early-sprint D7 grace window has now closed — Finance has shown the playbook works.</b></div>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="qw">
+        <h4>Administration — close 5 past-due</h4>
+        <p>Payables May 26–29 (13 SP): 204448, 203558, 204394, 203557, 204367. All Active, transactions likely done — close in ADO; lifts D7 to 39.4.</p>
+        <div class="tags"><span class="tag">Owner: Mark</span><span class="tag">Low</span><span class="tag">80.7 → ~85.6</span></div>
+      </div>
+      <div class="qw">
+        <h4>OTP — add AC + SP to 2 items</h4>
+        <p>#205163, #205422 have descriptions but no AC/SP (6th day). One grooming pass fixes D3 + D4 back to 100.</p>
+        <div class="tags"><span class="tag">Owner: Grace</span><span class="tag">&lt;30 min</span><span class="tag">71.4 → ~80</span></div>
+      </div>
+      <div class="qw">
+        <h4>Shared Services — close Active design item</h4>
+        <p>#202726 (Booking &amp; Payment, 2 SP, Jaszmeine) is DoR-clean and Active since Day 2 — close for first live D7.</p>
+        <div class="tags"><span class="tag">Owner: Jaszmeine</span><span class="tag">~15 min</span><span class="tag">68.3 → ~70.5</span></div>
+      </div>
+      <div class="qw">
+        <h4>Flawless — close QA-passed item</h4>
+        <p>201828 (Real-time Chat, 1 SP) in "Passed QA Testing" 24h+ — verify AC and close. Double-gain: D7 off zero + D5 penalty clears.</p>
+        <div class="tags"><span class="tag">Owner: Luke</span><span class="tag">~15 min</span><span class="tag">73.7 → ~75.8</span></div>
+      </div>
+      <div class="qw">
+        <h4>HR — close active APE items</h4>
+        <p>#205010 (Karl Analysis, prereq done) and #205071 (Ressa QA title) are both Active. Closing both: D7 = 20.0.</p>
+        <div class="tags"><span class="tag">Owner: Almera</span><span class="tag">Low</span><span class="tag">81.4 → ~84.3</span></div>
+      </div>
+      <div class="qw">
+        <h4>JIT — fix 9 DoR + close Shynnevie's batch</h4>
+        <p>Document 3 Training + 4 Retro Spikes + 2 others (+5.5 pts); close Shynnevie's near-done Active items (6 SP).</p>
+        <div class="tags"><span class="tag">Owner: Teofilo / Shynnevie</span><span class="tag">Med</span><span class="tag">74.4 → ~81+</span></div>
+      </div>
+    </div>
+    <div class="note good">
+      <b>Proof point — Finance already did this.</b> Yesterday Finance sat at 76.7 with D7=0.0 and two items "New." Grace closed three User Stories (6 SP) in one session → D7 jumped to 60.0 and the team broke into Low Risk at 85.2 (▲8.5). Every quick win above is the same shape of move: a one-step closure or a single grooming pass.
+    </div>
+    <div class="note">
+      <b>Escalations (unactioned across multiple audits):</b> <b>Shared Services</b> — 5 of 11 items fail DoR (D4 = 54.5), four undefined 7–8 days, #205123 worked Active with no definition (8th day). <b>JIT</b> — 9 DoR-fail items including 4 unassigned/unestimated Retro Spikes (205538–541), now 6 days. <b>OTP</b> — #205163/#205422 no AC/SP for a 6th straight day. <b>Auto Allies</b> — SGPI 7.7%; the V1→V2 migration block (10 SP) gates the sprint and Earl (14 items) has no backup. <b>Bus factor = 1</b> persists on Admin (Mark, 17+ audits), HR (Almera), Finance (Grace), OTP (Grace — cross-team) and FW (Luke 10/11).
+    </div>
+  </section>
+
+  <!-- ═══════════════ TOPIC 4: STRUCTURAL RISKS ═══════════════ -->
+  <section>
+    <div class="sec-title"><span class="sec-time" style="background:var(--t-struct);">5 min</span> 4 · Structural Risks</div>
+    <div class="sub">Recurring, cross-cutting patterns — not fixable inside one sprint. Capture as 7.5/PI8 commitments if time runs short.</div>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="struct">
+        <h4>📚 Backlog &amp; DoR Debt</h4>
+        <ul>
+          <li><b>DoR deficits across 3 teams:</b> Shared Services D4 54.5 (5 fail, 4 for 7–8 days), JIT D4 74.3 (9 items lack Desc/AC), OTP D3/D4 75.0 (2 items no AC/SP) — 16+ items missing Acceptance Criteria. No pre-sprint AC gate.</li>
+          <li><b>JIT Retro Spikes (205538–541)</b> — 4 items unassigned, unestimated, no content for a 6th day; retrospective actions decaying into dead weight.</li>
+          <li>Stale carry-overs: JIT #203250 (Iter 7.3, multi-sprint) &amp; #204338 (Iter 7.4 Training, 6th sprint); Shared Services #202725 scope leakage in 7.4 (4th audit flagged).</li>
+        </ul>
+      </div>
+      <div class="struct">
+        <h4>⚙️ Delivery &amp; Process Gaps</h4>
+        <ul>
+          <li><b>D7 = 0.0 across 6 of 7 ADO teams at Day 6</b> — the early-sprint annotation has expired, so this now reads as a measured stall, not "early sprint." Finance is the lone team that converted (D7=60.0). Closures exiting the backlog API still mask real delivery (Admin ~9 SP, Shared ~18 SP).</li>
+          <li><b>Auto Allies late-cutover loading:</b> 10-SP migration enabler block held to the back of the sprint drives SGPI to 7.7% — a sequencing/planning pattern, not a capacity surprise.</li>
+          <li><b>Work Item Balance Penalty B</b> recurs (US dominance &gt;60% locks D5 at 70.0) — hitting HR, Admin, Finance, OTP, JIT and FW.</li>
+        </ul>
+      </div>
+      <div class="struct">
+        <h4>🚲 Bus Factor</h4>
+        <ul>
+          <li><b>Single/dominant contributor on 5+ teams:</b> Mark (Admin 19/19, 17+ audits), Almera (HR 10/10), Grace (Finance <em>and</em> OTP — cross-team), Luke (FW 10/11 incl. all 3 blocked).</li>
+          <li>Auto Allies: Earl owns 14/27 items incl. the migration block with no shadow owner; ~5 working days remain.</li>
+          <li>Shared Services: Teofilo is 100% of sprint closures; Jaszmeine, Vicsante, Ramon at zero. Colina: dual-track (Paul enablers + Asnari defects) has reduced its bus factor — the one Git team that improved here.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TOPIC 5: DECISIONS ═══════════════ -->
+  <section>
+    <div class="sec-title"><span class="sec-time" style="background:var(--t-dec);">4 min</span> 5 · Decisions Needed (PDM sign-off)</div>
+    <div class="sub">Click a row to mark it resolved during the meeting.</div>
+
+    <div class="decision" onclick="this.classList.toggle('done')">
+      <div class="chk">✓</div>
+      <div class="dtext"><span class="pill pill-crit">HIGH</span> &nbsp;<b>Close-now mandate (grace window expired):</b> require every ADO team still at D7=0.0 to register at least one closure <b>today</b>. The early-sprint annotation closed after Day 5 — Day 6 reads zero delivery as a genuine stall. Finance proved the move yesterday (▲8.5 to Low). Admin, OTP, FW, HR and Shared each have a one-step close available. <em>(Karl / all POs)</em></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('done')">
+      <div class="chk">✓</div>
+      <div class="dtext"><span class="pill pill-crit">HIGH</span> &nbsp;<b>Auto Allies delivery intervention:</b> SGPI 7.7% (3/39 SP) at the midpoint. Decide now — re-sequence the V1→V2 migration block (10 SP) into smaller parallel slices and add a backup to Earl, or formally accept a reduced 7.5 scope? <em>(Karl / Earl / Tech Lead)</em></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('done')">
+      <div class="chk">✓</div>
+      <div class="dtext"><span class="pill pill-high">MED</span> &nbsp;<b>Shared Services DoR remediation:</b> mandate Description + AC + SP on all 5 failing items today — especially #205123, which Vicsante has been executing Active with zero definition for 8 days. Path to ~80. <em>(Karl / Teofilo / Vicsante)</em></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('done')">
+      <div class="chk">✓</div>
+      <div class="dtext"><span class="pill pill-high">MED</span> &nbsp;<b>Pre-sprint AC/DoR gate:</b> approve a standard that no item enters a sprint backlog without Acceptance Criteria — 16+ items across Shared Services, JIT and OTP still lack AC, several into a 6th–8th day. <em>(Karl / POs)</em></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('done')">
+      <div class="chk">✓</div>
+      <div class="dtext"><span class="pill pill-mod">LOW</span> &nbsp;<b>D7 scoring artifact:</b> accept that ADO closures exiting the backlog API suppress D7 (Admin ~9 SP, Shared ~18 SP delivered but reading 0.0) and direct that contextual delivery be reported alongside the live score until the rubric is adjusted? <em>(Karl)</em></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('done')">
+      <div class="chk">✓</div>
+      <div class="dtext"><span class="pill pill-mod">LOW</span> &nbsp;<b>Iteration goals + bus-factor standard:</b> mandate a documented 7.5 sprint goal per team (HR has gone 27 audits without one; JIT 6 iterations) and name backup owners for the dominant-contributor teams (Mark, Almera, Grace, Luke, Earl)? <em>(POs / Karl)</em></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TOPIC 6: ACTION ITEMS ═══════════════ -->
+  <section>
+    <div class="sec-title"><span class="sec-time" style="background:var(--t-act);">3 min</span> 6 · Action Items &amp; Owners</div>
+    <div class="sub">Derived from the latest per-team audit recommendations (no open todo files exist for any workspace). Day-6 closures are the priority — the early-sprint D7 window has closed, and several teams are one closure/grooming pass from Low Risk.</div>
+
+    <div class="act-group">
+      <div class="act-head act-today">🔴 P0 — Do Today (Day 6, Sat Jun 6)</div>
+      <table>
+        <tr><th style="width:18%;">Team</th><th>Action</th><th style="width:20%;">Owner</th><th style="width:10%;">Effort</th></tr>
+        <tr><td>Administration</td><td>Close the 5 past-due payables (13 SP: 204448, 203558, 204394, 203557, 204367) in ADO → D7 = 39.4, overall ~85.6</td><td>Mark</td><td>Low</td></tr>
+        <tr><td>OTP</td><td>Add AC + Story Points to #205163 and #205422; close #204193 (Philgeps doc consolidation) → ~80 + first delivery</td><td>Grace</td><td>Low</td></tr>
+        <tr><td>Shared Services</td><td>Close #202726 (Active, 2 SP); add Desc+AC+SP to the 5 DoR fails — define #205123 before Vicsante continues</td><td>Jaszmeine / Vicsante / Teofilo</td><td>Med</td></tr>
+        <tr><td>Flawless Wedding</td><td>Close 201828 (Passed QA, 1 SP → D7 off zero + D5 clears); document + escalate the 3 Blocked items (201825, 202747, 205105)</td><td>Luke</td><td>Med</td></tr>
+        <tr><td>HR Recruitment</td><td>Close APE #205010 + #205071 (both Active) → D7 = 20.0, overall ~84.3</td><td>Almera</td><td>Low</td></tr>
+        <tr><td>JIT Operation</td><td>Document 9 DoR-fail items + assign/estimate 4 Retro Spikes (+5.5 pts); close Shynnevie's near-done Active items (6 SP)</td><td>Teofilo / Shynnevie</td><td>Med</td></tr>
+        <tr><td>Finance</td><td>Start #204490 (Categorization Rules) today so the 48-hr validation window for #204495 finishes with buffer → path to ~92.4</td><td>Grace</td><td>Low</td></tr>
+      </table>
+    </div>
+
+    <div class="act-group">
+      <div class="act-head act-close">🟠 P1 — Before Sprint Close / This Week</div>
+      <table>
+        <tr><th style="width:18%;">Team</th><th>Action</th><th style="width:20%;">Owner</th><th style="width:10%;">Effort</th></tr>
+        <tr><td>Auto Allies</td><td>Re-sequence the V1→V2 migration block (205469–494) into parallel slices; activate Ready-for-Dev items; add backup to Earl; fix 199106 state-lag + PR#178/#131 AB# typos</td><td>Earl / Tech Lead</td><td>High</td></tr>
+        <tr><td>Colina Health</td><td>Add System.Parent links to the 6 unlinked items (ICS 89.3 → Green); unblock or document AB#203273 (5 SP On Hold)</td><td>Paul / Asnari</td><td>Low</td></tr>
+        <tr><td>Flawless Wedding</td><td>Activate 201827 + 201831 messaging stories (idle since Day 1); continue grooming to lift Iteration Planning off 45.8</td><td>Luke / PO</td><td>Med</td></tr>
+        <tr><td>Shared Services</td><td>Move #202725 (Messaging, 7.4) into Iteration 7.5 to correct D1 and surface Jaszmeine's hidden load (4th audit flagged)</td><td>Jaszmeine</td><td>Low</td></tr>
+      </table>
+    </div>
+
+    <div class="act-group">
+      <div class="act-head act-pi">🟣 P2 — 7.5 Planning / Portfolio</div>
+      <table>
+        <tr><th style="width:18%;">Team</th><th>Action</th><th style="width:20%;">Owner</th><th style="width:10%;">Effort</th></tr>
+        <tr><td>Portfolio</td><td>Adopt pre-sprint AC/DoR gate; mandate documented iteration goals across teams</td><td>Karl / POs</td><td>Low</td></tr>
+        <tr><td>Portfolio</td><td>Address D7 scoring artifact: report contextual delivery alongside live score until rubric adjusted</td><td>Karl</td><td>Low</td></tr>
+        <tr><td>Portfolio</td><td>Bus-factor mitigation: name backup owners for Mark, Almera, Grace, Luke, Earl and the migration track</td><td>Karl</td><td>Med</td></tr>
+        <tr><td>Auto Allies</td><td>Review late-cutover loading pattern for 7.6 planning — distribute migration work across the sprint</td><td>Karl / Tech Lead</td><td>Med</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══════════════ IMPACT COMPARISON ═══════════════ -->
+  <section>
+    <div class="sec-title">Impact — Act Today vs No Action</div>
+    <div class="impact" style="margin-top:12px;">
+      <div class="imp good">
+        <h4>✅ Act on Day-6 closures</h4>
+        <ul>
+          <li>Admin → ~85.6 and HR → ~84.3 — potentially five Low-Risk teams by Day 7 (joining Finance, HR, Admin).</li>
+          <li>The six stalled ADO teams register a first closure now that the grace window has closed — D7 climbs off zero portfolio-wide, as Finance already did.</li>
+          <li>OTP DoR fix → ~80; Shared Services opens its path to ~80; JIT DoR fix (+5.5) plus closures → ~81+.</li>
+          <li>Portfolio mean pushes from 76.2 toward ~79+; still 0 High/Critical.</li>
+        </ul>
+      </div>
+      <div class="imp bad">
+        <h4>⚠️ No Action</h4>
+        <ul>
+          <li>Six ADO teams carry a measured D7=0 into Day 7 — no longer excusable as "early sprint"; sprint-end delivery risk compounds.</li>
+          <li>Shared Services' 5 DoR fails and OTP's 2 no-AC items carry into a 7th–9th day; Vicsante keeps working undefined scope.</li>
+          <li>Auto Allies' migration block stays gated with ~5 days left — 7.5 closes at ~15% of commitment.</li>
+          <li>FW's 3 blockers freeze into Day 7–8 delivery risk; bus-factor exposure unaddressed.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="facil no-print">💡 <b>Facilitator tip:</b> Topics 2–3 carry the most value. If you're running short, skip Topic 4 (Structural Risks) and capture it as async 7.5-planning follow-ups.</div>
+  </section>
+
+  <!-- ═══════════════ WRAP-UP ═══════════════ -->
+  <section>
+    <div class="sec-title"><span class="sec-time" style="background:var(--t-wrap);">2 min</span> 7 · Wrap-up &amp; Next Steps</div>
+    <div class="card">
+      <ul style="margin:0;padding-left:18px;font-size:.85rem;color:#374151;">
+        <li><b>7.5 Day-6 verdict:</b> recovery holds and broadens — mean 76.2 (<span class="up">▲1.0</span>), three Low-Risk teams (Finance 85.2, HR 81.4, Administration 80.7), 0 Critical, 0 High. Finance breaking into Low on real delivery (D7 60.0) is the day's headline.</li>
+        <li><b>Today's job:</b> the early-sprint D7 grace window has closed. Six ADO teams still sit at D7=0 — convert grooming into delivery now. Admin, OTP, FW, HR and Shared each have a one-step closure available; Finance has shown it works.</li>
+        <li><b>Escalation watch — needs PDM intervention, not another reminder:</b> Auto Allies delivery pace (7.7%, migration block), Shared Services DoR (5 fails / 7–8 days, #205123 undefined), OTP 2-item AC gap (6 days), and the recurring bus-factor exposure.</li>
+        <li><b>Owner follow-up:</b> Karl confirms decision outcomes; reconvene at the next portfolio cadence for a 7.5 Day 8–9 mid-sprint check on whether D7 moved off zero across the stalled six.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;">
+      <div>
+        <b>Sources:</b> Portfolio dashboard <code>PORTFOLIO_20260604_0930.html</code> (7.5 Day 4) + 6 prior for the mean trend ·
+        latest team audits: ADO teams <code>AUDIT_20260606_0900.md</code> (Day 6 of 14) · Git teams <code>AUDIT_20260605_0900.md</code> (Auto Allies Day 5 of 10, Colina Day 5 of 14 — no Jun-6 Git audit published).<br>
+        Scoring: ADO 7-dimension Overall · Git UPS = ICS×0.50 + HCI×0.30 + SGPI×0.20. Day-6 mean/median computed from the nine current audit scores (no Jun-5/Jun-6 dashboard published). No open todo files exist for any workspace. Life Style Help App excluded from portfolio analysis (owner request, 2026-05-21).<br>
+        Generated 2026-06-06 for the Iteration 7.5 portfolio review · 30-minute timebox.
+      </div>
+      <div style="text-align:right;min-width:180px;">
+        <div style="margin-bottom:4px;font-weight:700;color:var(--text);">Risk Bands</div>
+        <span><span class="dot" style="background:var(--green);"></span> Low ≥80 &nbsp;
+        <span class="dot" style="background:var(--yellow);"></span> Moderate 60–79.9</span><br>
+        <span><span class="dot" style="background:var(--orange);"></span> High 40–59.9 &nbsp;
+        <span class="dot" style="background:var(--red);"></span> Critical &lt;40</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
