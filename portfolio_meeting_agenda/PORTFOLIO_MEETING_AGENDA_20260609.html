@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Portfolio Review — Meeting Agenda — 2026-06-09</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --orange:#f97316; --red:#ef4444;
+    --bg:#faf8ff; --txt:#113069; --card:#ffffff; --muted:#6b7280;
+    --tup:#16a34a; --tdown:#dc2626; --tflat:#9ca3af;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;}
+  h1,h2,h3{font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-weight:800;margin:0;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 18px;}
+  header.hero{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 100%);color:#fff;padding:26px 0;box-shadow:0 2px 8px rgba(0,0,0,.12);}
+  .hero .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a5b4fc;font-weight:700;}
+  .hero h1{font-size:30px;margin:6px 0 4px;}
+  .hero .sub{color:#c7d2fe;font-size:14px;}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:13px;color:#e0e7ff;}
+  .hero .meta b{color:#fff;}
+  section{margin:26px 0;}
+  .card{background:var(--card);border-radius:16px;box-shadow:0 1px 3px rgba(17,48,105,.08);padding:20px 22px;}
+  h2.sec{font-size:20px;margin-bottom:4px;display:flex;align-items:center;gap:10px;}
+  .sec .tbox{font-size:11px;font-weight:700;color:#fff;border-radius:6px;padding:2px 8px;}
+  .lead{color:var(--muted);font-size:13px;margin:2px 0 16px;}
+  /* timeline */
+  .timeline{display:flex;width:100%;border-radius:10px;overflow:hidden;margin:6px 0 4px;border:1px solid #e5e7eb;}
+  .timeline .seg{padding:8px 6px;color:#fff;font-size:11px;font-weight:700;text-align:center;line-height:1.25;}
+  .timeline .seg small{display:block;font-weight:600;opacity:.9;font-size:10px;}
+  /* metric cards */
+  .metrics{display:flex;gap:14px;flex-wrap:wrap;}
+  .metric{flex:1;min-width:160px;background:#fff;border-radius:14px;padding:14px 16px;border-left:5px solid var(--yellow);box-shadow:0 1px 3px rgba(17,48,105,.08);}
+  .metric .label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;}
+  .metric .val{font-size:30px;font-weight:800;margin:2px 0;}
+  .metric .delta{font-size:12px;font-weight:700;}
+  .up{color:var(--tup);} .down{color:var(--tdown);} .flat{color:var(--tflat);}
+  /* charts */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:820px){.twocol{grid-template-columns:1fr;}}
+  .chart-title{font-size:15px;font-weight:800;margin-bottom:10px;}
+  .barrow{display:flex;align-items:center;gap:8px;font-size:12px;margin:6px 0;}
+  .barrow .name{width:130px;text-align:right;color:#374151;font-weight:600;flex-shrink:0;}
+  .bar-wrap{background:#e5e7eb;border-radius:5px;height:12px;flex:1;overflow:hidden;}
+  .bar-fill{height:12px;border-radius:5px;}
+  .barrow .score{width:34px;font-weight:800;}
+  /* pills */
+  .pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:700;}
+  .risk-low{background:#dcfce7;color:#15803d;} .risk-mod{background:#fef9c3;color:#854d0e;}
+  .risk-high{background:#ffedd5;color:#c2410c;} .risk-crit{background:#fee2e2;color:#b91c1c;}
+  .badge-ado{background:#e0f2fe;color:#0369a1;} .badge-git{background:#f3e8ff;color:#7e22ce;}
+  /* risk blocks */
+  .rblock{border-left:5px solid var(--orange);background:#fff;border-radius:12px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 3px rgba(17,48,105,.06);}
+  .rblock.demoted{border-color:var(--red);background:#fff7f7;}
+  .rblock h3{font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .rblock ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:#374151;}
+  .rblock ul li{margin:3px 0;}
+  /* quick wins */
+  .qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:820px){.qgrid{grid-template-columns:1fr;}}
+  .qcard{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff;}
+  .qcard .qh{font-weight:800;font-size:14px;margin-bottom:6px;}
+  .qcard .qmeta{font-size:12px;color:var(--muted);margin-top:8px;display:flex;flex-direction:column;gap:3px;}
+  .qcard .qmeta b{color:var(--txt);}
+  .tag-imp{background:#dcfce7;color:#15803d;border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700;}
+  .tag-eff{background:#dbeafe;color:#1d4ed8;border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700;}
+  /* structural grid */
+  .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:820px){.sgrid{grid-template-columns:1fr;}}
+  .scol{border-top:4px solid var(--orange);border-radius:10px;background:#fff;padding:14px;box-shadow:0 1px 3px rgba(17,48,105,.06);}
+  .scol h3{font-size:14px;margin-bottom:8px;}
+  .scol ul{margin:0;padding-left:17px;font-size:12.5px;color:#374151;}
+  .scol ul li{margin:5px 0;}
+  /* decisions */
+  .decision{display:flex;align-items:flex-start;gap:11px;padding:11px 12px;border:1px solid #e5e7eb;border-radius:10px;margin:9px 0;background:#fff;cursor:pointer;user-select:none;}
+  .cbox{width:20px;height:20px;border:2px solid #9ca3af;border-radius:5px;flex-shrink:0;margin-top:1px;position:relative;transition:all .15s;}
+  .decision.checked .cbox{background:var(--green);border-color:var(--green);}
+  .decision.checked .cbox::after{content:"✓";color:#fff;font-size:14px;font-weight:800;position:absolute;top:-2px;left:3px;}
+  .decision.checked .dtext{text-decoration:line-through;color:var(--muted);}
+  .dtext{font-size:13.5px;flex:1;}
+  .urg{font-size:10px;font-weight:700;border-radius:6px;padding:2px 7px;margin-left:6px;white-space:nowrap;}
+  .urg-hi{background:#fee2e2;color:#b91c1c;} .urg-med{background:#fef9c3;color:#854d0e;} .urg-lo{background:#e0f2fe;color:#0369a1;}
+  /* action tables */
+  .atable{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px;}
+  .atable th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid #e5e7eb;padding:7px 8px;}
+  .atable td{border-bottom:1px solid #f1f0fb;padding:7px 8px;vertical-align:top;}
+  .atable tr:hover td{background:#f7f6ff;}
+  .grp{font-weight:800;font-size:13px;margin:16px 0 2px;display:flex;align-items:center;gap:8px;}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  /* impact compare */
+  .impact{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:820px){.impact{grid-template-columns:1fr;}}
+  .icard{border-radius:12px;padding:16px;}
+  .icard.act{background:#f0fdf4;border:1px solid #bbf7d0;}
+  .icard.noact{background:#fef2f2;border:1px solid #fecaca;}
+  .icard h3{font-size:15px;margin-bottom:8px;}
+  .icard ul{margin:0;padding-left:18px;font-size:13px;color:#374151;}
+  .icard ul li{margin:5px 0;}
+  /* footer */
+  footer{margin-top:30px;border-top:1px solid #e5e7eb;background:#f8f7ff;padding:20px 0;}
+  footer .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#4b5563;margin:8px 0;}
+  footer .legend span{display:flex;align-items:center;gap:6px;}
+  .note{background:#fffbeb;color:#92400e;border-radius:10px;padding:10px 14px;font-size:12.5px;margin:10px 0;border:1px solid #fde68a;}
+  .facil{font-size:12px;color:var(--muted);font-style:italic;margin-top:8px;}
+  @media print{
+    body{background:#fff;} .card,.metric,.qcard,.scol,.rblock{box-shadow:none;}
+    header.hero{box-shadow:none;} .decision{cursor:default;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Jairosoft LLC · SAFe Portfolio Review</p>
+    <h1>Portfolio Review — Meeting Agenda</h1>
+    <p class="sub">Iteration 7.5 · Day 9 of 14 · 9 active teams · Source dashboard: PORTFOLIO_20260609_0301.html</p>
+    <div class="meta">
+      <div><b>Date:</b> 2026-06-09</div>
+      <div><b>Duration:</b> 30 minutes</div>
+      <div><b>Attendees:</b> Ramon Aseniero (CEO) · Karl Caumban (PDM)</div>
+      <div><b>Sprint close:</b> 2026-06-14 (5 days left)</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ════════ AGENDA TIMELINE ════════ -->
+  <section>
+    <div class="card">
+      <h2 class="sec">Agenda — 30 Minutes</h2>
+      <p class="lead">Time-boxed across seven topics. Topics 2–3 carry the most value.</p>
+      <div class="timeline">
+        <div class="seg" style="background:#6366f1;flex:3;">Snapshot<small>3 min</small></div>
+        <div class="seg" style="background:#ef4444;flex:8;">At-Risk Teams<small>8 min</small></div>
+        <div class="seg" style="background:#22c55e;flex:5;">Quick Wins<small>5 min</small></div>
+        <div class="seg" style="background:#f97316;flex:5;">Structural<small>5 min</small></div>
+        <div class="seg" style="background:#8b5cf6;flex:4;">Decisions<small>4 min</small></div>
+        <div class="seg" style="background:#0ea5e9;flex:3;">Actions<small>3 min</small></div>
+        <div class="seg" style="background:#64748b;flex:2;">Wrap<small>2 min</small></div>
+      </div>
+      <p class="facil">Facilitator tip: if time runs short, skip Topic 4 (Structural Risks) and capture them as async follow-ups.</p>
+    </div>
+  </section>
+
+  <!-- ════════ TOPIC 1 — SNAPSHOT ════════ -->
+  <section>
+    <h2 class="sec"><span class="tbox" style="background:#6366f1;">1</span> Portfolio Snapshot &amp; Scorecard <span style="font-size:12px;color:var(--muted);font-weight:600;">· 3 min</span></h2>
+    <p class="lead">Context setting — where the portfolio stands on Day 9.</p>
+
+    <div class="metrics" style="margin-bottom:18px;">
+      <div class="metric" style="border-color:var(--yellow);">
+        <div class="label">Portfolio Mean</div>
+        <div class="val" style="color:#a16207;">78.7</div>
+        <div class="delta up">▲ +4.7 vs Jun 4 (74.0)</div>
+      </div>
+      <div class="metric" style="border-color:var(--yellow);">
+        <div class="label">Portfolio Median</div>
+        <div class="val" style="color:#a16207;">77.9</div>
+        <div class="delta up">▲ improving · Moderate band</div>
+      </div>
+      <div class="metric" style="border-color:var(--red);">
+        <div class="label">Teams at Risk</div>
+        <div class="val" style="color:#b91c1c;">5</div>
+        <div class="delta flat">All Moderate · None Critical</div>
+      </div>
+      <div class="metric" style="border-color:var(--green);">
+        <div class="label">Band Promotions</div>
+        <div class="val" style="color:#15803d;">3</div>
+        <div class="delta up">▲ Finance · Colina · Flawless</div>
+      </div>
+    </div>
+
+    <div class="twocol">
+      <!-- Trend chart -->
+      <div class="card">
+        <div class="chart-title">Portfolio Mean Trend (last 7 snapshots)</div>
+        <svg viewBox="0 0 660 230" width="100%" height="220" role="img" aria-label="Portfolio mean trend line chart">
+          <!-- gridlines -->
+          <line x1="60" y1="30" x2="630" y2="30" stroke="#f3f4f6"/>
+          <line x1="60" y1="110" x2="630" y2="110" stroke="#f3f4f6"/>
+          <line x1="60" y1="190" x2="630" y2="190" stroke="#e5e7eb"/>
+          <!-- y labels -->
+          <text x="48" y="34" text-anchor="end" font-size="10" fill="#9ca3af">80</text>
+          <text x="48" y="114" text-anchor="end" font-size="10" fill="#9ca3af">65</text>
+          <text x="48" y="194" text-anchor="end" font-size="10" fill="#9ca3af">50</text>
+          <!-- Low Risk threshold (80) dashed green -->
+          <line x1="60" y1="30" x2="630" y2="30" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <text x="624" y="26" text-anchor="end" font-size="9" fill="#16a34a" font-weight="700">Low Risk ≥ 80</text>
+          <!-- trend polyline -->
+          <polyline fill="none" stroke="#6366f1" stroke-width="2.5"
+            points="60,44.4 150,32.7 240,59.9 330,59.9 420,107.3 510,62.5 600,36.9"/>
+          <!-- points -->
+          <circle cx="60"  cy="44.4"  r="4" fill="#eab308"/>
+          <circle cx="150" cy="32.7"  r="4.5" fill="#22c55e"/>
+          <circle cx="240" cy="59.9"  r="4" fill="#eab308"/>
+          <circle cx="330" cy="59.9"  r="4" fill="#eab308"/>
+          <circle cx="420" cy="107.3" r="4.5" fill="#ef4444"/>
+          <circle cx="510" cy="62.5"  r="4" fill="#eab308"/>
+          <circle cx="600" cy="36.9"  r="5.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+          <!-- value labels -->
+          <text x="60"  y="36"  text-anchor="middle" font-size="9" fill="#6b7280">77.3</text>
+          <text x="150" y="24"  text-anchor="middle" font-size="9" fill="#16a34a" font-weight="700">79.5</text>
+          <text x="420" y="121" text-anchor="middle" font-size="9" fill="#dc2626" font-weight="700">65.5</text>
+          <text x="600" y="28"  text-anchor="middle" font-size="9.5" fill="#16a34a" font-weight="800">78.7</text>
+          <!-- x labels -->
+          <text x="60"  y="212" text-anchor="middle" font-size="9.5" fill="#6b7280">May 27</text>
+          <text x="150" y="212" text-anchor="middle" font-size="9.5" fill="#6b7280">May 28</text>
+          <text x="240" y="212" text-anchor="middle" font-size="9.5" fill="#6b7280">May 29</text>
+          <text x="330" y="212" text-anchor="middle" font-size="9.5" fill="#6b7280">Jun 1</text>
+          <text x="420" y="212" text-anchor="middle" font-size="9.5" fill="#6b7280">Jun 3</text>
+          <text x="510" y="212" text-anchor="middle" font-size="9.5" fill="#6b7280">Jun 4</text>
+          <text x="600" y="212" text-anchor="middle" font-size="9.5" fill="#113069" font-weight="700">Jun 9</text>
+        </svg>
+        <p class="lead" style="margin:6px 0 0;">Recovered from a Jun 3 dip (65.5) to 78.7 — the strongest single-cycle gain in PI7. Still 1.3 pts below the Low Risk line.</p>
+      </div>
+
+      <!-- Score bar chart -->
+      <div class="card">
+        <div class="chart-title">Team Scores — Day 9 (UPS)</div>
+        <div class="barrow"><span class="name">Finance</span><div class="bar-wrap"><div class="bar-fill" style="width:88%;background:#22c55e;"></div></div><span class="score" style="color:#15803d;">88.0</span></div>
+        <div class="barrow"><span class="name">Colina Health</span><div class="bar-wrap"><div class="bar-fill" style="width:84.4%;background:#22c55e;"></div></div><span class="score" style="color:#15803d;">84.4</span></div>
+        <div class="barrow"><span class="name">HR Recruitment</span><div class="bar-wrap"><div class="bar-fill" style="width:81.4%;background:#22c55e;"></div></div><span class="score" style="color:#15803d;">81.4</span></div>
+        <div class="barrow"><span class="name">Flawless Wedding</span><div class="bar-wrap"><div class="bar-fill" style="width:81.3%;background:#22c55e;"></div></div><span class="score" style="color:#15803d;">81.3</span></div>
+        <div class="barrow"><span class="name">OTP</span><div class="bar-wrap"><div class="bar-fill" style="width:77.9%;background:#eab308;"></div></div><span class="score" style="color:#a16207;">77.9</span></div>
+        <div class="barrow"><span class="name">Auto Allies</span><div class="bar-wrap"><div class="bar-fill" style="width:76.2%;background:#eab308;"></div></div><span class="score" style="color:#a16207;">76.2</span></div>
+        <div class="barrow"><span class="name">JIT Operation</span><div class="bar-wrap"><div class="bar-fill" style="width:73.8%;background:#eab308;"></div></div><span class="score" style="color:#a16207;">73.8</span></div>
+        <div class="barrow"><span class="name">Administration</span><div class="bar-wrap"><div class="bar-fill" style="width:73.5%;background:#eab308;"></div></div><span class="score" style="color:#a16207;">73.5</span></div>
+        <div class="barrow"><span class="name">Shared Services</span><div class="bar-wrap"><div class="bar-fill" style="width:71.8%;background:#eab308;"></div></div><span class="score" style="color:#a16207;">71.8</span></div>
+        <p class="lead" style="margin:10px 0 0;">4 Low Risk · 5 Moderate · 0 High · 0 Critical. <span class="badge-ado pill">ADO</span> 7 teams · <span class="badge-git pill">Git</span> 2 teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TOPIC 2 — AT-RISK TEAMS ════════ -->
+  <section>
+    <h2 class="sec"><span class="tbox" style="background:#ef4444;">2</span> At-Risk Teams — Deep Dive <span style="font-size:12px;color:var(--muted);font-weight:600;">· 8 min</span></h2>
+    <p class="lead">No Critical or High Risk teams this cycle. Focus: the 5 Moderate teams, led by the lone band <b>downgrade</b>.</p>
+
+    <div class="rblock demoted">
+      <h3>Administration <span class="pill risk-mod">73.5 Moderate</span> <span class="pill badge-ado">ADO</span> <span class="down" style="font-size:13px;">▼ −7.2 · Low → Moderate (demoted)</span></h3>
+      <ul>
+        <li><b>Root cause — VRBI bloat.</b> 11 non-sprint items added over Days 7–8; VRBI grew 19→27. D1 collapsed 95.0 → <b>44.4</b> (High Risk) in 48 hours.</li>
+        <li>4 past-due Active items unclosed 9–14 days: 204448, 203558, 204394, 204367 (9 SP). Closing them + 204452 → ~80.1 (Low Risk).</li>
+        <li>3 unassigned PI7-root "Jockey pump" items added mid-sprint (planning anti-pattern). D7 = 0.0 (≈17 SP delivered but backlog-API invisible). Bus factor = 1 (Mark Colina).</li>
+        <li><b>Decision needed:</b> backlog freeze until sprint close.</li>
+      </ul>
+    </div>
+
+    <div class="rblock">
+      <h3>Shared Services <span class="pill risk-mod">71.8 Moderate</span> <span class="pill badge-ado">ADO</span> <span class="up" style="font-size:13px;">▲ +5.5 (improving)</span></h3>
+      <ul>
+        <li><b>D5 collapse 100 → 60.</b> The sole User Story (#204238) closed today, triggering the −40 No-User-Story penalty. <b>Adding any User Story to CIRI instantly restores D5 (+5.7 pts).</b></li>
+        <li>3 DoR failures (#205195, #205198 — Jaszmeine thin descriptions; #205973 — Teofilo, entered CIRI under-groomed). Fixing all 3 → D4 100 (+5.4). Combined → ~82.9 Low Risk today.</li>
+        <li>~28 SP delivered sprint-to-date (mostly Teofilo) but D7 = 0.0 (formula snapshot gap).</li>
+      </ul>
+    </div>
+
+    <div class="rblock">
+      <h3>JIT Operation <span class="pill risk-mod">73.8 Moderate</span> <span class="pill badge-ado">ADO</span> <span class="flat" style="font-size:13px;">▬ −0.2 (static)</span></h3>
+      <ul>
+        <li><b>8 DoR-failing items, 9th consecutive day</b> — 3 Teofilo Training items, 4 unassigned Retro Spikes (205538–541), 1 Enabler. Full fix = +5.6 pts → ~79.4.</li>
+        <li>#205507 (Compile Training Records) stuck in UAT Testing — one state change from Closed. Shynnevie has 5 Active items (12 SP) stalled since Days 2–5.</li>
+        <li>With DoR fix + close #205507 + 3 Shynnevie items (8 SP) → ~80.0 Low Risk.</li>
+      </ul>
+    </div>
+
+    <div class="rblock">
+      <h3>Auto Allies <span class="pill risk-mod">76.2 Moderate</span> <span class="pill badge-git">Git</span> <span class="up" style="font-size:13px;">▲ +10.4 (improving)</span></h3>
+      <ul>
+        <li><b>Compliance paradox:</b> ICS = 100.0 (perfect) but SGPI = 23.1% — only 9 of 39 SP Closed at Day 7 of 10.</li>
+        <li>5 items Blocked (11 SP). 4 have merged code (state-lag — update ADO states); <b>205382 (3 SP) has no PR</b> — genuine block, likely cross-team dependency → escalate.</li>
+        <li>9 items unstarted in Ready-for-Dev (8 concentrated on Earl). HCI 72/100 (CI/CD 403 token gap).</li>
+      </ul>
+    </div>
+
+    <div class="rblock">
+      <h3>OTP <span class="pill risk-mod">77.9 Moderate</span> <span class="pill badge-ado">ADO</span> <span class="up" style="font-size:13px;">▲ +2.2 · 2.1 below Low Risk</span></h3>
+      <ul>
+        <li>4 items closed today (~8 SP) but exited before snapshot → D7 = 0.0. Grace IS executing; the formula doesn't see it.</li>
+        <li><b>Closing #204193 (Philgeps Doc Consolidation, Active 2 days, DoR pass) → 80.5 (crosses Low Risk).</b></li>
+        <li>D1 slipped 80 → 75 as closures exited without replacement. Pull #203864 / #205433 from 7.6 → restores D1. Bus factor = 1 (Grace).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════ TOPIC 3 — QUICK WINS & ESCALATIONS ════════ -->
+  <section>
+    <h2 class="sec"><span class="tbox" style="background:#22c55e;">3</span> Quick Wins &amp; Escalations <span style="font-size:12px;color:var(--muted);font-weight:600;">· 5 min</span></h2>
+    <p class="lead">High-impact, low-effort moves that can flip bands <b>today</b> — plus items unactioned across multiple audits.</p>
+
+    <div class="qgrid">
+      <div class="qcard" style="border-top:4px solid #22c55e;">
+        <div class="qh">OTP → Low Risk</div>
+        <div>Close <b>#204193</b> (Philgeps Doc Consolidation, Active, DoR pass). 77.9 → <b>80.5</b>.</div>
+        <div class="qmeta"><span><span class="tag-imp">Impact: band flip</span> <span class="tag-eff">Effort: &lt;15 min</span></span><span><b>Owner:</b> Grace</span></div>
+      </div>
+      <div class="qcard" style="border-top:4px solid #22c55e;">
+        <div class="qh">Shared Services → Low Risk</div>
+        <div>Add 1 User Story to CIRI (D5 +5.7) + fix 3 DoR (D4 +5.4). 71.8 → <b>~82.9</b>.</div>
+        <div class="qmeta"><span><span class="tag-imp">Impact: +11 pts</span> <span class="tag-eff">Effort: ~30 min</span></span><span><b>Owner:</b> Teofilo / Jaszmeine</span></div>
+      </div>
+      <div class="qcard" style="border-top:4px solid #22c55e;">
+        <div class="qh">JIT → Low Risk</div>
+        <div>Fix 8 DoR items (+5.6) + close #205507 (UAT, 2 SP). 73.8 → <b>~80.0</b>.</div>
+        <div class="qmeta"><span><span class="tag-imp">Impact: band flip</span> <span class="tag-eff">Effort: ~45 min</span></span><span><b>Owner:</b> Teofilo / Samantha</span></div>
+      </div>
+      <div class="qcard" style="border-top:4px solid #22c55e;">
+        <div class="qh">HR — unlock D7</div>
+        <div>Close <b>#205010</b> (APE Karl, Active 9 days, prereq done). 81.4 → <b>83.0</b>.</div>
+        <div class="qmeta"><span><span class="tag-imp">Impact: first delivery</span> <span class="tag-eff">Effort: &lt;30 min</span></span><span><b>Owner:</b> Almera</span></div>
+      </div>
+      <div class="qcard" style="border-top:4px solid #22c55e;">
+        <div class="qh">Colina — hold Green</div>
+        <div>Set SP on AB#205878 (&lt;5 min) + path 4 new defects (&lt;15 min). Protects ICS 98.5.</div>
+        <div class="qmeta"><span><span class="tag-imp">Impact: keep Green</span> <span class="tag-eff">Effort: &lt;20 min</span></span><span><b>Owner:</b> Karl</span></div>
+      </div>
+      <div class="qcard" style="border-top:4px solid #f97316;">
+        <div class="qh">Auto Allies — clear state-lag</div>
+        <div>Update ADO state for 205544 / 205562 / 205573 (code already merged).</div>
+        <div class="qmeta"><span><span class="tag-imp">Impact: true SGPI</span> <span class="tag-eff">Effort: &lt;15 min</span></span><span><b>Owner:</b> Joseph / Cliff</span></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:16px;">
+      <b>Escalations (unactioned across multiple audits):</b>
+      <ul style="margin:6px 0 0;padding-left:18px;">
+        <li><b>JIT — 8 DoR-failing items for 9 straight days</b>; 4 Retro Spikes unassigned the whole sprint. Retro accountability decaying.</li>
+        <li><b>HR — copy-paste "Luz" artifacts</b> in #205077/079/081/082 survived a full Jun 8 edit session; no sprint goal for the 30th consecutive audit.</li>
+        <li><b>Shared Services — no DoR pre-entry gate</b>; #205973 is the 3rd repeat of under-groomed items entering CIRI.</li>
+        <li><b>Portfolio-wide D7 = 0.0</b> on all 7 ADO teams — closures exit the backlog API before the morning snapshot (~80+ SP of real delivery invisible).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════ TOPIC 4 — STRUCTURAL RISKS ════════ -->
+  <section>
+    <h2 class="sec"><span class="tbox" style="background:#f97316;">4</span> Structural Risks <span style="font-size:12px;color:var(--muted);font-weight:600;">· 5 min</span></h2>
+    <p class="lead">Recurring patterns that scoring tweaks won't fix — backlog debt, engineering gaps, bus factor.</p>
+    <div class="sgrid">
+      <div class="scol">
+        <h3>📚 Backlog Debt</h3>
+        <ul>
+          <li><b>Administration:</b> 15 non-sprint items in VRBI across 4 iteration contexts; D1 = 44.4. Backlog is a planning dump, not a sprint board.</li>
+          <li><b>D5 cap (US &gt; 60%)</b> on 6 of 7 ADO teams — portfolio D5 avg 67.1, ~33 pts below potential. Needs Spikes/Enablers in PI8 planning.</li>
+          <li><b>Colina:</b> 4 new defects filed today sit on the PI root, untriaged → drift risk.</li>
+        </ul>
+      </div>
+      <div class="scol">
+        <h3>⚙️ Engineering Gaps</h3>
+        <ul>
+          <li><b>Auto Allies:</b> ICS 100 vs SGPI 23.1% — perfect compliance, weak delivery. Blocked-state lag masks throughput.</li>
+          <li><b>raseniero token:</b> CI/CD <code>checks:read</code> 403 on Auto Allies (HCI D3 capped at 5/10). Colina FE has 4 PRs queued on raseniero review.</li>
+          <li><b>Colina AI-agent repo dormant</b> since Feb 7 — no protection baseline; needs disposition.</li>
+        </ul>
+      </div>
+      <div class="scol">
+        <h3>👤 Bus Factor = 1</h3>
+        <ul>
+          <li><b>4 single-contributor teams:</b> Administration (Mark), Finance (Grace), HR (Almera), OTP (Grace).</li>
+          <li>Any illness/absence collapses D7 and D2 simultaneously — no redundancy on the critical path.</li>
+          <li>Finance pipeline (204490 → 204495) wholly on Grace; HR's 10 items wholly on Almera.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TOPIC 5 — DECISIONS ════════ -->
+  <section>
+    <h2 class="sec"><span class="tbox" style="background:#8b5cf6;">5</span> Decisions Needed <span style="font-size:12px;color:var(--muted);font-weight:600;">· 4 min</span></h2>
+    <p class="lead">Items requiring CEO / PDM sign-off. Click to mark resolved during the meeting.</p>
+
+    <div class="decision" onclick="this.classList.toggle('checked')">
+      <div class="cbox"></div>
+      <div class="dtext"><b>Administration backlog freeze</b> — halt all non-sprint backlog additions until 2026-06-14. Two evenings of additions cost 50.6 D1 points.<span class="urg urg-hi">HIGH</span></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('checked')">
+      <div class="cbox"></div>
+      <div class="dtext"><b>OTP D1 protection</b> — authorize moving #203864 / #205433 from Iteration 7.6 into 7.5 so closures don't erode the planning ratio.<span class="urg urg-med">MEDIUM</span></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('checked')">
+      <div class="cbox"></div>
+      <div class="dtext"><b>Shared Services policy</b> — approve adding a User Story to CIRI today and adopt a DoR pre-entry gate (Desc ≥30, AC ≥20) before items enter an iteration.<span class="urg urg-hi">HIGH</span></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('checked')">
+      <div class="cbox"></div>
+      <div class="dtext"><b>Auto Allies blocker escalation</b> — 205382 (3 SP, no PR) likely depends on another team; escalate to PI level for resolution.<span class="urg urg-med">MEDIUM</span></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('checked')">
+      <div class="cbox"></div>
+      <div class="dtext"><b>End-of-day audit timing</b> — shift the ADO audit snapshot to after 18:00 CST to capture same-day closures before they exit the backlog API (fixes the portfolio-wide D7 = 0.0 artifact).<span class="urg urg-med">MEDIUM</span></div>
+    </div>
+    <div class="decision" onclick="this.classList.toggle('checked')">
+      <div class="cbox"></div>
+      <div class="dtext"><b>GitHub token scope</b> — resolve <code>raseniero</code> <code>checks:read</code> 403 (Auto Allies) and clear Colina's review queue so CI/CD health is observable.<span class="urg urg-lo">LOW</span></div>
+    </div>
+  </section>
+
+  <!-- ════════ TOPIC 6 — ACTION ITEMS ════════ -->
+  <section>
+    <h2 class="sec"><span class="tbox" style="background:#0ea5e9;">6</span> Action Items &amp; Owners <span style="font-size:12px;color:var(--muted);font-weight:600;">· 3 min</span></h2>
+    <p class="lead">Every action has an owner and estimate. No open todo/*.md files in any workspace.</p>
+
+    <div class="grp"><span class="dot" style="background:#ef4444;"></span> Do Today (P0)</div>
+    <table class="atable">
+      <thead><tr><th>Team</th><th>Action</th><th>Owner</th><th>Est.</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>Administration</td><td>Close 4 past-due Active items (204448, 203558, 204394, 204367) + 204452; stop backlog additions</td><td>Mark</td><td>30 min</td><td>→ ~80.1 Low Risk</td></tr>
+        <tr><td>OTP</td><td>Close #204193 (Philgeps Doc Consolidation)</td><td>Grace</td><td>&lt;15 min</td><td>77.9 → 80.5</td></tr>
+        <tr><td>Shared Services</td><td>Add 1 User Story to CIRI + fix 3 DoR (#205195, #205198, #205973)</td><td>Teofilo / Jaszmeine</td><td>30 min</td><td>71.8 → ~82.9</td></tr>
+        <tr><td>JIT</td><td>Document 8 DoR items + close #205507 (UAT)</td><td>Teofilo / Samantha</td><td>45 min</td><td>73.8 → ~80.0</td></tr>
+        <tr><td>HR</td><td>Close #205010 (APE Karl) + #205071 (Ressa QA)</td><td>Almera</td><td>30 min</td><td>81.4 → 84.3</td></tr>
+        <tr><td>Finance</td><td>Start #204490 (Categorization Rules) — last viable start date</td><td>Grace</td><td>2 hrs</td><td>88.0 → 90.3</td></tr>
+        <tr><td>Colina</td><td>Set SP on AB#205878 + path 4 new defects (205965–205981)</td><td>Karl</td><td>20 min</td><td>Protects ICS 98.5</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grp"><span class="dot" style="background:#eab308;"></span> Before Sprint Close — Jun 14 (P1)</div>
+    <table class="atable">
+      <thead><tr><th>Team</th><th>Action</th><th>Owner</th><th>Est.</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>Auto Allies</td><td>Update Blocked states (205544/205562/205573); resolve 205382 dependency</td><td>Joseph / Cliff / Earl</td><td>This iteration</td><td>SGPI recovery</td></tr>
+        <tr><td>Flawless Wedding</td><td>Unblock 202747 + 205105 (Day 5 blocked); close messaging bundle (201826/827/831)</td><td>Luke</td><td>5 days</td><td>Protects Low Risk</td></tr>
+        <tr><td>Colina</td><td>Push AB#202602 (5 SP) Active→QA→Closed; review/merge 4 open PRs</td><td>Paul / Asnari / raseniero</td><td>By Day 11</td><td>SGPI 60 → ~86</td></tr>
+        <tr><td>JIT</td><td>Close Shynnevie's 5 Active items (12 SP)</td><td>Shynnevie</td><td>Days 9–12</td><td>D7 unlock</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grp"><span class="dot" style="background:#0ea5e9;"></span> PI Planning / Next Sprint (P2)</div>
+    <table class="atable">
+      <thead><tr><th>Scope</th><th>Action</th><th>Owner</th><th>Est.</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>6 ADO teams</td><td>Plan ≥2–3 non-User-Story items (Spike/Enabler) per iteration to lift the D5 cap</td><td>Ramon / team PMs</td><td>PI8 planning</td><td>+~4 pts each</td></tr>
+        <tr><td>HR &amp; JIT</td><td>Define sprint goals (HR: 30th audit without one; JIT: 9th)</td><td>Almera / Armelita</td><td>15 min</td><td>Governance</td></tr>
+        <tr><td>Auto Allies</td><td>Stale-branch cleanup (20+ per repo); enforce two-reviewer rule</td><td>All devs</td><td>Next kickoff</td><td>Hygiene</td></tr>
+        <tr><td>Colina</td><td>Deliver branch-protection (205790) + CODEOWNERS (205791) spikes; AI-agent repo disposition</td><td>Paul / Ramon</td><td>7.6</td><td>HCI uplift</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ════════ TOPIC 7 — WRAP-UP ════════ -->
+  <section>
+    <h2 class="sec"><span class="tbox" style="background:#64748b;">7</span> Wrap-up &amp; Next Steps <span style="font-size:12px;color:var(--muted);font-weight:600;">· 2 min</span></h2>
+    <p class="lead">The "act today" case vs. the "no action" case for the 5 remaining sprint days.</p>
+    <div class="impact">
+      <div class="icard act">
+        <h3>✅ Act Today</h3>
+        <ul>
+          <li>OTP, Shared Services, JIT all cross to Low Risk → <b>8 of 9 teams Low Risk</b>.</li>
+          <li>Portfolio mean clears 80 (Low Risk band) for the first time this PI.</li>
+          <li>Administration recovers to ~80.1 by closing the 4 past-due items + freezing the backlog.</li>
+          <li>Colina holds its first-ever Green UPS; Finance pipeline stays on track to 93.7.</li>
+        </ul>
+      </div>
+      <div class="icard noact">
+        <h3>⚠️ No Action</h3>
+        <ul>
+          <li>D7 = 0.0 persists across all 7 ADO teams; real delivery stays invisible.</li>
+          <li>Administration keeps sliding as VRBI bloat compounds toward High Risk on D1.</li>
+          <li>5 teams remain stuck in Moderate; Auto Allies caps at ~41% SGPI proxy.</li>
+          <li>Recurring escalations (JIT DoR, HR artifacts, Shared Services DoR gate) carry into PI8.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="facil">Next portfolio check-in: end-of-day Jun 9 (to capture today's closures) → confirm band flips on OTP, Shared Services, and JIT before sprint close on Jun 14.</p>
+  </section>
+
+</div>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="wrap">
+    <div class="legend">
+      <span><span class="dot" style="background:#22c55e;"></span>Low Risk ≥ 80</span>
+      <span><span class="dot" style="background:#eab308;"></span>Moderate 60–79.9</span>
+      <span><span class="dot" style="background:#f97316;"></span>High Risk 40–59.9</span>
+      <span><span class="dot" style="background:#ef4444;"></span>Critical &lt; 40</span>
+    </div>
+    <p style="font-size:11.5px;color:#6b7280;margin:8px 0 0;">
+      Sources: PORTFOLIO_20260609_0301.html · 9 workspace audits AUDIT_20260609 (ado_admin, ado_fin, ado_fl_dev, ado_hr, ado_jit, ado_otp, ado_shared, git_aa_dev, git_cc_dev).
+      ado_ls_dev (Life Style Help App) excluded from portfolio analysis per owner request (2026-05-21).
+      Scoring methodology: ado-safe-audit (7-dimension) and git_iteration_audit (UPS = ICS×0.50 + HCI×0.30 + SGPI×0.20).
+    </p>
+    <p style="font-size:11px;color:#9ca3af;margin:6px 0 0;">Generated 2026-06-09 · Claude Code · portfolio-meeting-prep skill · 30-minute agenda · interactive (toggle decisions). Print-friendly.</p>
+  </div>
+</footer>
+
+</body>
+</html>
